@@ -2,25 +2,26 @@
 
 class Hackapi{
 	// host and credentials ----------- 
-	protected $host				="";		// the ip address or hostname
-	protected $use_ssl			=false;		// use httpS ?
-	protected $user				="admin";	// user name
-	protected $password			="";		// user password
-	private $preferences		=false; 	// an array holding the above or FALSE when npt set 
+	protected	$host				="";		// (default) ip address or hostname
+	protected	$use_ssl			=false;		// (default) use httpS ?
+	protected	$user				="admin";	// (default) user name
+	protected	$password			="";		// (default) user password
+	private		$preferences		=false; 	// (default) an array holding the above or FALSE when not set 
 
-	protected $use_cookies		=true;		// do we automatically handles cookies?
-	private   $cookies_file		="/tmp/cookies_Hackapi"; // file where cookies are stored 
-	private  $base_url			="";		// the base url made of http(s)://host
+	protected	$use_cookies		=true;		// do we automatically handles cookies?
 
-	protected $def_referer	='';			// when set, default referer URL to add in the default headers. Starts with "/";
-	protected $def_endpoint	='';			// default enpoint to use when not set in the CallEndpoint method
-	protected $def_headers	=array();		// default headers to send with each call
-	protected $def_params	=array();		// default parameters to always add in the CallEndpoint method
+	protected	$def_referer	='';			// when set, default referer URL to add in the default headers. Starts with "/";
+	protected	$def_endpoint	='';			// default enpoint to use when not set in the CallEndpoint method
+	protected	$def_headers	=array();		// default headers to send with each call
+	protected	$def_params		=array();		// default parameters to always add in the CallEndpoint method
 
-	protected $is_logged	=false;			// Are we logged in ?
-	protected $last_call	=array();		// contains all the Last Call parameters.
-	protected $last_error	=array();		// contains the latest errors
-	public $error_codes	=array(			// error code meanings
+	protected	$is_logged		=false;			// Are we logged in ?
+	protected	$last_call		=array();		// contains all the Last Call parameters.
+	protected	$last_error		=array();		// contains the latest errors
+
+	protected	$api_error_codes=array();		// Populated with Api specific error api_code=>['DESCPRITION',error_code]
+
+	private		$error_codes	=array(			// error code meanings
 		0 =>'Returned False (No Error)',
 		1 =>'Malformed Request',
 		2 =>'Malformed Answer',
@@ -30,41 +31,62 @@ class Hackapi{
 		6 =>'Unimplemented Method/Endpoint',
 		7 =>'API Error',
 		8 =>'API Error (not mapped)',
-
 	);
-	protected $api_error_codes=array();		// Populate with Api specific error code=>['DESCPRITION',error_code?]
 
-	private $debug_level	=0;				// Debug Level: 0= no debug, 1=Error, 2 =+Info, 3=+Debug 4=+verbose
-	private $debug_output	=0;				// Debut Output: 0=None, 1=print
+	private		$min_apimethod_state=5;			// Minimum allowed method dev state. Method with a lower state will throw an Exception
 
-	private $_relogin_count	=0;				// used to prevent infinite Loop when using CallEndpointWhenLogged in the ApiLogin method
-	private $_relogin_max	=3;				// max count to try to relogin (when in an infinite loop condition)
+	private		$debug_level		=0;			// Debug Level: 0= no debug, 1=Error, 2 =+Info, 3=+Debug 4=+verbose
+	private		$debug_output		=0;			// Debut Output: 0=None, 1=print
 
-	private $min_apimethod_state	=5;		// Minimum allowed method dev state. Method with a lower state will throw an Exception
+	private		$cookies_file		="/tmp/cookies_Hackapi"; // file where cookies are stored 
+	private		$base_url			="";		// the base url made of http(s)://host
 
-	private $timeout_connect	=3;			// 
-	private $timeout_request	=3;			// 
+	private		$timeout_connect	=2;			// CURL's Connection Timeout (sec)
+	private		$timeout_request	=5;			// CURL's Request Timeout (sec)
 
-	protected $std_fields_map=array(		// an array (indexed by the standart method name) of maps description 'to_field' => 'from_field' (hierarchized by '/') 
+	private		$_relogin_count		=0;			// used to prevent infinite Loop when using CallEndpointWhenLogged in the ApiLogin method
+	private		$_relogin_max		=3;			// max count to try to relogin (when in an infinite loop condition)
+
+	
+	/**
+	 * an array (indexed by the standard method name) of fields mapping between the Standard expected fields and the API returnted fields.
+	 * 'to_field' => 'from_field' .Both to/from fields may be hierarchized by '/. ie: 'lan/ip' means $arr['lan']['ip'] )
+	 *
+	 * @var array
+	 */
+	protected $std_fields_map=array(
 		'ApiSmsList'=>array(
-			'id'	=> 'api_id_field_path',
-			'date'	=> 'api_date_field_path',
-			'phone'	=> 'api_phone_field_path',
-			'text'	=> 'api_text_field_path',
+			'id'	=> 'api_field_path',			// SMS's ID (the one used to delete the SMS)
+			'date'	=> 'api_field_path',			// SMS's date, formated as a SQL datetime (YYYY-MM-DD HH:MM:SS)
+			'phone'	=> 'api_field_path',			// SMS's Phone Number
+			'text'	=> 'api_field_path',			// SMS's Text Content
 		),
 		'ApiWifiListClients'=>array(
-			'mac'			=> 'api_field_path',
-			'ip'			=> 'api_field_path',
-			'hosname'		=> 'api_field_path',
-			'ipv6'			=> 'api_field_path',
-			'level_send'	=> 'api_field_path',
-			'level_receive'	=> 'api_field_path',
+			'id'			=> 'api_field_path',	// the internal ID asigned by the device (else set it to the MAC address)
+			'mac'			=> 'api_field_path',	// MAC address
+			'ipv4'			=> 'api_field_path',	// IP address (v4)
+			'ipv6'			=> 'api_field_path',	// IP address (v6)
+			'dns_name'		=> 'api_field_path',	// DNS host name
+			'name'			=> 'api_field_path',	// host name (usually sent by client)
+			'alias'			=> 'api_field_path',	// friendly host name (user-defined in the device)
+			'time'			=> 'api_field_path',	// (unix time) Date when the client has been connected
+			'duration'		=> 'api_field_path',	// (sec) How long the client has been connected
+			'level_send'	=> 'api_field_path',	// (db) Send Level
+			'level_receive'	=> 'api_field_path',	// (db) Receive Level
 		),
-
+		'ApiWifiListSsids'=>array(
+			'id'			=> 'api_field_path',	// the internal Station ID/name asigned by the device (used to filter the ApiWifiListClients)
+			'bssid'			=> 'api_field_path',	// BSSID MAC Address
+			'ssid'			=> 'api_field_path',	// SSID MAC Address
+			'password'		=> 'api_field_path',	// Password
+			'channel'		=> 'api_field_path',	// Frequency Channel
+		),
 	);
 
+
+
 	// -------------------------------------------------------------------------
-	function __construct(){
+	public function __construct(){
 		$this->LoadDefaults();
 		$this->SetHost($this->host,$this->use_ssl);
 		$this->SetCookiePath();
@@ -76,6 +98,13 @@ class Hackapi{
 	// ############################################################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log-in into the API. It must set $this->is_logged to TRUE, when succeeded
+	 *
+	 * @param string $user		(optionnal) Forces User name  (else $this->user is used)
+	 * @param string $password	(optionnal) Forces User password  (else $this->password is used) 
+	 * @return bool				Is Logged-in or not?
+	 */
 	public function ApiLogin($user='',$password=''){
 		$this->DebugLogError("Please override the ".__METHOD__." method. It shoud set the '\$this->is_logged' property to TRUE!");
 		$this->is_logged=true;
@@ -87,18 +116,33 @@ class Hackapi{
 	// ############################################################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log-out of the API. It must set $this->is_logged to FALSE, when succeeded
+	 *
+	 * @return bool				Is Logged-out or not?
+	 */
 	public function ApiLogout(){
 		$this->DebugLogError("Please override the ".__METHOD__." method. It shoud set the '\$this->is_logged' property to FALSE!");
 		$this->is_logged=false;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Asks API if we are logged-in or Not
+	 *
+	 * @return bool		Are we logged-in of not?
+	 */
 	public function ApiIsLoggedIn(){
 		$this->DebugLogInfo("No Api call performed,  this only from the class property 'is_logged'. You'd better have to Call the API if you can grab this state");
 		return $this->is_logged;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Reboot the device
+	 *
+	 * @return bool		Succeeded ?
+	 */
 	public function ApiReboot(){
 		$this->DebugLogError("Please override the ".__METHOD__." method.");
 		return true;
@@ -107,16 +151,31 @@ class Hackapi{
 	// for Routers &Modems #############################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Disconnect the WAN interface
+	 *
+	 * @return bool		Succeeded ?
+	 */
 	public function ApiWanConnect(){
 		$this->DebugLogError("Please override the ".__METHOD__." method.");
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Connect the WAN interface
+	 *
+	 * @return bool		Succeeded ?
+	 */
 	public function ApiWanDisconnect(){
 		$this->DebugLogError("Please override the ".__METHOD__." method.");
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Reload the WAN interface. (ie refresh the WAN IP address)
+	 *
+	 * @return bool		Succeeded ?
+	 */
 	public function ApiWanReload(){
 		$this->ApiWanDisconnect();
 		sleep(1);
@@ -128,26 +187,39 @@ class Hackapi{
 
 	// -------------------------------------------------------------------------
 	/**
-	 * ApiSmsListReceived
-	 * 
-	 * Returns a standardized array of SMS
+	 * Returns a standardized array of Received SMS
 	 *
-	 * @param integer $read_type 0=all, 1=read, 2=unread
-	 * @param integer $page $page to start at (1 to n)
-	 * @param integer $limit max messages per page (like SQL 'limit')
-	 * @return array Array  of sms, sorted by date DESC
+	 * @param integer $read_type	0=all, 1=read, 2=unread
+	 * @param integer $page			Page to start at (1 to n)
+	 * @param integer $limit		Max messages per page
+	 * @return array 				Array  of sms, sorted by date DESC
 	 */
 	public function ApiSmsListReceived($read_type=0, $page=1, $limit=20){
 		$this->DebugLogError("Please override the ".__METHOD__." method. It should returns an array of message  (or false), date DESC sorted");
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Returns a standardized array of Sent SMS
+	 *
+	 * @param integer $page	Page to start at (1 to n)
+	 * @param integer $max	Max messages per page
+	 * @return array 		Array  of sms, sorted by date DESC
+	 */
 	public function ApiSmsListSent($page=1,$max=20){
 		$this->DebugLogError("Please override the ".__METHOD__." method. It should returns an array of message  (or false), date DESC sorted");
 	}
 
 	// -------------------------------------------------------------------------
-	public function ApiSmsSend($to_tel, $message, $priority=''){
+	/**
+	 * Send an SMS
+	 *
+	 * @param string $phone	 	Recipient Number formated as local or international phone number 	
+	 * @param string $message	Message to send
+	 * @param string $priority	(Not Implemented)
+	 * @return bool				
+	 */
+	public function ApiSmsSend($phone, $message, $priority=''){
 		$this->DebugLogError("Please override the ".__METHOD__." method. ");
 	}
 	
@@ -155,22 +227,48 @@ class Hackapi{
 	// for Wifi capable Routers #########################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List Wifi Clients
+	 *
+	 * @param string $id	The Station ID to filter by
+	 * @return array		An array indexed by Station (ssid) id of client arrays,  or an array of client arrays (if $id is set)
+	 */
 	public function ApiWifiListClients($id=''){
 		$this->DebugLogError("Please override the ".__METHOD__." method. It should returns an array ( indexed by id) of arrays of connected wifi stations,");
 	}
+
 	// -------------------------------------------------------------------------
+	/**
+	 * List Wifi Station
+	 *
+	 * @param string $id	Station Id
+	 * @return void 		An array of Stations, or one Station (when $id is set)
+	 */
 	public function ApiWifiListSsids($id=''){
 		$this->DebugLogError("Please override the ".__METHOD__." method. It should returns an array ( indexed by id) of arrays of SSIDs available,");
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Turn Wifi ON
+	 *
+	 * @return bool				Succeeded ?
+	 */
 	public function ApiWifiStart(){
 		$this->DebugLogError("Please override the ".__METHOD__." method. ");
 	}
+
 	// -------------------------------------------------------------------------
+	/**
+	 * Turn Wifi OFF
+	 *
+	 * @return bool				Succeeded ?
+	 */
 	public function ApiWifiStop(){
 		$this->DebugLogError("Please override the ".__METHOD__." method. ");
 	}
+
+
 
 
 	
@@ -370,7 +468,6 @@ class Hackapi{
 		}
 		return true;
 	}
-
 
 	// -------------------------------------------------------------------------
 	public function CallEndpointWhenLogged($endpoint='',$method='GET',$params=array(), $headers=array(), $with_def_params=true ,$with_def_headers=true){
@@ -587,8 +684,6 @@ class Hackapi{
 		return $row;
 	}
 
-
-
 	// --------------------------------------------------
 	private function _ArraySetFromPath(&$array, $path, $value='unset()', $sep='/'){
 		if(!is_array($path)){
@@ -630,18 +725,22 @@ class Hackapi{
 		$txt=str_pad('START ',80,'+');
 		$this->DebugLine($level,$txt);
 	}
+
 	// -------------------------------------------------------------------------
 	protected function DebugLogError($txt,$array=null){
 		$this->DebugLine(1,$txt,$array);
 	}
+
 	// -------------------------------------------------------------------------
 	protected function DebugLogInfo($txt,$array=null){
 		$this->DebugLine(2,$txt,$array);
 	}
+
 	// -------------------------------------------------------------------------
 	protected function DebugLogDebug($txt,$array=null){
 		$this->DebugLine(3,$txt,$array);
 	}
+
 	// -------------------------------------------------------------------------
 	protected function DebugLogVerbose($txt,$array=null){
 		$this->DebugLine(4,$txt,$array);
@@ -685,6 +784,7 @@ class Hackapi{
 			echo $out;
 		}
 	}
+
 	// -------------------------------------------------------------------------
 	public static function PrettifyArray($array){
 		if(!is_array($array)){
@@ -739,7 +839,6 @@ class Hackapi{
 		//$this->DebugLogVerbose('Converting...');
 		return json_decode(json_encode($object_or_array), true);
 	}
-
 
 	// -------------------------------------------------------------------------
 	protected function ArrayToXml($array,$container='', $head='<?xml version="1.0" encoding="UTF-8"?>'){
@@ -813,9 +912,7 @@ class Hackapi{
 			$ip and $ip = gethostbyname($ip);
 		}
 		return $ip;  
-	}  
-
-
+	}
 
 	// -------------------------------------------------------------------------
 	public static function RequireTrait($file_path){
