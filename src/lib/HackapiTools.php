@@ -496,7 +496,7 @@ public function {method}({arguments}){
 
 			foreach($all_meth_failed as $ecode =>$meth_failed ){
 				$count=count($meth_failed);
-				$this->PrintTitle( "$count errors of type '$ecode' : {$this->odev->error_codes[$ecode]}");
+				$this->PrintTitle( "$count errors of type '$ecode' : ".$this->odev->GetErrorDesc($ecode));
 	
 				foreach($meth_failed as $meth => $err){
 					$this->PrintError( "In $name: $meth");
@@ -511,7 +511,7 @@ public function {method}({arguments}){
 			if($mode !='false'){
 				//ksort($err_by_types[$ecode]);
 				foreach($err_by_types as $ecode => $arr){
-					$this->PrintLine("Type '$ecode' : {$this->odev->error_codes[$ecode]}");
+					$this->PrintLine("Type '$ecode' : ".$this->odev->GetErrorDesc($ecode));
 					echo "['".implode("','",array_keys($err_by_types[$ecode]))."']\n\n";	
 				}
 				$this->PrintLine("ALL {$name}s $suffix in the same array:");
@@ -575,7 +575,7 @@ public function {method}({arguments}){
 				[ 'param1'=>'default1', 'param2'=>'default2' ]
 			- assoc array  with some values as array: 
 				[ 'param1'=>[ 'default1','desc1'], 'param2'=>[ 'default2','desc2'] ]
-			- assoc array  with some values as array + some val.desc as array: 
+			- assoc array  with some values as array + choices val=>desc as second array: 
 				[ 'param1'=>[ 'default1','desc1'], 'param2'=>[ 'default2',['choice1' =>'choicedesc1','choice2' =>'choicedesc2'],'desc2' ]
 		*/
 

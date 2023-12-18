@@ -359,6 +359,11 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	public function GetErrorDesc($err_code){
+		return $this->error_codes[$err_code];
+	}
+
+	// -------------------------------------------------------------------------
 	protected function SetCallError($key='',$txt=''){
 		$cu=$this->GetLastCall();
 		$this->_SetCategError('call','http_code',	$cu['http_code']);
