@@ -1,0 +1,19 @@
+# OS generated files -----------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+.AppleDouble
+:2e*
+.#*
+.afpDeleted*
+
+# ignored dirs -----------------
+
+# ignored files -----------------
+__*
+/src/devices/*/defaults.php
