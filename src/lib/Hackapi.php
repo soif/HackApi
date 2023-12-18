@@ -84,6 +84,7 @@ class Hackapi{
 	);
 
 
+	// ############################################################################################
 
 	// -------------------------------------------------------------------------
 	public function __construct(){
@@ -316,6 +317,7 @@ class Hackapi{
 	public function GetLastCall(){
 		return $this->last_call;
 	}
+
 	// -------------------------------------------------------------------------
 	public function GetPreferences(){
 		return $this->preferences;
@@ -405,7 +407,6 @@ class Hackapi{
 			return true;
 		}
 	}
-
 
 	// -------------------------------------------------------------------------
 	protected function SetApiError($key='',$txt){
@@ -510,7 +511,6 @@ class Hackapi{
 		return $this->_call($url,$method,$params,$headers,$with_def_params, $with_def_headers);
 	}
 
-
 	// -------------------------------------------------------------------------
 	public function GetCookies(){
 		$out=false;
@@ -527,7 +527,6 @@ class Hackapi{
 		}
 		return $out;
 	}
-
 
 	// -------------------------------------------------------------------------
 	protected function CurlHandleHeaderLine( $curl, $header_line ) {
@@ -561,7 +560,6 @@ class Hackapi{
 		}
 		$this->preferences['from_default_file']=(int) $from_file;
 	}
-
 
 	// -------------------------------------------------------------------------
 	protected function SetAuthorizationHeader($username,$password=''){
