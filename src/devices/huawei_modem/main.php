@@ -3,24 +3,24 @@
 require_once(dirname(__FILE__).'/../../lib/Hackapi.php');
 Hackapi::RequireTrait(__FILE__);
 
-
 /*
-	 Thanks to https://github.com/pablo/huawei-modem-python-api-client/blob/master/huaweisms/api/common.py
+	 Credits:
+		https://github.com/if0xx/Huawei-Hilink-API
+		https://github.com/pablo/huawei-modem-python-api-client/blob/master/huaweisms/api/common.py
 */
 
 // ###############################################################################################
 class Hackapi_Huawei_modem extends Hackapi{
 	use Hackapi_Huawei_modem_Trait;
 
-	protected $host			="192.168.8.1";	
-	protected $user			="admin";
-	protected $password		="admin";
+	// Overrides parent's properties ---------------------------------------------------
+	protected $host			="192.168.8.1";		// (default) ip address or hostname
+	protected $user			="admin";			// (default) user name
+	protected $password		="admin";			// (default) user password
 
-	// Overidde Parent properties ---------------------------------------------------------------
 	protected $use_cookies	=true;
-	protected $def_referer="/html/index.html?noredirect"; // needed ?
+	protected $def_referer	="/html/index.html?noredirect"; // needed ?
 
-	// our API errors ---------------------------------------------------------------
 	protected $api_error_codes=array(
 		'-1'		=> 	['ERROR_DEFAULT',	 			5],
 		'-2'		=> 	['ERROR_NO_DEVICE',	 			8],
@@ -177,25 +177,25 @@ class Hackapi_Huawei_modem extends Hackapi{
 		'125003'	=> ['(???) __RequestVerificationToken Error?',	8],
 	);
 
-	protected $std_fields_map=array(		// an array (indexed by the standart method name) of maps description 'to_field' => 'from_field' (hierarchized by '/') 
+	protected $std_fields_map=array(
 		'ApiSmsList'=>array(
-			'id'	=> 'Index',
-			'date'	=> 'Date',
-			'phone'	=> 'Phone',
-			'text'	=> 'Content',
+			'id'	=> 'Index',						// SMS's ID (the one used to delete the SMS)
+			'date'	=> 'Date',						// SMS's Date, formated as a SQL datetime (YYYY-MM-DD HH:MM:SS)
+			'phone'	=> 'Phone',						// SMS's Phone Number
+			'text'	=> 'Content',					// SMS's Text Content
 		),
 		'ApiWifiListClients'=>array(
-			'id'			=> 'ID',
-			'mac'			=> 'MacAddress',
-			'ipv4'			=> 'my_ip_v4',
-			'ipv6'			=> 'my_ip_v6',
-			'dns_name'		=> '',
-			'name'			=> 'HostName',
-			'alias'			=> 'ActualName',
-			'level_send'	=> '',
-			'level_receive'	=> '',
-			'duration'		=> '',
-			'time'			=> '',
+			'id'			=> 'ID',				// the internal ID asigned by the device (else set it to the MAC address)
+			'mac'			=> 'MacAddress',		// MAC address
+			'ipv4'			=> 'my_ip_v4',			// IP address (v4)
+			'ipv6'			=> 'my_ip_v6',			// IP address (v6)
+			'dns_name'		=> '',					// DNS host name
+			'name'			=> 'HostName',			// host name (usually sent by client)
+			'alias'			=> 'ActualName',		// friendly host name (user-defined in the device)
+			'time'			=> '',					// (unix time) Date when the client has been connected
+			'duration'		=> '',					// (sec) How long the client has been connected
+			'level_send'	=> '',					// (db) Send Level
+			'level_receive'	=> '',					// (db) Receive Level
 		),
 		'ApiWifiListSsids'=>array(
 			'id'			=> 'ID',
@@ -203,14 +203,13 @@ class Hackapi_Huawei_modem extends Hackapi{
 			'ssid'			=> 'WifiSsid',
 			'password'		=> '',
 			'channel'		=> '',
-
 		),
 	);
 
-	// our own properties ---------------------------------------------------------------------------
-	private $_session='';
-	private $_token='';
-	private $_post_tokens=array();
+	// our own properties -----------------------------------------------------------
+	private $_session='';			// current session
+	private $_token='';				// current authentication token
+	private $_post_tokens=array();	// available tokens
 
 
 
@@ -258,7 +257,6 @@ class Hackapi_Huawei_modem extends Hackapi{
 	// -------------------------------------------------------------------------
 	public function ApiLogout(){		
 		$this->DebugLogMethod();
-		//$this->ResetLastError();
 
 		$xml='<?xml version="1.0" encoding="UTF-8"?><request><Logout>1</Logout></request>';
 		$result=$this->XmlToArray($this->CallEndpoint('/api/user/logout','POST',$xml, $headers));		
@@ -384,6 +382,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 
+	
 	// ###############################################################################
 	// #### Our OWN methods ##########################################################
 	// ###############################################################################
@@ -561,49 +560,28 @@ class Hackapi_Huawei_modem extends Hackapi{
 
 
 
-	
-
-	// ###############################################################################
+/*
 	// #### TO TEST ##################################################################
-	// ###############################################################################
 
-
-	
-
-	/**
-	* Sets the LED on.
-	* @return boolean
-	*/
-	public function setLedOn($on = false)
-	{
-		//Makes sure we are ready for the next request.
-		$this->prepare(); 
+	public function setLedOn($on = false){
 
 		$ledXml = '<?xml version:"1.0" encoding="UTF-8"?><request><ledSwitch>'.($on ? '1' : '0').'</ledSwitch></request>';
 		$xml = $this->http->postXml($this->getUrl('api/led/circle-switch'), $ledXml);
 		$obj = new \SimpleXMLElement($xml);
-		//Simple check if login is OK.
 		return ((string)$obj == 'OK');
 	}
 
-	/**
-	* Checks the LED status
-	* @return boolean
-	*/
-	public function getLedStatus()
-	{
+	public function getLedStatus(){
 		$obj = $this->generalizedGet('api/led/circle-switch');
-		if(property_exists($obj, 'ledSwitch'))
-		{
-			if($obj->ledSwitch == '1')
-			{
+		if(property_exists($obj, 'ledSwitch')){
+			if($obj->ledSwitch == '1'){
 				return true;
 			}
 		}
 		return false;
 	}
 
-
+*/
 
 
 }

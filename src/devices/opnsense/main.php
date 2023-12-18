@@ -12,32 +12,17 @@ Hackapi::RequireTrait(__FILE__);
 class Hackapi_OpnSense extends Hackapi{
 	use Hackapi_OpnSense_Trait;
 
-	// Overidde Parent properties ---------------------------------------------------------------
-	protected $host			="192.168.1.1";	
-	protected $user			="root";
-	protected $password		="opnsense";
+	// Overrides parent's properties ---------------------------------------------------
+	protected $host			="192.168.1.1";		// (default) ip address or hostname
+	protected $user			="root";			// (default) user name
+	protected $password		="opnsense";		// (default) user password
 
-
-	//protected $use_cookies	=true;
-	//protected $def_headers=array();
-	//protected $def_referer="";
-	//....
 	protected $def_endpoint='/api';
 
-	// our API errors ---------------------------------------------------------------
-	// define our API specific errors as : api_code => ['ERROR_CODE_TEXT', $err_num]
-	//	$err_num in the index of the $error_codes property.
-	//
-	//	'API_CODE'	=>	['ERROR_CODE_TEXT', 			err_num]
 	protected $api_error_codes=array(
 		'400'		=> ['CONTROLLER_NOT_FOUND', 6],
 		'401'		=> ['AUTHENTICATION_FAILED', 3],
 	);
-
-
-	// our own properties ---------------------------------------------------------------------------
-	//private $_token='';
-
 
 
 	// ###############################################################################
@@ -46,12 +31,10 @@ class Hackapi_OpnSense extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	public function ApiLogin($user='',$password=''){
+		// we dont need to login first because Authentication is used in each Call
 		$this->is_logged=true;
 		return true;
 	}
-
-	
-	// ################################################################################
 
 
 
@@ -111,9 +94,6 @@ class Hackapi_OpnSense extends Hackapi{
 		return false;
 	}
 
-	// -------------------------------------------------------------------------
-	// protected function CurlHandleHeaderLine( $curl, $header_line ) {
-	// }
 
 }
 ?>

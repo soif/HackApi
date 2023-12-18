@@ -6,7 +6,7 @@ class Hackapi{
 	protected	$use_ssl			=false;		// (default) use httpS ?
 	protected	$user				="admin";	// (default) user name
 	protected	$password			="";		// (default) user password
-	private		$preferences		=false; 	// (default) an array holding the above or FALSE when not set 
+	private		$preferences		=false; 	// an array holding the above or FALSE when not set 
 
 	protected	$use_cookies		=true;		// do we automatically handles cookies?
 
@@ -57,7 +57,7 @@ class Hackapi{
 	protected $std_fields_map=array(
 		'ApiSmsList'=>array(
 			'id'	=> 'api_field_path',			// SMS's ID (the one used to delete the SMS)
-			'date'	=> 'api_field_path',			// SMS's date, formated as a SQL datetime (YYYY-MM-DD HH:MM:SS)
+			'date'	=> 'api_field_path',			// SMS's Date, formated as a SQL datetime (YYYY-MM-DD HH:MM:SS)
 			'phone'	=> 'api_field_path',			// SMS's Phone Number
 			'text'	=> 'api_field_path',			// SMS's Text Content
 		),

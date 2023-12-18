@@ -8,16 +8,13 @@ Hackapi::RequireTrait(__FILE__);
 class Hackapi_Openwrt extends Hackapi{
 	use Hackapi_Openwrt_Trait;
 
-	protected $host			="192.168.1.1";	
-	protected $user			="root";
-	protected $password		="";
+	// Overrides parent's properties ---------------------------------------------------
+	protected $host			="192.168.1.1";	// (default) ip address or hostname
+	protected $user			="root";		// (default) user name
+	protected $password		="";			// (default) user password
 
-	// Override Parent properties ---------------------------------------------------------------
-	//protected $def_referer	='/index.html';
 	protected $def_endpoint	='/cgi-bin/luci/admin/ubus';
-	//protected $def_params		=array();
 	protected $def_headers=array(
-	//	'Connection: close',
 		'Content-Type: application/json',
 		'Accept: application/json'
 	);
@@ -36,11 +33,9 @@ class Hackapi_Openwrt extends Hackapi{
 		'10'		=> 	['UBUS_STATUS_CONNECTION_FAILED',	8],
 		'-32002'	=>	['RPC_ERROR_ACCESS_DENIED',			3],
 		'-32602'	=>	['RPC_ERROR_INVALID_PARAMETERS',	1],
-		
 	);
 
-
-	protected $std_fields_map=array(		// an array (indexed by the standart method name) of maps description 'to_field' => 'from_field' (hierarchized by '/') 
+	protected $std_fields_map=array(
 		'ApiWifiListSsids'=>array(
 			'id'			=> 'ifname',
 			'bssid'			=> 'iwinfo/bssid',
@@ -113,14 +108,6 @@ class Hackapi_Openwrt extends Hackapi{
 	}
 
 
-	// ###############################################################################
-	// #### API GET Methods ##########################################################
-	// ###############################################################################
-
-	public function ApiTest(){
-		return $this->ApiGetIwinfoAssoclist('wlan0');
-
-	}
 
 	// ###############################################################################
 	// #### Our OWN methods ##########################################################
@@ -192,7 +179,6 @@ class Hackapi_Openwrt extends Hackapi{
 		}
 	}
 
-
 	//---------------------------------------------------------------
 	private function _FormatRpc($rpc_method, $params=array() ){
 		//$this->_rpc_id or $this->_rpc_id = mt_rand();
@@ -208,38 +194,6 @@ class Hackapi_Openwrt extends Hackapi{
 		}
 		return json_encode($payload);
 	}
-
-
-
-
-
-
-	// // -------------------------------------------------------------------------
-	// private function _CallApiCommands($cmds='',$params=array(),$method='GET',$endpoint=''){
-		
-	// 	//parse commands
-	// 	if(is_array($cmds)){
-	// 		$cmd_str=implode(',',$cmds);
-	// 	}
-	// 	else{
-	// 		$cmd_str=$cmds;
-	// 	}
-
-	// 	// makes params
-	// 	if(strpos($cmd_str,',')){
-	// 		$params['multi_data']='1';
-	// 	}
-	// 	$params['cmd']	=$cmd_str;
-	// 	$params['_'] 	= $this->GetTimeMs();
-		
-	// 	// grab result
-	// 	if($r=$this->CallEndpointWhenLogged('','GET',$params)){
-	// 		$r = (array) json_decode($r);
-	// 		ksort($r);
-	// 		return $r;
-	// 	}
-	// 	$this->SetError(0,'Empty Answer');
-	// }
 
 }
 ?>

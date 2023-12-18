@@ -4,7 +4,11 @@ require_once(dirname(__FILE__).'/../../lib/Hackapi.php');
 Hackapi::RequireTrait(__FILE__);
 
 /*
-	 Thanks to https://github.com/pablo/huawei-modem-python-api-client/blob/master/huaweisms/api/common.py
+	 Credits: 
+		https://github.com/pablo/huawei-modem-python-api-client/blob/master/huaweisms/api/common.py
+		https://github.com/hacf-fr/sfrbox-api/blob/main/src/sfrbox_api/helpers.py
+		https://gist.github.com/motin/7cbe1ae77bf493e3cae8
+
 */
 
 
@@ -62,14 +66,10 @@ class Hackapi_Sfr_box extends Hackapi{
 		$r=$this->MyCallApi('auth.getToken','','GET',false);
 		if(isset($r['auth']['@attributes']['token'])){
 			$token=$r['auth']['@attributes']['token'];
-		//if(isset($r['auth']['token'])){
-		//	$token=$r['auth']['token'];
 			$this->_token=$token;
 			$this->_token_time=time();
 			$this->DebugLogVerbose("Found token $token");
 
-			//https://github.com/hacf-fr/sfrbox-api/blob/main/src/sfrbox_api/helpers.py
-			//https://gist.github.com/motin/7cbe1ae77bf493e3cae8
 			$hash=hash_hmac('SHA256', hash('sha256',$this->user), $token) . hash_hmac('SHA256', hash('sha256',$this->password), $token) ;
 
 			if($r=$this->MyCallApi('auth.checkToken',array('token'=>$token,'hash'=>$hash),'GET',false)){
@@ -88,35 +88,27 @@ class Hackapi_Sfr_box extends Hackapi{
 		
 	}
 
-	// // -------------------------------------------------------------------------
-	// public function ApiLogout(){		
 
-	// }
-
-	// // -------------------------------------------------------------------------
-	// public function ApiIsLoggedIn(){		
-	// 	return false;
-	// }
-	
-	// ################################################################################
 
 	// ###############################################################################
 	// #### Our OWN methods ##########################################################
 	// ###############################################################################
 
-
 	// -------------------------------------------------------------------------
 	public function MyCallApiGet($endpoint, $params=''){
 		return $this->MyCallApi($endpoint, $params, 'GET');
 	}
+
 	// -------------------------------------------------------------------------
 	public function MyCallApiGetList($endpoint, $params=''){
 		return $this->MyCallApi($endpoint, $params, 'GET',true,true);
 	}
+
 	// -------------------------------------------------------------------------
 	public function MyCallApiPost($endpoint, $params=''){
 		return $this->MyCallApi($endpoint, $params, 'POST');
 	}
+
 	// -------------------------------------------------------------------------
 	public function MyCallApi($endpoint, $params=array(), $type='GET', $autologin=true,$force_list=false){
 		$this->DebugLogMethod();
@@ -144,13 +136,8 @@ class Hackapi_Sfr_box extends Hackapi{
 		return $arr;
 	}
 
-
-
-
-
 	// -------------------------------------------------------------------------
 	protected function ErrorFreeResult($arr,$autologin,$force_list=false){
-	
 		if(is_array($arr)){
 			if( isset($arr['@attributes']['stat']) ){
 				if($arr['@attributes']['stat']=='ok'){
@@ -187,7 +174,6 @@ class Hackapi_Sfr_box extends Hackapi{
 		}
 		else{
 			$this->SetApiErrorCode(0,'Result is not an array! Raw result is',$arr);
-
 		}
 		return false;
 	}
@@ -199,7 +185,6 @@ class Hackapi_Sfr_box extends Hackapi{
 		//remove the first 'state'  arr.@attributes
 		$state=$arr['@attributes'];
 		unset($arr['@attributes']);
-		//$arr=array_merge(array('api_state'=>$state), $arr);
 
 		//if only ONE result, move the result up one level, ie arr.lan=array() becomes arr.array()
 		if(is_array($arr) and count($arr)==1){
@@ -248,9 +233,6 @@ class Hackapi_Sfr_box extends Hackapi{
 			}
 		}
 	}
-
-
-
 
 
 }

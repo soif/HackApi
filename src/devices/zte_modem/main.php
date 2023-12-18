@@ -4,33 +4,33 @@ require_once(dirname(__FILE__).'/../../lib/Hackapi.php');
 Hackapi::RequireTrait(__FILE__);
 
 /*
-
-Credits:
-https://github.com/an1by/ZTEModemAPI
-https://github.com/paulo-correia/ZTE_API_and_Hack
-https://github.com/rkarimabadi/ZTE-MF79-usb-modem-Send-SMS
-https://taisto.org/ZTE_MF823D
+	Credits:
+		https://github.com/an1by/ZTEModemAPI
+		https://github.com/paulo-correia/ZTE_API_and_Hack
+		https://github.com/rkarimabadi/ZTE-MF79-usb-modem-Send-SMS
+		https://taisto.org/ZTE_MF823D
+		https://github.com/zetxx/router-rpi-4G/blob/master/zte-mf-823-cmd.md
+		https://github.com/an1by/ZTEModemAPI/blob/master/docs/ATTRIBUTES.md
 */
 
 // ###############################################################################################
 class Hackapi_Zte_modem extends Hackapi{
 	use Hackapi_Zte_modem_Trait;
 
-	protected $host			="192.168.0.1";	
-	protected $password		="admin";
-
 	// Override Parent properties ---------------------------------------------------------------
+	protected $host			="192.168.0.1";		// (default) ip address or hostname
+	protected $user			="admin";			// (default) user name
+	protected $password		="admin";			// (default) user password
+
 	protected $def_referer	='/index.html';
-	//protected $def_endpoint	='/goform/goform_get_cmd_process';
 	protected $def_params		=array(
 			'isTest'	=>'false',
 	);
 	protected $api_error_codes=array(
 			'failure'	=> 	['FAILURE',		7],				
 	);
-		
-		
-	protected $std_fields_map=array(		// an array (indexed by the standart method name) of maps description 'to_field' => 'from_field' (hierarchized by '/') 
+
+	protected $std_fields_map=array(
 		'ApiSmsList'=>array(
 			'id'	=> 'id',
 			'date'	=> 'my_date',
@@ -45,19 +45,11 @@ class Hackapi_Zte_modem extends Hackapi{
 //			'dns_name'		=> '',
 			'name'			=> 'hostname',
 //			'alias'			=> 'hostname',
-//			'level_send'	=> '',
-//			'level_receive'	=> '',
 //			'duration'		=> '',
 //			'time'			=> '',
+//			'level_send'	=> '',
+//			'level_receive'	=> '',
 		),
-		// 'ApiWifiListSsids'=>array(
-		// 	'id'			=> 'ID',
-		// 	'bssid'			=> 'WifiMac',
-		// 	'ssid'			=> 'WifiSsid',
-		// 	'password'		=> '',
-		// 	'channel'		=> '',
-
-		// ),
 	);
 
 	private $_ad1	='';
@@ -162,7 +154,6 @@ class Hackapi_Zte_modem extends Hackapi{
 		}
 	}
 
-
 	// -------------------------------------------------------------------------
 	public function ApiWifiListClients($id = ''){
 		if($result=$this->ApiGetStationList()){
@@ -197,10 +188,7 @@ class Hackapi_Zte_modem extends Hackapi{
 
 
 	// -------------------------------------------------------------------------
-		//https://github.com/zetxx/router-rpi-4G/blob/master/zte-mf-823-cmd.md
-		//https://github.com/an1by/ZTEModemAPI/blob/master/docs/ATTRIBUTES.md
-
-	// as ZTE seens to not accept more than around 100 paramaters in a single command, we have to split in 2 commands
+	// as ZTE seens to not accept more than around 100 paramaters in a single command, we have to split in 3 commands
 	public function ApiGetAll(){
 		$err=0;
 		if(!$arr1=$this->_ApiCmd1()){
@@ -219,7 +207,6 @@ class Hackapi_Zte_modem extends Hackapi{
 			return array_merge($arr1,$arr2,$arr3);
 		}
 	}
-
 
 	// -------------------------------------------------------------------------
 	private function _ApiCmd1(){
