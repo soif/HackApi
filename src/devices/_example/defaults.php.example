@@ -1,0 +1,14 @@
+<?php
+/*
+	This is a template of your defauls.php file
+	To enable it, please rename it to 'defauls.php' ! 			(FYI: it will not be  tracked by GIT)
+
+	Each (optionnals) parameters set here will replace the default parameters defined in the API client properties.
+*/
+
+$prefs['host']		='IP_OR_HOSTAME';
+$prefs['use_ssl']	=1;					// set to 1, to use httpS urls
+$prefs['user']		='USERNAME';
+$prefs['password']	='PASSWORD';
+
+?>
