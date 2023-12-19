@@ -56,11 +56,63 @@ class Hackapi{
 	 * @var array
 	 */
 	protected $std_fields_map=array(
+		'ApiCellStatus'=>array(
+			'prov_name'		=> 'api_field_path',	// Provider Name
+			'prov_fullname'	=> 'api_field_path',	// Provider Full Name
+			'mcc'			=> 'api_field_path',	// MCC
+			'mnc'			=> 'api_field_path',	// MNC
+			'rnc'			=> 'api_field_path',	// RNC
+			'enbid'			=> 'api_field_path',	// eNB ID
+			'lac'			=> 'api_field_path',	// LAC
+			'channel'		=> 'api_field_path',	// Channel (EARFCN)
+			'bands'			=> 'api_field_path',	// Bands
+			'pci'			=> 'api_field_path',	// PCI
+			'mode'			=> 'api_field_path',	// Cellular network type: LTE,CMDA,...
+			'protocol'		=> 'api_field_path',	// Protocol
+			'imei'			=> 'api_field_path',	// IMEI
+			'imci'			=> 'api_field_path',	// IMCI
+			'iccid'			=> 'api_field_path',			// Sim ICCI
+			'imsi'			=> 'api_field_path',			// Sim_IMSI
+
+			'strength'		=> 'api_field_path',	// (%) Strength
+			'csq'			=> 'api_field_path',	// CSQ
+			'rssi'			=> 'api_field_path',	// (dBm) RSSI
+			'rscp'			=> 'api_field_path',	// (dBm) RSCP
+			'rsrp'			=> 'api_field_path',	// (dBm) RSRP
+			'ecio'			=> 'api_field_path',	// (dB) ECIO
+			'rsrq'			=> 'api_field_path',	// (dB) RSRQ
+			'sinr'			=> 'api_field_path',	// (dB) SINR
+			'cell_id'		=> 'api_field_path',	// Cell ID
+
+		),
 		'ApiSmsList'=>array(
 			'id'	=> 'api_field_path',			// SMS's ID (the one used to delete the SMS)
 			'date'	=> 'api_field_path',			// SMS's Date, formated as a SQL datetime (YYYY-MM-DD HH:MM:SS)
 			'phone'	=> 'api_field_path',			// SMS's Phone Number
 			'text'	=> 'api_field_path',			// SMS's Text Content
+		),
+		'ApiWanStatus'=>array(
+			'mac'			=> 'api_field_path',	// MAC address
+			'up'			=> 'api_field_path',	// (boolean) Are we connected ?
+			'since'			=> 'api_field_path',	// Seconds since we are connected
+			'ipv4'			=> 'api_field_path',	// IP address (v4)
+			'ipv6'			=> 'api_field_path',	// IP address (v6)
+			'dns1v4'		=> 'api_field_path',	// DNS Server 1 IP address (v4)
+			'dns2v4'		=> 'api_field_path',	// DNS Server 2 IP address (v4)
+			'dns1v6'		=> 'api_field_path',	// DNS Server 1 IP address (v6)
+			'dns2v6'		=> 'api_field_path',	// DNS Server 2 IP address (v6)
+			'gatewayv4'		=> 'api_field_path',	// Gateway IP address (v4)
+			'gatewayv6'		=> 'api_field_path',	// Gateway IP address (v6)
+			'rx_realtime'	=> 'api_field_path',	// (bytes) Realtime RX 
+			'rx_peak'		=> 'api_field_path',	// (bytes) Peak RX 
+			'rx_day'		=> 'api_field_path',	// (bytes) Daily RX 
+			'rx_month'		=> 'api_field_path',	// (bytes) Monthly RX 
+			'rx_total'		=> 'api_field_path',	// (bytes) Total RX 
+			'tx_realtime'	=> 'api_field_path',	// (bytes) Realtime TX 
+			'tx_peak'		=> 'api_field_path',	// (bytes) Peak TX 
+			'tx_day'		=> 'api_field_path',	// (bytes) Daily TX 
+			'tx_month'		=> 'api_field_path',	// (bytes) Monthly TX 
+			'tx_total'		=> 'api_field_path',	// (bytes) Total TX 
 		),
 		'ApiWifiListClients'=>array(
 			'id'			=> 'api_field_path',	// the internal ID asigned by the device (else set it to the MAC address)
@@ -155,6 +207,16 @@ class Hackapi{
 
 	// -------------------------------------------------------------------------
 	/**
+	 * Cellular modems Status & Information
+	 *
+	 * @return array		Basic Cell & signal information
+	 */
+	public function ApiCellStatus(){
+		$this->DebugLogError("Please override the ".__METHOD__." method.");
+	}
+
+	// -------------------------------------------------------------------------
+	/**
 	 * Returns a standardized array of Received SMS
 	 *
 	 * @param integer $read_type	0=all, 1=read, 2=unread
@@ -210,6 +272,16 @@ class Hackapi{
 	 * @return bool		Succeeded ?
 	 */
 	public function ApiWanDisconnect(){
+		$this->DebugLogError("Please override the ".__METHOD__." method.");
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * WAN interface Status & Information
+	 *
+	 * @return array		Basic WAN information & Stats
+	 */
+	public function ApiWanStatus(){
 		$this->DebugLogError("Please override the ".__METHOD__." method.");
 	}
 
@@ -338,7 +410,7 @@ class Hackapi{
 	/**
 	 * Set Error Code
 	 *
-	 * @param [type] $code 		Code Number: 
+	 * @param integer $code 		Code Number: 
 	 * 	0 =>'Returned False (No Error)',
 	 * 	1 =>'Malformed Request',
 	 * 	2 =>'Malformed Answer',
