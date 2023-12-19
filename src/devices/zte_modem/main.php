@@ -22,7 +22,7 @@ class Hackapi_Zte_modem extends Hackapi{
 	protected $user			="admin";			// (default) user name
 	protected $password		="admin";			// (default) user password
 
-	protected $client_version	='0.90';	// API client Version, formated as M.mm
+	protected $client_version	='0.92';	// API client Version, formated as M.mm
 
 	protected $def_referer		='/index.html';
 	protected $def_params		=array(
@@ -33,11 +33,62 @@ class Hackapi_Zte_modem extends Hackapi{
 	);
 
 	protected $std_fields_map=array(
+		'ApiCellStatus'=>array(
+			'prov_name'		=> 'network_provider',	// Provider Name
+			'prov_fullname'	=> 'network_provider_fullname',	// Provider Full Name
+			'mcc'			=> 'mdm_mcc',		// MCC
+			'mnc'			=> 'mdm_mnc',		// MNC
+//			'rnc'			=> '',				// RNC
+			'enbid'			=> 'enodeb_id',		// eNB ID
+			'lac'			=> 'lac_code',		// LAC
+//			'channel'		=> '',	// Channel (EARFCN)
+			'bands'			=> 'wan_active_band',		// Bands
+			'pci'			=> 'lte_pci',		// PCI
+			'mode'			=> 'network_type',	// Cellular network type: LTE,CMDA,...
+//			'protocol'		=> '',	// Protocol
+			'imei'			=> 'imei',				// IMEI
+//			'imci'			=> 'imci',				// IMCI
+			'iccid'			=> 'sim_iccid',			// Sim ICCI
+			'imsi'			=> 'sim_imsi',			// Sim_IMSI
+		 
+			'strength'		=> 'signalbar',	// (%) Strength (need to convert bars to %)
+			'csq'			=> 'wan_csq',	// CSQ
+			'rssi'			=> 'lte_rssi',	// (dBm) RSSI
+//			'rscp'			=> 'rscp',	// (dBm) RSCP
+			'rsrp'			=> 'lte_rsrp',	// (dBm) RSRP
+//			'ecio'			=> 'ecio',	// (dB) ECIO
+			'rsrq'			=> 'lte_rsrq',	// (dB) RSRQ
+			'sinr'			=> 'lte_snr',	// (dB) SINR
+			'cell_id'		=> 'cell_id',	// Cell ID
+		),
 		'ApiSmsList'=>array(
 			'id'	=> 'id',
 			'date'	=> 'my_date',
 			'phone'	=> 'number',
 			'text'	=> 'my_text',
+		),
+		'ApiWanStatus'=>array(
+//			'mac'			=> '',	// MAC address
+			'up'			=> 'wan_connect_status',	// (boolean) Are we connected ?
+			'since'			=> 'api_field_path',	// Seconds since we are connected
+			'ipv4'			=> 'wan_ipaddr',	// IP address (v4)
+			'ipv6'			=> 'ipv6_wan_ipaddr',	// IP address (v6)
+			'dns1v4'		=> 'prefer_dns_auto',	// DNS Server 1 IP address (v4)
+			'dns2v4'		=> 'standby_dns_auto',	// DNS Server 2 IP address (v4)
+			'dns1v6'		=> 'ipv6_prefer_dns_auto',	// DNS Server 1 IP address (v6)
+			'dns2v6'		=> 'ipv6_standby_dns_auto',	// DNS Server 2 IP address (v6)
+//			'gatewayv4'		=> '',	// Gateway IP address (v4)
+//			'gatewayv6'		=> '',	// Gateway IP address (v6)
+			'rx_realtime'	=> 'realtime_rx_bytes',	// (bytes) Realtime RX 
+//			'rx_day'		=> '',		// (bytes) Daily RX 
+			'rx_peak'		=> 'peak_rx_bytes',	// (bytes) Peak RX 
+			'rx_month'		=> 'monthly_rx_bytes',		// (bytes) Monthly RX 
+			'rx_total'		=> 'total_rx_bytes',		// (bytes) Total RX 
+			'tx_realtime'	=> 'realtime_tx_bytes',	// (bytes) Realtime TX 
+			'tx_peak'		=> 'peak_tx_bytes',	// (bytes) Peak TX 
+//			'tx_day'		=> '',		// (bytes) Daily TX 
+			'tx_month'		=> 'monthly_tx_bytes',		// (bytes) Monthly TX 
+			'tx_total'		=> 'total_tx_bytes',		// (bytes) Total TX 
 		),
 		'ApiWifiListClients'=>array(
 //			'id'			=> 'ssid_index',
@@ -52,6 +103,15 @@ class Hackapi_Zte_modem extends Hackapi{
 //			'level_send'	=> '',
 //			'level_receive'	=> '',
 		),
+		'ApiWifiListSsids'=>array(
+			// 'id'			=> 'api_field_path',	// the internal Station ID/name asigned by the device (used to filter the ApiWifiListClients)
+			// 'bssid'			=> 'BSSID',	// BSSID MAC Address
+			// 'ssid'			=> 'SSID1',	// SSID MAC Address
+			// 'password'		=> '',	// Password
+			// 'channel'		=> '',	// Frequency Channel
+		),
+
+
 	);
 
 	private $_ad1	='';
@@ -66,6 +126,7 @@ class Hackapi_Zte_modem extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	public function ApiLogin($user='',$password=''){
+		$this->DebugLogMethod();
 		$user 		and $this->user		=$user;
 		$password	and $this->password	=$password;
 		
@@ -101,6 +162,39 @@ class Hackapi_Zte_modem extends Hackapi{
 		return $this->ApiSetRebootDevice();
 	}
 
+	public function ApiCellStatus(){
+		$commands=array(
+			'network_provider',	// Provider Name
+			'network_provider_fullname',	// Provider Full Name
+			'mdm_mcc',		// MCC
+			'mdm_mnc',		// MNC
+			'enodeb_id',		// eNB ID
+			'lac_code',		// LAC
+			'wan_active_band',		// Bands
+			'lte_pci',		// PCI
+			'network_type',	// Cellular network type: LTE,CMDA,...
+			'imei',				// IMEI
+			'imci',				// IMCI
+			'sim_iccid',			// Sim ICCI
+			'sim_imsi',			// Sim_IMSI		 
+			'signalbar',	// (%) Strength (need to convert bars to %)
+			'wan_csq',	// CSQ
+			'lte_rssi',	// (dBm) RSSI
+			'rscp',	// (dBm) RSCP
+			'lte_rsrp',	// (dBm) RSRP
+			'ecio',	// (dB) ECIO
+			'lte_rsrq',	// (dB) RSRQ
+			'lte_snr',	// (dB) SINR
+			'cell_id',	// Cell ID
+		);
+		$arr = $this->MyCallApiGet($commands);
+		if(is_array($arr)){
+			$arr=$this->RemapFields($arr,'ApiCellStatus');
+			$arr['strength']=$arr['strength']*20;
+		}
+		return $arr;
+	}
+
 	// -------------------------------------------------------------------------
 	public function ApiSmsSend($to_tel, $message, $priority = ''){
 		//$date = date('y;m;d;H;i;s;+0');
@@ -125,6 +219,7 @@ class Hackapi_Zte_modem extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	private function _smslist($box_type = 0, $page = 1, $limit = 20,$read_type=0){
+		$this->DebugLogMethod();
 		$page--;
 		$mem_store='1';
 		$tags='10';
@@ -157,6 +252,36 @@ class Hackapi_Zte_modem extends Hackapi{
 	public function ApiWanDisconnect(){
 		return $this->ApiSetDisconnectNetwork();
 	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWanStatus(){
+		$commands=array(
+			'wan_connect_status',	// (boolean) Are we connected ?
+			'api_field_path',	// Seconds since we are connected
+			'wan_ipaddr',	// IP address (v4)
+			'ipv6_wan_ipaddr',	// IP address (v6)
+			'prefer_dns_auto',	// DNS Server 1 IP address (v4)
+			'standby_dns_auto',	// DNS Server 2 IP address (v4)
+			'ipv6_prefer_dns_auto',	// DNS Server 1 IP address (v6)
+			'ipv6_standby_dns_auto',	// DNS Server 2 IP address (v6)
+			'realtime_rx_bytes',	// (bytes) Realtime RX 
+			'peak_rx_bytes',		// (bytes) Peak RX 
+			'monthly_rx_bytes',		// (bytes) Monthly RX 
+			'total_rx_bytes',		// (bytes) Total RX 
+			'realtime_tx_bytes',	// (bytes) Realtime TX 
+			'peak_tx_bytes',		// (bytes) Peak TX 
+			'monthly_tx_bytes',		// (bytes) Monthly TX 
+			'total_tx_bytes',		// (bytes) Total TX 
+		);
+		$arr = $this->MyCallApiGet($commands);
+		if(is_array($arr)){
+			$arr=$this->RemapFields($arr,'ApiWanStatus');
+			$arr['up']= $arr['up']=='pdp_connected' ? true : false;
+		}
+		return $arr;
+	
+	}
+
 
 	// -------------------------------------------------------------------------
 	public function ApiWifiStart(){
@@ -192,12 +317,42 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 
-/*
 	// -------------------------------------------------------------------------
 	public function ApiWifiListSsids($only_enabled=false){
-		$this->DebugLogMethod();
+		$commands=array(
+			'BSSID',
+			'EX_SSID1',
+			'm_HideSSID',
+			'm_ssid_enable',
+			'm_SSID',
+			'ssid',
+			'SSID1',
+			'ssid',
+		);
+		$arr = $this->MyCallApiGet($commands);
+		if(is_array($arr)){
+			$out=array();
+			if(isset($arr['SSID1']) and $ssid=$arr['SSID1']){
+				$out[$ssid]['ssid']	=$ssid;
+				$out[$ssid]['bssid']=$arr['BSSID'];
+			}
+			
+			if(isset($arr['m_ssid_enable']) and isset($arr['m_SSID'])){
+				if(($only_enabled  and $arr['m_ssid_enable']) or !$only_enabled) {
+					if($ssid=$arr['m_SSID']){
+						$out[$ssid]['ssid']	=$ssid;
+						$out[$ssid]['bssid']=$arr['BSSID'];
+					}
+				}
+			}
+			if(!empty($out)){
+				return $out;
+			}
+		}
+		else{
+			return $arr;
+		}
 	}
-*/
 
 
 
@@ -231,6 +386,7 @@ class Hackapi_Zte_modem extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	private function _ApiCmd1(){
+		$this->DebugLogMethod();
 		//is this really needed ?
 		// $params=array(
 		// 	'sms_received_flag_flag'	=> '0',
@@ -320,6 +476,7 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 	// -------------------------------------------------------------------------
 	private function _ApiCmd2(){
+		$this->DebugLogMethod();
 		$commands=array(
 			'm_AuthMode',
 			'm_HideSSID',
@@ -405,6 +562,7 @@ class Hackapi_Zte_modem extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	private function _ApiCmd3(){
+		$this->DebugLogMethod();
 		$commands=array(
 			'sc',
 			'scan_finish',
@@ -499,6 +657,7 @@ class Hackapi_Zte_modem extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	private function _CallApiCommands($url, $cmds='',$params=array(),$method='GET'){
+		$this->DebugLogMethod();
 		
 		if($method=='GET'){
 			//parse commands
