@@ -17,6 +17,8 @@ class Hackapi_OpnSense extends Hackapi{
 	protected $user			="root";			// (default) user name
 	protected $password		="opnsense";		// (default) user password
 
+	protected	$client_version		='0.50';	// API client Version, formated as M.mm
+
 	protected $def_endpoint='/api';
 
 	protected $api_error_codes=array(
@@ -25,17 +27,83 @@ class Hackapi_OpnSense extends Hackapi{
 	);
 
 
-	// ###############################################################################
-	// #### OVERRIDEN Methods ########################################################
-	// ###############################################################################
+	// ############################################################################################
+	// ## (REQUIRED) OVERRIDEN METHODS ############################################################
+	// ############################################################################################
+
 
 	// -------------------------------------------------------------------------
 	public function ApiLogin($user='',$password=''){
-		// we dont need to login first because Authentication is used in each Call
+		$this->DebugLogMethod();
+		// Maybe we dont need to login first because Authentication is used in each Call
 		$this->is_logged=true;
 		return true;
 	}
 
+	// ############################################################################################
+	// ## (Optionnal) OVERRIDEN STANDARDIZED METHODS ##############################################
+	// ############################################################################################
+/*
+	// -------------------------------------------------------------------------
+	public function ApiLogout(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiIsLoggedIn(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiReboot(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiSmsListSent($page=1,$max=20){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiSmsSend($phone, $message, $priority=''){
+		$this->DebugLogMethod();
+	}
+	
+	// -------------------------------------------------------------------------
+	public function ApiWanConnect(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWanDisconnect(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiSmsListReceived($read_type=0, $page=1, $limit=20){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWifiListClients($id=''){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWifiListSsids($only_enabled=false){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWifiStart(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWifiStop(){
+		$this->DebugLogMethod();
+	}
+*/
 
 
 	// ###############################################################################

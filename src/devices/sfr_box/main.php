@@ -21,9 +21,11 @@ class Hackapi_Sfr_box extends Hackapi{
 	protected $use_ssl	=false;				// it seems that the API dont work (don't even answers) in httpS mode
 	protected $user		="admin";			// default Box's user name
 
-	protected $use_cookies	=false;		// not needed
-	//protected $def_headers	=array();
-	//protected $def_referer="/";
+	protected $client_version		='0.50';	// API client Version, formated as M.mm
+
+	protected $use_cookies			=false;		// not needed
+	//protected $def_headers		=array();
+	//protected $def_referer		="/";
 	protected $def_endpoint="/api/1.0/?method=";
 
 	protected $api_error_codes=array(
@@ -52,9 +54,9 @@ class Hackapi_Sfr_box extends Hackapi{
 
 
 
-	// ###############################################################################
-	// #### OVERRIDEN Methods ########################################################
-	// ###############################################################################
+	// ############################################################################################
+	// ## (REQUIRED) OVERRIDEN METHODS ############################################################
+	// ############################################################################################
 
 	// -------------------------------------------------------------------------
 	public function ApiLogin($user='',$password=''){
@@ -87,6 +89,72 @@ class Hackapi_Sfr_box extends Hackapi{
 		}
 		
 	}
+
+
+	// ############################################################################################
+	// ## (Optionnal) OVERRIDEN STANDARDIZED METHODS ##############################################
+	// ############################################################################################
+/*
+	// -------------------------------------------------------------------------
+	public function ApiLogout(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiIsLoggedIn(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiReboot(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiSmsListReceived($read_type=0, $page=1, $limit=20){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiSmsListSent($page=1,$max=20){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiSmsSend($phone, $message, $priority=''){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWanConnect(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWanDisconnect(){
+		$this->DebugLogMethod();
+	}
+	
+	// -------------------------------------------------------------------------
+	public function ApiWifiListClients($id=''){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWifiListSsids($only_enabled=false){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWifiStart(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWifiStop(){
+		$this->DebugLogMethod();
+	}
+*/
 
 
 
@@ -130,7 +198,6 @@ class Hackapi_Sfr_box extends Hackapi{
 		// make the call ----------------------------------------
 		$endpoint=$this->def_endpoint.$endpoint;
 		$arr=$this->XmlToArray($this->CallEndpoint($endpoint, $type, $params));
-		
 		$arr= $this->ErrorFreeResult($arr,$autologin,$force_list);
 		
 		return $arr;

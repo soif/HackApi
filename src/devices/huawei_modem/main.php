@@ -18,6 +18,8 @@ class Hackapi_Huawei_modem extends Hackapi{
 	protected $user			="admin";			// (default) user name
 	protected $password		="admin";			// (default) user password
 
+	protected	$client_version		='0.90';	// API client Version, formated as M.mm
+
 	protected $use_cookies	=true;
 	protected $def_referer	="/html/index.html?noredirect"; // needed ?
 
@@ -213,9 +215,9 @@ class Hackapi_Huawei_modem extends Hackapi{
 
 
 
-	// ###############################################################################
-	// #### OVERRIDEN Methods ########################################################
-	// ###############################################################################
+	// ############################################################################################
+	// ## (REQUIRED) OVERRIDEN METHODS ############################################################
+	// ############################################################################################
 
 	// -------------------------------------------------------------------------
 	public function ApiLogin($user='',$password=''){
@@ -254,6 +256,10 @@ class Hackapi_Huawei_modem extends Hackapi{
 		return $result;
 	}
 
+	// ############################################################################################
+	// ## (Optionnal) OVERRIDEN STANDARDIZED METHODS ##############################################
+	// ############################################################################################
+
 	// -------------------------------------------------------------------------
 	public function ApiLogout(){		
 		$this->DebugLogMethod();
@@ -283,29 +289,34 @@ class Hackapi_Huawei_modem extends Hackapi{
 		return false;
 	}
 	
-	// ################################################################################
+
 	// -------------------------------------------------------------------------
 	public function ApiReboot(){
+		$this->DebugLogMethod();
 		return $this->ApiSetDeviceControl('1');
 	}
 
 	// -------------------------------------------------------------------------
 	public function ApiSmsDelete($index){
+		$this->DebugLogMethod();
 		return $this->ApiSetSmsDeleteSms($index);
 	}
 
 	// -------------------------------------------------------------------------
 	public function ApiSmsListReceived($read_type=0, $page=1, $limit=20){
+		$this->DebugLogMethod();
 		return $this->_SmsList(1, $page, $limit, $read_type);
 	}
 
 	// -------------------------------------------------------------------------
 	public function ApiSmsListSent($page=1, $limit=20){
+		$this->DebugLogMethod();
 		return $this->_SmsList(2, $page, $limit);
 	}
 
 	// -------------------------------------------------------------------------
 	private function _SmsList($box_type, $page=1, $limit=20,$read_type=0){
+		$this->DebugLogMethod();
 		$sort=0;
 		$asc=0;
 		$unread=0;
@@ -321,6 +332,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	public function ApiSmsSend($phone_number, $message, $priority=''){
+		$this->DebugLogMethod();
 		$phones_xml='';
 		if(is_array($phone_number)){
 			foreach($phone_number as $phone){
@@ -335,9 +347,22 @@ class Hackapi_Huawei_modem extends Hackapi{
 		$date=date('Y-m-d H:i:s');
 		return $this->ApiSetSmsSendSms($phones_xml,$message,$len,$reserved,$date);
 	}
+/*
+	// -------------------------------------------------------------------------
+	public function ApiWanConnect(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWanDisconnect(){
+		$this->DebugLogMethod();
+	}
+
+*/
 
 	// -------------------------------------------------------------------------
 	public function ApiWifiListClients($id = ''){
+		$this->DebugLogMethod();
 		if($result=$this->ApiGetWlanHostList()){
 			if(is_array($result)){
 				$items=$result['Hosts']['Host'];
@@ -366,6 +391,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	public function ApiWifiListSsids($only_enabled=true){
+		$this->DebugLogMethod();
 		if($result=$this->ApiGetWlanMultiBasicSettings()){
 			if(is_array($result)){
 				$items=$result['Ssids']['Ssid'];

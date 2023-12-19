@@ -13,6 +13,8 @@ class Hackapi_Openwrt extends Hackapi{
 	protected $user			="root";		// (default) user name
 	protected $password		="";			// (default) user password
 
+	protected	$client_version		='0.30';	// API client Version, formated as M.mm
+
 	protected $def_endpoint	='/cgi-bin/luci/admin/ubus';
 	protected $def_headers=array(
 		'Content-Type: application/json',
@@ -52,9 +54,10 @@ class Hackapi_Openwrt extends Hackapi{
 
 
 
-	// ###############################################################################
-	// #### OVERRIDEN Methods ########################################################
-	// ###############################################################################
+	// ############################################################################################
+	// ## (REQUIRED) OVERRIDEN METHODS ############################################################
+	// ############################################################################################
+
 
 	// -------------------------------------------------------------------------
 	public function ApiLogin($user='',$password=''){
@@ -78,8 +81,60 @@ class Hackapi_Openwrt extends Hackapi{
 		}
 	}
 
+
+
+	// ############################################################################################
+	// ## (Optionnal) OVERRIDEN STANDARDIZED METHODS ##############################################
+	// ############################################################################################
+/*
+	// -------------------------------------------------------------------------
+	public function ApiLogout(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiIsLoggedIn(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiReboot(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiSmsListReceived($read_type=0, $page=1, $limit=20){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiSmsListSent($page=1,$max=20){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiSmsSend($phone, $message, $priority=''){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWanConnect(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWanDisconnect(){
+		$this->DebugLogMethod();
+	}
+	
+	// -------------------------------------------------------------------------
+	public function ApiWifiListClients($id=''){
+		$this->DebugLogMethod();
+	}
+*/	
 	// -------------------------------------------------------------------------
 	public function ApiWifiListSsids($only_enabled=true){
+		$this->DebugLogMethod();
 		if($result=$this->ApiGetLuciRpcGetWirelessDevices()){
 			//return $result;
 			if(is_array($result)){
@@ -106,6 +161,19 @@ class Hackapi_Openwrt extends Hackapi{
 			}
 		}	
 	}
+
+/*
+	// -------------------------------------------------------------------------
+	public function ApiWifiStart(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWifiStop(){
+		$this->DebugLogMethod();
+	}
+*/
+
 
 
 

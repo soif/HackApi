@@ -22,7 +22,9 @@ class Hackapi_Zte_modem extends Hackapi{
 	protected $user			="admin";			// (default) user name
 	protected $password		="admin";			// (default) user password
 
-	protected $def_referer	='/index.html';
+	protected $client_version	='0.90';	// API client Version, formated as M.mm
+
+	protected $def_referer		='/index.html';
 	protected $def_params		=array(
 			'isTest'	=>'false',
 	);
@@ -57,9 +59,10 @@ class Hackapi_Zte_modem extends Hackapi{
 	private $_ad	='';
 
 
-	// ###############################################################################
-	// #### OVERRIDEN Methods ########################################################
-	// ###############################################################################
+	// ############################################################################################
+	// ## (REQUIRED) OVERRIDEN METHODS ############################################################
+	// ############################################################################################
+
 
 	// -------------------------------------------------------------------------
 	public function ApiLogin($user='',$password=''){
@@ -78,33 +81,24 @@ class Hackapi_Zte_modem extends Hackapi{
 		}
 	}
 
-	// ###############################################################################
-	// #### API GET Methods ##########################################################
-	// ###############################################################################
+	// ############################################################################################
+	// ## (Optionnal) OVERRIDEN STANDARDIZED METHODS ##############################################
+	// ############################################################################################
+/*
+	// -------------------------------------------------------------------------
+	public function ApiLogout(){
+		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiIsLoggedIn(){
+		$this->DebugLogMethod();
+	}
+*/
 
 	// -------------------------------------------------------------------------
 	public function ApiReboot(){
-		return $this->ApiSetREBOOTDEVICE();
-	}
-
-	// -------------------------------------------------------------------------
-	public function ApiWanConnect(){
-		return $this->ApiSetConnectNetwork();
-	}
-
-	// -------------------------------------------------------------------------
-	public function ApiWanDisconnect(){
-		return $this->ApiSetDisconnectNetwork();
-	}
-
-	// -------------------------------------------------------------------------
-	public function ApiWifiStart(){
-		return $this->ApiSetSetWifiInfo(1);
-	}
-
-	// -------------------------------------------------------------------------
-	public function ApiWifiStop(){
-		return $this->ApiSetSetWifiInfo(0);
+		return $this->ApiSetRebootDevice();
 	}
 
 	// -------------------------------------------------------------------------
@@ -155,6 +149,26 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	public function ApiWanConnect(){
+		return $this->ApiSetConnectNetwork();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWanDisconnect(){
+		return $this->ApiSetDisconnectNetwork();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWifiStart(){
+		return $this->ApiSetSetWifiInfo(1);
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWifiStop(){
+		return $this->ApiSetSetWifiInfo(0);
+	}
+
+	// -------------------------------------------------------------------------
 	public function ApiWifiListClients($id = ''){
 		if($result=$this->ApiGetStationList()){
 			if(is_array($result)){
@@ -164,7 +178,7 @@ class Hackapi_Zte_modem extends Hackapi{
 				foreach($items as $it){
 					$formatted[$it['ssid_index']][]=$this->RemapFields($it,'ApiWifiListClients');
 				}
-				//return either one $ssid content or wthe whole list
+				//return either one $ssid content or the whole list
 				if($id){
 					if(isset($formatted[$id])){
 						return $formatted[$id];
@@ -177,6 +191,13 @@ class Hackapi_Zte_modem extends Hackapi{
 		}	
 	}
 
+
+/*
+	// -------------------------------------------------------------------------
+	public function ApiWifiListSsids($only_enabled=false){
+		$this->DebugLogMethod();
+	}
+*/
 
 
 
