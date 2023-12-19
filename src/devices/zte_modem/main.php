@@ -60,6 +60,8 @@ class Hackapi_Zte_modem extends Hackapi{
 			'rsrq'			=> 'lte_rsrq',	// (dB) RSRQ
 			'sinr'			=> 'lte_snr',	// (dB) SINR
 			'cell_id'		=> 'cell_id',	// Cell ID
+//			'rx_speed'		=> '',	// (Kbytes) Download Speed
+//			'tx_speed'		=> '',	// (Kbytes) Upload Speed
 		),
 		'ApiSmsList'=>array(
 			'id'	=> 'id',
@@ -162,7 +164,8 @@ class Hackapi_Zte_modem extends Hackapi{
 		return $this->ApiSetRebootDevice();
 	}
 
-	public function ApiCellStatus(){
+	// -------------------------------------------------------------------------
+	public function ApiCellStatus($fast_mode=false){
 		$commands=array(
 			'network_provider',	// Provider Name
 			'network_provider_fullname',	// Provider Full Name
@@ -301,7 +304,8 @@ class Hackapi_Zte_modem extends Hackapi{
 				//map by ssid
 				$formatted=array();
 				foreach($items as $it){
-					$formatted[$it['ssid_index']][]=$this->RemapFields($it,'ApiWifiListClients');
+					//TODO need to fix the index to be the ssid
+					$formatted[$it['ssid_index']][]=$this->RemapFields($it,'ApiWifiListClients',false);
 				}
 				//return either one $ssid content or the whole list
 				if($id){
@@ -315,7 +319,6 @@ class Hackapi_Zte_modem extends Hackapi{
 			}
 		}	
 	}
-
 
 	// -------------------------------------------------------------------------
 	public function ApiWifiListSsids($only_enabled=false){
@@ -333,6 +336,7 @@ class Hackapi_Zte_modem extends Hackapi{
 		if(is_array($arr)){
 			$out=array();
 			if(isset($arr['SSID1']) and $ssid=$arr['SSID1']){
+				$out[$ssid]['id']	=$ssid;
 				$out[$ssid]['ssid']	=$ssid;
 				$out[$ssid]['bssid']=$arr['BSSID'];
 			}
@@ -340,6 +344,7 @@ class Hackapi_Zte_modem extends Hackapi{
 			if(isset($arr['m_ssid_enable']) and isset($arr['m_SSID'])){
 				if(($only_enabled  and $arr['m_ssid_enable']) or !$only_enabled) {
 					if($ssid=$arr['m_SSID']){
+						$out[$ssid]['id']	=$ssid;
 						$out[$ssid]['ssid']	=$ssid;
 						$out[$ssid]['bssid']=$arr['BSSID'];
 					}
