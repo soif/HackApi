@@ -58,6 +58,10 @@ class Hackapi_OpnSense extends Hackapi{
 	public function ApiReboot(){
 		$this->DebugLogMethod();
 	}
+	
+	// -------------------------------------------------------------------------
+	public function ApiCellStatus($fast_mode=false){
+	}
 
 	// -------------------------------------------------------------------------
 	public function ApiSmsListSent($page=1,$max=20){

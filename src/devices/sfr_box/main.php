@@ -109,6 +109,10 @@ class Hackapi_Sfr_box extends Hackapi{
 	public function ApiReboot(){
 		$this->DebugLogMethod();
 	}
+	
+	// -------------------------------------------------------------------------
+	public function ApiCellStatus($fast_mode=false){
+	}
 
 	// -------------------------------------------------------------------------
 	public function ApiSmsListReceived($read_type=0, $page=1, $limit=20){

@@ -72,6 +72,10 @@ class Hackapi_DEVICE extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	public function ApiCellStatus($fast_mode=false){
+	}
+
+	// -------------------------------------------------------------------------
 	public function ApiSmsListReceived($read_type=0, $page=1, $limit=20){
 		$this->DebugLogMethod();
 	}
