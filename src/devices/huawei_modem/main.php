@@ -18,7 +18,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 	protected $user			="admin";			// (default) user name
 	protected $password		="admin";			// (default) user password
 
-	protected	$client_version		='0.90';	// API client Version, formated as M.mm
+	protected	$client_version		='0.91';	// API client Version, formated as M.mm
 
 	protected $use_cookies	=true;
 	protected $def_referer	="/html/index.html?noredirect"; // needed ?
@@ -364,7 +364,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 	public function ApiWifiListClients($id = ''){
 		$this->DebugLogMethod();
 		if($result=$this->ApiGetWlanHostList()){
-			if(is_array($result)){
+			if(is_array($result) and isset($result['Hosts']['Host'])){
 				$items=$result['Hosts']['Host'];
 				// if only one host, huawei dont wrap it in a list so, do it
 				if(!isset($items[0])){
@@ -374,7 +374,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 				$formatted=array();
 				foreach($items as $it){
 					list($it['my_ip_v4'],$it['my_ip_v6'])=explode(';',$it['IpAddress']);
-					$formatted[$it['ID']][]=$this->RemapFields($it,'ApiWifiListClients');
+					$formatted[$it['ID']][]=$this->RemapFields($it,'ApiWifiListClients',false);
 				}
 				//return either one $ssid content or wthe whole list
 				if($id){
@@ -399,7 +399,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 				$formatted=array();
 				foreach($items as $it){
 					if(!$only_enabled or $it['WifiEnable']==1){
-						$formatted[$it['ID']][]=$this->RemapFields($it,'ApiWifiListSsids');
+						$formatted[$it['ID']][]=$this->RemapFields($it,'ApiWifiListSsids',false);
 					}
 				}
 				return $formatted;
@@ -415,26 +415,26 @@ class Hackapi_Huawei_modem extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	public function CallApiGetJson($endpoint, $params=''){
-		return $this->CallApi($endpoint,$params,'GET','json');
+		return $this->_CallApi($endpoint,$params,'GET','json');
 	}
 
 	// // -------------------------------------------------------------------------
 	// public function _CallApiPostJson($endpoint, $params=''){
-	// 	return $this->CallApi($endpoint,$params,'POST','json');
+	// 	return $this->_CallApi($endpoint,$params,'POST','json');
 	// }
 
 	// -------------------------------------------------------------------------
 	public function CallApiGet($endpoint, $params=''){
-		return $this->CallApi($endpoint, $params, 'GET', 'xml');
+		return $this->_CallApi($endpoint, $params, 'GET', 'xml');
 	}
 
 	// -------------------------------------------------------------------------
 	public function CallApiPost($endpoint, $params=''){
-		return $this->CallApi($endpoint, $params, 'POST', 'xml');
+		return $this->_CallApi($endpoint, $params, 'POST', 'xml');
 	}
 
 	// -------------------------------------------------------------------------
-	public function CallApi($endpoint, $params='', $type='GET', $format='xml'){
+	private function _CallApi($endpoint, $params='', $type='GET', $format='xml'){
 		$this->DebugLogMethod();
 		if(!$this->LoginIfNotAlready()){
 			return false;
