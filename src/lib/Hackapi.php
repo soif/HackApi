@@ -8,20 +8,21 @@ class Hackapi{
 	protected	$password			="";		// (default) user password
 	private		$preferences		=false; 	// an array holding the above or FALSE when not set 
 
+	protected	$client_version		='0.00';	// API client Version, formated as M.mm
+
 	protected	$use_cookies		=true;		// do we automatically handles cookies?
+	protected	$def_referer		='';		// when set, default referer URL to add in the default headers. Starts with "/";
+	protected	$def_endpoint		='';		// default enpoint to use when not set in the CallEndpoint method
+	protected	$def_headers		=array();	// default headers to send with each call
+	protected	$def_params			=array();	// default parameters to always add in the CallEndpoint method
 
-	protected	$def_referer	='';			// when set, default referer URL to add in the default headers. Starts with "/";
-	protected	$def_endpoint	='';			// default enpoint to use when not set in the CallEndpoint method
-	protected	$def_headers	=array();		// default headers to send with each call
-	protected	$def_params		=array();		// default parameters to always add in the CallEndpoint method
+	protected	$is_logged			=false;		// Are we logged in ?
+	protected	$last_call			=array();	// contains all the Last Call parameters.
+	protected	$last_error			=array();	// contains the latest errors
 
-	protected	$is_logged		=false;			// Are we logged in ?
-	protected	$last_call		=array();		// contains all the Last Call parameters.
-	protected	$last_error		=array();		// contains the latest errors
+	protected	$api_error_codes	=array();	// Populated with Api specific error api_code=>['DESCPRITION',error_code]
 
-	protected	$api_error_codes=array();		// Populated with Api specific error api_code=>['DESCPRITION',error_code]
-
-	private		$error_codes	=array(			// error code meanings
+	private		$error_codes		=array(		// error codes meaning
 		0 =>'Returned False (No Error)',
 		1 =>'Malformed Request',
 		2 =>'Malformed Answer',
@@ -149,40 +150,6 @@ class Hackapi{
 		return true;
 	}
 
-	// for Routers &Modems #############################################################
-
-	// -------------------------------------------------------------------------
-	/**
-	 * Disconnect the WAN interface
-	 *
-	 * @return bool		Succeeded ?
-	 */
-	public function ApiWanConnect(){
-		$this->DebugLogError("Please override the ".__METHOD__." method.");
-	}
-
-	// -------------------------------------------------------------------------
-	/**
-	 * Connect the WAN interface
-	 *
-	 * @return bool		Succeeded ?
-	 */
-	public function ApiWanDisconnect(){
-		$this->DebugLogError("Please override the ".__METHOD__." method.");
-	}
-
-	// -------------------------------------------------------------------------
-	/**
-	 * Reload the WAN interface. (ie refresh the WAN IP address)
-	 *
-	 * @return bool		Succeeded ?
-	 */
-	public function ApiWanReload(){
-		$this->ApiWanDisconnect();
-		sleep(1);
-		return $this->ApiWanConnect();
-	}
-
 
 	// for Cellullar Modems #############################################################
 
@@ -224,6 +191,40 @@ class Hackapi{
 		$this->DebugLogError("Please override the ".__METHOD__." method. ");
 	}
 	
+	// for Routers & Modems #############################################################
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Disconnect the WAN interface
+	 *
+	 * @return bool		Succeeded ?
+	 */
+	public function ApiWanConnect(){
+		$this->DebugLogError("Please override the ".__METHOD__." method.");
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Connect the WAN interface
+	 *
+	 * @return bool		Succeeded ?
+	 */
+	public function ApiWanDisconnect(){
+		$this->DebugLogError("Please override the ".__METHOD__." method.");
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Reload the WAN interface. (ie refresh the WAN IP address)
+	 *
+	 * @return bool		Succeeded ?
+	 */
+	public function ApiWanReload(){
+		$this->ApiWanDisconnect();
+		sleep(1);
+		return $this->ApiWanConnect();
+	}
+
 
 	// for Wifi capable Routers #########################################################
 
