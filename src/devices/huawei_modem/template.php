@@ -61,7 +61,8 @@ $p['definitions']=array(
 
 	['/api/dialup/connection',					'5',	'get',	'xml',		'',		'Dialup Connection Information'],
 	['/api/dialup/dialup-feature-switch',		'5',	'get',	'xml',		'',		'Dialup Features'],
-	['/api/dialup/mobile-dataswitch',			'4',	'get',	'xml',		'',		'Cellular Data Switch ?'],
+	['/api/dialup/mobile-dataswitch',			'4',	'get',	'xml',		'',		'Cellular Data Switch'],
+	['/api/dialup/mobile-dataswitch',			'5',	'set',	'xml_p',	['dataswitch'=>['!',['0'=>'Disconnect','1'=>'Connect',],'']],		'Cellular Connect/Disconnect'],
 	['/api/dialup/multiWanProfiles',			'2',	'get',	'xml',		'',		''],
 	['/api/dialup/profiles',					'5',	'get',	'xml',		'',		'Cellular Connection Profiles'],
 
@@ -199,7 +200,7 @@ $p['definitions']=array(
 
 	['/config/webuicfg/config.xml',				'5',	'get',	'xml',		'',		'Web UI Configuration'],
 
-	['/api/device/control',						'1',	'set',	'xml_p',	['Control'=>['1',['1'=>'Reboot'],'Set to 1 to reboot']],		'Reboot'],
+	['/api/device/control',						'4',	'set',	'xml_p',	['Control'=>['1',['1'=>'Reboot'],'Set to 1 to reboot']],		'Reboot'],
 
 );
 

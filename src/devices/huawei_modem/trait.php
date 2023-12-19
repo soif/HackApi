@@ -1210,7 +1210,7 @@ trait Hackapi_Huawei_modem_Trait {
 	/**
 	* ApiGetDialupMobileDataswitch
 	*
-	* Cellular Data Switch ?
+	* Cellular Data Switch
 	*
 	* @category ApiGet
 	* @return Array[]
@@ -1740,6 +1740,25 @@ trait Hackapi_Huawei_modem_Trait {
 	
 	// -----------------------------------------------------------------------
 	/**
+	* ApiSetDialupMobileDataswitch
+	*
+	* Cellular Connect/Disconnect
+	*
+	* @param string $dataswitch	either: Disconnect | Connect
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDialupMobileDataswitch($dataswitch){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		$params=array(
+			'dataswitch'	=> $dataswitch,
+		);
+		return $this->CallApiPost('/api/dialup/mobile-dataswitch', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
 	* ApiSetSmsDeleteSms
 	*
 	* Delete a SMS from the InBox
@@ -1794,12 +1813,6 @@ trait Hackapi_Huawei_modem_Trait {
 		return $this->CallApiPost('/api/sms/send-sms', $params);
 	}
 	
-	
-	
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	// +++ DRAFT      Not tested                               ++++++++++++++++++
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetDeviceControl
@@ -1813,7 +1826,7 @@ trait Hackapi_Huawei_modem_Trait {
 	*/
 	public function ApiSetDeviceControl($Control="1"){
 		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
+		$this->HandleApiMethodStateAllowed(4);
 		$params=array(
 			'Control'	=> $Control,
 		);
@@ -1853,7 +1866,8 @@ trait Hackapi_Huawei_modem_Trait {
 		$def['ApiGetDiagnosisTimeReboot']=array (  'args' => '/api/diagnosis/time_reboot',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WatchDog ?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/diagnosis/time_reboot\'',  'f_args_txt' => '/api/diagnosis/time_reboot',  'f_method_name' => 'ApiGetDiagnosisTimeReboot',  'f_call' => 'CallApiGet',);
 		$def['ApiGetDialupConnection']=array (  'args' => '/api/dialup/connection',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dialup Connection Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dialup/connection\'',  'f_args_txt' => '/api/dialup/connection',  'f_method_name' => 'ApiGetDialupConnection',  'f_call' => 'CallApiGet',);
 		$def['ApiGetDialupDialupFeatureSwitch']=array (  'args' => '/api/dialup/dialup-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dialup Features',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dialup/dialup-feature-switch\'',  'f_args_txt' => '/api/dialup/dialup-feature-switch',  'f_method_name' => 'ApiGetDialupDialupFeatureSwitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDialupMobileDataswitch']=array (  'args' => '/api/dialup/mobile-dataswitch',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Cellular Data Switch ?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/dialup/mobile-dataswitch\'',  'f_args_txt' => '/api/dialup/mobile-dataswitch',  'f_method_name' => 'ApiGetDialupMobileDataswitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDialupMobileDataswitch']=array (  'args' => '/api/dialup/mobile-dataswitch',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Cellular Data Switch',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/dialup/mobile-dataswitch\'',  'f_args_txt' => '/api/dialup/mobile-dataswitch',  'f_method_name' => 'ApiGetDialupMobileDataswitch',  'f_call' => 'CallApiGet',);
+		$def['ApiSetDialupMobileDataswitch']=array (  'args' => '/api/dialup/mobile-dataswitch',  'state' => '5',  'type' => 'set',  'call_index' => 'xml_p',  'params' =>   array (    'definitions' =>     array (      'dataswitch' =>       array (        0 => '!',        1 =>         array (          0 => 'Disconnect',          1 => 'Connect',        ),        2 => '',      ),    ),    'parameters' => '$params=array(		\'dataswitch\'	=> $dataswitch,	);',    'arguments' => '$dataswitch',    'call_params' => ', $params',    'doc_desc' => '* @param string $dataswitch	either: Disconnect | Connect',    'def_value' => '',  ),  'desc' => 'Cellular Connect/Disconnect',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dialup/mobile-dataswitch\'',  'f_args_txt' => '/api/dialup/mobile-dataswitch',  'f_method_name' => 'ApiSetDialupMobileDataswitch',  'f_call' => 'CallApiPost',);
 		$def['ApiGetDialupMultiWanProfiles']=array (  'args' => '/api/dialup/multiWanProfiles',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/dialup/multiWanProfiles\'',  'f_args_txt' => '/api/dialup/multiWanProfiles',  'f_method_name' => 'ApiGetDialupMultiWanProfiles',  'f_call' => 'CallApiGet',);
 		$def['ApiGetDialupProfiles']=array (  'args' => '/api/dialup/profiles',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Cellular Connection Profiles',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dialup/profiles\'',  'f_args_txt' => '/api/dialup/profiles',  'f_method_name' => 'ApiGetDialupProfiles',  'f_call' => 'CallApiGet',);
 		$def['ApiGetGlobalModuleSwitch']=array (  'args' => '/api/global/module-switch',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Global Modules Switches ?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/global/module-switch\'',  'f_args_txt' => '/api/global/module-switch',  'f_method_name' => 'ApiGetGlobalModuleSwitch',  'f_call' => 'CallApiGet',);
@@ -1946,7 +1960,7 @@ trait Hackapi_Huawei_modem_Trait {
 		$def['ApiGetNetworkNetworkmodeXml']=array (  'args' => '/config/network/networkmode.xml',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Net Modes?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/config/network/networkmode.xml\'',  'f_args_txt' => '/config/network/networkmode.xml',  'f_method_name' => 'ApiGetNetworkNetworkmodeXml',  'f_call' => 'CallApiGet',);
 		$def['ApiGetPincodeConfigXml']=array (  'args' => '/config/pincode/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'PIN code Configuration',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/pincode/config.xml\'',  'f_args_txt' => '/config/pincode/config.xml',  'f_method_name' => 'ApiGetPincodeConfigXml',  'f_call' => 'CallApiGet',);
 		$def['ApiGetWebuicfgConfigXml']=array (  'args' => '/config/webuicfg/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Web UI Configuration',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/webuicfg/config.xml\'',  'f_args_txt' => '/config/webuicfg/config.xml',  'f_method_name' => 'ApiGetWebuicfgConfigXml',  'f_call' => 'CallApiGet',);
-		$def['ApiSetDeviceControl']=array (  'args' => '/api/device/control',  'state' => '1',  'type' => 'set',  'call_index' => 'xml_p',  'params' =>   array (    'definitions' =>     array (      'Control' =>       array (        0 => '1',        1 =>         array (          1 => 'Reboot',        ),        2 => 'Set to 1 to reboot',      ),    ),    'parameters' => '$params=array(		\'Control\'	=> $Control,	);',    'arguments' => '$Control="1"',    'call_params' => ', $params',    'doc_desc' => '* @param string $Control	Set to 1 to reboot*		\'1\'	: Reboot,',    'def_value' => '',  ),  'desc' => 'Reboot',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/api/device/control\'',  'f_args_txt' => '/api/device/control',  'f_method_name' => 'ApiSetDeviceControl',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDeviceControl']=array (  'args' => '/api/device/control',  'state' => '4',  'type' => 'set',  'call_index' => 'xml_p',  'params' =>   array (    'definitions' =>     array (      'Control' =>       array (        0 => '1',        1 =>         array (          1 => 'Reboot',        ),        2 => 'Set to 1 to reboot',      ),    ),    'parameters' => '$params=array(		\'Control\'	=> $Control,	);',    'arguments' => '$Control="1"',    'call_params' => ', $params',    'doc_desc' => '* @param string $Control	Set to 1 to reboot*		\'1\'	: Reboot,',    'def_value' => '',  ),  'desc' => 'Reboot',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/device/control\'',  'f_args_txt' => '/api/device/control',  'f_method_name' => 'ApiSetDeviceControl',  'f_call' => 'CallApiPost',);
 	
 		return $def;
 	}

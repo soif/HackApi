@@ -18,7 +18,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 	protected $user			="admin";			// (default) user name
 	protected $password		="admin";			// (default) user password
 
-	protected	$client_version		='0.92';	// API client Version, formated as M.mm
+	protected	$client_version		='0.93';	// API client Version, formated as M.mm
 
 	protected $use_cookies	=true;
 	protected $def_referer	="/html/index.html?noredirect"; // needed ?
@@ -355,21 +355,22 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
-	public function ApiWanConnect(){
-		$this->DebugLogMethod();
-	}
-
-	// -------------------------------------------------------------------------
-	public function ApiWanDisconnect(){
-		$this->DebugLogMethod();
-	}
-
-	// -------------------------------------------------------------------------
 	public function ApiWanStatus(){
 		$this->DebugLogError("Please override the ".__METHOD__." method.");
 	}
 
 */
+	// -------------------------------------------------------------------------
+	public function ApiWanConnect(){
+		return $this->ApiSetDialupMobileDataswitch(1);
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWanDisconnect(){
+		return $this->ApiSetDialupMobileDataswitch(0);
+	}
+
+
 
 	// -------------------------------------------------------------------------
 	public function ApiWifiListClients($id = ''){
@@ -457,11 +458,13 @@ class Hackapi_Huawei_modem extends Hackapi{
 		}
 
 		$headers=array();
+		$ok_type=false;
 		if($type=='POST' and $format=='xml'){
 			$this->DebugLogDebug("xml POST Call needs a Token, le's grab one");
 			$headers=array(
 				'__RequestVerificationToken: '.$this->_GetTokenAvailable() 
 			);
+			$ok_type=true;
 		}
 
 		// make the call ----------------------------------------
@@ -478,7 +481,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 			$arr=$raw;			
 		}
 
-		return $this->ErrorFreeResult($arr);
+		return $this->ErrorFreeResult($arr,$ok_type);
 	}
 
 	// -------------------------------------------------------------------------
@@ -490,6 +493,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 			}
 			else{
 				$this->DebugLogError('OK Not found');
+				return false;
 			}
 		}
 	
@@ -498,7 +502,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 				$this->SetApiErrorCode($arr['code'],$arr['message'],$arr);
 			}
 			else{
-				$this->SetError(0,'answer is a valid array, but empty');
+				//$this->SetError(0,'answer is a valid array, but empty');
 				$this->DebugLogDebug("API's result seems valid, Great!");
 				return $arr;
 			}

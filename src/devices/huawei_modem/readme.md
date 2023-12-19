@@ -13,7 +13,7 @@ Here are the models and version currently tested an reported by our fellow users
 
 | Model | Version | Date | Tester | Comment |
 | ----- | ------- | ---- | ------ | ------- |
-| B535-333 | 11.0.5.51 |December 17th, 2023 |@soif | Most ApiGet methods have been tested |
+| B535-333 | 11.0.5.51 | December 17th, 2023 | @soif | Most ApiGet methods have been tested |
 
 
 ### Contribute !
@@ -22,13 +22,12 @@ Please tell us which models you've tested by adding your line in the [template.p
 *You just have to edit the file directly from github!*
 
 
-## 127 methods are currently implemented
+## 130 methods are currently implemented
 
-- **10** standardized methods
-- **73** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
-- **30** methods with status of **TESTED** (Params still not ordered or desc not set)
+- **12** standardized methods
+- **74** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
+- **31** methods with status of **TESTED** (Params still not ordered or desc not set)
 - **13** methods with status of **ERROR** (Returns an error)
-- **1** methods with status of **DRAFT** (Not tested)
 
 
 
@@ -39,11 +38,10 @@ Please tell us which models you've tested by adding your line in the [template.p
 - **13** methods with status of **ERROR** (Returns an error)
 
 
-### 3 *Setter* methods (Writing or performing an action)
+### 4 *Setter* methods (Writing or performing an action)
 
-- **1** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
-- **1** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **1** methods with status of **DRAFT** (Not tested)
+- **2** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
+- **2** methods with status of **TESTED** (Params still not ordered or desc not set)
 
 
 
@@ -63,6 +61,8 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiSmsListReceived** |
 | **ApiSmsListSent** |
 | **ApiSmsSend** |
+| **ApiWanConnect** |
+| **ApiWanDisconnect** |
 | **ApiWifiListClients** |
 | **ApiWifiListSsids** |
 
@@ -97,7 +97,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiGetDialupConnection** | Dialup Connection Information | FINAL |
 | **ApiGetDialupConnectmodeXml** | Dialup Connect Mode | FINAL |
 | **ApiGetDialupDialupFeatureSwitch** | Dialup Features | FINAL |
-| **ApiGetDialupMobileDataswitch** | Cellular Data Switch ? | TESTED |
+| **ApiGetDialupMobileDataswitch** | Cellular Data Switch | TESTED |
 | **ApiGetDialupMultiWanProfiles** |  | ERROR |
 | **ApiGetDialupProfiles** | Cellular Connection Profiles | FINAL |
 | **ApiGetGlobalConfigXml** | Global Configuration | FINAL |
@@ -184,6 +184,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiGetWlanStatusSwitchSettings** | Wifi Switch Settings | FINAL |
 | **ApiGetWlanWifiFeatureSwitch** | Wifi Features Switches | FINAL |
 | **ApiGetWlanWlandbho** | Wifi dbho? | TESTED |
-| **ApiSetDeviceControl** | Reboot | DRAFT |
+| **ApiSetDeviceControl** | Reboot | TESTED |
+| **ApiSetDialupMobileDataswitch** | Cellular Connect/Disconnect | FINAL |
 | **ApiSetSmsDeleteSms** | Delete a SMS from the InBox | FINAL |
 | **ApiSetSmsSendSms** | Send a SMS to one or multiple phone number(s) | TESTED |
