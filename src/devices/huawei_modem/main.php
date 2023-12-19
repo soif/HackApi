@@ -348,6 +348,12 @@ class Hackapi_Huawei_modem extends Hackapi{
 		return $this->ApiSetSmsSendSms($phones_xml,$message,$len,$reserved,$date);
 	}
 /*
+
+	// -------------------------------------------------------------------------
+	public function ApiCellStatus(){
+		$this->DebugLogError("Please override the ".__METHOD__." method.");
+	}
+
 	// -------------------------------------------------------------------------
 	public function ApiWanConnect(){
 		$this->DebugLogMethod();
@@ -356,6 +362,11 @@ class Hackapi_Huawei_modem extends Hackapi{
 	// -------------------------------------------------------------------------
 	public function ApiWanDisconnect(){
 		$this->DebugLogMethod();
+	}
+
+	// -------------------------------------------------------------------------
+	public function ApiWanStatus(){
+		$this->DebugLogError("Please override the ".__METHOD__." method.");
 	}
 
 */
