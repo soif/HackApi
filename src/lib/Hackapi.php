@@ -64,6 +64,8 @@ class Hackapi{
 			'rnc'			=> 'api_field_path',	// RNC
 			'enbid'			=> 'api_field_path',	// eNB ID
 			'lac'			=> 'api_field_path',	// LAC
+			'rat'			=> 'api_field_path',	// RAT
+			'tac'			=> 'api_field_path',	// TAC
 			'channel'		=> 'api_field_path',	// Channel (EARFCN)
 			'bands'			=> 'api_field_path',	// Bands
 			'pci'			=> 'api_field_path',	// PCI
@@ -71,8 +73,9 @@ class Hackapi{
 			'protocol'		=> 'api_field_path',	// Protocol
 			'imei'			=> 'api_field_path',	// IMEI
 			'imci'			=> 'api_field_path',	// IMCI
-			'iccid'			=> 'api_field_path',			// Sim ICCI
-			'imsi'			=> 'api_field_path',			// Sim_IMSI
+			'iccid'			=> 'api_field_path',	// Sim ICCI
+			'imsi'			=> 'api_field_path',	// Sim IMSI
+			'msisdn'			=> 'Msisdn',		// Sim Phone Number
 
 			'strength'		=> 'api_field_path',	// (%) Strength
 			'csq'			=> 'api_field_path',	// CSQ
@@ -83,6 +86,8 @@ class Hackapi{
 			'rsrq'			=> 'api_field_path',	// (dB) RSRQ
 			'sinr'			=> 'api_field_path',	// (dB) SINR
 			'cell_id'		=> 'api_field_path',	// Cell ID
+			'rx_speed'		=> 'api_field_path',	// (Kbytes/sec) Download Speed
+			'tx_speed'		=> 'api_field_path',	// (Kbytes/sec) Upload Speed
 
 		),
 		'ApiSmsList'=>array(
@@ -209,9 +214,10 @@ class Hackapi{
 	/**
 	 * Cellular modems Status & Information
 	 *
+	 * @param boolean $fast_mode	Require only minimum info needed to quicky point an Antenna, whenever the API requires multiple (slow) calls to get the full information
 	 * @return array		Basic Cell & signal information
 	 */
-	public function ApiCellStatus(){
+	public function ApiCellStatus($fast_mode=false){
 		$this->DebugLogError("Please override the ".__METHOD__." method.");
 	}
 
