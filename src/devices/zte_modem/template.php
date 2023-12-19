@@ -57,7 +57,7 @@ $p['definitions']=array(
 																		'm_ssid_enable'	=>['0',['0'=>'Disable','1'=>'Enable'],'Enable/Disable Multi SSID'],
 																	],		'Wifi Switches'],
 
-	['hostNameList',					'1',	'get',	'get',		'',		'List Host names'],
+	['hostNameList',					'4',	'get',	'get',		'',		'List Host names'],
 	['station_list',					'5',	'get',	'get',		'',		'List Wifi Clients'],
 
 );
@@ -65,8 +65,8 @@ $p['definitions']=array(
 // List all 'METHOD_I' defined above to point to the Method name
 // METHOD_INDEX => [METHOD_CALLED]
 $p['calls']=array(
-	'get'	=>['MyCallApiGet'],
-	'post'	=>['MyCallApiPost'],
+	'get'	=>['CallApiGet'],
+	'post'	=>['CallApiPost'],
 );
 
 
@@ -114,7 +114,7 @@ Used to document the list of devices supported by this current API Client
 */
 // [ MODEL, 	SOWFTARE_VERSION,		DATE,			 @NickName|Full_Name, 	URL|email,					COMMENT ]
 $p['tests']=array(
-	['mf920u',	'BD_MF920UV1.0.1B05',	'2023-12-17',	'@soif',				'https://github.com/soif/', 'Work In Progress']
+	['mf920u',	'BD_MF920UV1.0.1B05',	'2023-12-19',	'@soif',				'https://github.com/soif/', 'Most current methods have been tested']
 );
 
 ?>

@@ -22,7 +22,7 @@ class Hackapi_Zte_modem extends Hackapi{
 	protected $user			="admin";			// (default) user name
 	protected $password		="admin";			// (default) user password
 
-	protected $client_version	='0.92';	// API client Version, formated as M.mm
+	protected $client_version	='1.00';	// API client Version, formated as M.mm
 
 	protected $def_referer		='/index.html';
 	protected $def_params		=array(
@@ -187,7 +187,7 @@ class Hackapi_Zte_modem extends Hackapi{
 			'lte_snr',	// (dB) SINR
 			'cell_id',	// Cell ID
 		);
-		$arr = $this->MyCallApiGet($commands);
+		$arr = $this->CallApiGet($commands);
 		if(is_array($arr)){
 			$arr=$this->RemapFields($arr,'ApiCellStatus');
 			$arr['strength']=$arr['strength']*20;
@@ -199,7 +199,7 @@ class Hackapi_Zte_modem extends Hackapi{
 	public function ApiSmsSend($to_tel, $message, $priority = ''){
 		//$date = date('y;m;d;H;i;s;+0');
 		$message=$this->_utf2hex($message);
-		return $this->ApiSetSendSms($to_tel, $message, $date); //,'GSM7_default'
+		return $this->ApiSetSendSms($to_tel, $message); //$date really needed?
 	}
 
 	// -------------------------------------------------------------------------
@@ -273,7 +273,7 @@ class Hackapi_Zte_modem extends Hackapi{
 			'monthly_tx_bytes',		// (bytes) Monthly TX 
 			'total_tx_bytes',		// (bytes) Total TX 
 		);
-		$arr = $this->MyCallApiGet($commands);
+		$arr = $this->CallApiGet($commands);
 		if(is_array($arr)){
 			$arr=$this->RemapFields($arr,'ApiWanStatus');
 			$arr['up']= $arr['up']=='pdp_connected' ? true : false;
@@ -329,7 +329,7 @@ class Hackapi_Zte_modem extends Hackapi{
 			'SSID1',
 			'ssid',
 		);
-		$arr = $this->MyCallApiGet($commands);
+		$arr = $this->CallApiGet($commands);
 		if(is_array($arr)){
 			$out=array();
 			if(isset($arr['SSID1']) and $ssid=$arr['SSID1']){
@@ -472,7 +472,7 @@ class Hackapi_Zte_modem extends Hackapi{
 			'lte_rssi',
 			'lte_snr',
 		);
-		return $this->MyCallApiGet($commands);
+		return $this->CallApiGet($commands);
 	}
 	// -------------------------------------------------------------------------
 	private function _ApiCmd2(){
@@ -557,7 +557,7 @@ class Hackapi_Zte_modem extends Hackapi{
 			'rssi',
 	
 		);
-		return $this->MyCallApiGet($commands);
+		return $this->CallApiGet($commands);
 	}
 
 	// -------------------------------------------------------------------------
@@ -642,21 +642,21 @@ class Hackapi_Zte_modem extends Hackapi{
 			'WPAPSK1_encode',
 			'wps_pin',
 		);
-		return $this->MyCallApiGet($commands);
+		return $this->CallApiGet($commands);
 	}
 
 
 	// -------------------------------------------------------------------------
-	private function MyCallApiGet($cmds='',$params=array()){
-		return $this->_CallApiCommands('/goform/goform_get_cmd_process', $cmds, $params, 'GET');
+	public function CallApiGet($cmds='',$params=array()){
+		return $this->_CallApi('/goform/goform_get_cmd_process', $cmds, $params, 'GET');
 	}
 	// -------------------------------------------------------------------------
-	private function MyCallApiPost($cmds='',$params=array()){
-		return $this->_CallApiCommands('/goform/goform_set_cmd_process', $cmds, $params, 'POST');
+	public function CallApiPost($cmds='',$params=array()){
+		return $this->_CallApi('/goform/goform_set_cmd_process', $cmds, $params, 'POST');
 	}
 
 	// -------------------------------------------------------------------------
-	private function _CallApiCommands($url, $cmds='',$params=array(),$method='GET'){
+	private function _CallApi($url, $cmds='',$params=array(),$method='GET'){
 		$this->DebugLogMethod();
 		
 		if($method=='GET'){
@@ -723,7 +723,7 @@ class Hackapi_Zte_modem extends Hackapi{
 	// -------------------------------------------------------------------------
 	private function _ApiGrabAD1(){
 		$this->DebugLogMethod();
-		if($result=$this->MyCallApiGet('cr_version,wa_inner_version')){	//Language,
+		if($result=$this->CallApiGet('cr_version,wa_inner_version')){	// Language, needed?
 			$this->_ad1=md5($result['wa_inner_version'].$result['cr_version']);
 			$this->DebugLogVerbose("Grabed ad1: {$this->_ad1}");
 			return true;
@@ -733,7 +733,7 @@ class Hackapi_Zte_modem extends Hackapi{
 	// -------------------------------------------------------------------------
 	private function _ApiGrabAD2(){
 		$this->DebugLogMethod();
-		if($result=$this->MyCallApiGet('RD')){	//	,['goformId'=>'RD']
+		if($result=$this->CallApiGet('RD')){
 			$this->_ad2=$result['RD'];
 			$this->DebugLogVerbose("Grabed ad2: {$this->_ad2}");
 			return $result;

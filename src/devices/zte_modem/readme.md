@@ -14,7 +14,7 @@ Here are the models and version currently tested an reported by our fellow users
 
 | Model | Version | Date | Tester | Comment |
 | ----- | ------- | ---- | ------ | ------- |
-| mf920u | BD_MF920UV1.0.1B05 |December 17th, 2023 |@soif | Work In Progress |
+| mf920u | BD_MF920UV1.0.1B05 | December 19th, 2023 | @soif | All current methods have been tested |
 
 
 ### Contribute !
@@ -23,9 +23,9 @@ Please tell us which models you've tested by adding your line in the [template.p
 *You just have to edit the file directly from github!*
 
 
-## 22 methods are currently implemented
+## 25 methods are currently implemented
 
-- **11** standardized methods
+- **14** standardized methods
 - **6** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
 - **2** methods with status of **TESTED** (Params still not ordered or desc not set)
 - **3** methods with status of **DRAFT** (Not tested)
@@ -55,6 +55,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 | Method |
 | ------ |
+| **ApiCellStatus** |
 | **ApiLogin** |
 | **ApiReboot** |
 | **ApiSmsDelete** |
@@ -63,7 +64,9 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiSmsSend** |
 | **ApiWanConnect** |
 | **ApiWanDisconnect** |
+| **ApiWanStatus** |
 | **ApiWifiListClients** |
+| **ApiWifiListSsids** |
 | **ApiWifiStart** |
 | **ApiWifiStop** |
 
