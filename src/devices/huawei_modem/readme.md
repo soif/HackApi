@@ -22,9 +22,9 @@ Please tell us which models you've tested by adding your line in the [template.p
 *You just have to edit the file directly from github!*
 
 
-## 130 methods are currently implemented
+## 132 methods are currently implemented
 
-- **12** standardized methods
+- **14** standardized methods
 - **74** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
 - **31** methods with status of **TESTED** (Params still not ordered or desc not set)
 - **13** methods with status of **ERROR** (Returns an error)
@@ -53,6 +53,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 | Method |
 | ------ |
+| **ApiCellStatus** |
 | **ApiIsLoggedIn** |
 | **ApiLogin** |
 | **ApiLogout** |
@@ -63,6 +64,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiSmsSend** |
 | **ApiWanConnect** |
 | **ApiWanDisconnect** |
+| **ApiWanStatus** |
 | **ApiWifiListClients** |
 | **ApiWifiListSsids** |
 

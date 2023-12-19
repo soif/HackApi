@@ -18,7 +18,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 	protected $user			="admin";			// (default) user name
 	protected $password		="admin";			// (default) user password
 
-	protected	$client_version		='0.93';	// API client Version, formated as M.mm
+	protected	$client_version		='1.00';	// API client Version, formated as M.mm
 
 	protected $use_cookies	=true;
 	protected $def_referer	="/html/index.html?noredirect"; // needed ?
@@ -180,12 +180,72 @@ class Hackapi_Huawei_modem extends Hackapi{
 	);
 
 	protected $std_fields_map=array(
+		'ApiCellStatus'=>array(
+			'prov_name'		=> 'ShortName',	// Provider Name
+			'prov_fullname'	=> 'FullName',	// Provider Full Name
+			'mcc'			=> 'my_mcc',	// MCC
+			'mnc'			=> 'my_mnc',	// MNC
+			'rnc'			=> '',	// RNC
+			'enbid'			=> 'enodeb_id',	// eNB ID
+			'lac'			=> 'lac',	// LAC
+			'rat'			=> 'Rat',	// RAT
+			'tac'			=> 'tac',	// TAC
+			'channel'		=> 'api_field_path',	// Channel (EARFCN)
+			'bands'			=> 'band',	// Bands
+			'pci'			=> 'pci',	// PCI
+			'mode'			=> 'workmode',	// Cellular network type: LTE,CMDA,...  (Signal report 'mode'. we need to figure out what modes are.. mine is 7 on LTE)
+//			'protocol'		=> '',	// Protocol
+			'imei'			=> 'Imei',	// IMEI
+//			'imci'			=> '',	// IMCI
+			'iccid'			=> 'Iccid',			// Sim ICCI
+			'imsi'			=> 'Imsi',			// Sim_IMSI
+			'msisdn'		=> 'Msisdn',		// Sim Phone Number
+
+//			'strength'		=> '',	// (%) Strength
+//			'csq'			=> '',	// CSQ
+			'rssi'			=> 'rssi',	// (dBm) RSSI
+			'rscp'			=> 'rscp',	// (dBm) RSCP
+			'rsrp'			=> 'rsrp',	// (dBm) RSRP
+			'ecio'			=> 'ecio',	// (dB) ECIO
+			'rsrq'			=> 'rsrq',	// (dB) RSRQ
+			'sinr'			=> 'sinr',	// (dB) SINR
+			'cell_id'		=> 'cell_id',	// Cell ID
+			'rx_speed'		=> 'my_rx_speed',	// (Kbytes) Download Speed
+			'tx_speed'		=> 'my_tx_speed',	// (Kbytes) Upload Speed
+
+			'rx_lte_freq'	=> 'ltedlfreq',	// 
+			'tx_lte_freq'	=> 'lteulfreq',	// 
+		),
 		'ApiSmsList'=>array(
 			'id'	=> 'Index',						// SMS's ID (the one used to delete the SMS)
 			'date'	=> 'Date',						// SMS's Date, formated as a SQL datetime (YYYY-MM-DD HH:MM:SS)
 			'phone'	=> 'Phone',						// SMS's Phone Number
 			'text'	=> 'Content',					// SMS's Text Content
 		),
+		'ApiWanStatus'=>array(
+//			'mac'			=> '',	// MAC address
+			'up'			=> 'my_up',	// (boolean) Are we connected ?
+			'since'			=> 'CurrentConnectTime',	// Seconds since we are connected
+			'ipv4'			=> 'WanIPAddress',	// IP address (v4)
+			'ipv6'			=> 'WanIPv6Address',	// IP address (v6)
+			'dns1v4'		=> 'my_dns1v4',	// DNS Server 1 IP address (v4)
+			'dns2v4'		=> 'my_dns2v4',	// DNS Server 2 IP address (v4)
+			'dns1v6'		=> 'my_dns1v6',	// DNS Server 1 IP address (v6)
+			'dns2v6'		=> 'my_dns2v6',	// DNS Server 2 IP address (v6)
+//			'gatewayv4'		=> '',	// Gateway IP address (v4)
+//			'gatewayv6'		=> '',	// Gateway IP address (v6)
+			'rx_realtime'	=> 'CurrentDownload',	// (bytes) Realtime RX 
+			'rx_peak'		=> '',	// (bytes) Peak RX 
+			'rx_day'		=> '',	// (bytes) Daily RX 
+			'rx_month'		=> 'CurrentMonthDownload',	// (bytes) Monthly RX 
+			'rx_total'		=> 'TotalDownload',	// (bytes) Total RX 
+			'tx_realtime'	=> 'CurrentUpload',	// (bytes) Realtime TX 
+			'tx_peak'		=> '',	// (bytes) Peak TX 
+			'tx_day'		=> '',	// (bytes) Daily TX 
+			'tx_month'		=> 'CurrentMonthUpload',	// (bytes) Monthly TX 
+			'tx_total'		=> 'TotalUpload',	// (bytes) Total TX 
+		),
+
 		'ApiWifiListClients'=>array(
 			'id'			=> 'ID',				// the internal ID asigned by the device (else set it to the MAC address)
 			'mac'			=> 'MacAddress',		// MAC address
@@ -223,7 +283,6 @@ class Hackapi_Huawei_modem extends Hackapi{
 	public function ApiLogin($user='',$password=''){
 		$this->DebugLogMethod();
 
-		//$this->ResetLastError();
 		$user 		and $this->user		=$user;
 		$password	and $this->password	=$password;
 
@@ -243,8 +302,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 		);
 		$xml=$this->ArrayToXml($params,'request');
 
-		$result=$this->XmlToArray($this->CallEndpoint('/api/user/login','POST',$xml, $headers));
-		
+		$result = $this->XmlToArray($this->CallEndpoint('/api/user/login','POST',$xml, $headers));
 		$result = $this->ErrorFreeResult($result,true);
 		if($result){
 			$this->DebugLogDebug('Login succeeded');
@@ -262,17 +320,13 @@ class Hackapi_Huawei_modem extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	public function ApiLogout(){		
-		$this->DebugLogMethod();
-
 		$xml='<?xml version="1.0" encoding="UTF-8"?><request><Logout>1</Logout></request>';
-		$result=$this->XmlToArray($this->CallEndpoint('/api/user/logout','POST',$xml, $headers));		
+		$result=$this->XmlToArray($this->CallEndpoint('/api/user/logout','POST',$xml));		
 		return $this->ErrorFreeResult($result,true);
 	}
 
 	// -------------------------------------------------------------------------
 	public function ApiIsLoggedIn(){		
-		$this->DebugLogMethod();
-
 		$result=$this->XmlToArray($this->CallEndpoint('/api/user/state-login','GET'));
 		if($result=$this->ErrorFreeResult($result)){
 			if($result['State']=='0'){
@@ -292,25 +346,56 @@ class Hackapi_Huawei_modem extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	public function ApiReboot(){
-		$this->DebugLogMethod();
 		return $this->ApiSetDeviceControl('1');
 	}
 
 	// -------------------------------------------------------------------------
+	public function ApiCellStatus($fast_mode=false){	
+		$sig=$this->ApiGetDeviceSignal(); //most signal info
+		is_array($sig) or $sig=array();	
+
+		if(! $fast_mode){
+			$lac =$this->ApiGetNetCellInfo(); // lac (,cellinfo)
+			$plmn=$this->ApiGetNetCurrentPlmn(); // FullName, ShortName, Rat, (State,Spn)
+			$dev =$this->ApiGetDeviceInformation(); // Imei,Imsi,Iccid,Msisdn,workmode
+			is_array($lac) or $lac=array();	
+			is_array($plmn) or $plmn=array();
+			is_array($dev) or $dev=array();
+			$all=array_merge($sig,$lac,$plmn,$dev);
+		}
+		else{
+			$all=$sig;
+		}
+
+		if(isset($all['plmn'])){
+			$all['my_mcc']=substr($all['plmn'],0,3);
+			$all['my_mnc']=substr($all['plmn'],3,2);
+		}
+		if(isset($all['earfcn'])){
+			$tmp=preg_replace('#[DLU:]+#','',$all['earfcn']);
+			list($all['my_tx_speed'],$all['my_rx_speed'])=explode(' ',$tmp); // DL & UL are reversed....
+		}
+		$all=$this->RemapFields($all,'ApiCellStatus',false);
+		$all['rssi']=str_replace('dBm',	'',$all['rssi']);
+		$all['rsrp']=str_replace('dBm',	'',$all['rsrp']);
+		$all['rsrq']=str_replace('dB',	'',$all['rsrq']);
+		$all['sinr']=str_replace('dB',	'',$all['sinr']);
+		
+		return $all;
+	}
+
+	// -------------------------------------------------------------------------
 	public function ApiSmsDelete($index){
-		$this->DebugLogMethod();
 		return $this->ApiSetSmsDeleteSms($index);
 	}
 
 	// -------------------------------------------------------------------------
 	public function ApiSmsListReceived($read_type=0, $page=1, $limit=20){
-		$this->DebugLogMethod();
 		return $this->_SmsList(1, $page, $limit, $read_type);
 	}
 
 	// -------------------------------------------------------------------------
 	public function ApiSmsListSent($page=1, $limit=20){
-		$this->DebugLogMethod();
 		return $this->_SmsList(2, $page, $limit);
 	}
 
@@ -332,7 +417,6 @@ class Hackapi_Huawei_modem extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	public function ApiSmsSend($phone_number, $message, $priority=''){
-		$this->DebugLogMethod();
 		$phones_xml='';
 		if(is_array($phone_number)){
 			foreach($phone_number as $phone){
@@ -347,19 +431,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 		$date=date('Y-m-d H:i:s');
 		return $this->ApiSetSmsSendSms($phones_xml,$message,$len,$reserved,$date);
 	}
-/*
 
-	// -------------------------------------------------------------------------
-	public function ApiCellStatus(){
-		$this->DebugLogError("Please override the ".__METHOD__." method.");
-	}
-
-	// -------------------------------------------------------------------------
-	public function ApiWanStatus(){
-		$this->DebugLogError("Please override the ".__METHOD__." method.");
-	}
-
-*/
 	// -------------------------------------------------------------------------
 	public function ApiWanConnect(){
 		return $this->ApiSetDialupMobileDataswitch(1);
@@ -370,11 +442,32 @@ class Hackapi_Huawei_modem extends Hackapi{
 		return $this->ApiSetDialupMobileDataswitch(0);
 	}
 
+	// -------------------------------------------------------------------------
+	public function ApiWanStatus(){
+		$dev	=$this->ApiGetDeviceInformation(); //
+		//$dev2	=$this->ApiGetMonitoringStatus(); // for connection status ?
+		$stat	=$this->ApiGetMonitoringTrafficStatistics(); //
+		$stat2	=$this->ApiGetMonitoringMonthStatistics(); //
 
+		is_array($dev) or $dev=array();	
+		is_array($stat) or $stat=array();	
+		is_array($stat2) or $stat2=array();
+		//is_array($dev2) or $dev2=array();
+
+		$all=array_merge($dev,$stat,$stat2); //,$dev2
+
+		$all['wan_dns_address']			and list($all['my_dns1v4'],$all['my_dns2v4'])	=explode(',',$all['wan_dns_address']);
+		$all['wan_ipv6_dns_address']	and list($all['my_dns1v6'],$all['my_dns2v6'])	=explode(',',$all['wan_ipv6_dns_address']);
+		$all=$this->RemapFields($all,'ApiWanStatus',false);
+		$all['up']=false;
+		if($all['since']>0){
+			$all['up']=true;
+		}		
+		return $all;
+	}
 
 	// -------------------------------------------------------------------------
 	public function ApiWifiListClients($id = ''){
-		$this->DebugLogMethod();
 		if($result=$this->ApiGetWlanHostList()){
 			if(is_array($result) and isset($result['Hosts']['Host'])){
 				$items=$result['Hosts']['Host'];
@@ -403,7 +496,6 @@ class Hackapi_Huawei_modem extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	public function ApiWifiListSsids($only_enabled=true){
-		$this->DebugLogMethod();
 		if($result=$this->ApiGetWlanMultiBasicSettings()){
 			if(is_array($result)){
 				$items=$result['Ssids']['Ssid'];
@@ -420,7 +512,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 
-	
+
 	// ###############################################################################
 	// #### Our OWN methods ##########################################################
 	// ###############################################################################
@@ -546,7 +638,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 			}
 		}
 		else{
-			$this->DebugLogDebug("Not handled -> ".trim($header_line));
+			$this->DebugLogVerbose("Not handled -> ".trim($header_line));
 		}
 		//curl need this
 		return strlen($header_line);
@@ -597,33 +689,6 @@ class Hackapi_Huawei_modem extends Hackapi{
 		}
 		$this->DebugLogDebug("No session or token needed");
 	}
-
-
-
-
-/*
-	// #### TO TEST ##################################################################
-
-	public function setLedOn($on = false){
-
-		$ledXml = '<?xml version:"1.0" encoding="UTF-8"?><request><ledSwitch>'.($on ? '1' : '0').'</ledSwitch></request>';
-		$xml = $this->http->postXml($this->getUrl('api/led/circle-switch'), $ledXml);
-		$obj = new \SimpleXMLElement($xml);
-		return ((string)$obj == 'OK');
-	}
-
-	public function getLedStatus(){
-		$obj = $this->generalizedGet('api/led/circle-switch');
-		if(property_exists($obj, 'ledSwitch')){
-			if($obj->ledSwitch == '1'){
-				return true;
-			}
-		}
-		return false;
-	}
-
-*/
-
 
 }
 ?>
