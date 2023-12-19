@@ -18,7 +18,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 	protected $user			="admin";			// (default) user name
 	protected $password		="admin";			// (default) user password
 
-	protected	$client_version		='0.91';	// API client Version, formated as M.mm
+	protected	$client_version		='0.92';	// API client Version, formated as M.mm
 
 	protected $use_cookies	=true;
 	protected $def_referer	="/html/index.html?noredirect"; // needed ?
@@ -203,8 +203,8 @@ class Hackapi_Huawei_modem extends Hackapi{
 			'id'			=> 'ID',
 			'bssid'			=> 'WifiMac',
 			'ssid'			=> 'WifiSsid',
-			'password'		=> '',
-			'channel'		=> '',
+//			'password'		=> '',
+//			'channel'		=> '',
 		),
 	);
 
@@ -410,7 +410,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 				$formatted=array();
 				foreach($items as $it){
 					if(!$only_enabled or $it['WifiEnable']==1){
-						$formatted[$it['ID']][]=$this->RemapFields($it,'ApiWifiListSsids',false);
+						$formatted[$it['ID']]=$this->RemapFields($it,'ApiWifiListSsids',false);
 					}
 				}
 				return $formatted;
