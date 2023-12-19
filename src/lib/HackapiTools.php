@@ -741,15 +741,13 @@ public function {method}({arguments}){
 				$doc_str=implode("',' ",$doc_arr) and $doc_str="@todo Successfully tested on: Array[ '$doc_str' ]";
 				$block=$this->_replaceVar('todo',		$doc_str,		$block);
 				*/
-
 				
 				// makes E_NOTICE happy
-				isset($built[$def['type']]) 			or $built[$def['type']]=array();
+				isset($built[$def['type']]) 				or $built[$def['type']]=array();
 				isset($built[$def['type']][$def['state']])	or $built[$def['type']][$def['state']]=array();
 				$built[$def['type']][$def['state']][] =$block;
 
 				krsort($built[$def['type']]);
-				//echo $block;
 		}
 
 		$out='';
@@ -781,7 +779,6 @@ public function {method}({arguments}){
 			}
 		}
 
-
 		// output --------------------------------------
 		$out .='
 
@@ -802,7 +799,6 @@ public function ListMethodsDefinitions(){
 }
 ';
 		$out=$this->_enTab($out);
-
 
 
 		// output --------------------------------------
@@ -836,9 +832,7 @@ $out
 EOF;
 
 			$this->_SaveFile($file_name,$file_content);
-
 		}
-
 		return $out;
 	}
 
@@ -1030,7 +1024,6 @@ EOF;
 		return $out;
 	}
 
-
 	// -------------------------------------------------------------------------
 	private function _FormatTest($row){
 		$out=array();
@@ -1127,7 +1120,6 @@ EOF;
 		$txt= str_replace('{'.$search.'}',	$replace, $txt);
 		return $txt;
 	}
-
 
 	// -------------------------------------------------------------------------
 	private function _enTab($txt,$num=1){
