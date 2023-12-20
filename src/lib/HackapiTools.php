@@ -961,7 +961,8 @@ EOF;
 
 				$definitions=$this->odev->ListMethodsDefinitions();
 				ksort($definitions);
-				foreach($definitions as $method => $def){					
+				foreach($definitions as $method => $def){		
+					$def['desc']=str_replace('|',',',$def['desc']); // prevent colum(s) to be created if we have "|" in the description			
 					$out .="| **{$def['f_method_name']}** | {$def['desc']} | {$def['f_state_name']} |\n";
 			}
 		
