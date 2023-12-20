@@ -137,7 +137,9 @@ class Hackapi{
 			'bssid'			=> 'api_field_path',	// BSSID MAC Address
 			'ssid'			=> 'api_field_path',	// SSID MAC Address
 			'password'		=> 'api_field_path',	// Password
+			'enabled'		=> 'api_field_path',	// Is enabled ? (true|false)
 			'channel'		=> 'api_field_path',	// Frequency Channel
+			'mode'			=> 'api_field_path',	// Wifi Mode (11xxx)
 		),
 	);
 
