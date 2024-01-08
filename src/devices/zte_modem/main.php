@@ -1,4 +1,5 @@
 <?php
+
 //include the main class we are exending, and our trait (if it exists or not)
 require_once(dirname(__FILE__).'/../../lib/Hackapi.php');
 Hackapi::RequireTrait(__FILE__);
@@ -22,7 +23,7 @@ class Hackapi_Zte_modem extends Hackapi{
 	protected $user			="admin";			// (default) user name
 	protected $password		="admin";			// (default) user password
 
-	protected $client_version	='1.00';	// API client Version, formated as M.mm
+	protected $client_version	='1.01';	// API client Version, formated as M.mm
 
 	protected $def_referer		='/index.html';
 	protected $def_params		=array(
@@ -107,10 +108,12 @@ class Hackapi_Zte_modem extends Hackapi{
 		),
 		'ApiWifiListSsids'=>array(
 			// 'id'			=> 'api_field_path',	// the internal Station ID/name asigned by the device (used to filter the ApiWifiListClients)
-			// 'bssid'			=> 'BSSID',	// BSSID MAC Address
-			// 'ssid'			=> 'SSID1',	// SSID MAC Address
-			// 'password'		=> '',	// Password
-			// 'channel'		=> '',	// Frequency Channel
+			// 'bssid'		=> 'BSSID',	// BSSID MAC Address
+			// 'ssid'		=> 'SSID1',	// SSID MAC Address
+			// 'password'	=> '',	// Password
+			//'enabled'		=> 'api_field_path',	// Is enabled ? (true|false)
+			//'channel'		=> 'api_field_path',	// Frequency Channel
+			//'mode'		=> 'api_field_path',	// Wifi Mode (11xxx)
 		),
 
 
@@ -285,7 +288,6 @@ class Hackapi_Zte_modem extends Hackapi{
 	
 	}
 
-
 	// -------------------------------------------------------------------------
 	public function ApiWifiStart(){
 		return $this->ApiSetSetWifiInfo(1);
@@ -301,10 +303,11 @@ class Hackapi_Zte_modem extends Hackapi{
 		if($result=$this->ApiGetStationList()){
 			if(is_array($result)){
 				$items=$result['station_list'];
+								
 				//map by ssid
 				$formatted=array();
 				foreach($items as $it){
-					//TODO need to fix the index to be the ssid
+					//TODO need to fix the index to be the ssid (but also in ApiWifiListSsids)
 					$formatted[$it['ssid_index']][]=$this->RemapFields($it,'ApiWifiListClients',false);
 				}
 				//return either one $ssid content or the whole list
@@ -324,29 +327,31 @@ class Hackapi_Zte_modem extends Hackapi{
 	public function ApiWifiListSsids($only_enabled=false){
 		$commands=array(
 			'BSSID',
-			'EX_SSID1',
-			'm_HideSSID',
-			'm_ssid_enable',
-			'm_SSID',
 			'ssid',
 			'SSID1',
-			'ssid',
+			'm_SSID',
+			'm_HideSSID',
+			'm_ssid_enable',
+			'EX_SSID1',
 		);
 		$arr = $this->CallApiGet($commands);
+		//TODO need to fix the id to be the ssid (but also in ApiWifiListClients)
 		if(is_array($arr)){
 			$out=array();
 			if(isset($arr['SSID1']) and $ssid=$arr['SSID1']){
-				$out[$ssid]['id']	=$ssid;
-				$out[$ssid]['ssid']	=$ssid;
-				$out[$ssid]['bssid']=$arr['BSSID'];
+				$id=1;
+				$out[$id]['id']		=$id;
+				$out[$id]['ssid']	=$ssid;
+				$out[$id]['bssid']	=$arr['BSSID'];
 			}
 			
 			if(isset($arr['m_ssid_enable']) and isset($arr['m_SSID'])){
 				if(($only_enabled  and $arr['m_ssid_enable']) or !$only_enabled) {
 					if($ssid=$arr['m_SSID']){
-						$out[$ssid]['id']	=$ssid;
-						$out[$ssid]['ssid']	=$ssid;
-						$out[$ssid]['bssid']=$arr['BSSID'];
+						$id=2;
+						$out[$id]['id']		=$id;
+						$out[$id]['ssid']	=$ssid;
+						$out[$id]['bssid']	=$arr['BSSID'];
 					}
 				}
 			}
@@ -364,9 +369,6 @@ class Hackapi_Zte_modem extends Hackapi{
 	// ###############################################################################
 	// #### Our OWN methods ##########################################################
 	// ###############################################################################
-
-
-
 
 	// -------------------------------------------------------------------------
 	// as ZTE seens to not accept more than around 100 paramaters in a single command, we have to split in 3 commands
@@ -655,6 +657,7 @@ class Hackapi_Zte_modem extends Hackapi{
 	public function CallApiGet($cmds='',$params=array()){
 		return $this->_CallApi('/goform/goform_get_cmd_process', $cmds, $params, 'GET');
 	}
+
 	// -------------------------------------------------------------------------
 	public function CallApiPost($cmds='',$params=array()){
 		return $this->_CallApi('/goform/goform_set_cmd_process', $cmds, $params, 'POST');
@@ -724,7 +727,6 @@ class Hackapi_Zte_modem extends Hackapi{
 		return false;
 	}
 
-
 	// -------------------------------------------------------------------------
 	private function _ApiGrabAD1(){
 		$this->DebugLogMethod();
@@ -779,8 +781,6 @@ class Hackapi_Zte_modem extends Hackapi{
 		}
 		return $res; 
 	}
-
-
 
 }
 ?>
