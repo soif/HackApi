@@ -1,12 +1,23 @@
 <?php
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+HackApi - OPNSense main Class
+--------------------------------------------------------------------------------------------------------------------------------------
+Copyright (C) 2023  by François Déchery - https://github.com/soif/
+
+HackApi is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+HackApi is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
 //include the main class we are exending, and our trait (if it exists or not)
 require_once(dirname(__FILE__).'/../../lib/Hackapi.php');
 Hackapi::RequireTrait(__FILE__);
-
-
-/*
-
-*/
 
 // ###############################################################################################
 class Hackapi_OpnSense extends Hackapi{
