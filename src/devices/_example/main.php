@@ -27,7 +27,7 @@ class Hackapi_DEVICE extends Hackapi{
 
 	// our API errors ---------------------------------------------------------------
 	// define our API specific errors as : api_code => ['ERROR_CODE_TEXT', $err_num]
-	//	$err_num in the index of the $error_codes property.
+	//	($err_num is the index of the $error_codes property)
 	//
 	//	'API_CODE'	=>	['ERROR_CODE_TEXT', 		err_num]
 	protected $api_error_codes=array(
