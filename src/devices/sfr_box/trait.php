@@ -27,7 +27,22 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetAuthGetToken(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->MyCallApiGet('auth.getToken');
+		return $this->CallApiGet('auth.getToken');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetAuthCheckToken
+	*
+	* Activate the Authentication Token Session (aka Login)
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetAuthCheckToken(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('auth.checkToken');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -42,7 +57,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetDdnsGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->MyCallApiGet('ddns.getInfo');
+		return $this->CallApiGet('ddns.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -57,22 +72,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetDslGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->MyCallApiGet('dsl.getInfo');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFtthGetInfo
-	*
-	* FiberToTheHome Information 
-	*
-	* @category ApiGet
-	* @return Array[]
-	*/
-	public function ApiGetFtthGetInfo(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->MyCallApiGet('ftth.getInfo');
+		return $this->CallApiGet('dsl.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -87,7 +87,52 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetFirewallGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->MyCallApiGet('firewall.getInfo');
+		return $this->CallApiGet('firewall.getInfo');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFtthGetInfo
+	*
+	* FiberToTheHome Information 
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFtthGetInfo(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('ftth.getInfo');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetGuestGetInfo
+	*
+	* Wifi (2.4GHz) Guests Information
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetGuestGetInfo(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('guest.getInfo');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetGuestGetClientList
+	*
+	* List Guests Wifi (2.4GHz) Clients
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetGuestGetClientList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGetList('guest.getClientList');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -102,7 +147,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetLanGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->MyCallApiGet('lan.getInfo');
+		return $this->CallApiGet('lan.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -117,7 +162,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetLanGetDnsHostList(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->MyCallApiGetList('lan.getDnsHostList');
+		return $this->CallApiGetList('lan.getDnsHostList');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -132,28 +177,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetLanGetHostsList(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->MyCallApiGetList('lan.getHostsList');
-	}
-	
-	
-	
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	// +++ TESTED     Params still not ordered or desc not set ++++++++++++++++++
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetHotspotGetInfo
-	*
-	* Wifi Information
-	*
-	* @category ApiGet
-	* @return Array[]
-	*/
-	public function ApiGetHotspotGetInfo(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGet('hotspot.getInfo');
+		return $this->CallApiGetList('lan.getHostsList');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -167,23 +191,23 @@ trait Hackapi_Sfr_box_Trait {
 	*/
 	public function ApiGetOntGetInfo(){
 		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGet('ont.getInfo');
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('ont.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
 	/**
 	* ApiGetP910ndGetInfo
 	*
-	*  Information
+	* Information
 	*
 	* @category ApiGet
 	* @return Array[]
 	*/
 	public function ApiGetP910ndGetInfo(){
 		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGet('p910nd.getInfo');
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('p910nd.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -197,8 +221,164 @@ trait Hackapi_Sfr_box_Trait {
 	*/
 	public function ApiGetPppGetInfo(){
 		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('ppp.getInfo');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetPppGetCredentials
+	*
+	* PPP Credentials
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetPppGetCredentials(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('ppp.getCredentials');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetSystemGetInfo
+	*
+	* System Information
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetSystemGetInfo(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('system.getInfo');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetSystemGetWpaKey
+	*
+	* Default Wpa Key
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetSystemGetWpaKey(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('system.getWpaKey');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetWanGetInfo
+	*
+	* WAN Information
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetWanGetInfo(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('wan.getInfo');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetWlanGetInfo
+	*
+	* Wifi (2.4GHz) Information
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetWlanGetInfo(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('wlan.getInfo');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetWlanGetClientList
+	*
+	* Wifi (2.4GHz) Client List
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetWlanGetClientList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGetList('wlan.getClientList');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetWlanGetScanList
+	*
+	* List of neighbour ssid found (both 2.4GHz and 5Ghz)
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetWlanGetScanList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGetList('wlan.getScanList');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetWlan5GetInfo
+	*
+	* Wifi (5GHz) Information
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetWlan5GetInfo(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('wlan5.getInfo');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetWlan5GetClientList
+	*
+	* Wifi (5Hz) Client List
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetWlan5GetClientList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGetList('wlan5.getClientList');
+	}
+	
+	
+	
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	// +++ TESTED     Params still not ordered or desc not set ++++++++++++++++++
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetOntPull
+	*
+	* Get exec status about the latest push. (See API doc for returned codes)
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetOntPull(){
+		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGet('ppp.getInfo');
+		return $this->CallApiGet('ont.pull');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -213,7 +393,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetSmbGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGet('smb.getInfo');
+		return $this->CallApiGet('smb.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -228,7 +408,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetTvGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGet('tv.getInfo');
+		return $this->CallApiGet('tv.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -243,7 +423,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetUsbGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGet('usb.getInfo');
+		return $this->CallApiGet('usb.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -258,97 +438,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetVoipGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGet('voip.getInfo');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetWanGetInfo
-	*
-	* WAN Information
-	*
-	* @category ApiGet
-	* @return Array[]
-	*/
-	public function ApiGetWanGetInfo(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGet('wan.getInfo');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetWlanGetClientList
-	*
-	* Wifi (2.4GHz) Client List
-	*
-	* @category ApiGet
-	* @return Array[]
-	*/
-	public function ApiGetWlanGetClientList(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGetList('wlan.getClientList');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetWlanGetInfo
-	*
-	* Wifi (2.4GHz) Information
-	*
-	* @category ApiGet
-	* @return Array[]
-	*/
-	public function ApiGetWlanGetInfo(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGet('wlan.getInfo');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetWlanGetScanList
-	*
-	* Wifi (2.4GHz) Scan List
-	*
-	* @category ApiGet
-	* @return Array[]
-	*/
-	public function ApiGetWlanGetScanList(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGetList('wlan.getScanList');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetWlan5GetClientList
-	*
-	* Wifi (5GHz) Client List
-	*
-	* @category ApiGet
-	* @return Array[]
-	*/
-	public function ApiGetWlan5GetClientList(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGetList('wlan5.getClientList');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetWlan5GetInfo
-	*
-	* Wifi (5GHz) Information
-	*
-	* @category ApiGet
-	* @return Array[]
-	*/
-	public function ApiGetWlan5GetInfo(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->MyCallApiGet('wlan5.getInfo');
+		return $this->CallApiGet('voip.getInfo');
 	}
 	
 	
@@ -359,24 +449,24 @@ trait Hackapi_Sfr_box_Trait {
 	
 	// -----------------------------------------------------------------------
 	/**
-	* ApiGetAuthCheckToken
+	* ApiGetHotspotGetInfo
 	*
-	* Activate the Authentication Token Session (aka Login)
+	* Hotspot Information
 	*
 	* @category ApiGet
 	* @return Array[]
 	*/
-	public function ApiGetAuthCheckToken(){
+	public function ApiGetHotspotGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(3);
-		return $this->MyCallApiGet('auth.checkToken');
+		return $this->CallApiGet('hotspot.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
 	/**
 	* ApiGetHotspotGetClientList
 	*
-	* List Wifi Clients
+	* List Hotspot Clients
 	*
 	* @category ApiGet
 	* @return Array[]
@@ -384,7 +474,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetHotspotGetClientList(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(3);
-		return $this->MyCallApiGetList('hotspot.getClientList');
+		return $this->CallApiGetList('hotspot.getClientList');
 	}
 	
 	
@@ -405,7 +495,22 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetBackup3gGetPinCode(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(2);
-		return $this->MyCallApiGet('backup3g.getPinCode');
+		return $this->CallApiGet('backup3g.getPinCode');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetSystemGetIfList
+	*
+	* System Interface List
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetSystemGetIfList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGetFix('system.getIfList');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -420,7 +525,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetVoipGetCallhistoryList(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(2);
-		return $this->MyCallApiGetList('voip.getCallhistoryList');
+		return $this->CallApiGetList('voip.getCallhistoryList');
 	}
 	
 	
@@ -447,7 +552,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiSetDdnsDisable(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->MyCallApiPost('ddns.disable');
+		return $this->CallApiPost('ddns.disable');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -462,7 +567,37 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiSetDdnsEnable(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->MyCallApiPost('ddns.enable');
+		return $this->CallApiPost('ddns.enable');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetGuestEnable
+	*
+	* Enable Guests Wifi (2.4GHz)
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetGuestEnable(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('guest.enable');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetGuestDisable
+	*
+	* Disable Guests Wifi (2.4GHz)
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetGuestDisable(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('guest.disable');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -481,7 +616,7 @@ trait Hackapi_Sfr_box_Trait {
 			'ip'	=> $ip,
 			'name'	=> $name,
 		);
-		return $this->MyCallApiPost('lan.addDnsHost', $params);
+		return $this->CallApiPost('lan.addDnsHost', $params);
 	}
 	
 	// -----------------------------------------------------------------------
@@ -500,7 +635,52 @@ trait Hackapi_Sfr_box_Trait {
 			'ip'	=> $ip,
 			'name'	=> $name,
 		);
-		return $this->MyCallApiPost('lan.deleteDnsHost', $params);
+		return $this->CallApiPost('lan.deleteDnsHost', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetSystemReboot
+	*
+	* Reboot
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetSystemReboot(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('system.reboot');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlanEnable
+	*
+	* Enable Wifi (2.4GHz)
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlanEnable(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('wlan.enable');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlanDisable
+	*
+	* Disable Wifi (2.4GHz)
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlanDisable(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('wlan.disable');
 	}
 	
 	
@@ -521,82 +701,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiSetDdnsForceUpdate(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(3);
-		return $this->MyCallApiPost('ddns.forceUpdate');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetHotspotEnable
-	*
-	* Enable Wifi
-	*
-	* @category ApiSet
-	* @return Array[]
-	*/
-	public function ApiSetHotspotEnable(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->MyCallApiPost('hotspot.enable');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetHotspotDisable
-	*
-	* Disable Wifi
-	*
-	* @category ApiSet
-	* @return Array[]
-	*/
-	public function ApiSetHotspotDisable(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->MyCallApiPost('hotspot.disable');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetHotspotRestart
-	*
-	* Restart Wifi
-	*
-	* @category ApiSet
-	* @return Array[]
-	*/
-	public function ApiSetHotspotRestart(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->MyCallApiPost('hotspot.restart');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetHotspotStart
-	*
-	* Start Wifi
-	*
-	* @category ApiSet
-	* @return Array[]
-	*/
-	public function ApiSetHotspotStart(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->MyCallApiPost('hotspot.start');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetHotspotStop
-	*
-	* Stop Wifi
-	*
-	* @category ApiSet
-	* @return Array[]
-	*/
-	public function ApiSetHotspotStop(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->MyCallApiPost('hotspot.stop');
+		return $this->CallApiPost('ddns.forceUpdate');
 	}
 	
 	
@@ -624,7 +729,7 @@ trait Hackapi_Sfr_box_Trait {
 		$params=array(
 			'mode'	=> $mode,
 		);
-		return $this->MyCallApiPost('backup3g.forceDataLink', $params);
+		return $this->CallApiPost('backup3g.forceDataLink', $params);
 	}
 	
 	// -----------------------------------------------------------------------
@@ -645,7 +750,7 @@ trait Hackapi_Sfr_box_Trait {
 		$params=array(
 			'mode'	=> $mode,
 		);
-		return $this->MyCallApiPost('backup3g.forceVoipLink', $params);
+		return $this->CallApiPost('backup3g.forceVoipLink', $params);
 	}
 	
 	// -----------------------------------------------------------------------
@@ -663,7 +768,7 @@ trait Hackapi_Sfr_box_Trait {
 		$params=array(
 			'pincode'	=> $pincode,
 		);
-		return $this->MyCallApiPost('backup3g.setPinCode', $params);
+		return $this->CallApiPost('backup3g.setPinCode', $params);
 	}
 	
 	// -----------------------------------------------------------------------
@@ -685,7 +790,492 @@ trait Hackapi_Sfr_box_Trait {
 			'password'	=> $password,
 			'hostname'	=> $hostname,
 		);
-		return $this->MyCallApiPost('ddns.setService', $params);
+		return $this->CallApiPost('ddns.setService', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetGuestSetSsid
+	*
+	* Set Guest SSID
+	*
+	* @param string $ssid	ssid to set
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetGuestSetSsid($ssid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ssid'	=> $ssid,
+		);
+		return $this->CallApiPost('guest.setSsid', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetGuestSetWpakey
+	*
+	* Set Guest WPA Key
+	*
+	* @param string $wpakey	WPA Key to set
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetGuestSetWpakey($wpakey){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'wpakey'	=> $wpakey,
+		);
+		return $this->CallApiPost('guest.setWpakey', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOntSync
+	*
+	* Synchronize ONT Information with Box
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOntSync(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('ont.sync');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOntPush
+	*
+	* Change ONT parameters
+	*
+	* @param string $name	parameter to change
+	*		'slid'	: identifier,
+	
+	* @param string $value	value to set
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOntPush($name="slid", $value, $force="Forces change"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'name'	=> $name,
+			'value'	=> $value,
+			'force'	=> $force,
+		);
+		return $this->CallApiPost('ont.push', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetPppSetCredentials
+	*
+	* Set PPP Credentials
+	*
+	* @param string $login	Login
+	* @param string $password	Password
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetPppSetCredentials($login="", $password=""){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'login'	=> $login,
+			'password'	=> $password,
+		);
+		return $this->CallApiPost('ppp.setCredentials', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetSystemSetNetMode
+	*
+	* Set Box Routing Mode
+	*
+	* @param string $mode	Routing Mode : either: router | bridge
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetSystemSetNetMode($mode){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'mode'	=> $mode,
+		);
+		return $this->CallApiPost('system.setNetMode', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetSystemSetRefClient
+	*
+	* Set Client Reference
+	*
+	* @param string $refclient	Client Reference
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetSystemSetRefClient($refclient){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'refclient'	=> $refclient,
+		);
+		return $this->CallApiPost('system.setRefClient', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetVoipRestart
+	*
+	* Restart VOIP Service
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetVoipRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('voip.restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetVoipStart
+	*
+	* Start VOIP Service
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetVoipStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('voip.start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetVoipStop
+	*
+	* Stop VOIP Service
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetVoipStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('voip.stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlanSetChannel
+	*
+	* Set Wifi (2.4GHz) channel
+	*
+	* @param string $channel	Channel (1 to 13)
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlanSetChannel($channel){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'channel'	=> $channel,
+		);
+		return $this->CallApiPost('wlan.setChannel', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlanSetWl0Enc
+	*
+	* Set Wifi (2.4GHz) Security Type
+	*
+	* @param string $enc	either: OPEN | WEP | WPA-PSK | WPA2-PSK | WPA-WPA2-PSK
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlanSetWl0Enc($enc){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'enc'	=> $enc,
+		);
+		return $this->CallApiPost('wlan.setWl0Enc', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlanSetWl0Enctype
+	*
+	* Set Wifi (2.4GHz) Encryption Type
+	*
+	* @param string $enctype	either: tkip | aes | tkipaes
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlanSetWl0Enctype($enctype){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'enctype'	=> $enctype,
+		);
+		return $this->CallApiPost('wlan.setWl0Enctype', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlanSetWl0Keytype
+	*
+	* Set Wifi (2.4GHz) Key Type
+	*
+	* @param string $keytype	either: ascii | hexa
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlanSetWl0Keytype($keytype){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'keytype'	=> $keytype,
+		);
+		return $this->CallApiPost('wlan.setWl0Keytype', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlanSetWl0Ssid
+	*
+	* Set Wifi (2.4GHz) SSID
+	*
+	* @param string $ssid	SSID name
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlanSetWl0Ssid($ssid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ssid'	=> $ssid,
+		);
+		return $this->CallApiPost('wlan.setWl0Ssid', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlanSetWl0Wepkey
+	*
+	* Set Wifi (2.4GHz) WEP Key
+	*
+	* @param string $wepkey	Wep Key
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlanSetWl0Wepkey($wepkey){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'wepkey'	=> $wepkey,
+		);
+		return $this->CallApiPost('wlan.setWl0Wepkey', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlanSetWl0Wpakey
+	*
+	* Set Wifi (2.4GHz) WPA Key
+	*
+	* @param string $wpakey	Wpa Key
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlanSetWl0Wpakey($wpakey){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'wpakey'	=> $wpakey,
+		);
+		return $this->CallApiPost('wlan.setWl0Wpakey', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlanSetWlanMode
+	*
+	* Set Wifi (2.4GHz) Radio Mode. For NB5/NB6: (11n|11ng|11g). For NB4/CIBOX: (11b|11g|auto)
+	*
+	* @param string $mode	either: 11n | 11ng | 11g | 11b | auto
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlanSetWlanMode($mode){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'mode'	=> $mode,
+		);
+		return $this->CallApiPost('wlan.setWlanMode', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlan5SetChannel
+	*
+	* Set Wifi (5GHz) channel
+	*
+	* @param string $channel	Channel (auto|36|40|44|48|52|56|60|64|100|104|108|112|116|132|136|140)
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlan5SetChannel($channel){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'channel'	=> $channel,
+		);
+		return $this->CallApiPost('wlan5.setChannel', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlan5SetWl0Enc
+	*
+	* Set Wifi (5GHz) Security Type
+	*
+	* @param string $enc	either: OPEN | WPA-PSK | WPA2-PSK | WPA-WPA2-PSK
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlan5SetWl0Enc($enc){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'enc'	=> $enc,
+		);
+		return $this->CallApiPost('wlan5.setWl0Enc', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlan5SetWl0Enctype
+	*
+	* Set Wifi (5Hz) Encryption Type
+	*
+	* @param string $enctype	either: tkip | aes | tkipaes
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlan5SetWl0Enctype($enctype){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'enctype'	=> $enctype,
+		);
+		return $this->CallApiPost('wlan5.setWl0Enctype', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlan5SetWl0Keytype
+	*
+	* Set Wifi (5GHz) Key Type
+	*
+	* @param string $keytype	either: ascii | hexa
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlan5SetWl0Keytype($keytype){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'keytype'	=> $keytype,
+		);
+		return $this->CallApiPost('wlan5.setWl0Keytype', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlan5SetWl0Ssid
+	*
+	* Set Wifi (5GHz) SSID
+	*
+	* @param string $ssid	SSID name
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlan5SetWl0Ssid($ssid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ssid'	=> $ssid,
+		);
+		return $this->CallApiPost('wlan5.setWl0Ssid', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlan5SetWl0Wepkey
+	*
+	* Set Wifi (5GHz) WEP Key
+	*
+	* @param string $wepkey	Wep Key
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlan5SetWl0Wepkey($wepkey){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'wepkey'	=> $wepkey,
+		);
+		return $this->CallApiPost('wlan5.setWl0Wepkey', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlan5SetWl0Wpakey
+	*
+	* Set Wifi (5GHz) WPA Key
+	*
+	* @param string $wpakey	Wpa Key
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlan5SetWl0Wpakey($wpakey){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'wpakey'	=> $wpakey,
+		);
+		return $this->CallApiPost('wlan5.setWl0Wpakey', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetWlan5SetWlanMode
+	*
+	* Set Wifi (5GHz) Radio Mode. For NB5/NB6: (11n|11ng|11g). For NB4/CIBOX: (11b|11g|auto)
+	*
+	* @param string $mode	either: 11n | 11ac | auto
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetWlan5SetWlanMode($mode){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'mode'	=> $mode,
+		);
+		return $this->CallApiPost('wlan5.setWlanMode', $params);
 	}
 	
 	
@@ -698,46 +1288,79 @@ trait Hackapi_Sfr_box_Trait {
 	
 	public function ListMethodsDefinitions(){
 		$def=array();
-		$def['ApiGetAuthGetToken']=array (  'args' => 'auth.getToken',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Authentication Token',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'auth.getToken\'',  'f_args_txt' => 'auth.getToken',  'f_method_name' => 'ApiGetAuthGetToken',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetAuthCheckToken']=array (  'args' => 'auth.checkToken',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Activate the Authentication Token Session (aka Login)',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'auth.checkToken\'',  'f_args_txt' => 'auth.checkToken',  'f_method_name' => 'ApiGetAuthCheckToken',  'f_call' => 'MyCallApiGet',);
-		$def['ApiSetBackup3gForceDataLink']=array (  'args' => 'backup3g.forceDataLink',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'mode' =>       array (        0 => '!',        1 =>         array (          'on' => 'Force Cell',          'off' => 'No Cell',          'auto' => 'Auto select',        ),      ),    ),    'parameters' => '$params=array(		\'mode\'	=> $mode,	);',    'arguments' => '$mode',    'call_params' => ', $params',    'doc_desc' => '* @param string $mode	*		\'on\'	: Force Cell,*		\'off\'	: No Cell,*		\'auto\'	: Auto select,',    'def_value' => '',  ),  'desc' => 'Set (backup) Cellullar Mode',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'backup3g.forceDataLink\'',  'f_args_txt' => 'backup3g.forceDataLink',  'f_method_name' => 'ApiSetBackup3gForceDataLink',  'f_call' => 'MyCallApiPost',);
-		$def['ApiSetBackup3gForceVoipLink']=array (  'args' => 'backup3g.forceVoipLink',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'mode' =>       array (        0 => '!',        1 =>         array (          'on' => 'Allow Cell',          'off' => 'Disallow Cell',        ),      ),    ),    'parameters' => '$params=array(		\'mode\'	=> $mode,	);',    'arguments' => '$mode',    'call_params' => ', $params',    'doc_desc' => '* @param string $mode	*		\'on\'	: Allow Cell,*		\'off\'	: Disallow Cell,',    'def_value' => '',  ),  'desc' => 'Set (backup) Cellullar policy for VOIP',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'backup3g.forceVoipLink\'',  'f_args_txt' => 'backup3g.forceVoipLink',  'f_method_name' => 'ApiSetBackup3gForceVoipLink',  'f_call' => 'MyCallApiPost',);
-		$def['ApiGetBackup3gGetPinCode']=array (  'args' => 'backup3g.getPinCode',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Get Cellular PIN code',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'backup3g.getPinCode\'',  'f_args_txt' => 'backup3g.getPinCode',  'f_method_name' => 'ApiGetBackup3gGetPinCode',  'f_call' => 'MyCallApiGet',);
-		$def['ApiSetBackup3gSetPinCode']=array (  'args' => 'backup3g.setPinCode',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'pincode' => '',    ),    'parameters' => '$params=array(		\'pincode\'	=> $pincode,	);',    'arguments' => '$pincode=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Set Cellular PIN code',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'backup3g.setPinCode\'',  'f_args_txt' => 'backup3g.setPinCode',  'f_method_name' => 'ApiSetBackup3gSetPinCode',  'f_call' => 'MyCallApiPost',);
-		$def['ApiGetDdnsGetInfo']=array (  'args' => 'ddns.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DynDNS information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ddns.getInfo\'',  'f_args_txt' => 'ddns.getInfo',  'f_method_name' => 'ApiGetDdnsGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiSetDdnsDisable']=array (  'args' => 'ddns.disable',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Disable DynDNS service',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ddns.disable\'',  'f_args_txt' => 'ddns.disable',  'f_method_name' => 'ApiSetDdnsDisable',  'f_call' => 'MyCallApiPost',);
-		$def['ApiSetDdnsEnable']=array (  'args' => 'ddns.enable',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Enable DynDNS service',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ddns.enable\'',  'f_args_txt' => 'ddns.enable',  'f_method_name' => 'ApiSetDdnsEnable',  'f_call' => 'MyCallApiPost',);
-		$def['ApiSetDdnsForceUpdate']=array (  'args' => 'ddns.forceUpdate',  'state' => '3',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Force DynDNS update',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'ddns.forceUpdate\'',  'f_args_txt' => 'ddns.forceUpdate',  'f_method_name' => 'ApiSetDdnsForceUpdate',  'f_call' => 'MyCallApiPost',);
-		$def['ApiSetDdnsSetService']=array (  'args' => 'ddns.setService',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'service' =>       array (        0 => '!',        1 =>         array (          0 => 'dyndns',          1 => 'no-ip',          2 => 'ovh',          3 => 'dyndnsit',          4 => 'changeip',          5 => 'sitelutions',        ),      ),      'username' => '',      'password' => '',      'hostname' => '',    ),    'parameters' => '$params=array(		\'service\'	=> $service,		\'username\'	=> $username,		\'password\'	=> $password,		\'hostname\'	=> $hostname,	);',    'arguments' => '$service, $username="", $password="", $hostname=""',    'call_params' => ', $params',    'doc_desc' => '* @param string $service	either: dyndns | no-ip | ovh | dyndnsit | changeip | sitelutions',    'def_value' => '',  ),  'desc' => 'Set DynDns Account',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'ddns.setService\'',  'f_args_txt' => 'ddns.setService',  'f_method_name' => 'ApiSetDdnsSetService',  'f_call' => 'MyCallApiPost',);
-		$def['ApiGetDslGetInfo']=array (  'args' => 'dsl.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DSL Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'dsl.getInfo\'',  'f_args_txt' => 'dsl.getInfo',  'f_method_name' => 'ApiGetDslGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetFtthGetInfo']=array (  'args' => 'ftth.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'FiberToTheHome Information ',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ftth.getInfo\'',  'f_args_txt' => 'ftth.getInfo',  'f_method_name' => 'ApiGetFtthGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetFirewallGetInfo']=array (  'args' => 'firewall.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Firewall Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'firewall.getInfo\'',  'f_args_txt' => 'firewall.getInfo',  'f_method_name' => 'ApiGetFirewallGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetHotspotGetInfo']=array (  'args' => 'hotspot.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'hotspot.getInfo\'',  'f_args_txt' => 'hotspot.getInfo',  'f_method_name' => 'ApiGetHotspotGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetHotspotGetClientList']=array (  'args' => 'hotspot.getClientList',  'state' => '3',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Wifi Clients',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'hotspot.getClientList\'',  'f_args_txt' => 'hotspot.getClientList',  'f_method_name' => 'ApiGetHotspotGetClientList',  'f_call' => 'MyCallApiGetList',);
-		$def['ApiSetHotspotEnable']=array (  'args' => 'hotspot.enable',  'state' => '3',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Enable Wifi',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'hotspot.enable\'',  'f_args_txt' => 'hotspot.enable',  'f_method_name' => 'ApiSetHotspotEnable',  'f_call' => 'MyCallApiPost',);
-		$def['ApiSetHotspotDisable']=array (  'args' => 'hotspot.disable',  'state' => '3',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Disable Wifi',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'hotspot.disable\'',  'f_args_txt' => 'hotspot.disable',  'f_method_name' => 'ApiSetHotspotDisable',  'f_call' => 'MyCallApiPost',);
-		$def['ApiSetHotspotRestart']=array (  'args' => 'hotspot.restart',  'state' => '3',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Restart Wifi',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'hotspot.restart\'',  'f_args_txt' => 'hotspot.restart',  'f_method_name' => 'ApiSetHotspotRestart',  'f_call' => 'MyCallApiPost',);
-		$def['ApiSetHotspotStart']=array (  'args' => 'hotspot.start',  'state' => '3',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Start Wifi',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'hotspot.start\'',  'f_args_txt' => 'hotspot.start',  'f_method_name' => 'ApiSetHotspotStart',  'f_call' => 'MyCallApiPost',);
-		$def['ApiSetHotspotStop']=array (  'args' => 'hotspot.stop',  'state' => '3',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Stop Wifi',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'hotspot.stop\'',  'f_args_txt' => 'hotspot.stop',  'f_method_name' => 'ApiSetHotspotStop',  'f_call' => 'MyCallApiPost',);
-		$def['ApiGetLanGetInfo']=array (  'args' => 'lan.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'LAN Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'lan.getInfo\'',  'f_args_txt' => 'lan.getInfo',  'f_method_name' => 'ApiGetLanGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetLanGetDnsHostList']=array (  'args' => 'lan.getDnsHostList',  'state' => '5',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List DNS host entries',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'lan.getDnsHostList\'',  'f_args_txt' => 'lan.getDnsHostList',  'f_method_name' => 'ApiGetLanGetDnsHostList',  'f_call' => 'MyCallApiGetList',);
-		$def['ApiGetLanGetHostsList']=array (  'args' => 'lan.getHostsList',  'state' => '5',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List connected hosts',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'lan.getHostsList\'',  'f_args_txt' => 'lan.getHostsList',  'f_method_name' => 'ApiGetLanGetHostsList',  'f_call' => 'MyCallApiGetList',);
-		$def['ApiSetLanAddDnsHost']=array (  'args' => 'lan.addDnsHost',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'ip' => '!',      'name' => '!',    ),    'parameters' => '$params=array(		\'ip\'	=> $ip,		\'name\'	=> $name,	);',    'arguments' => '$ip, $name',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Add DNS host entry',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'lan.addDnsHost\'',  'f_args_txt' => 'lan.addDnsHost',  'f_method_name' => 'ApiSetLanAddDnsHost',  'f_call' => 'MyCallApiPost',);
-		$def['ApiSetLanDeleteDnsHost']=array (  'args' => 'lan.deleteDnsHost',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'ip' => '!',      'name' => '!',    ),    'parameters' => '$params=array(		\'ip\'	=> $ip,		\'name\'	=> $name,	);',    'arguments' => '$ip, $name',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Delete DNS host entry',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'lan.deleteDnsHost\'',  'f_args_txt' => 'lan.deleteDnsHost',  'f_method_name' => 'ApiSetLanDeleteDnsHost',  'f_call' => 'MyCallApiPost',);
-		$def['ApiGetOntGetInfo']=array (  'args' => 'ont.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'ONT Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'ont.getInfo\'',  'f_args_txt' => 'ont.getInfo',  'f_method_name' => 'ApiGetOntGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetP910ndGetInfo']=array (  'args' => 'p910nd.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => ' Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'p910nd.getInfo\'',  'f_args_txt' => 'p910nd.getInfo',  'f_method_name' => 'ApiGetP910ndGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetPppGetInfo']=array (  'args' => 'ppp.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'PPP Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'ppp.getInfo\'',  'f_args_txt' => 'ppp.getInfo',  'f_method_name' => 'ApiGetPppGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetSmbGetInfo']=array (  'args' => 'smb.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SMB Sharing Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'smb.getInfo\'',  'f_args_txt' => 'smb.getInfo',  'f_method_name' => 'ApiGetSmbGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetTvGetInfo']=array (  'args' => 'tv.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'TV Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'tv.getInfo\'',  'f_args_txt' => 'tv.getInfo',  'f_method_name' => 'ApiGetTvGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetUsbGetInfo']=array (  'args' => 'usb.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'USB Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'usb.getInfo\'',  'f_args_txt' => 'usb.getInfo',  'f_method_name' => 'ApiGetUsbGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetVoipGetInfo']=array (  'args' => 'voip.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'VOIP (phone) Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'voip.getInfo\'',  'f_args_txt' => 'voip.getInfo',  'f_method_name' => 'ApiGetVoipGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetVoipGetCallhistoryList']=array (  'args' => 'voip.getCallhistoryList',  'state' => '2',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'VOIP (phone) Call History',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'voip.getCallhistoryList\'',  'f_args_txt' => 'voip.getCallhistoryList',  'f_method_name' => 'ApiGetVoipGetCallhistoryList',  'f_call' => 'MyCallApiGetList',);
-		$def['ApiGetWanGetInfo']=array (  'args' => 'wan.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WAN Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'wan.getInfo\'',  'f_args_txt' => 'wan.getInfo',  'f_method_name' => 'ApiGetWanGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetWlanGetClientList']=array (  'args' => 'wlan.getClientList',  'state' => '4',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi (2.4GHz) Client List',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'wlan.getClientList\'',  'f_args_txt' => 'wlan.getClientList',  'f_method_name' => 'ApiGetWlanGetClientList',  'f_call' => 'MyCallApiGetList',);
-		$def['ApiGetWlanGetInfo']=array (  'args' => 'wlan.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi (2.4GHz) Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'wlan.getInfo\'',  'f_args_txt' => 'wlan.getInfo',  'f_method_name' => 'ApiGetWlanGetInfo',  'f_call' => 'MyCallApiGet',);
-		$def['ApiGetWlanGetScanList']=array (  'args' => 'wlan.getScanList',  'state' => '4',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi (2.4GHz) Scan List',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'wlan.getScanList\'',  'f_args_txt' => 'wlan.getScanList',  'f_method_name' => 'ApiGetWlanGetScanList',  'f_call' => 'MyCallApiGetList',);
-		$def['ApiGetWlan5GetClientList']=array (  'args' => 'wlan5.getClientList',  'state' => '4',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi (5GHz) Client List',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'wlan5.getClientList\'',  'f_args_txt' => 'wlan5.getClientList',  'f_method_name' => 'ApiGetWlan5GetClientList',  'f_call' => 'MyCallApiGetList',);
-		$def['ApiGetWlan5GetInfo']=array (  'args' => 'wlan5.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi (5GHz) Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'wlan5.getInfo\'',  'f_args_txt' => 'wlan5.getInfo',  'f_method_name' => 'ApiGetWlan5GetInfo',  'f_call' => 'MyCallApiGet',);
+		$def['ApiGetAuthGetToken']=array (  'args' => 'auth.getToken',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Authentication Token',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'auth.getToken\'',  'f_args_txt' => 'auth.getToken',  'f_method_name' => 'ApiGetAuthGetToken',  'f_call' => 'CallApiGet',);
+		$def['ApiGetAuthCheckToken']=array (  'args' => 'auth.checkToken',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Activate the Authentication Token Session (aka Login)',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'auth.checkToken\'',  'f_args_txt' => 'auth.checkToken',  'f_method_name' => 'ApiGetAuthCheckToken',  'f_call' => 'CallApiGet',);
+		$def['ApiSetBackup3gForceDataLink']=array (  'args' => 'backup3g.forceDataLink',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'mode' =>       array (        0 => '!',        1 =>         array (          'on' => 'Force Cell',          'off' => 'No Cell',          'auto' => 'Auto select',        ),      ),    ),    'parameters' => '$params=array(		\'mode\'	=> $mode,	);',    'arguments' => '$mode',    'call_params' => ', $params',    'doc_desc' => '* @param string $mode	*		\'on\'	: Force Cell,*		\'off\'	: No Cell,*		\'auto\'	: Auto select,',    'def_value' => '',  ),  'desc' => 'Set (backup) Cellullar Mode',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'backup3g.forceDataLink\'',  'f_args_txt' => 'backup3g.forceDataLink',  'f_method_name' => 'ApiSetBackup3gForceDataLink',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBackup3gForceVoipLink']=array (  'args' => 'backup3g.forceVoipLink',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'mode' =>       array (        0 => '!',        1 =>         array (          'on' => 'Allow Cell',          'off' => 'Disallow Cell',        ),      ),    ),    'parameters' => '$params=array(		\'mode\'	=> $mode,	);',    'arguments' => '$mode',    'call_params' => ', $params',    'doc_desc' => '* @param string $mode	*		\'on\'	: Allow Cell,*		\'off\'	: Disallow Cell,',    'def_value' => '',  ),  'desc' => 'Set (backup) Cellullar policy for VOIP',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'backup3g.forceVoipLink\'',  'f_args_txt' => 'backup3g.forceVoipLink',  'f_method_name' => 'ApiSetBackup3gForceVoipLink',  'f_call' => 'CallApiPost',);
+		$def['ApiGetBackup3gGetPinCode']=array (  'args' => 'backup3g.getPinCode',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Get Cellular PIN code',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'backup3g.getPinCode\'',  'f_args_txt' => 'backup3g.getPinCode',  'f_method_name' => 'ApiGetBackup3gGetPinCode',  'f_call' => 'CallApiGet',);
+		$def['ApiSetBackup3gSetPinCode']=array (  'args' => 'backup3g.setPinCode',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'pincode' => '',    ),    'parameters' => '$params=array(		\'pincode\'	=> $pincode,	);',    'arguments' => '$pincode=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Set Cellular PIN code',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'backup3g.setPinCode\'',  'f_args_txt' => 'backup3g.setPinCode',  'f_method_name' => 'ApiSetBackup3gSetPinCode',  'f_call' => 'CallApiPost',);
+		$def['ApiGetDdnsGetInfo']=array (  'args' => 'ddns.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DynDNS information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ddns.getInfo\'',  'f_args_txt' => 'ddns.getInfo',  'f_method_name' => 'ApiGetDdnsGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiSetDdnsDisable']=array (  'args' => 'ddns.disable',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Disable DynDNS service',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ddns.disable\'',  'f_args_txt' => 'ddns.disable',  'f_method_name' => 'ApiSetDdnsDisable',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDdnsEnable']=array (  'args' => 'ddns.enable',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Enable DynDNS service',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ddns.enable\'',  'f_args_txt' => 'ddns.enable',  'f_method_name' => 'ApiSetDdnsEnable',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDdnsForceUpdate']=array (  'args' => 'ddns.forceUpdate',  'state' => '3',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Force DynDNS update',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'ddns.forceUpdate\'',  'f_args_txt' => 'ddns.forceUpdate',  'f_method_name' => 'ApiSetDdnsForceUpdate',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDdnsSetService']=array (  'args' => 'ddns.setService',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'service' =>       array (        0 => '!',        1 =>         array (          0 => 'dyndns',          1 => 'no-ip',          2 => 'ovh',          3 => 'dyndnsit',          4 => 'changeip',          5 => 'sitelutions',        ),      ),      'username' => '',      'password' => '',      'hostname' => '',    ),    'parameters' => '$params=array(		\'service\'	=> $service,		\'username\'	=> $username,		\'password\'	=> $password,		\'hostname\'	=> $hostname,	);',    'arguments' => '$service, $username="", $password="", $hostname=""',    'call_params' => ', $params',    'doc_desc' => '* @param string $service	either: dyndns | no-ip | ovh | dyndnsit | changeip | sitelutions',    'def_value' => '',  ),  'desc' => 'Set DynDns Account',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'ddns.setService\'',  'f_args_txt' => 'ddns.setService',  'f_method_name' => 'ApiSetDdnsSetService',  'f_call' => 'CallApiPost',);
+		$def['ApiGetDslGetInfo']=array (  'args' => 'dsl.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DSL Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'dsl.getInfo\'',  'f_args_txt' => 'dsl.getInfo',  'f_method_name' => 'ApiGetDslGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallGetInfo']=array (  'args' => 'firewall.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Firewall Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'firewall.getInfo\'',  'f_args_txt' => 'firewall.getInfo',  'f_method_name' => 'ApiGetFirewallGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFtthGetInfo']=array (  'args' => 'ftth.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'FiberToTheHome Information ',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ftth.getInfo\'',  'f_args_txt' => 'ftth.getInfo',  'f_method_name' => 'ApiGetFtthGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetGuestGetInfo']=array (  'args' => 'guest.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi (2.4GHz) Guests Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'guest.getInfo\'',  'f_args_txt' => 'guest.getInfo',  'f_method_name' => 'ApiGetGuestGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetGuestGetClientList']=array (  'args' => 'guest.getClientList',  'state' => '5',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Guests Wifi (2.4GHz) Clients',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'guest.getClientList\'',  'f_args_txt' => 'guest.getClientList',  'f_method_name' => 'ApiGetGuestGetClientList',  'f_call' => 'CallApiGetList',);
+		$def['ApiSetGuestEnable']=array (  'args' => 'guest.enable',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Enable Guests Wifi (2.4GHz)',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'guest.enable\'',  'f_args_txt' => 'guest.enable',  'f_method_name' => 'ApiSetGuestEnable',  'f_call' => 'CallApiPost',);
+		$def['ApiSetGuestDisable']=array (  'args' => 'guest.disable',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Disable Guests Wifi (2.4GHz)',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'guest.disable\'',  'f_args_txt' => 'guest.disable',  'f_method_name' => 'ApiSetGuestDisable',  'f_call' => 'CallApiPost',);
+		$def['ApiSetGuestSetSsid']=array (  'args' => 'guest.setSsid',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'ssid' =>       array (        0 => '!',        1 => 'ssid to set',      ),    ),    'parameters' => '$params=array(		\'ssid\'	=> $ssid,	);',    'arguments' => '$ssid',    'call_params' => ', $params',    'doc_desc' => '* @param string $ssid	ssid to set',    'def_value' => '',  ),  'desc' => 'Set Guest SSID',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'guest.setSsid\'',  'f_args_txt' => 'guest.setSsid',  'f_method_name' => 'ApiSetGuestSetSsid',  'f_call' => 'CallApiPost',);
+		$def['ApiSetGuestSetWpakey']=array (  'args' => 'guest.setWpakey',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'wpakey' =>       array (        0 => '!',        1 => 'WPA Key to set',      ),    ),    'parameters' => '$params=array(		\'wpakey\'	=> $wpakey,	);',    'arguments' => '$wpakey',    'call_params' => ', $params',    'doc_desc' => '* @param string $wpakey	WPA Key to set',    'def_value' => '',  ),  'desc' => 'Set Guest WPA Key',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'guest.setWpakey\'',  'f_args_txt' => 'guest.setWpakey',  'f_method_name' => 'ApiSetGuestSetWpakey',  'f_call' => 'CallApiPost',);
+		$def['ApiGetHotspotGetInfo']=array (  'args' => 'hotspot.getInfo',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Hotspot Information',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'hotspot.getInfo\'',  'f_args_txt' => 'hotspot.getInfo',  'f_method_name' => 'ApiGetHotspotGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetHotspotGetClientList']=array (  'args' => 'hotspot.getClientList',  'state' => '3',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Hotspot Clients',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'hotspot.getClientList\'',  'f_args_txt' => 'hotspot.getClientList',  'f_method_name' => 'ApiGetHotspotGetClientList',  'f_call' => 'CallApiGetList',);
+		$def['ApiGetLanGetInfo']=array (  'args' => 'lan.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'LAN Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'lan.getInfo\'',  'f_args_txt' => 'lan.getInfo',  'f_method_name' => 'ApiGetLanGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetLanGetDnsHostList']=array (  'args' => 'lan.getDnsHostList',  'state' => '5',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List DNS host entries',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'lan.getDnsHostList\'',  'f_args_txt' => 'lan.getDnsHostList',  'f_method_name' => 'ApiGetLanGetDnsHostList',  'f_call' => 'CallApiGetList',);
+		$def['ApiGetLanGetHostsList']=array (  'args' => 'lan.getHostsList',  'state' => '5',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List connected hosts',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'lan.getHostsList\'',  'f_args_txt' => 'lan.getHostsList',  'f_method_name' => 'ApiGetLanGetHostsList',  'f_call' => 'CallApiGetList',);
+		$def['ApiSetLanAddDnsHost']=array (  'args' => 'lan.addDnsHost',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'ip' => '!',      'name' => '!',    ),    'parameters' => '$params=array(		\'ip\'	=> $ip,		\'name\'	=> $name,	);',    'arguments' => '$ip, $name',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Add DNS host entry',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'lan.addDnsHost\'',  'f_args_txt' => 'lan.addDnsHost',  'f_method_name' => 'ApiSetLanAddDnsHost',  'f_call' => 'CallApiPost',);
+		$def['ApiSetLanDeleteDnsHost']=array (  'args' => 'lan.deleteDnsHost',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'ip' => '!',      'name' => '!',    ),    'parameters' => '$params=array(		\'ip\'	=> $ip,		\'name\'	=> $name,	);',    'arguments' => '$ip, $name',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Delete DNS host entry',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'lan.deleteDnsHost\'',  'f_args_txt' => 'lan.deleteDnsHost',  'f_method_name' => 'ApiSetLanDeleteDnsHost',  'f_call' => 'CallApiPost',);
+		$def['ApiGetOntGetInfo']=array (  'args' => 'ont.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'ONT Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ont.getInfo\'',  'f_args_txt' => 'ont.getInfo',  'f_method_name' => 'ApiGetOntGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiSetOntSync']=array (  'args' => 'ont.sync',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Synchronize ONT Information with Box',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'ont.sync\'',  'f_args_txt' => 'ont.sync',  'f_method_name' => 'ApiSetOntSync',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOntPush']=array (  'args' => 'ont.push',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'name' =>       array (        0 => 'slid',        1 =>         array (          'slid' => 'identifier',        ),        2 => 'parameter to change',      ),      'value' =>       array (        0 => '!',        1 => 'value to set',      ),      'force' => 'Forces change',    ),    'parameters' => '$params=array(		\'name\'	=> $name,		\'value\'	=> $value,		\'force\'	=> $force,	);',    'arguments' => '$name="slid", $value, $force="Forces change"',    'call_params' => ', $params',    'doc_desc' => '* @param string $name	parameter to change*		\'slid\'	: identifier,* @param string $value	value to set',    'def_value' => '',  ),  'desc' => 'Change ONT parameters',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'ont.push\'',  'f_args_txt' => 'ont.push',  'f_method_name' => 'ApiSetOntPush',  'f_call' => 'CallApiPost',);
+		$def['ApiGetOntPull']=array (  'args' => 'ont.pull',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Get exec status about the latest push. (See API doc for returned codes)',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'ont.pull\'',  'f_args_txt' => 'ont.pull',  'f_method_name' => 'ApiGetOntPull',  'f_call' => 'CallApiGet',);
+		$def['ApiGetP910ndGetInfo']=array (  'args' => 'p910nd.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'p910nd.getInfo\'',  'f_args_txt' => 'p910nd.getInfo',  'f_method_name' => 'ApiGetP910ndGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetPppGetInfo']=array (  'args' => 'ppp.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'PPP Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ppp.getInfo\'',  'f_args_txt' => 'ppp.getInfo',  'f_method_name' => 'ApiGetPppGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetPppGetCredentials']=array (  'args' => 'ppp.getCredentials',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'PPP Credentials',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ppp.getCredentials\'',  'f_args_txt' => 'ppp.getCredentials',  'f_method_name' => 'ApiGetPppGetCredentials',  'f_call' => 'CallApiGet',);
+		$def['ApiSetPppSetCredentials']=array (  'args' => 'ppp.setCredentials',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'login' =>       array (        0 => '',        1 => 'Login',      ),      'password' =>       array (        0 => '',        1 => 'Password',      ),    ),    'parameters' => '$params=array(		\'login\'	=> $login,		\'password\'	=> $password,	);',    'arguments' => '$login="", $password=""',    'call_params' => ', $params',    'doc_desc' => '* @param string $login	Login* @param string $password	Password',    'def_value' => '',  ),  'desc' => 'Set PPP Credentials',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'ppp.setCredentials\'',  'f_args_txt' => 'ppp.setCredentials',  'f_method_name' => 'ApiSetPppSetCredentials',  'f_call' => 'CallApiPost',);
+		$def['ApiGetSmbGetInfo']=array (  'args' => 'smb.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SMB Sharing Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'smb.getInfo\'',  'f_args_txt' => 'smb.getInfo',  'f_method_name' => 'ApiGetSmbGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSystemGetInfo']=array (  'args' => 'system.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'System Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'system.getInfo\'',  'f_args_txt' => 'system.getInfo',  'f_method_name' => 'ApiGetSystemGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSystemGetIfList']=array (  'args' => 'system.getIfList',  'state' => '2',  'type' => 'get',  'call_index' => 'getfix',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'System Interface List',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'system.getIfList\'',  'f_args_txt' => 'system.getIfList',  'f_method_name' => 'ApiGetSystemGetIfList',  'f_call' => 'CallApiGetFix',);
+		$def['ApiGetSystemGetWpaKey']=array (  'args' => 'system.getWpaKey',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Default Wpa Key',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'system.getWpaKey\'',  'f_args_txt' => 'system.getWpaKey',  'f_method_name' => 'ApiGetSystemGetWpaKey',  'f_call' => 'CallApiGet',);
+		$def['ApiSetSystemReboot']=array (  'args' => 'system.reboot',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Reboot',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'system.reboot\'',  'f_args_txt' => 'system.reboot',  'f_method_name' => 'ApiSetSystemReboot',  'f_call' => 'CallApiPost',);
+		$def['ApiSetSystemSetNetMode']=array (  'args' => 'system.setNetMode',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'mode' =>       array (        0 => '!',        1 =>         array (          0 => 'router',          1 => 'bridge',        ),        2 => 'Routing Mode',      ),    ),    'parameters' => '$params=array(		\'mode\'	=> $mode,	);',    'arguments' => '$mode',    'call_params' => ', $params',    'doc_desc' => '* @param string $mode	Routing Mode : either: router | bridge',    'def_value' => '',  ),  'desc' => 'Set Box Routing Mode',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'system.setNetMode\'',  'f_args_txt' => 'system.setNetMode',  'f_method_name' => 'ApiSetSystemSetNetMode',  'f_call' => 'CallApiPost',);
+		$def['ApiSetSystemSetRefClient']=array (  'args' => 'system.setRefClient',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'refclient' =>       array (        0 => '!',        1 => 'Client Reference',      ),    ),    'parameters' => '$params=array(		\'refclient\'	=> $refclient,	);',    'arguments' => '$refclient',    'call_params' => ', $params',    'doc_desc' => '* @param string $refclient	Client Reference',    'def_value' => '',  ),  'desc' => 'Set Client Reference',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'system.setRefClient\'',  'f_args_txt' => 'system.setRefClient',  'f_method_name' => 'ApiSetSystemSetRefClient',  'f_call' => 'CallApiPost',);
+		$def['ApiGetTvGetInfo']=array (  'args' => 'tv.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'TV Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'tv.getInfo\'',  'f_args_txt' => 'tv.getInfo',  'f_method_name' => 'ApiGetTvGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUsbGetInfo']=array (  'args' => 'usb.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'USB Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'usb.getInfo\'',  'f_args_txt' => 'usb.getInfo',  'f_method_name' => 'ApiGetUsbGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetVoipGetInfo']=array (  'args' => 'voip.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'VOIP (phone) Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'voip.getInfo\'',  'f_args_txt' => 'voip.getInfo',  'f_method_name' => 'ApiGetVoipGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetVoipGetCallhistoryList']=array (  'args' => 'voip.getCallhistoryList',  'state' => '2',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'VOIP (phone) Call History',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'voip.getCallhistoryList\'',  'f_args_txt' => 'voip.getCallhistoryList',  'f_method_name' => 'ApiGetVoipGetCallhistoryList',  'f_call' => 'CallApiGetList',);
+		$def['ApiSetVoipRestart']=array (  'args' => 'voip.restart',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Restart VOIP Service',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'voip.restart\'',  'f_args_txt' => 'voip.restart',  'f_method_name' => 'ApiSetVoipRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetVoipStart']=array (  'args' => 'voip.start',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Start VOIP Service',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'voip.start\'',  'f_args_txt' => 'voip.start',  'f_method_name' => 'ApiSetVoipStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetVoipStop']=array (  'args' => 'voip.stop',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Stop VOIP Service',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'voip.stop\'',  'f_args_txt' => 'voip.stop',  'f_method_name' => 'ApiSetVoipStop',  'f_call' => 'CallApiPost',);
+		$def['ApiGetWanGetInfo']=array (  'args' => 'wan.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WAN Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'wan.getInfo\'',  'f_args_txt' => 'wan.getInfo',  'f_method_name' => 'ApiGetWanGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetWlanGetInfo']=array (  'args' => 'wlan.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi (2.4GHz) Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'wlan.getInfo\'',  'f_args_txt' => 'wlan.getInfo',  'f_method_name' => 'ApiGetWlanGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetWlanGetClientList']=array (  'args' => 'wlan.getClientList',  'state' => '5',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi (2.4GHz) Client List',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'wlan.getClientList\'',  'f_args_txt' => 'wlan.getClientList',  'f_method_name' => 'ApiGetWlanGetClientList',  'f_call' => 'CallApiGetList',);
+		$def['ApiGetWlanGetScanList']=array (  'args' => 'wlan.getScanList',  'state' => '5',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List of neighbour ssid found (both 2.4GHz and 5Ghz)',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'wlan.getScanList\'',  'f_args_txt' => 'wlan.getScanList',  'f_method_name' => 'ApiGetWlanGetScanList',  'f_call' => 'CallApiGetList',);
+		$def['ApiSetWlanEnable']=array (  'args' => 'wlan.enable',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Enable Wifi (2.4GHz)',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'wlan.enable\'',  'f_args_txt' => 'wlan.enable',  'f_method_name' => 'ApiSetWlanEnable',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlanDisable']=array (  'args' => 'wlan.disable',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Disable Wifi (2.4GHz)',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'wlan.disable\'',  'f_args_txt' => 'wlan.disable',  'f_method_name' => 'ApiSetWlanDisable',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlanSetChannel']=array (  'args' => 'wlan.setChannel',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'channel' =>       array (        0 => '!',        1 => 'Channel (1 to 13)',      ),    ),    'parameters' => '$params=array(		\'channel\'	=> $channel,	);',    'arguments' => '$channel',    'call_params' => ', $params',    'doc_desc' => '* @param string $channel	Channel (1 to 13)',    'def_value' => '',  ),  'desc' => 'Set Wifi (2.4GHz) channel',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan.setChannel\'',  'f_args_txt' => 'wlan.setChannel',  'f_method_name' => 'ApiSetWlanSetChannel',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlanSetWl0Enc']=array (  'args' => 'wlan.setWl0Enc',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'enc' =>       array (        0 => '!',        1 =>         array (          0 => 'OPEN',          1 => 'WEP',          2 => 'WPA-PSK',          3 => 'WPA2-PSK',          4 => 'WPA-WPA2-PSK',        ),      ),    ),    'parameters' => '$params=array(		\'enc\'	=> $enc,	);',    'arguments' => '$enc',    'call_params' => ', $params',    'doc_desc' => '* @param string $enc	either: OPEN | WEP | WPA-PSK | WPA2-PSK | WPA-WPA2-PSK',    'def_value' => '',  ),  'desc' => 'Set Wifi (2.4GHz) Security Type',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan.setWl0Enc\'',  'f_args_txt' => 'wlan.setWl0Enc',  'f_method_name' => 'ApiSetWlanSetWl0Enc',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlanSetWl0Enctype']=array (  'args' => 'wlan.setWl0Enctype',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'enctype' =>       array (        0 => '!',        1 =>         array (          0 => 'tkip',          1 => 'aes',          2 => 'tkipaes',        ),      ),    ),    'parameters' => '$params=array(		\'enctype\'	=> $enctype,	);',    'arguments' => '$enctype',    'call_params' => ', $params',    'doc_desc' => '* @param string $enctype	either: tkip | aes | tkipaes',    'def_value' => '',  ),  'desc' => 'Set Wifi (2.4GHz) Encryption Type',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan.setWl0Enctype\'',  'f_args_txt' => 'wlan.setWl0Enctype',  'f_method_name' => 'ApiSetWlanSetWl0Enctype',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlanSetWl0Keytype']=array (  'args' => 'wlan.setWl0Keytype',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'keytype' =>       array (        0 => '!',        1 =>         array (          0 => 'ascii',          1 => 'hexa',        ),      ),    ),    'parameters' => '$params=array(		\'keytype\'	=> $keytype,	);',    'arguments' => '$keytype',    'call_params' => ', $params',    'doc_desc' => '* @param string $keytype	either: ascii | hexa',    'def_value' => '',  ),  'desc' => 'Set Wifi (2.4GHz) Key Type',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan.setWl0Keytype\'',  'f_args_txt' => 'wlan.setWl0Keytype',  'f_method_name' => 'ApiSetWlanSetWl0Keytype',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlanSetWl0Ssid']=array (  'args' => 'wlan.setWl0Ssid',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'ssid' =>       array (        0 => '!',        1 => 'SSID name',      ),    ),    'parameters' => '$params=array(		\'ssid\'	=> $ssid,	);',    'arguments' => '$ssid',    'call_params' => ', $params',    'doc_desc' => '* @param string $ssid	SSID name',    'def_value' => '',  ),  'desc' => 'Set Wifi (2.4GHz) SSID',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan.setWl0Ssid\'',  'f_args_txt' => 'wlan.setWl0Ssid',  'f_method_name' => 'ApiSetWlanSetWl0Ssid',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlanSetWl0Wepkey']=array (  'args' => 'wlan.setWl0Wepkey',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'wepkey' =>       array (        0 => '!',        1 => 'Wep Key',      ),    ),    'parameters' => '$params=array(		\'wepkey\'	=> $wepkey,	);',    'arguments' => '$wepkey',    'call_params' => ', $params',    'doc_desc' => '* @param string $wepkey	Wep Key',    'def_value' => '',  ),  'desc' => 'Set Wifi (2.4GHz) WEP Key',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan.setWl0Wepkey\'',  'f_args_txt' => 'wlan.setWl0Wepkey',  'f_method_name' => 'ApiSetWlanSetWl0Wepkey',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlanSetWl0Wpakey']=array (  'args' => 'wlan.setWl0Wpakey',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'wpakey' =>       array (        0 => '!',        1 => 'Wpa Key',      ),    ),    'parameters' => '$params=array(		\'wpakey\'	=> $wpakey,	);',    'arguments' => '$wpakey',    'call_params' => ', $params',    'doc_desc' => '* @param string $wpakey	Wpa Key',    'def_value' => '',  ),  'desc' => 'Set Wifi (2.4GHz) WPA Key',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan.setWl0Wpakey\'',  'f_args_txt' => 'wlan.setWl0Wpakey',  'f_method_name' => 'ApiSetWlanSetWl0Wpakey',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlanSetWlanMode']=array (  'args' => 'wlan.setWlanMode',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'mode' =>       array (        0 => '!',        1 =>         array (          0 => '11n',          1 => '11ng',          2 => '11g',          3 => '11b',          4 => 'auto',        ),      ),    ),    'parameters' => '$params=array(		\'mode\'	=> $mode,	);',    'arguments' => '$mode',    'call_params' => ', $params',    'doc_desc' => '* @param string $mode	either: 11n | 11ng | 11g | 11b | auto',    'def_value' => '',  ),  'desc' => 'Set Wifi (2.4GHz) Radio Mode. For NB5/NB6: (11n|11ng|11g). For NB4/CIBOX: (11b|11g|auto)',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan.setWlanMode\'',  'f_args_txt' => 'wlan.setWlanMode',  'f_method_name' => 'ApiSetWlanSetWlanMode',  'f_call' => 'CallApiPost',);
+		$def['ApiGetWlan5GetInfo']=array (  'args' => 'wlan5.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi (5GHz) Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'wlan5.getInfo\'',  'f_args_txt' => 'wlan5.getInfo',  'f_method_name' => 'ApiGetWlan5GetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetWlan5GetClientList']=array (  'args' => 'wlan5.getClientList',  'state' => '5',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi (5Hz) Client List',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'wlan5.getClientList\'',  'f_args_txt' => 'wlan5.getClientList',  'f_method_name' => 'ApiGetWlan5GetClientList',  'f_call' => 'CallApiGetList',);
+		$def['ApiSetWlan5SetChannel']=array (  'args' => 'wlan5.setChannel',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'channel' =>       array (        0 => '!',        1 => 'Channel (auto|36|40|44|48|52|56|60|64|100|104|108|112|116|132|136|140)',      ),    ),    'parameters' => '$params=array(		\'channel\'	=> $channel,	);',    'arguments' => '$channel',    'call_params' => ', $params',    'doc_desc' => '* @param string $channel	Channel (auto|36|40|44|48|52|56|60|64|100|104|108|112|116|132|136|140)',    'def_value' => '',  ),  'desc' => 'Set Wifi (5GHz) channel',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan5.setChannel\'',  'f_args_txt' => 'wlan5.setChannel',  'f_method_name' => 'ApiSetWlan5SetChannel',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlan5SetWl0Enc']=array (  'args' => 'wlan5.setWl0Enc',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'enc' =>       array (        0 => '!',        1 =>         array (          0 => 'OPEN',          1 => 'WPA-PSK',          2 => 'WPA2-PSK',          3 => 'WPA-WPA2-PSK',        ),      ),    ),    'parameters' => '$params=array(		\'enc\'	=> $enc,	);',    'arguments' => '$enc',    'call_params' => ', $params',    'doc_desc' => '* @param string $enc	either: OPEN | WPA-PSK | WPA2-PSK | WPA-WPA2-PSK',    'def_value' => '',  ),  'desc' => 'Set Wifi (5GHz) Security Type',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan5.setWl0Enc\'',  'f_args_txt' => 'wlan5.setWl0Enc',  'f_method_name' => 'ApiSetWlan5SetWl0Enc',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlan5SetWl0Enctype']=array (  'args' => 'wlan5.setWl0Enctype',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'enctype' =>       array (        0 => '!',        1 =>         array (          0 => 'tkip',          1 => 'aes',          2 => 'tkipaes',        ),      ),    ),    'parameters' => '$params=array(		\'enctype\'	=> $enctype,	);',    'arguments' => '$enctype',    'call_params' => ', $params',    'doc_desc' => '* @param string $enctype	either: tkip | aes | tkipaes',    'def_value' => '',  ),  'desc' => 'Set Wifi (5Hz) Encryption Type',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan5.setWl0Enctype\'',  'f_args_txt' => 'wlan5.setWl0Enctype',  'f_method_name' => 'ApiSetWlan5SetWl0Enctype',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlan5SetWl0Keytype']=array (  'args' => 'wlan5.setWl0Keytype',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'keytype' =>       array (        0 => '!',        1 =>         array (          0 => 'ascii',          1 => 'hexa',        ),      ),    ),    'parameters' => '$params=array(		\'keytype\'	=> $keytype,	);',    'arguments' => '$keytype',    'call_params' => ', $params',    'doc_desc' => '* @param string $keytype	either: ascii | hexa',    'def_value' => '',  ),  'desc' => 'Set Wifi (5GHz) Key Type',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan5.setWl0Keytype\'',  'f_args_txt' => 'wlan5.setWl0Keytype',  'f_method_name' => 'ApiSetWlan5SetWl0Keytype',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlan5SetWl0Ssid']=array (  'args' => 'wlan5.setWl0Ssid',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'ssid' =>       array (        0 => '!',        1 => 'SSID name',      ),    ),    'parameters' => '$params=array(		\'ssid\'	=> $ssid,	);',    'arguments' => '$ssid',    'call_params' => ', $params',    'doc_desc' => '* @param string $ssid	SSID name',    'def_value' => '',  ),  'desc' => 'Set Wifi (5GHz) SSID',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan5.setWl0Ssid\'',  'f_args_txt' => 'wlan5.setWl0Ssid',  'f_method_name' => 'ApiSetWlan5SetWl0Ssid',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlan5SetWl0Wepkey']=array (  'args' => 'wlan5.setWl0Wepkey',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'wepkey' =>       array (        0 => '!',        1 => 'Wep Key',      ),    ),    'parameters' => '$params=array(		\'wepkey\'	=> $wepkey,	);',    'arguments' => '$wepkey',    'call_params' => ', $params',    'doc_desc' => '* @param string $wepkey	Wep Key',    'def_value' => '',  ),  'desc' => 'Set Wifi (5GHz) WEP Key',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan5.setWl0Wepkey\'',  'f_args_txt' => 'wlan5.setWl0Wepkey',  'f_method_name' => 'ApiSetWlan5SetWl0Wepkey',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlan5SetWl0Wpakey']=array (  'args' => 'wlan5.setWl0Wpakey',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'wpakey' =>       array (        0 => '!',        1 => 'Wpa Key',      ),    ),    'parameters' => '$params=array(		\'wpakey\'	=> $wpakey,	);',    'arguments' => '$wpakey',    'call_params' => ', $params',    'doc_desc' => '* @param string $wpakey	Wpa Key',    'def_value' => '',  ),  'desc' => 'Set Wifi (5GHz) WPA Key',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan5.setWl0Wpakey\'',  'f_args_txt' => 'wlan5.setWl0Wpakey',  'f_method_name' => 'ApiSetWlan5SetWl0Wpakey',  'f_call' => 'CallApiPost',);
+		$def['ApiSetWlan5SetWlanMode']=array (  'args' => 'wlan5.setWlanMode',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'mode' =>       array (        0 => '!',        1 =>         array (          0 => '11n',          1 => '11ac',          2 => 'auto',        ),      ),    ),    'parameters' => '$params=array(		\'mode\'	=> $mode,	);',    'arguments' => '$mode',    'call_params' => ', $params',    'doc_desc' => '* @param string $mode	either: 11n | 11ac | auto',    'def_value' => '',  ),  'desc' => 'Set Wifi (5GHz) Radio Mode. For NB5/NB6: (11n|11ng|11g). For NB4/CIBOX: (11b|11g|auto)',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'wlan5.setWlanMode\'',  'f_args_txt' => 'wlan5.setWlanMode',  'f_method_name' => 'ApiSetWlan5SetWlanMode',  'f_call' => 'CallApiPost',);
 	
 		return $def;
 	}
