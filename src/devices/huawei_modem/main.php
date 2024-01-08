@@ -1,12 +1,30 @@
 <?php
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+HackApi - Huawei Modem main Class
+--------------------------------------------------------------------------------------------------------------------------------------
+Copyright (C) 2023  by François Déchery - https://github.com/soif/
+
+HackApi is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+HackApi is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
+--------------------------------------------------------------------------------------------------------------------------------------
+Many Thanks to the reverse-engineering work of these guys:
+	https://github.com/if0xx/Huawei-Hilink-API
+	https://github.com/pablo/huawei-modem-python-api-client/blob/master/huaweisms/api/common.py
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
 //include the main class we are exending, and our trait (if it exists or not)
 require_once(dirname(__FILE__).'/../../lib/Hackapi.php');
 Hackapi::RequireTrait(__FILE__);
 
 /*
-	 Credits:
-		https://github.com/if0xx/Huawei-Hilink-API
-		https://github.com/pablo/huawei-modem-python-api-client/blob/master/huaweisms/api/common.py
+
 */
 
 // ###############################################################################################
@@ -18,7 +36,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 	protected $user			="admin";			// (default) user name
 	protected $password		="admin";			// (default) user password
 
-	protected	$client_version		='1.00';	// API client Version, formated as M.mm
+	protected	$client_version		='1.01';	// API client Version, formated as M.mm
 
 	protected $use_cookies	=true;
 	protected $def_referer	="/html/index.html?noredirect"; // needed ?
@@ -181,69 +199,69 @@ class Hackapi_Huawei_modem extends Hackapi{
 
 	protected $std_fields_map=array(
 		'ApiCellStatus'=>array(
-			'prov_name'		=> 'ShortName',	// Provider Name
-			'prov_fullname'	=> 'FullName',	// Provider Full Name
-			'mcc'			=> 'my_mcc',	// MCC
-			'mnc'			=> 'my_mnc',	// MNC
-			'rnc'			=> '',	// RNC
-			'enbid'			=> 'enodeb_id',	// eNB ID
-			'lac'			=> 'lac',	// LAC
-			'rat'			=> 'Rat',	// RAT
-			'tac'			=> 'tac',	// TAC
-			'channel'		=> 'api_field_path',	// Channel (EARFCN)
-			'bands'			=> 'band',	// Bands
-			'pci'			=> 'pci',	// PCI
-			'mode'			=> 'workmode',	// Cellular network type: LTE,CMDA,...  (Signal report 'mode'. we need to figure out what modes are.. mine is 7 on LTE)
-//			'protocol'		=> '',	// Protocol
-			'imei'			=> 'Imei',	// IMEI
-//			'imci'			=> '',	// IMCI
-			'iccid'			=> 'Iccid',			// Sim ICCI
-			'imsi'			=> 'Imsi',			// Sim_IMSI
-			'msisdn'		=> 'Msisdn',		// Sim Phone Number
+			'prov_name'		=> 'ShortName',				// Provider Name
+			'prov_fullname'	=> 'FullName',				// Provider Full Name
+			'mcc'			=> 'my_mcc',				// MCC
+			'mnc'			=> 'my_mnc',				// MNC
+			'rnc'			=> '',						// RNC
+			'enbid'			=> 'enodeb_id',				// eNB ID
+			'lac'			=> 'lac',					// LAC
+			'rat'			=> 'Rat',					// RAT
+			'tac'			=> 'tac',					// TAC
+			'channel'		=> 'api_field_path',		// Channel (EARFCN)
+			'bands'			=> 'band',					// Bands
+			'pci'			=> 'pci',					// PCI
+			'mode'			=> 'workmode',				// Cellular network type: LTE,CMDA,...  (Signal report 'mode'. we need to figure out what modes are.. mine is 7 on LTE)
+//			'protocol'		=> '',						// Protocol
+			'imei'			=> 'Imei',					// IMEI
+//			'imci'			=> '',						// IMCI
+			'iccid'			=> 'Iccid',					// Sim ICCI
+			'imsi'			=> 'Imsi',					// Sim_IMSI
+			'msisdn'		=> 'Msisdn',				// Sim Phone Number
 
-//			'strength'		=> '',	// (%) Strength
-//			'csq'			=> '',	// CSQ
-			'rssi'			=> 'rssi',	// (dBm) RSSI
-			'rscp'			=> 'rscp',	// (dBm) RSCP
-			'rsrp'			=> 'rsrp',	// (dBm) RSRP
-			'ecio'			=> 'ecio',	// (dB) ECIO
-			'rsrq'			=> 'rsrq',	// (dB) RSRQ
-			'sinr'			=> 'sinr',	// (dB) SINR
-			'cell_id'		=> 'cell_id',	// Cell ID
-			'rx_speed'		=> 'my_rx_speed',	// (Kbytes) Download Speed
-			'tx_speed'		=> 'my_tx_speed',	// (Kbytes) Upload Speed
+//			'strength'		=> '',						// (%) Strength
+//			'csq'			=> '',						// CSQ
+			'rssi'			=> 'rssi',					// (dBm) RSSI
+			'rscp'			=> 'rscp',					// (dBm) RSCP
+			'rsrp'			=> 'rsrp',					// (dBm) RSRP
+			'ecio'			=> 'ecio',					// (dB) ECIO
+			'rsrq'			=> 'rsrq',					// (dB) RSRQ
+			'sinr'			=> 'sinr',					// (dB) SINR
+			'cell_id'		=> 'cell_id',				// Cell ID
+			'rx_speed'		=> 'my_rx_speed',			// (Kbytes) Download Speed
+			'tx_speed'		=> 'my_tx_speed',			// (Kbytes) Upload Speed
 
-			'rx_lte_freq'	=> 'ltedlfreq',	// 
-			'tx_lte_freq'	=> 'lteulfreq',	// 
+			'rx_lte_freq'	=> 'ltedlfreq',				// 
+			'tx_lte_freq'	=> 'lteulfreq',				// 
 		),
 		'ApiSmsList'=>array(
-			'id'	=> 'Index',						// SMS's ID (the one used to delete the SMS)
-			'date'	=> 'Date',						// SMS's Date, formated as a SQL datetime (YYYY-MM-DD HH:MM:SS)
-			'phone'	=> 'Phone',						// SMS's Phone Number
-			'text'	=> 'Content',					// SMS's Text Content
+			'id'	=> 'Index',							// SMS's ID (the one used to delete the SMS)
+			'date'	=> 'Date',							// SMS's Date, formated as a SQL datetime (YYYY-MM-DD HH:MM:SS)
+			'phone'	=> 'Phone',							// SMS's Phone Number
+			'text'	=> 'Content',						// SMS's Text Content
 		),
 		'ApiWanStatus'=>array(
-//			'mac'			=> '',	// MAC address
-			'up'			=> 'my_up',	// (boolean) Are we connected ?
+//			'mac'			=> '',						// MAC address
+			'up'			=> 'my_up',					// (boolean) Are we connected ?
 			'since'			=> 'CurrentConnectTime',	// Seconds since we are connected
-			'ipv4'			=> 'WanIPAddress',	// IP address (v4)
-			'ipv6'			=> 'WanIPv6Address',	// IP address (v6)
-			'dns1v4'		=> 'my_dns1v4',	// DNS Server 1 IP address (v4)
-			'dns2v4'		=> 'my_dns2v4',	// DNS Server 2 IP address (v4)
-			'dns1v6'		=> 'my_dns1v6',	// DNS Server 1 IP address (v6)
-			'dns2v6'		=> 'my_dns2v6',	// DNS Server 2 IP address (v6)
+			'ipv4'			=> 'WanIPAddress',			// IP address (v4)
+			'ipv6'			=> 'WanIPv6Address',		// IP address (v6)
+			'dns1v4'		=> 'my_dns1v4',				// DNS Server 1 IP address (v4)
+			'dns2v4'		=> 'my_dns2v4',				// DNS Server 2 IP address (v4)
+			'dns1v6'		=> 'my_dns1v6',				// DNS Server 1 IP address (v6)
+			'dns2v6'		=> 'my_dns2v6',				// DNS Server 2 IP address (v6)
 //			'gatewayv4'		=> '',	// Gateway IP address (v4)
 //			'gatewayv6'		=> '',	// Gateway IP address (v6)
-			'rx_realtime'	=> 'CurrentDownload',	// (bytes) Realtime RX 
-			'rx_peak'		=> '',	// (bytes) Peak RX 
-			'rx_day'		=> '',	// (bytes) Daily RX 
+			'rx_realtime'	=> 'CurrentDownload',		// (bytes) Realtime RX 
+//			'rx_peak'		=> '',						// (bytes) Peak RX 
+//			'rx_day'		=> '',						// (bytes) Daily RX 
 			'rx_month'		=> 'CurrentMonthDownload',	// (bytes) Monthly RX 
-			'rx_total'		=> 'TotalDownload',	// (bytes) Total RX 
-			'tx_realtime'	=> 'CurrentUpload',	// (bytes) Realtime TX 
-			'tx_peak'		=> '',	// (bytes) Peak TX 
-			'tx_day'		=> '',	// (bytes) Daily TX 
+			'rx_total'		=> 'TotalDownload',			// (bytes) Total RX 
+			'tx_realtime'	=> 'CurrentUpload',			// (bytes) Realtime TX 
+//			'tx_peak'		=> '',						// (bytes) Peak TX 
+//			'tx_day'		=> '',						// (bytes) Daily TX 
 			'tx_month'		=> 'CurrentMonthUpload',	// (bytes) Monthly TX 
-			'tx_total'		=> 'TotalUpload',	// (bytes) Total TX 
+			'tx_total'		=> 'TotalUpload',			// (bytes) Total TX 
 		),
 
 		'ApiWifiListClients'=>array(
@@ -254,17 +272,19 @@ class Hackapi_Huawei_modem extends Hackapi{
 			'dns_name'		=> '',					// DNS host name
 			'name'			=> 'HostName',			// host name (usually sent by client)
 			'alias'			=> 'ActualName',		// friendly host name (user-defined in the device)
-			'time'			=> '',					// (unix time) Date when the client has been connected
-			'duration'		=> '',					// (sec) How long the client has been connected
-			'level_send'	=> '',					// (db) Send Level
-			'level_receive'	=> '',					// (db) Receive Level
+//			'time'			=> '',					// (unix time) Date when the client has been connected
+//			'duration'		=> '',					// (sec) How long the client has been connected
+//			'level_send'	=> '',					// (db) Send Level
+//			'level_receive'	=> '',					// (db) Receive Level
 		),
 		'ApiWifiListSsids'=>array(
 			'id'			=> 'ID',
 			'bssid'			=> 'WifiMac',
 			'ssid'			=> 'WifiSsid',
 //			'password'		=> '',
-//			'channel'		=> '',
+			'enabled'		=> 'my_enabled',		// Is enabled ? (true|false)
+//			'channel'		=> 'api_field_path',	// Frequency Channel
+//			'mode'			=> 'api_field_path',	// Wifi Mode (11xxx)
 		),
 	);
 
@@ -502,11 +522,14 @@ class Hackapi_Huawei_modem extends Hackapi{
 				//map by ssid
 				$formatted=array();
 				foreach($items as $it){
-					if(!$only_enabled or $it['WifiEnable']==1){
-						$formatted[$it['ID']]=$this->RemapFields($it,'ApiWifiListSsids',false);
+					$it['my_enabled']= $it['WifiEnable']==1 ? true:false;
+					if(!$only_enabled or $it['my_enabled']){
+						$formatted[$it['ID']]=$this->RemapFields($it,'ApiWifiListSsids',true);
 					}
 				}
-				return $formatted;
+				if(!empty($formatted)){
+					return $formatted;
+				}
 			}
 		}	
 	}
