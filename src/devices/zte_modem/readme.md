@@ -14,7 +14,7 @@ Here are the models and version currently tested an reported by our fellow users
 
 | Model | Version | Date | Tester | Comment |
 | ----- | ------- | ---- | ------ | ------- |
-| mf920u | BD_MF920UV1.0.1B05 | December 19th, 2023 | @soif | All current methods have been tested |
+| mf920u | BD_MF920UV1.0.1B05 | December 19th, 2023 | @soif | Most current methods have been tested |
 
 
 ### Contribute !
