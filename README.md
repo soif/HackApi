@@ -59,7 +59,7 @@ print_r($messages);
 $done = $client->ApiSmsSend('0612345678','Hello world');
 
 // Reboot modem
-$done = $client->ApiApiReboot();
+$done = $client->ApiReboot();
 ```
 
 *Very Simple, isn't it?*
