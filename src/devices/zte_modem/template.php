@@ -114,7 +114,7 @@ Used to document the list of devices supported by this current API Client
 */
 // [ MODEL, 	SOWFTARE_VERSION,		DATE,			 @NickName|Full_Name, 	URL|email,					COMMENT ]
 $p['tests']=array(
-	['mf920u',	'BD_MF920UV1.0.1B05',	'2023-12-19',	'@soif',				'https://github.com/soif/', 'Most current methods have been tested']
+	['mf920u',	'BD_MF920UV1.0.1B05',	'2024-01-07',	'@soif',				'https://github.com/soif/', 'All GET methods have been tested, some SET methods to finish']
 );
 
 ?>

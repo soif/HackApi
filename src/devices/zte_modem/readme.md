@@ -14,7 +14,7 @@ Here are the models and version currently tested an reported by our fellow users
 
 | Model | Version | Date | Tester | Comment |
 | ----- | ------- | ---- | ------ | ------- |
-| mf920u | BD_MF920UV1.0.1B05 | December 19th, 2023 | @soif | Most current methods have been tested |
+| mf920u | BD_MF920UV1.0.1B05 | January 7th, 2024 | @soif | All GET methods have been tested, some SET methods to finish |
 
 
 ### Contribute !
@@ -27,16 +27,15 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 - **14** standardized methods
 - **6** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
-- **2** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **3** methods with status of **DRAFT** (Not tested)
+- **3** methods with status of **TESTED** (Params still not ordered or desc not set)
+- **2** methods with status of **DRAFT** (Not tested)
 
 
 
 ### 3 *Getter* methods (ReadOnly)
 
 - **1** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
-- **1** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **1** methods with status of **DRAFT** (Not tested)
+- **2** methods with status of **TESTED** (Params still not ordered or desc not set)
 
 
 ### 8 *Setter* methods (Writing or performing an action)
@@ -74,7 +73,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 | Method | Description | Dev. State |
 | ------ | ----------- | ----------------- |
-| **ApiGetHostNameList** | List Host names | DRAFT |
+| **ApiGetHostNameList** | List Host names | TESTED |
 | **ApiGetSmsDataTotal** | SMS List | TESTED |
 | **ApiGetStationList** | List Wifi Clients | FINAL |
 | **ApiSetChangeMode** | Enable Factory Backdoor? | DRAFT |
