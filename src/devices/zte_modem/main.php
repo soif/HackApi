@@ -13,22 +13,19 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
 
 You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------------------------------------------------------------
+Many Thanks to the reverse-engineering work of these guys:
+	https://github.com/an1by/ZTEModemAPI
+	https://github.com/paulo-correia/ZTE_API_and_Hack
+	https://github.com/rkarimabadi/ZTE-MF79-usb-modem-Send-SMS
+	https://taisto.org/ZTE_MF823D
+	https://github.com/zetxx/router-rpi-4G/blob/master/zte-mf-823-cmd.md
+	https://github.com/an1by/ZTEModemAPI/blob/master/docs/ATTRIBUTES.md
+--------------------------------------------------------------------------------------------------------------------------------------
 */
-
 
 //include the main class we are exending, and our trait (if it exists or not)
 require_once(dirname(__FILE__).'/../../lib/Hackapi.php');
 Hackapi::RequireTrait(__FILE__);
-
-/*
-	Credits:
-		https://github.com/an1by/ZTEModemAPI
-		https://github.com/paulo-correia/ZTE_API_and_Hack
-		https://github.com/rkarimabadi/ZTE-MF79-usb-modem-Send-SMS
-		https://taisto.org/ZTE_MF823D
-		https://github.com/zetxx/router-rpi-4G/blob/master/zte-mf-823-cmd.md
-		https://github.com/an1by/ZTEModemAPI/blob/master/docs/ATTRIBUTES.md
-*/
 
 // ###############################################################################################
 class Hackapi_Zte_modem extends Hackapi{
