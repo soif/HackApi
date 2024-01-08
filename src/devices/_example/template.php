@@ -25,7 +25,6 @@
 		METHOD_INDEX	: (string) 			- (your own) index name pointing to the method to call (see $p.calls bellow)
 		PARAMS			: (array) 			- Method arguments as 'key_name' => 'default value'. (see all formats in the _MakeParams method from the HackapiTools class)
 		DESCRIPTION		: (string)			- Description shown in the phpDoc method's description & readme
-
 */
 
 // [ ENDPOINT,									STATE,	TYPE,	METHOD_I, 		PARAMS,	DESCRIPTION ]

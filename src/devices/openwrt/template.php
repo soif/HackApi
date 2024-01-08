@@ -15,17 +15,16 @@
 		ENDPOINT		: (string | array) 	- endpoint(s) (ie: relative url) to pass to the called method,
 		STATE			: (string) 			- current delelopment state:
 													1 	=> 'NOT TESTED',
-													2 	=> 'ERROR (Return an error)',
+													2 	=> 'ERROR (Returns an error)',
 													3 	=> 'UNDER DEV',
-													4 	=> 'TESTED (paramaters still not correctly ordered, and/or no description)',
-													5 	=> 'FINAL  (fully tested, with paramaters correctly ordered,description set)',
+													4 	=> 'TESTED (paramaters still not correctly ordered/described, and/or no description)',
+													5 	=> 'FINAL  (fully tested, with paramaters correctly set, description set)',
 		TYPE			: ('get','set') 	- Prefix of the generated method name. 
 													'get' for "read-only" methods, 
 													'set' for methods that "write" or perform an action
 		METHOD_INDEX	: (string) 			- (your own) index name pointing to the method to call (see $p.calls bellow)
-		PARAMS			: (array) 			- Method arguments as 'key_name' => 'default value'.
-		DESCRIPTION		: (string)			- Description shown in the phpDoc method's description
-
+		PARAMS			: (array) 			- Method arguments as 'key_name' => 'default value'. (see all formats in the _MakeParams method from the HackapiTools class)
+		DESCRIPTION		: (string)			- Description shown in the phpDoc method's description & readme
 */
 
 // [ ENDPOINT,										STATE,	TYPE,	METHOD_I, 		PARAMS,	DESCRIPTION ]
