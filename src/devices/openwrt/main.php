@@ -29,7 +29,7 @@ class Hackapi_Openwrt extends Hackapi{
 	protected $user			="root";		// (default) user name
 	protected $password		="";			// (default) user password
 
-	protected	$client_version		='0.30';	// API client Version, formated as M.mm
+	protected	$client_version		='0.40';	// API client Version, formated as M.mm
 
 	protected $def_endpoint	='/cgi-bin/luci/admin/ubus';
 	protected $def_headers=array(
@@ -42,7 +42,7 @@ class Hackapi_Openwrt extends Hackapi{
 		'1'			=> 	['UBUS_STATUS_INVALID_COMMAND',		8],
 		'2'			=> 	['UBUS_STATUS_INVALID_ARGUMENT',	1],
 		'3'			=> 	['UBUS_STATUS_METHOD_NOT_FOUND',	6],
-		'4'			=> 	['UBUS_STATUS_NOT_FOUND',			8],
+		'4'			=> 	['UBUS_STATUS_NOT_FOUND',			1],
 		'5'			=> 	['UBUS_STATUS_NO_DATA',				8],
 		'6'			=>	['UBUS_STATUS_PERMISSION_DENIED',	3], //login faile
 		'7'			=> 	['UBUS_STATUS_TIMEOUT',				8],
@@ -50,16 +50,34 @@ class Hackapi_Openwrt extends Hackapi{
 		'9'			=> 	['UBUS_STATUS_UNKNOWN_ERROR',		5],
 		'10'		=> 	['UBUS_STATUS_CONNECTION_FAILED',	8],
 		'-32002'	=>	['RPC_ERROR_ACCESS_DENIED',			3],
+		'-32600'	=>	['RPC_ERROR_INVALID_PARAMETERS',	1],
 		'-32602'	=>	['RPC_ERROR_INVALID_PARAMETERS',	1],
+
 	);
 
 	protected $std_fields_map=array(
+		'ApiWifiListClients'=>array(
+			'id'			=> 'my_id',				// the internal ID asigned by the device (else set it to the MAC address)
+			'mac'			=> 'mac',				// MAC address
+//			'ipv4'			=> 'api_field_path',	// IP address (v4)
+//			'ipv6'			=> 'api_field_path',	// IP address (v6)
+//			'dns_name'		=> 'api_field_path',	// DNS host name
+//			'name'			=> 'api_field_path',	// host name (usually sent by client)
+//			'alias'			=> 'api_field_path',	// friendly host name (user-defined in the device)
+			'time'			=> 'my_time',			// (unix time) Date when the client has been connected
+			'duration'		=> 'connected_time',	// (sec) How long the client has been connected
+//			'level_send'	=> 'api_field_path',	// (db) Send Level
+//			'level_receive'	=> 'api_field_path',	// (db) Receive Level
+		),
+
 		'ApiWifiListSsids'=>array(
 			'id'			=> 'ifname',
 			'bssid'			=> 'iwinfo/bssid',
 			'ssid'			=> 'iwinfo/ssid',
 			'password'		=> 'config/key',
+			'enable'		=> 'my_enabled',
 			'channel'		=> 'my_channel',
+			'mode'			=> 'my_mode',
 		),
 	);
 
@@ -87,7 +105,7 @@ class Hackapi_Openwrt extends Hackapi{
 		);
 		$this->_ubus_session_id=$this->_ubus_session_id_for_login;
 		$r=$this->MyRpcCall('session','login',$params,false);
-		$this->DebugLogVerbose('Login result',$r);
+		//$this->DebugLogVerbose('Login result',$r);
 		
 		if($r){
 			$this->DebugLogInfo('Login OK');
@@ -112,11 +130,14 @@ class Hackapi_Openwrt extends Hackapi{
 	public function ApiIsLoggedIn(){
 		$this->DebugLogMethod();
 	}
-
+*/
 	// -------------------------------------------------------------------------
 	public function ApiReboot(){
 		$this->DebugLogMethod();
+		return $this->ApiSetSystemReboot();
 	}
+
+/*
 
 	// -------------------------------------------------------------------------
 	public function ApiCellStatus($fast_mode=false){
@@ -148,10 +169,38 @@ class Hackapi_Openwrt extends Hackapi{
 	}
 	
 	// -------------------------------------------------------------------------
-	public function ApiWifiListClients($id=''){
-		$this->DebugLogMethod();
-	}
+
 */	
+	// -------------------------------------------------------------------------
+	public function ApiWifiListClients($id=''){
+		$list=array();
+		$out=array();
+		if($id){
+			$list[]=$id;;
+		}
+		elseif($ids=$this->ApiWifiListSsids()){
+			$list=array_keys($ids);
+		}
+
+		foreach($list as $if_id){
+			if($r=$this->ApiGetIwinfoAssoclist($if_id)){
+				foreach($r as $k=>$v){
+					$v['my_id']		=$v['mac'];
+					$v['my_time']	=time() - $v['connected_time'];
+					$out[$if_id][$v['my_id']]=$this->RemapFields($v,'ApiWifiListClients');
+				}
+			}
+		}
+		if($id){
+			$out=$out[$id];
+		}
+		if(count($out)==0){
+			return false;
+		}
+		return $out;
+	}
+
+
 	// -------------------------------------------------------------------------
 	public function ApiWifiListSsids($only_enabled=true){
 		$this->DebugLogMethod();
@@ -163,18 +212,18 @@ class Hackapi_Openwrt extends Hackapi{
 					if(!$only_enabled or $info['up']){
 						foreach($info['interfaces'] as $if){
 							if($if['config']['mode']=='ap'){
-								$if['my_channel']=$info['config']['channel'];
-								$formatted[$if['ifname']][]=$if;
+								$if['my_channel']	=$info['config']['channel'];
+								$if['my_mode']		=$info['config']['hwmode'];
+								$if['my_enabled']	=! $info['disabled'];
+								$formatted[$if['ifname']]=$if;
 							}
 						}						
 					}
 				}
 
-				foreach($formatted as $ssid => $list){
+				foreach($formatted as $if_id => $list){
 					if(is_array($list)){
-						foreach($list as $k=>$v){
-							$formatted[$ssid][$k]=$this->RemapFields($v,'ApiWifiListSsids');
-						}	
+						$formatted[$if_id]=$this->RemapFields($list,'ApiWifiListSsids');
 					}
 				}
 				return $formatted;
@@ -204,8 +253,9 @@ class Hackapi_Openwrt extends Hackapi{
 	// -------------------------------------------------------------------------
 	protected function MyRpcCall($ubus_path, $ubus_method, $ubus_params=array() , $login_first=true){
 		$result = $this->_CallRpc('call',$ubus_path, $ubus_method, $ubus_params, $login_first);
-		
-		// how the hell can they format a result like this :-/
+		//$this->DebugLogVerbose('RPC Formatted Result',$result);
+	
+		// Result[0] hold and error code, or 0 if ok
 		if($err=$result[0]){
 			$this->SetApiErrorCode($err);
 			//$this->DebugLogError("Ubus Error $err ({$this->api_error_codes[$err]})", $result);
@@ -214,8 +264,12 @@ class Hackapi_Openwrt extends Hackapi{
 			if(isset($result[1]['results'])){
 				return $result[1]['results'];
 			}
-			else{
+			elseif(isset($result[1])){
 				return $result[1];
+			}
+			elseif(isset($result[0]) and $result[0]==0){
+				//succeeded (ie reboot)
+				return true;
 			}
 		}
 	}
@@ -250,6 +304,8 @@ class Hackapi_Openwrt extends Hackapi{
 
 		if( $answer=$this->CallEndpoint('','POST',$rpc) ){
 			$answer =json_decode($answer,true);
+			//$this->DebugLogVerbose('Raw RPC Answer',$answer);
+
 			//$answer=$this->ObjectToArray($answer);
 			if (isset($answer['id']) && $answer['id'] == $this->_rpc_id && array_key_exists('result', $answer)) {
 				return $answer['result'];

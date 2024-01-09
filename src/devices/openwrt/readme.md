@@ -1,4 +1,4 @@
-# Hackapi_Openwrt v0.30
+# Hackapi_Openwrt v0.40
 
 Writen in php, this API client aims to provide a nice interface with **OPENWRT**'s Routers.
 
