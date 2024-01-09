@@ -273,7 +273,6 @@ public function {method}({arguments}){
 		$this->PrintErrorReport('errors',$total,'Endpoint');
 	}
 
-
 	// -------------------------------------------------------------------------
 	public function ListEnpointsMethods($type='get',$only_enpoints=array()){
 		$out=array();		
@@ -314,7 +313,6 @@ public function {method}({arguments}){
 		return $out;
 	}
 
-
 	// -------------------------------------------------------------------------
 	private function _ListMethodsDefinitionsBy($type='get', $col='state', $value=0){
 		if(!method_exists($this->odev,'ListMethodsDefinitions')){
@@ -333,6 +331,7 @@ public function {method}({arguments}){
 		}
 		return $out;
 	}
+
 	// -------------------------------------------------------------------------
 	private function _CountMethodsDefinitionsBy($type='get', $col='state', $value=0){
 		if($lines=$this->_ListMethodsDefinitionsBy($type, $col, $value)){
@@ -340,7 +339,6 @@ public function {method}({arguments}){
 		}
 		return 0;
 	}
-
 
 	// -------------------------------------------------------------------------
 	public function ReportCountMethodsDefinitionsBy($type='get', $col='state',$list_methods=true){
@@ -359,7 +357,6 @@ public function {method}({arguments}){
 			}	
 		}
 	}
-
 
 	// -------------------------------------------------------------------------
 	public function TestCallAllApiGet($single_mode=true,$only_methods=array(),$only_state=0){
@@ -1093,6 +1090,7 @@ EOF;
 		$start or $start=$fill;
 		echo str_pad("$start$txt",$width,$fill)."\n";
 	}
+
 
 
 	// ###############################################################################
