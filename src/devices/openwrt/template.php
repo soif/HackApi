@@ -48,15 +48,15 @@ $p['definitions']=array(
 	[ ['file',	'remove'],								'1',	'set',	'call',		['ubus_rpc_session'=>'','path'=>''],				''],
 
 	[ 'iwinfo',											'5',	'get',	'list',		'',		'List Wireless objects'],
-	[ ['iwinfo','assoclist'],							'4',	'get',	'call',		['device'=>'','mac'=>''],		'UBUS_STATUS_INVALID_ARGUMENT'],
+	[ ['iwinfo','assoclist'],							'4',	'get',	'call',		['device'=>['!', 'Interface name'],'mac'=>['','???']],		'List Wifi Stations'],
 	[ ['iwinfo','devices'],								'2',	'get',	'call',		['device'=>''],		'DENIED -32002'],
 	[ ['iwinfo','survey'],								'2',	'get',	'call',		['device'=>''],		'DENIED -32002'],
-	[ ['iwinfo','countrylist'],							'2',	'get',	'call',		['device'=>''],		'UBUS_STATUS_INVALID_ARGUMENT'],
+	[ ['iwinfo','countrylist'],							'4',	'get',	'call',		['device'=>['!', 'Interface name']],		'Countries List'],
 	[ ['iwinfo','phyname'],								'2',	'get',	'call',		['device'=>''],		'DENIED -32002'],
-	[ ['iwinfo','scan'],								'2',	'set',	'call',		['device'=>''],		'UBUS_STATUS_INVALID_ARGUMENT'],
-	[ ['iwinfo','info'],								'2',	'get',	'call',		['device'=>''],		'UBUS_STATUS_INVALID_ARGUMENT'],
-	[ ['iwinfo','txpowerlist'],							'2',	'get',	'call',		['device'=>''],		'UBUS_STATUS_INVALID_ARGUMENT'],
-	[ ['iwinfo','freqlist'],							'2',	'get',	'call',		['device'=>''],		'UBUS_STATUS_INVALID_ARGUMENT'],
+	[ ['iwinfo','scan'],								'5',	'set',	'call',		['device'=>['!', 'Interface name']],		'Scan neighbourhood Access Points'],
+	[ ['iwinfo','info'],								'5',	'get',	'call',		['device'=>['!', 'Interface name']],		'Interface Information'],
+	[ ['iwinfo','txpowerlist'],							'4',	'get',	'call',		['device'=>['!', 'Interface name']],		'dbm vs Transmit Power List?'],
+	[ ['iwinfo','freqlist'],							'5',	'get',	'call',		['device'=>['!', 'Interface name']],		'Channels vs Frequencies List'],
 
 	[ 'luci',											'5',	'get',	'list',		'',					'List Luci objects'],
 	[ ['luci','getMountPoints'],						'5',	'get',	'call',		'',					'Mount Points'],
@@ -69,7 +69,7 @@ $p['definitions']=array(
 	[ ['luci','getInitList'],							'5',	'get',	'call',		['name'=>''],		'Init List'],
 	[ ['luci','getProcessList'],						'5',	'get',	'call',		'',					'Processes List'],
 	[ ['luci','setLocaltime'],							'1',	'set',	'call',		['localtime'=>''],	''],
-	[ ['luci','getRealtimeStats'],						'3',	'get',	'call',		['device'=>'','mode'=>''],	''],
+	[ ['luci','getRealtimeStats'],						'4',	'get',	'call',		['mode'=>['!',['load','interface','wireless','conntrack'],'Mode'],'device'=>['',"Interface. Required for 'interface' and 'wireless' modes"]],	'Realtime Statistics'],
 	[ ['luci','getConntrackList'],						'5',	'get',	'call',		'',					'Connection Track Helpers'],
 	[ ['luci','getBlockDevices'],						'3',	'get',	'call',		'',					'?'],
 	[ ['luci','getLEDs'],								'5',	'get',	'call',		'',					'LEDs status'],
@@ -79,10 +79,10 @@ $p['definitions']=array(
 	[ ['luci','setBlockDetect'],						'1',	'set',	'call',		'',					''],
 
 	[ 'luci-rpc',										'5',	'get',	'list',		'',				'List luci-RPC objects'],
-	[ ['luci-rpc',	'getHostHints'],					'5',	'get',	'call',		'',				'Connected Clients (ip,ipv6,name) indexed by MAC address'],
+	[ ['luci-rpc',	'getHostHints'],					'5',	'get',	'call',		'',				'Hosts (ip,ipv6,name) - indexed by MAC address'],
 	[ ['luci-rpc',	'getNetworkDevices'],				'5',	'get',	'call',		'',				'Network Interfaces - indexed by interfaces'],
 	[ ['luci-rpc',	'getDHCPLeases'],					'5',	'get',	'call',		['family'=>''],	'DHCP Leases : dhcp_leases & dhcp6_leases'],
-	[ ['luci-rpc',	'getDUIDHints'],					'3',	'get',	'call',		'',				'???'],
+//	[ ['luci-rpc',	'getDUIDHints'],					'3',	'get',	'call',		'',				'???'],
 	[ ['luci-rpc',	'getWirelessDevices'],				'5',	'get',	'call',		'',				'Wireless Devices - indexed by interfaces'],
 	[ ['luci-rpc',	'getBoardJSON'],					'5',	'get',	'call',		'',				'Basic Board Information'],
 
@@ -203,13 +203,13 @@ $p['definitions']=array(
 	[ ['session','get'],								'1',	'set',	'call',		['ubus_rpc_session'=>'','keys'=>''],	''],
 
 	[ 'system',											'5',	'get',	'list',		'',				'List System objects'],
-	[ ['system',	'reboot'],							'1',	'set',	'call',		'',				''],
+	[ ['system',	'reboot'],							'5',	'set',	'call',		'',				'Reboot Device'],
 	[ ['system',	'board'],							'5',	'get',	'call',		'',				'Board and Firmare Information'],
 	[ ['system',	'info'],							'5',	'get',	'call',		'',				'Memory, Storage, Load and Uptime'],
 	[ ['system',	'sysupgrade'],						'1',	'set',	'call',		['backup'=>'','path'=>'','prefix'=>'','command'=>'','force'=>'','options'=>''],		''],
 	[ ['system',	'watchdog'],						'1',	'set',	'call',		['timeout'=>'','magicclose'=>'','stop'=>'','frequency'=>''],		''],
 	[ ['system',	'validate_firmware_image'],			'1',	'set',	'call',		['path'=>''],	''],
-	[ ['system',	'signal'],							'1',	'set',	'call',		['pid'=>'','signum'=>''],		'DENIED -32002'],
+	[ ['system',	'signal'],							'2',	'set',	'call',		['pid'=>'','signum'=>''],		'DENIED -32002'],
 
 
 	[ 'uci',											'5',	'get',	'list',		'',		''],
@@ -217,9 +217,9 @@ $p['definitions']=array(
 	[ ['uci',	'get'],									'1',	'set',	'call',		['type'=>'','section'=>'','ubus_rpc_session'=>'','option'=>'','config'=>'','match'=>''],		''],
 	[ ['uci',	'set'],									'1',	'set',	'call',		['type'=>'','values'=>'','section'=>'','ubus_rpc_session'=>'','config'=>'','match'=>''],		''],
 	[ ['uci',	'order'],								'1',	'set',	'call',		['ubus_rpc_session'=>'','config'=>'','sections'=>''],		''],
-	[ ['uci',	'configs'],								'1',	'get',	'call',		'',		''],
+	[ ['uci',	'configs'],								'2',	'get',	'call',		'',		'DENIED -32002'],
 	[ ['uci',	'changes'],								'1',	'set',	'call',		['ubus_rpc_session'=>'','config'=>''],		''],
-	[ ['uci',	'reload_config'],						'1',	'get',	'call',		'',		''],
+	[ ['uci',	'reload_config'],						'1',	'set',	'call',		'',		''],
 	[ ['uci',	'state'],								'1',	'set',	'call',		['type'=>'','section'=>'','ubus_rpc_session'=>'','option'=>'','config'=>'','match'=>''],		''],
 	[ ['uci',	'add'],									'1',	'set',	'call',		['type'=>'','values'=>'','ubus_rpc_session'=>'','config'=>'','name'=>''],		''],
 	[ ['uci',	'rollback'],							'1',	'set',	'call',		['ubus_rpc_session'=>''],		''],
@@ -269,6 +269,8 @@ $p['information']=array(
 // 'readme' #################################################################################################
 // (Markdown syntax)
 $p['readme']=<<<EOF
+(WORK IN PROGRESS)
+
 This API client works for OpenWrt 22.x.
 but it should actually work for many previous version.
 It does not require any specific packages.
@@ -283,7 +285,7 @@ Used to document the list of devices supported by this current API Client
 */
 // [ MODEL, 	SOWFTARE_VERSION,	DATE,			 @NickName|Full_Name, 	URL|email,					COMMENT ]
 $p['tests']=array(
-	['openwrt',	'22.03.2',			'2023-12-22',	'@soif',				'https://github.com/soif/', 'Most ApiGet methods have been tested']
+	['openwrt',	'22.03.2',			'2024-01-09',	'@soif',				'https://github.com/soif/', 'Most ApiGet methods have been tested. Most ApiSet methods still need tests']
 );
 
 ?>
