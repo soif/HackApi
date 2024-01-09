@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License along with thi
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 class Hackapi{
-	private		$version			='1.00'; 	// HackApi Version
+	private		$version			='1.01'; 	// HackApi Version
 
 	// host and credentials ----------- 
 	protected	$host				="";		// (default) ip address or hostname
@@ -449,9 +449,12 @@ class Hackapi{
 	 */
 	protected function SetError($code, $message=''){
 		if(isset($this->error_codes[$code])){
-			$this->last_error['code']		=$code;
-			$this->last_error['code_txt']	=$this->error_codes[$code];
-			$message and $this->last_error['mess']=$message;
+			$this->_SetCategError('main','code',		$code);
+			$this->_SetCategError('main','code_txt',	$this->error_codes[$code]);
+			$message and $this->_SetCategError('main','mess',	$message);
+			//$this->last_error['code']		=$code;
+			//$this->last_error['code_txt']	=$this->error_codes[$code];
+			//$message and $this->last_error['mess']=$message;
 			return true;
 		}
 		$this->DebugLogError("$code is not a valid error code");
@@ -482,12 +485,12 @@ class Hackapi{
 	protected function SetApiErrorCode($code,$message='',$result=''){
 		if(isset($this->api_error_codes[$code])){
 			$code_txt=$this->api_error_codes[$code][0];
-			if(!isset($this->last_error['code']) and isset($this->api_error_codes[$code][1])){
+			if(!isset($this->last_error['main']['code']) and isset($this->api_error_codes[$code][1])){
 				$this->SetError($this->api_error_codes[$code][1]);
 			}
 		}
 		else{
-			if(!isset($this->last_error['code'])){
+			if(!isset($this->last_error['main']['code'])){
 				$this->SetError(5);
 				if($result){
 					$this->SetCallError('result',$result);
@@ -505,10 +508,10 @@ class Hackapi{
 		}
 	}
 
-	// -------------------------------------------------------------------------
-	protected function SetApiError($key='',$txt){
-		$this->_SetCategError('api',$key,$txt);
-	}
+	// // -------------------------------------------------------------------------
+	// protected function SetApiError($key='',$txt){
+	// 	$this->_SetCategError('api',$key,$txt);
+	// }
 
 	// -------------------------------------------------------------------------
 	private function _SetCategError($category,$key='',$txt){
@@ -516,15 +519,19 @@ class Hackapi{
 			$this->DebugLogError("Emply error message");
 			return false;
 		}
-		if(!isset($this->last_error['code'])){
+		/*
+		if(!isset($this->last_error['main']['code'])){
 			$this->SetError(5);
 		}
-
+		*/
 		if(!isset($this->last_error[$category])){
+			if(!is_array($this->last_error)){
+				$this->last_error=array();
+			}
 			$this->last_error[$category]=array();
 		}
 
-		if($key){
+		if($key){			
 			$this->last_error[$category][$key]=$txt;
 		}
 		else{
