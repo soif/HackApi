@@ -1,4 +1,4 @@
-# Hackapi_Huawei_modem
+# Hackapi_Huawei_modem v1.01
 
 Writen in php, this API client aims to provide a nice interface with **HUAWEI**'s Modems.
 

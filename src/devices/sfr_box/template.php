@@ -186,6 +186,9 @@ $p['information']=array(
 // 'readme' #################################################################################################
 // (Markdown syntax)
 $p['readme']=<<<EOF
+
+(WORK IN PROGRESS)
+
 This API client works for SFR (or Red-by-SFR) boxes. *SFR is a popular french Internet Service Provider.*
 It should work on all Boxes < v8
 

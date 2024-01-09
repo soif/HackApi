@@ -1,4 +1,4 @@
-# Hackapi_Zte_modem
+# Hackapi_Zte_modem v1.01
 
 Writen in php, this API client aims to provide a nice interface with **ZTE**'s Modems.
 

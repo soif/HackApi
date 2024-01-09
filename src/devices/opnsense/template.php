@@ -2182,6 +2182,9 @@ $p['information']=array(
 // 'readme' #################################################################################################
 // (Markdown syntax)
 $p['readme']=<<<EOF
+
+(WORK IN PROGRESS)
+
 This API client exposes all OPNSense API endoints.
 
 EOF;
