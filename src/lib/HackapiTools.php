@@ -186,6 +186,7 @@ public function {method}({arguments}){
 				}
 
 				if($arr=call_user_func_array(array($instance, $method), $params)){
+					echo "-- $method Result -----------------------------------------------------------------------------------------------\n";
 					$pretty= $this->PrettifyArray($arr);
 					echo $pretty;
 					if(!preg_match('#\n$#',$pretty)){
@@ -779,7 +780,7 @@ public function {method}({arguments}){
 			foreach($state_txt as $state => $blocks){
 				//isset($states[$state]) ? $state_name=$states[$state] : $state_name=$state;
 				$state_index=" ".str_pad($this->states[$state][0],11).str_pad($this->states[$state][1],40)." ";
-				$total_state[$state_index]=0;
+				//$total_state[$state_index]=0;
 				$out .="\n";						
 				$out .="\n";
 				$out .="// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";						
@@ -895,11 +896,11 @@ EOF;
 	public function BuildReadme($output_mode){
 		$pref= & $this->template_prefs;
 		$class=get_class($this->odev);
-
+		$version=$this->odev->GetClientVersion();
 		$info=$this->GetInformation();
 		$name=$info['brand_family_name'];
 		$out=<<<EOF
-# $class
+# $class v$version
 
 Writen in php, this API client aims to provide a nice interface with $name.
 
