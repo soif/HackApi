@@ -29,9 +29,10 @@ class Hackapi_Openwrt extends Hackapi{
 	protected $user			="root";		// (default) user name
 	protected $password		="";			// (default) user password
 
-	protected	$client_version		='0.40';	// API client Version, formated as M.mm
+	protected	$client_version		='0.41';	// API client Version, formated as M.mm
 
 	protected $def_endpoint	='/cgi-bin/luci/admin/ubus';
+	//protected $def_endpoint	='/ubus'; // this endpoint also works, but methods returning -32002 with the above, now returns -32700... ???????
 	protected $def_headers=array(
 		'Content-Type: application/json',
 		'Accept: application/json'
@@ -52,6 +53,7 @@ class Hackapi_Openwrt extends Hackapi{
 		'-32002'	=>	['RPC_ERROR_ACCESS_DENIED',			3],
 		'-32600'	=>	['RPC_ERROR_INVALID_PARAMETERS',	1],
 		'-32602'	=>	['RPC_ERROR_INVALID_PARAMETERS',	1],
+		'-32700'	=>	['PARSE_ERROR',	1],
 
 	);
 
@@ -295,6 +297,11 @@ class Hackapi_Openwrt extends Hackapi{
 		);
 		// since OWRT 23.05, ubus call fails when args is empty, so add it only when needed
 		if (! empty($ubus_params)) {
+			// foreach($ubus_params as $k=>$v){
+			// 	if(strtolower($v)=="false") $ubus_params[$k]=false;
+			// 	if(strtolower($v)=="true") $ubus_params[$k]=true;
+			// 	//if($k=='ubus_rpc_session') $ubus_params[$k]=$this->_ubus_session_id;
+			// }
 			$payload[]=$ubus_params;
 		}
 		else{
@@ -306,7 +313,6 @@ class Hackapi_Openwrt extends Hackapi{
 			$answer =json_decode($answer,true);
 			//$this->DebugLogVerbose('Raw RPC Answer',$answer);
 
-			//$answer=$this->ObjectToArray($answer);
 			if (isset($answer['id']) && $answer['id'] == $this->_rpc_id && array_key_exists('result', $answer)) {
 				return $answer['result'];
 			}
