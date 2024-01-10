@@ -1,4 +1,4 @@
-# Hackapi_Openwrt v0.40
+# Hackapi_Openwrt v0.41
 
 Writen in php, this API client aims to provide a nice interface with **OPENWRT**'s Routers.
 
@@ -36,20 +36,20 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 
 
-### 63 *Getter* methods (ReadOnly)
+### 64 *Getter* methods (ReadOnly)
 
 - **37** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
 - **5** methods with status of **TESTED** (Params still not ordered or desc not set)
 - **4** methods with status of **UNDER DEV** (Work in propress)
-- **14** methods with status of **ERROR** (Returns an error)
+- **15** methods with status of **ERROR** (Returns an error)
 - **3** methods with status of **DRAFT** (Not tested)
 
 
-### 115 *Setter* methods (Writing or performing an action)
+### 114 *Setter* methods (Writing or performing an action)
 
 - **2** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
 - **1** methods with status of **UNDER DEV** (Work in propress)
-- **2** methods with status of **ERROR** (Returns an error)
+- **1** methods with status of **ERROR** (Returns an error)
 - **110** methods with status of **DRAFT** (Not tested)
 
 
@@ -77,7 +77,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiGetDnsmasq** | List DnsMasq objects | FINAL |
 | **ApiGetDnsmasqMetrics** | DENIED -32002 | ERROR |
 | **ApiGetFile** | List file objects | FINAL |
-| **ApiGetFileRead** | UBUS_STATUS_PERMISSION_DENIED | UNDER DEV |
+| **ApiGetFileRead** | Read a file contents. The file path is encoded in Base64 if the base64 param set to “true”  | UNDER DEV |
 | **ApiGetIwinfo** | List Wireless objects | FINAL |
 | **ApiGetIwinfoAssoclist** | List Wifi Stations | TESTED |
 | **ApiGetIwinfoCountrylist** | Countries List | TESTED |
@@ -110,21 +110,22 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiGetLuciRpcGetWirelessDevices** | Wireless Devices - indexed by interfaces | FINAL |
 | **ApiGetNetwork** | List Network objects | FINAL |
 | **ApiGetNetworkDevice** | List Device objects | FINAL |
-| **ApiGetNetworkDeviceStatus** | DENIED -32002 | ERROR |
+| **ApiGetNetworkDeviceStatus** | Dump status of given network device ifname | ERROR |
 | **ApiGetNetworkGetProtoHandlers** | Proto? handlers | TESTED |
 | **ApiGetNetworkInterface** | List Network Interface objects | FINAL |
 | **ApiGetNetworkInterfaceLan** | List LAN Network Interface objects | FINAL |
-| **ApiGetNetworkInterfaceLanStatus** | DENIED -32002 | ERROR |
+| **ApiGetNetworkInterfaceLanStatus** | Dump status of interface LAN | ERROR |
 | **ApiGetNetworkInterfaceLoopback** | List Loopback Network Interface objects | FINAL |
-| **ApiGetNetworkInterfaceLoopbackStatus** | DENIED -32002 | ERROR |
+| **ApiGetNetworkInterfaceLoopbackStatus** | Dump status of interface LoopBack | ERROR |
 | **ApiGetNetworkInterfaceStatus** | DENIED -32002 | ERROR |
 | **ApiGetNetworkInterfaceWan** | List WAN Network Interface objects | FINAL |
 | **ApiGetNetworkInterfaceWan6** | List WAN6 Network Interface objects | FINAL |
-| **ApiGetNetworkInterfaceWan6Status** | DENIED -32002 | ERROR |
-| **ApiGetNetworkInterfaceWanStatus** | DENIED -32002 | ERROR |
+| **ApiGetNetworkInterfaceWan6Status** | Dump status of interface WAN6 | ERROR |
+| **ApiGetNetworkInterfaceWanStatus** | Dump status of interface WAN | ERROR |
 | **ApiGetNetworkRrdns** | List RrDns objects | FINAL |
 | **ApiGetNetworkWireless** | List Wireless objects | FINAL |
 | **ApiGetNetworkWirelessGetValidate** |  | DRAFT |
+| **ApiGetNetworkWirelessStatus** | DENIED -32002 | ERROR |
 | **ApiGetService** | List Service objects | FINAL |
 | **ApiGetServiceList** |  | DRAFT |
 | **ApiGetSession** | List Session objects | FINAL |
@@ -140,7 +141,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiSetFileMd5** |  | DRAFT |
 | **ApiSetFileRemove** |  | DRAFT |
 | **ApiSetFileStat** | Stat File | DRAFT |
-| **ApiSetFileWrite** |  | DRAFT |
+| **ApiSetFileWrite** | Write a data to a file by path. The file path is encoded in Base64 if the base64 param set to “true”. If the append param is “true” then file is not overwritten but the new content is added to the end of the file. The mode param if specified represent file permission mode. | DRAFT |
 | **ApiSetIwinfoScan** | Scan neighbourhood Access Points | FINAL |
 | **ApiSetLuciSetBlockDetect** |  | DRAFT |
 | **ApiSetLuciSetInitAction** |  | DRAFT |
@@ -149,31 +150,31 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiSetNetworkAddDynamic** |  | DRAFT |
 | **ApiSetNetworkAddHostRoute** |  | DRAFT |
 | **ApiSetNetworkDeviceSetAlias** |  | DRAFT |
-| **ApiSetNetworkDeviceSetState** |  | DRAFT |
+| **ApiSetNetworkDeviceSetState** | Defer or ready the given network device ifname, depending on the boolean value defer | DRAFT |
 | **ApiSetNetworkDeviceStpInit** |  | DRAFT |
 | **ApiSetNetworkInterfaceAddDevice** |  | DRAFT |
 | **ApiSetNetworkInterfaceDown** |  | DRAFT |
 | **ApiSetNetworkInterfaceDump** |  | DRAFT |
-| **ApiSetNetworkInterfaceLanAddDevice** |  | DRAFT |
+| **ApiSetNetworkInterfaceLanAddDevice** | Add network device 'name' to interface LAN | DRAFT |
 | **ApiSetNetworkInterfaceLanDown** |  | DRAFT |
-| **ApiSetNetworkInterfaceLanDump** |  | DRAFT |
+| **ApiSetNetworkInterfaceLanDump** | Bring interface LAN down | DRAFT |
 | **ApiSetNetworkInterfaceLanNotifyProto** |  | DRAFT |
-| **ApiSetNetworkInterfaceLanPrepare** |  | DRAFT |
-| **ApiSetNetworkInterfaceLanRemove** |  | DRAFT |
-| **ApiSetNetworkInterfaceLanRemoveDevice** |  | DRAFT |
+| **ApiSetNetworkInterfaceLanPrepare** | Prepare setup of interface LAN | DRAFT |
+| **ApiSetNetworkInterfaceLanRemove** | Remove interface LAN | DRAFT |
+| **ApiSetNetworkInterfaceLanRemoveDevice** | Remove network device 'name' from interface LAN | DRAFT |
 | **ApiSetNetworkInterfaceLanRenew** |  | DRAFT |
 | **ApiSetNetworkInterfaceLanSetData** |  | DRAFT |
-| **ApiSetNetworkInterfaceLanUp** |  | DRAFT |
-| **ApiSetNetworkInterfaceLoopbackAddDevice** |  | DRAFT |
-| **ApiSetNetworkInterfaceLoopbackDown** |  | DRAFT |
+| **ApiSetNetworkInterfaceLanUp** | Bring interface LAN up | DRAFT |
+| **ApiSetNetworkInterfaceLoopbackAddDevice** | Add network device 'name' to interface LoopBack | DRAFT |
+| **ApiSetNetworkInterfaceLoopbackDown** | Bring interface LoopBack down | DRAFT |
 | **ApiSetNetworkInterfaceLoopbackDump** |  | DRAFT |
 | **ApiSetNetworkInterfaceLoopbackNotifyProto** |  | DRAFT |
-| **ApiSetNetworkInterfaceLoopbackPrepare** |  | DRAFT |
-| **ApiSetNetworkInterfaceLoopbackRemove** |  | DRAFT |
-| **ApiSetNetworkInterfaceLoopbackRemoveDevice** |  | DRAFT |
+| **ApiSetNetworkInterfaceLoopbackPrepare** | Prepare setup of interface LoopBack | DRAFT |
+| **ApiSetNetworkInterfaceLoopbackRemove** | Remove interface LoopBack | DRAFT |
+| **ApiSetNetworkInterfaceLoopbackRemoveDevice** | Remove network device 'name' from interface LoopBack | DRAFT |
 | **ApiSetNetworkInterfaceLoopbackRenew** |  | DRAFT |
 | **ApiSetNetworkInterfaceLoopbackSetData** |  | DRAFT |
-| **ApiSetNetworkInterfaceLoopbackUp** |  | DRAFT |
+| **ApiSetNetworkInterfaceLoopbackUp** | Bring interface LoopBack up | DRAFT |
 | **ApiSetNetworkInterfaceNotifyProto** |  | DRAFT |
 | **ApiSetNetworkInterfacePrepare** |  | DRAFT |
 | **ApiSetNetworkInterfaceRemove** |  | DRAFT |
@@ -181,34 +182,33 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiSetNetworkInterfaceRenew** |  | DRAFT |
 | **ApiSetNetworkInterfaceSetData** |  | DRAFT |
 | **ApiSetNetworkInterfaceUp** |  | DRAFT |
-| **ApiSetNetworkInterfaceWan6AddDevice** |  | DRAFT |
-| **ApiSetNetworkInterfaceWan6Down** |  | DRAFT |
+| **ApiSetNetworkInterfaceWan6AddDevice** | Add network device 'name' to interface WAN6 | DRAFT |
+| **ApiSetNetworkInterfaceWan6Down** | Bring interface WAN6 down | DRAFT |
 | **ApiSetNetworkInterfaceWan6Dump** |  | DRAFT |
 | **ApiSetNetworkInterfaceWan6NotifyProto** |  | DRAFT |
-| **ApiSetNetworkInterfaceWan6Prepare** |  | DRAFT |
-| **ApiSetNetworkInterfaceWan6Remove** |  | DRAFT |
-| **ApiSetNetworkInterfaceWan6RemoveDevice** |  | DRAFT |
+| **ApiSetNetworkInterfaceWan6Prepare** | Prepare setup of interface WAN6 | DRAFT |
+| **ApiSetNetworkInterfaceWan6Remove** | Remove interface WAN6 | DRAFT |
+| **ApiSetNetworkInterfaceWan6RemoveDevice** | Remove network device 'name' from interface WAN6 | DRAFT |
 | **ApiSetNetworkInterfaceWan6Renew** |  | DRAFT |
 | **ApiSetNetworkInterfaceWan6SetData** |  | DRAFT |
-| **ApiSetNetworkInterfaceWan6Up** |  | DRAFT |
-| **ApiSetNetworkInterfaceWanAddDevice** |  | DRAFT |
-| **ApiSetNetworkInterfaceWanDown** |  | DRAFT |
+| **ApiSetNetworkInterfaceWan6Up** | Bring interface WAN6 up | DRAFT |
+| **ApiSetNetworkInterfaceWanAddDevice** | Add network device 'name' to interface WAN | DRAFT |
+| **ApiSetNetworkInterfaceWanDown** | Bring interface WAN down | DRAFT |
 | **ApiSetNetworkInterfaceWanDump** |  | DRAFT |
 | **ApiSetNetworkInterfaceWanNotifyProto** |  | DRAFT |
-| **ApiSetNetworkInterfaceWanPrepare** |  | DRAFT |
-| **ApiSetNetworkInterfaceWanRemove** |  | DRAFT |
-| **ApiSetNetworkInterfaceWanRemoveDevice** |  | DRAFT |
+| **ApiSetNetworkInterfaceWanPrepare** | Prepare setup of interface WAN | DRAFT |
+| **ApiSetNetworkInterfaceWanRemove** | Remove interface WAN | DRAFT |
+| **ApiSetNetworkInterfaceWanRemoveDevice** | Remove network device 'name' from interface WAN | DRAFT |
 | **ApiSetNetworkInterfaceWanRenew** |  | DRAFT |
 | **ApiSetNetworkInterfaceWanSetData** |  | DRAFT |
-| **ApiSetNetworkInterfaceWanUp** |  | DRAFT |
+| **ApiSetNetworkInterfaceWanUp** | Bring interface WAN up | DRAFT |
 | **ApiSetNetworkNetnsUpdown** |  | DRAFT |
 | **ApiSetNetworkReload** |  | DRAFT |
-| **ApiSetNetworkRestart** |  | DRAFT |
+| **ApiSetNetworkRestart** |  Restart the network, reconfigures all interfaces | DRAFT |
 | **ApiSetNetworkRrdnsLookup** |  | DRAFT |
 | **ApiSetNetworkWirelessDown** |  | DRAFT |
 | **ApiSetNetworkWirelessNotify** |  | DRAFT |
 | **ApiSetNetworkWirelessReconf** |  | DRAFT |
-| **ApiSetNetworkWirelessStatus** | DENIED -32002 | ERROR |
 | **ApiSetNetworkWirelessUp** |  | DRAFT |
 | **ApiSetServiceAdd** |  | DRAFT |
 | **ApiSetServiceDelete** |  | DRAFT |

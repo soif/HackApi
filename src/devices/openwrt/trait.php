@@ -693,18 +693,17 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiGetFileRead
 	*
-	* UBUS_STATUS_PERMISSION_DENIED
+	* Read a file contents. The file path is encoded in Base64 if the base64 param set to “true” 
 	*
 	* @category ApiGet
 	* @return Array[]
 	*/
-	public function ApiGetFileRead($base64="", $path="", $ubus_rpc_session=""){
+	public function ApiGetFileRead($path="", $base64=""){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(3);
 		$params=array(
-			'base64'	=> $base64,
 			'path'	=> $path,
-			'ubus_rpc_session'	=> $ubus_rpc_session,
+			'base64'	=> $base64,
 		);
 		return $this->MyRpcCall('file','read', $params);
 	}
@@ -884,7 +883,7 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiGetNetworkDeviceStatus
 	*
-	* DENIED -32002
+	* Dump status of given network device ifname
 	*
 	* @category ApiGet
 	* @return Array[]
@@ -917,7 +916,7 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiGetNetworkInterfaceLanStatus
 	*
-	* DENIED -32002
+	* Dump status of interface LAN
 	*
 	* @category ApiGet
 	* @return Array[]
@@ -932,7 +931,7 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiGetNetworkInterfaceLoopbackStatus
 	*
-	* DENIED -32002
+	* Dump status of interface LoopBack
 	*
 	* @category ApiGet
 	* @return Array[]
@@ -947,7 +946,7 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiGetNetworkInterfaceWanStatus
 	*
-	* DENIED -32002
+	* Dump status of interface WAN
 	*
 	* @category ApiGet
 	* @return Array[]
@@ -962,7 +961,7 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiGetNetworkInterfaceWan6Status
 	*
-	* DENIED -32002
+	* Dump status of interface WAN6
 	*
 	* @category ApiGet
 	* @return Array[]
@@ -971,6 +970,21 @@ trait Hackapi_Openwrt_Trait {
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(2);
 		return $this->MyRpcCall('network.interface.wan6','status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetNetworkWirelessStatus
+	*
+	* DENIED -32002
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetNetworkWirelessStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->MyRpcCall('network.wireless','status');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -1117,21 +1131,6 @@ trait Hackapi_Openwrt_Trait {
 	
 	// -----------------------------------------------------------------------
 	/**
-	* ApiSetNetworkWirelessStatus
-	*
-	* DENIED -32002
-	*
-	* @category ApiSet
-	* @return Array[]
-	*/
-	public function ApiSetNetworkWirelessStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->MyRpcCall('network.wireless','status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
 	* ApiSetSystemSignal
 	*
 	* DENIED -32002
@@ -1180,10 +1179,12 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiSetFileWrite
 	*
+	* Write a data to a file by path. The file path is encoded in Base64 if the base64 param set to “true”. If the append param is “true” then file is not overwritten but the new content is added to the end of the file. The mode param if specified represent file permission mode.
+	*
 	* @category ApiSet
 	* @return Array[]
 	*/
-	public function ApiSetFileWrite($path="", $base64="", $append="", $mode="", $data="", $ubus_rpc_session=""){
+	public function ApiSetFileWrite($path="", $base64="", $append="", $mode="", $data=""){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
@@ -1192,7 +1193,6 @@ trait Hackapi_Openwrt_Trait {
 			'append'	=> $append,
 			'mode'	=> $mode,
 			'data'	=> $data,
-			'ubus_rpc_session'	=> $ubus_rpc_session,
 		);
 		return $this->MyRpcCall('file','write', $params);
 	}
@@ -1206,11 +1206,10 @@ trait Hackapi_Openwrt_Trait {
 	* @category ApiSet
 	* @return Array[]
 	*/
-	public function ApiSetFileList($ubus_rpc_session="", $path=""){
+	public function ApiSetFileList($path=""){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'ubus_rpc_session'	=> $ubus_rpc_session,
 			'path'	=> $path,
 		);
 		return $this->MyRpcCall('file','list', $params);
@@ -1223,11 +1222,10 @@ trait Hackapi_Openwrt_Trait {
 	* @category ApiSet
 	* @return Array[]
 	*/
-	public function ApiSetFileMd5($ubus_rpc_session="", $path=""){
+	public function ApiSetFileMd5($path=""){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'ubus_rpc_session'	=> $ubus_rpc_session,
 			'path'	=> $path,
 		);
 		return $this->MyRpcCall('file','md5', $params);
@@ -1240,11 +1238,10 @@ trait Hackapi_Openwrt_Trait {
 	* @category ApiSet
 	* @return Array[]
 	*/
-	public function ApiSetFileExec($ubus_rpc_session="", $command="", $env="", $params=""){
+	public function ApiSetFileExec($command="", $env="", $params=""){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'ubus_rpc_session'	=> $ubus_rpc_session,
 			'command'	=> $command,
 			'env'	=> $env,
 			'params'	=> $params,
@@ -1261,11 +1258,10 @@ trait Hackapi_Openwrt_Trait {
 	* @category ApiSet
 	* @return Array[]
 	*/
-	public function ApiSetFileStat($ubus_rpc_session="", $path=""){
+	public function ApiSetFileStat($path=""){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'ubus_rpc_session'	=> $ubus_rpc_session,
 			'path'	=> $path,
 		);
 		return $this->MyRpcCall('file','stat', $params);
@@ -1278,11 +1274,10 @@ trait Hackapi_Openwrt_Trait {
 	* @category ApiSet
 	* @return Array[]
 	*/
-	public function ApiSetFileRemove($ubus_rpc_session="", $path=""){
+	public function ApiSetFileRemove($path=""){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'ubus_rpc_session'	=> $ubus_rpc_session,
 			'path'	=> $path,
 		);
 		return $this->MyRpcCall('file','remove', $params);
@@ -1353,6 +1348,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkRestart
+	*
+	*  Restart the network, reconfigures all interfaces
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -1432,6 +1429,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkDeviceSetState
+	*
+	* Defer or ready the given network device ifname, depending on the boolean value defer
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -1604,6 +1603,8 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiSetNetworkInterfaceLanRemoveDevice
 	*
+	* Remove network device 'name' from interface LAN
+	*
 	* @category ApiSet
 	* @return Array[]
 	*/
@@ -1622,6 +1623,8 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiSetNetworkInterfaceLanUp
 	*
+	* Bring interface LAN up
+	*
 	* @category ApiSet
 	* @return Array[]
 	*/
@@ -1634,6 +1637,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceLanAddDevice
+	*
+	* Add network device 'name' to interface LAN
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -1652,6 +1657,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceLanPrepare
+	*
+	* Prepare setup of interface LAN
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -1678,6 +1685,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceLanRemove
+	*
+	* Remove interface LAN
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -1731,6 +1740,8 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiSetNetworkInterfaceLanDump
 	*
+	* Bring interface LAN down
+	*
 	* @category ApiSet
 	* @return Array[]
 	*/
@@ -1743,6 +1754,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceLoopbackRemoveDevice
+	*
+	* Remove network device 'name' from interface LoopBack
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -1762,6 +1775,8 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiSetNetworkInterfaceLoopbackUp
 	*
+	* Bring interface LoopBack up
+	*
 	* @category ApiSet
 	* @return Array[]
 	*/
@@ -1774,6 +1789,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceLoopbackAddDevice
+	*
+	* Add network device 'name' to interface LoopBack
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -1792,6 +1809,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceLoopbackPrepare
+	*
+	* Prepare setup of interface LoopBack
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -1818,6 +1837,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceLoopbackRemove
+	*
+	* Remove interface LoopBack
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -1858,6 +1879,8 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiSetNetworkInterfaceLoopbackDown
 	*
+	* Bring interface LoopBack down
+	*
 	* @category ApiSet
 	* @return Array[]
 	*/
@@ -1884,6 +1907,8 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiSetNetworkInterfaceWanRemoveDevice
 	*
+	* Remove network device 'name' from interface WAN
+	*
 	* @category ApiSet
 	* @return Array[]
 	*/
@@ -1902,6 +1927,8 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiSetNetworkInterfaceWanUp
 	*
+	* Bring interface WAN up
+	*
 	* @category ApiSet
 	* @return Array[]
 	*/
@@ -1914,6 +1941,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceWanAddDevice
+	*
+	* Add network device 'name' to interface WAN
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -1932,6 +1961,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceWanPrepare
+	*
+	* Prepare setup of interface WAN
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -1958,6 +1989,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceWanRemove
+	*
+	* Remove interface WAN
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -1998,6 +2031,8 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiSetNetworkInterfaceWanDown
 	*
+	* Bring interface WAN down
+	*
 	* @category ApiSet
 	* @return Array[]
 	*/
@@ -2024,6 +2059,8 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiSetNetworkInterfaceWan6RemoveDevice
 	*
+	* Remove network device 'name' from interface WAN6
+	*
 	* @category ApiSet
 	* @return Array[]
 	*/
@@ -2042,6 +2079,8 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiSetNetworkInterfaceWan6Up
 	*
+	* Bring interface WAN6 up
+	*
 	* @category ApiSet
 	* @return Array[]
 	*/
@@ -2054,6 +2093,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceWan6AddDevice
+	*
+	* Add network device 'name' to interface WAN6
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -2072,6 +2113,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceWan6Prepare
+	*
+	* Prepare setup of interface WAN6
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -2098,6 +2141,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceWan6Remove
+	*
+	* Remove interface WAN6
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -2137,6 +2182,8 @@ trait Hackapi_Openwrt_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetNetworkInterfaceWan6Down
+	*
+	* Bring interface WAN6 down
 	*
 	* @category ApiSet
 	* @return Array[]
@@ -2919,13 +2966,13 @@ trait Hackapi_Openwrt_Trait {
 		$def['ApiGetDnsmasq']=array (  'args' => 'dnsmasq',  'state' => '5',  'type' => 'get',  'call_index' => 'list',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List DnsMasq objects',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'dnsmasq\'',  'f_args_txt' => 'dnsmasq',  'f_method_name' => 'ApiGetDnsmasq',  'f_call' => 'MyRpcList',);
 		$def['ApiGetDnsmasqMetrics']=array (  'args' =>   array (    0 => 'dnsmasq',    1 => 'metrics',  ),  'state' => '2',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DENIED -32002',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'dnsmasq\',\'metrics\'',  'f_args_txt' => 'dnsmasq,metrics',  'f_method_name' => 'ApiGetDnsmasqMetrics',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetFile']=array (  'args' => 'file',  'state' => '5',  'type' => 'get',  'call_index' => 'list',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List file objects',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'file\'',  'f_args_txt' => 'file',  'f_method_name' => 'ApiGetFile',  'f_call' => 'MyRpcList',);
-		$def['ApiGetFileRead']=array (  'args' =>   array (    0 => 'file',    1 => 'read',  ),  'state' => '3',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'base64' => '',      'path' => '',      'ubus_rpc_session' => '',    ),    'parameters' => '$params=array(		\'base64\'	=> $base64,		\'path\'	=> $path,		\'ubus_rpc_session\'	=> $ubus_rpc_session,	);',    'arguments' => '$base64="", $path="", $ubus_rpc_session=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'UBUS_STATUS_PERMISSION_DENIED',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'file\',\'read\'',  'f_args_txt' => 'file,read',  'f_method_name' => 'ApiGetFileRead',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetFileWrite']=array (  'args' =>   array (    0 => 'file',    1 => 'write',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'path' => '',      'base64' => '',      'append' => '',      'mode' => '',      'data' => '',      'ubus_rpc_session' => '',    ),    'parameters' => '$params=array(		\'path\'	=> $path,		\'base64\'	=> $base64,		\'append\'	=> $append,		\'mode\'	=> $mode,		\'data\'	=> $data,		\'ubus_rpc_session\'	=> $ubus_rpc_session,	);',    'arguments' => '$path="", $base64="", $append="", $mode="", $data="", $ubus_rpc_session=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'file\',\'write\'',  'f_args_txt' => 'file,write',  'f_method_name' => 'ApiSetFileWrite',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetFileList']=array (  'args' =>   array (    0 => 'file',    1 => 'list',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'ubus_rpc_session' => '',      'path' => '',    ),    'parameters' => '$params=array(		\'ubus_rpc_session\'	=> $ubus_rpc_session,		\'path\'	=> $path,	);',    'arguments' => '$ubus_rpc_session="", $path=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List files',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'file\',\'list\'',  'f_args_txt' => 'file,list',  'f_method_name' => 'ApiSetFileList',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetFileMd5']=array (  'args' =>   array (    0 => 'file',    1 => 'md5',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'ubus_rpc_session' => '',      'path' => '',    ),    'parameters' => '$params=array(		\'ubus_rpc_session\'	=> $ubus_rpc_session,		\'path\'	=> $path,	);',    'arguments' => '$ubus_rpc_session="", $path=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'file\',\'md5\'',  'f_args_txt' => 'file,md5',  'f_method_name' => 'ApiSetFileMd5',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetFileExec']=array (  'args' =>   array (    0 => 'file',    1 => 'exec',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'ubus_rpc_session' => '',      'command' => '',      'env' => '',      'params' => '',    ),    'parameters' => '$params=array(		\'ubus_rpc_session\'	=> $ubus_rpc_session,		\'command\'	=> $command,		\'env\'	=> $env,		\'params\'	=> $params,	);',    'arguments' => '$ubus_rpc_session="", $command="", $env="", $params=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'file\',\'exec\'',  'f_args_txt' => 'file,exec',  'f_method_name' => 'ApiSetFileExec',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetFileStat']=array (  'args' =>   array (    0 => 'file',    1 => 'stat',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'ubus_rpc_session' => '',      'path' => '',    ),    'parameters' => '$params=array(		\'ubus_rpc_session\'	=> $ubus_rpc_session,		\'path\'	=> $path,	);',    'arguments' => '$ubus_rpc_session="", $path=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Stat File',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'file\',\'stat\'',  'f_args_txt' => 'file,stat',  'f_method_name' => 'ApiSetFileStat',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetFileRemove']=array (  'args' =>   array (    0 => 'file',    1 => 'remove',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'ubus_rpc_session' => '',      'path' => '',    ),    'parameters' => '$params=array(		\'ubus_rpc_session\'	=> $ubus_rpc_session,		\'path\'	=> $path,	);',    'arguments' => '$ubus_rpc_session="", $path=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'file\',\'remove\'',  'f_args_txt' => 'file,remove',  'f_method_name' => 'ApiSetFileRemove',  'f_call' => 'MyRpcCall',);
+		$def['ApiGetFileRead']=array (  'args' =>   array (    0 => 'file',    1 => 'read',  ),  'state' => '3',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'path' => '',      'base64' => '',    ),    'parameters' => '$params=array(		\'path\'	=> $path,		\'base64\'	=> $base64,	);',    'arguments' => '$path="", $base64=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Read a file contents. The file path is encoded in Base64 if the base64 param set to “true” ',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'file\',\'read\'',  'f_args_txt' => 'file,read',  'f_method_name' => 'ApiGetFileRead',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetFileWrite']=array (  'args' =>   array (    0 => 'file',    1 => 'write',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'path' => '',      'base64' => '',      'append' => '',      'mode' => '',      'data' => '',    ),    'parameters' => '$params=array(		\'path\'	=> $path,		\'base64\'	=> $base64,		\'append\'	=> $append,		\'mode\'	=> $mode,		\'data\'	=> $data,	);',    'arguments' => '$path="", $base64="", $append="", $mode="", $data=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Write a data to a file by path. The file path is encoded in Base64 if the base64 param set to “true”. If the append param is “true” then file is not overwritten but the new content is added to the end of the file. The mode param if specified represent file permission mode.',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'file\',\'write\'',  'f_args_txt' => 'file,write',  'f_method_name' => 'ApiSetFileWrite',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetFileList']=array (  'args' =>   array (    0 => 'file',    1 => 'list',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'path' => '',    ),    'parameters' => '$params=array(		\'path\'	=> $path,	);',    'arguments' => '$path=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List files',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'file\',\'list\'',  'f_args_txt' => 'file,list',  'f_method_name' => 'ApiSetFileList',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetFileMd5']=array (  'args' =>   array (    0 => 'file',    1 => 'md5',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'path' => '',    ),    'parameters' => '$params=array(		\'path\'	=> $path,	);',    'arguments' => '$path=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'file\',\'md5\'',  'f_args_txt' => 'file,md5',  'f_method_name' => 'ApiSetFileMd5',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetFileExec']=array (  'args' =>   array (    0 => 'file',    1 => 'exec',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'command' => '',      'env' => '',      'params' => '',    ),    'parameters' => '$params=array(		\'command\'	=> $command,		\'env\'	=> $env,		\'params\'	=> $params,	);',    'arguments' => '$command="", $env="", $params=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'file\',\'exec\'',  'f_args_txt' => 'file,exec',  'f_method_name' => 'ApiSetFileExec',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetFileStat']=array (  'args' =>   array (    0 => 'file',    1 => 'stat',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'path' => '',    ),    'parameters' => '$params=array(		\'path\'	=> $path,	);',    'arguments' => '$path=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Stat File',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'file\',\'stat\'',  'f_args_txt' => 'file,stat',  'f_method_name' => 'ApiSetFileStat',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetFileRemove']=array (  'args' =>   array (    0 => 'file',    1 => 'remove',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'path' => '',    ),    'parameters' => '$params=array(		\'path\'	=> $path,	);',    'arguments' => '$path=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'file\',\'remove\'',  'f_args_txt' => 'file,remove',  'f_method_name' => 'ApiSetFileRemove',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetIwinfo']=array (  'args' => 'iwinfo',  'state' => '5',  'type' => 'get',  'call_index' => 'list',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Wireless objects',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'iwinfo\'',  'f_args_txt' => 'iwinfo',  'f_method_name' => 'ApiGetIwinfo',  'f_call' => 'MyRpcList',);
 		$def['ApiGetIwinfoAssoclist']=array (  'args' =>   array (    0 => 'iwinfo',    1 => 'assoclist',  ),  'state' => '4',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'device' =>       array (        0 => '!',        1 => 'Interface name',      ),      'mac' =>       array (        0 => '',        1 => '???',      ),    ),    'parameters' => '$params=array(		\'device\'	=> $device,		\'mac\'	=> $mac,	);',    'arguments' => '$device, $mac=""',    'call_params' => ', $params',    'doc_desc' => '* @param string $device	Interface name* @param string $mac	???',    'def_value' => '',  ),  'desc' => 'List Wifi Stations',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'iwinfo\',\'assoclist\'',  'f_args_txt' => 'iwinfo,assoclist',  'f_method_name' => 'ApiGetIwinfoAssoclist',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetIwinfoDevices']=array (  'args' =>   array (    0 => 'iwinfo',    1 => 'devices',  ),  'state' => '2',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'device' => '',    ),    'parameters' => '$params=array(		\'device\'	=> $device,	);',    'arguments' => '$device=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DENIED -32002',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'iwinfo\',\'devices\'',  'f_args_txt' => 'iwinfo,devices',  'f_method_name' => 'ApiGetIwinfoDevices',  'f_call' => 'MyRpcCall',);
@@ -2963,15 +3010,15 @@ trait Hackapi_Openwrt_Trait {
 		$def['ApiGetLuciRpcGetBoardJSON']=array (  'args' =>   array (    0 => 'luci-rpc',    1 => 'getBoardJSON',  ),  'state' => '5',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Basic Board Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'luci-rpc\',\'getBoardJSON\'',  'f_args_txt' => 'luci-rpc,getBoardJSON',  'f_method_name' => 'ApiGetLuciRpcGetBoardJSON',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetNetwork']=array (  'args' => 'network',  'state' => '5',  'type' => 'get',  'call_index' => 'list',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Network objects',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'network\'',  'f_args_txt' => 'network',  'f_method_name' => 'ApiGetNetwork',  'f_call' => 'MyRpcList',);
 		$def['ApiSetNetworkAddDynamic']=array (  'args' =>   array (    0 => 'network',    1 => 'add_dynamic',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'name' => '',    ),    'parameters' => '$params=array(		\'name\'	=> $name,	);',    'arguments' => '$name=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network\',\'add_dynamic\'',  'f_args_txt' => 'network,add_dynamic',  'f_method_name' => 'ApiSetNetworkAddDynamic',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkRestart']=array (  'args' =>   array (    0 => 'network',    1 => 'restart',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network\',\'restart\'',  'f_args_txt' => 'network,restart',  'f_method_name' => 'ApiSetNetworkRestart',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkRestart']=array (  'args' =>   array (    0 => 'network',    1 => 'restart',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => ' Restart the network, reconfigures all interfaces',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network\',\'restart\'',  'f_args_txt' => 'network,restart',  'f_method_name' => 'ApiSetNetworkRestart',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetNetworkGetProtoHandlers']=array (  'args' =>   array (    0 => 'network',    1 => 'get_proto_handlers',  ),  'state' => '4',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Proto? handlers',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'network\',\'get_proto_handlers\'',  'f_args_txt' => 'network,get_proto_handlers',  'f_method_name' => 'ApiGetNetworkGetProtoHandlers',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkNetnsUpdown']=array (  'args' =>   array (    0 => 'network',    1 => 'netns_updown',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'start' => '',      'jail' => '',    ),    'parameters' => '$params=array(		\'start\'	=> $start,		\'jail\'	=> $jail,	);',    'arguments' => '$start="", $jail=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network\',\'netns_updown\'',  'f_args_txt' => 'network,netns_updown',  'f_method_name' => 'ApiSetNetworkNetnsUpdown',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkAddHostRoute']=array (  'args' =>   array (    0 => 'network',    1 => 'add_host_route',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'target' => '',      'v6' => '',      'interface' => '',      'exclude' => '',    ),    'parameters' => '$params=array(		\'target\'	=> $target,		\'v6\'	=> $v6,		\'interface\'	=> $interface,		\'exclude\'	=> $exclude,	);',    'arguments' => '$target="", $v6="", $interface="", $exclude=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network\',\'add_host_route\'',  'f_args_txt' => 'network,add_host_route',  'f_method_name' => 'ApiSetNetworkAddHostRoute',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkReload']=array (  'args' =>   array (    0 => 'network',    1 => 'reload',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network\',\'reload\'',  'f_args_txt' => 'network,reload',  'f_method_name' => 'ApiSetNetworkReload',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetNetworkDevice']=array (  'args' => 'network.device',  'state' => '5',  'type' => 'get',  'call_index' => 'list',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Device objects',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'network.device\'',  'f_args_txt' => 'network.device',  'f_method_name' => 'ApiGetNetworkDevice',  'f_call' => 'MyRpcList',);
-		$def['ApiGetNetworkDeviceStatus']=array (  'args' =>   array (    0 => 'network.device',    1 => 'status',  ),  'state' => '2',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'name' => '',    ),    'parameters' => '$params=array(		\'name\'	=> $name,	);',    'arguments' => '$name=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DENIED -32002',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'network.device\',\'status\'',  'f_args_txt' => 'network.device,status',  'f_method_name' => 'ApiGetNetworkDeviceStatus',  'f_call' => 'MyRpcCall',);
+		$def['ApiGetNetworkDeviceStatus']=array (  'args' =>   array (    0 => 'network.device',    1 => 'status',  ),  'state' => '2',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'name' => '',    ),    'parameters' => '$params=array(		\'name\'	=> $name,	);',    'arguments' => '$name=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dump status of given network device ifname',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'network.device\',\'status\'',  'f_args_txt' => 'network.device,status',  'f_method_name' => 'ApiGetNetworkDeviceStatus',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkDeviceSetAlias']=array (  'args' =>   array (    0 => 'network.device',    1 => 'set_alias',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'alias' => '',      'device' => '',    ),    'parameters' => '$params=array(		\'alias\'	=> $alias,		\'device\'	=> $device,	);',    'arguments' => '$alias="", $device=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.device\',\'set_alias\'',  'f_args_txt' => 'network.device,set_alias',  'f_method_name' => 'ApiSetNetworkDeviceSetAlias',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkDeviceSetState']=array (  'args' =>   array (    0 => 'network.device',    1 => 'set_state',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'defer' => '',      'name' => '',      'auth_status' => '',    ),    'parameters' => '$params=array(		\'defer\'	=> $defer,		\'name\'	=> $name,		\'auth_status\'	=> $auth_status,	);',    'arguments' => '$defer="", $name="", $auth_status=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.device\',\'set_state\'',  'f_args_txt' => 'network.device,set_state',  'f_method_name' => 'ApiSetNetworkDeviceSetState',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkDeviceSetState']=array (  'args' =>   array (    0 => 'network.device',    1 => 'set_state',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'defer' => '',      'name' => '',      'auth_status' => '',    ),    'parameters' => '$params=array(		\'defer\'	=> $defer,		\'name\'	=> $name,		\'auth_status\'	=> $auth_status,	);',    'arguments' => '$defer="", $name="", $auth_status=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Defer or ready the given network device ifname, depending on the boolean value defer',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.device\',\'set_state\'',  'f_args_txt' => 'network.device,set_state',  'f_method_name' => 'ApiSetNetworkDeviceSetState',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkDeviceStpInit']=array (  'args' =>   array (    0 => 'network.device',    1 => 'stp_init',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.device\',\'stp_init\'',  'f_args_txt' => 'network.device,stp_init',  'f_method_name' => 'ApiSetNetworkDeviceStpInit',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetNetworkInterface']=array (  'args' => 'network.interface',  'state' => '5',  'type' => 'get',  'call_index' => 'list',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Network Interface objects',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'network.interface\'',  'f_args_txt' => 'network.interface',  'f_method_name' => 'ApiGetNetworkInterface',  'f_call' => 'MyRpcList',);
 		$def['ApiSetNetworkInterfaceRemoveDevice']=array (  'args' =>   array (    0 => 'network.interface',    1 => 'remove_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface\',\'remove_device\'',  'f_args_txt' => 'network.interface,remove_device',  'f_method_name' => 'ApiSetNetworkInterfaceRemoveDevice',  'f_call' => 'MyRpcCall',);
@@ -2986,59 +3033,59 @@ trait Hackapi_Openwrt_Trait {
 		$def['ApiSetNetworkInterfaceDown']=array (  'args' =>   array (    0 => 'network.interface',    1 => 'down',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface\',\'down\'',  'f_args_txt' => 'network.interface,down',  'f_method_name' => 'ApiSetNetworkInterfaceDown',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceDump']=array (  'args' =>   array (    0 => 'network.interface',    1 => 'dump',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface\',\'dump\'',  'f_args_txt' => 'network.interface,dump',  'f_method_name' => 'ApiSetNetworkInterfaceDump',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetNetworkInterfaceLan']=array (  'args' => 'network.interface.lan',  'state' => '5',  'type' => 'get',  'call_index' => 'list',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List LAN Network Interface objects',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'network.interface.lan\'',  'f_args_txt' => 'network.interface.lan',  'f_method_name' => 'ApiGetNetworkInterfaceLan',  'f_call' => 'MyRpcList',);
-		$def['ApiSetNetworkInterfaceLanRemoveDevice']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'remove_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'remove_device\'',  'f_args_txt' => 'network.interface.lan,remove_device',  'f_method_name' => 'ApiSetNetworkInterfaceLanRemoveDevice',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceLanUp']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'up',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'up\'',  'f_args_txt' => 'network.interface.lan,up',  'f_method_name' => 'ApiSetNetworkInterfaceLanUp',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceLanAddDevice']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'add_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'add_device\'',  'f_args_txt' => 'network.interface.lan,add_device',  'f_method_name' => 'ApiSetNetworkInterfaceLanAddDevice',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceLanPrepare']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'prepare',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'prepare\'',  'f_args_txt' => 'network.interface.lan,prepare',  'f_method_name' => 'ApiSetNetworkInterfaceLanPrepare',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceLanRemoveDevice']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'remove_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Remove network device \'name\' from interface LAN',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'remove_device\'',  'f_args_txt' => 'network.interface.lan,remove_device',  'f_method_name' => 'ApiSetNetworkInterfaceLanRemoveDevice',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceLanUp']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'up',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Bring interface LAN up',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'up\'',  'f_args_txt' => 'network.interface.lan,up',  'f_method_name' => 'ApiSetNetworkInterfaceLanUp',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceLanAddDevice']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'add_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Add network device \'name\' to interface LAN',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'add_device\'',  'f_args_txt' => 'network.interface.lan,add_device',  'f_method_name' => 'ApiSetNetworkInterfaceLanAddDevice',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceLanPrepare']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'prepare',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Prepare setup of interface LAN',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'prepare\'',  'f_args_txt' => 'network.interface.lan,prepare',  'f_method_name' => 'ApiSetNetworkInterfaceLanPrepare',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceLanSetData']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'set_data',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'set_data\'',  'f_args_txt' => 'network.interface.lan,set_data',  'f_method_name' => 'ApiSetNetworkInterfaceLanSetData',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceLanRemove']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'remove',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'remove\'',  'f_args_txt' => 'network.interface.lan,remove',  'f_method_name' => 'ApiSetNetworkInterfaceLanRemove',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceLanRemove']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'remove',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Remove interface LAN',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'remove\'',  'f_args_txt' => 'network.interface.lan,remove',  'f_method_name' => 'ApiSetNetworkInterfaceLanRemove',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceLanRenew']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'renew',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'renew\'',  'f_args_txt' => 'network.interface.lan,renew',  'f_method_name' => 'ApiSetNetworkInterfaceLanRenew',  'f_call' => 'MyRpcCall',);
-		$def['ApiGetNetworkInterfaceLanStatus']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'status',  ),  'state' => '2',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DENIED -32002',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'network.interface.lan\',\'status\'',  'f_args_txt' => 'network.interface.lan,status',  'f_method_name' => 'ApiGetNetworkInterfaceLanStatus',  'f_call' => 'MyRpcCall',);
+		$def['ApiGetNetworkInterfaceLanStatus']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'status',  ),  'state' => '2',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dump status of interface LAN',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'network.interface.lan\',\'status\'',  'f_args_txt' => 'network.interface.lan,status',  'f_method_name' => 'ApiGetNetworkInterfaceLanStatus',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceLanNotifyProto']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'notify_proto',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'notify_proto\'',  'f_args_txt' => 'network.interface.lan,notify_proto',  'f_method_name' => 'ApiSetNetworkInterfaceLanNotifyProto',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceLanDown']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'down',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'down\'',  'f_args_txt' => 'network.interface.lan,down',  'f_method_name' => 'ApiSetNetworkInterfaceLanDown',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceLanDump']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'dump',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'dump\'',  'f_args_txt' => 'network.interface.lan,dump',  'f_method_name' => 'ApiSetNetworkInterfaceLanDump',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceLanDump']=array (  'args' =>   array (    0 => 'network.interface.lan',    1 => 'dump',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Bring interface LAN down',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.lan\',\'dump\'',  'f_args_txt' => 'network.interface.lan,dump',  'f_method_name' => 'ApiSetNetworkInterfaceLanDump',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetNetworkInterfaceLoopback']=array (  'args' => 'network.interface.loopback',  'state' => '5',  'type' => 'get',  'call_index' => 'list',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Loopback Network Interface objects',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'network.interface.loopback\'',  'f_args_txt' => 'network.interface.loopback',  'f_method_name' => 'ApiGetNetworkInterfaceLoopback',  'f_call' => 'MyRpcList',);
-		$def['ApiSetNetworkInterfaceLoopbackRemoveDevice']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'remove_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'remove_device\'',  'f_args_txt' => 'network.interface.loopback,remove_device',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackRemoveDevice',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceLoopbackUp']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'up',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'up\'',  'f_args_txt' => 'network.interface.loopback,up',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackUp',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceLoopbackAddDevice']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'add_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'add_device\'',  'f_args_txt' => 'network.interface.loopback,add_device',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackAddDevice',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceLoopbackPrepare']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'prepare',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'prepare\'',  'f_args_txt' => 'network.interface.loopback,prepare',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackPrepare',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceLoopbackRemoveDevice']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'remove_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Remove network device \'name\' from interface LoopBack',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'remove_device\'',  'f_args_txt' => 'network.interface.loopback,remove_device',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackRemoveDevice',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceLoopbackUp']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'up',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Bring interface LoopBack up',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'up\'',  'f_args_txt' => 'network.interface.loopback,up',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackUp',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceLoopbackAddDevice']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'add_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Add network device \'name\' to interface LoopBack',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'add_device\'',  'f_args_txt' => 'network.interface.loopback,add_device',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackAddDevice',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceLoopbackPrepare']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'prepare',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Prepare setup of interface LoopBack',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'prepare\'',  'f_args_txt' => 'network.interface.loopback,prepare',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackPrepare',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceLoopbackSetData']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'set_data',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'set_data\'',  'f_args_txt' => 'network.interface.loopback,set_data',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackSetData',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceLoopbackRemove']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'remove',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'remove\'',  'f_args_txt' => 'network.interface.loopback,remove',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackRemove',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceLoopbackRemove']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'remove',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Remove interface LoopBack',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'remove\'',  'f_args_txt' => 'network.interface.loopback,remove',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackRemove',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceLoopbackRenew']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'renew',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'renew\'',  'f_args_txt' => 'network.interface.loopback,renew',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackRenew',  'f_call' => 'MyRpcCall',);
-		$def['ApiGetNetworkInterfaceLoopbackStatus']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'status',  ),  'state' => '2',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DENIED -32002',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'network.interface.loopback\',\'status\'',  'f_args_txt' => 'network.interface.loopback,status',  'f_method_name' => 'ApiGetNetworkInterfaceLoopbackStatus',  'f_call' => 'MyRpcCall',);
+		$def['ApiGetNetworkInterfaceLoopbackStatus']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'status',  ),  'state' => '2',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dump status of interface LoopBack',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'network.interface.loopback\',\'status\'',  'f_args_txt' => 'network.interface.loopback,status',  'f_method_name' => 'ApiGetNetworkInterfaceLoopbackStatus',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceLoopbackNotifyProto']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'notify_proto',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'notify_proto\'',  'f_args_txt' => 'network.interface.loopback,notify_proto',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackNotifyProto',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceLoopbackDown']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'down',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'down\'',  'f_args_txt' => 'network.interface.loopback,down',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackDown',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceLoopbackDown']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'down',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Bring interface LoopBack down',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'down\'',  'f_args_txt' => 'network.interface.loopback,down',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackDown',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceLoopbackDump']=array (  'args' =>   array (    0 => 'network.interface.loopback',    1 => 'dump',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.loopback\',\'dump\'',  'f_args_txt' => 'network.interface.loopback,dump',  'f_method_name' => 'ApiSetNetworkInterfaceLoopbackDump',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetNetworkInterfaceWan']=array (  'args' => 'network.interface.wan',  'state' => '5',  'type' => 'get',  'call_index' => 'list',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List WAN Network Interface objects',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'network.interface.wan\'',  'f_args_txt' => 'network.interface.wan',  'f_method_name' => 'ApiGetNetworkInterfaceWan',  'f_call' => 'MyRpcList',);
-		$def['ApiSetNetworkInterfaceWanRemoveDevice']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'remove_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'remove_device\'',  'f_args_txt' => 'network.interface.wan,remove_device',  'f_method_name' => 'ApiSetNetworkInterfaceWanRemoveDevice',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceWanUp']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'up',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'up\'',  'f_args_txt' => 'network.interface.wan,up',  'f_method_name' => 'ApiSetNetworkInterfaceWanUp',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceWanAddDevice']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'add_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'add_device\'',  'f_args_txt' => 'network.interface.wan,add_device',  'f_method_name' => 'ApiSetNetworkInterfaceWanAddDevice',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceWanPrepare']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'prepare',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'prepare\'',  'f_args_txt' => 'network.interface.wan,prepare',  'f_method_name' => 'ApiSetNetworkInterfaceWanPrepare',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceWanRemoveDevice']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'remove_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Remove network device \'name\' from interface WAN',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'remove_device\'',  'f_args_txt' => 'network.interface.wan,remove_device',  'f_method_name' => 'ApiSetNetworkInterfaceWanRemoveDevice',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceWanUp']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'up',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Bring interface WAN up',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'up\'',  'f_args_txt' => 'network.interface.wan,up',  'f_method_name' => 'ApiSetNetworkInterfaceWanUp',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceWanAddDevice']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'add_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Add network device \'name\' to interface WAN',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'add_device\'',  'f_args_txt' => 'network.interface.wan,add_device',  'f_method_name' => 'ApiSetNetworkInterfaceWanAddDevice',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceWanPrepare']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'prepare',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Prepare setup of interface WAN',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'prepare\'',  'f_args_txt' => 'network.interface.wan,prepare',  'f_method_name' => 'ApiSetNetworkInterfaceWanPrepare',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceWanSetData']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'set_data',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'set_data\'',  'f_args_txt' => 'network.interface.wan,set_data',  'f_method_name' => 'ApiSetNetworkInterfaceWanSetData',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceWanRemove']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'remove',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'remove\'',  'f_args_txt' => 'network.interface.wan,remove',  'f_method_name' => 'ApiSetNetworkInterfaceWanRemove',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceWanRemove']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'remove',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Remove interface WAN',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'remove\'',  'f_args_txt' => 'network.interface.wan,remove',  'f_method_name' => 'ApiSetNetworkInterfaceWanRemove',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceWanRenew']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'renew',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'renew\'',  'f_args_txt' => 'network.interface.wan,renew',  'f_method_name' => 'ApiSetNetworkInterfaceWanRenew',  'f_call' => 'MyRpcCall',);
-		$def['ApiGetNetworkInterfaceWanStatus']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'status',  ),  'state' => '2',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DENIED -32002',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'network.interface.wan\',\'status\'',  'f_args_txt' => 'network.interface.wan,status',  'f_method_name' => 'ApiGetNetworkInterfaceWanStatus',  'f_call' => 'MyRpcCall',);
+		$def['ApiGetNetworkInterfaceWanStatus']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'status',  ),  'state' => '2',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dump status of interface WAN',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'network.interface.wan\',\'status\'',  'f_args_txt' => 'network.interface.wan,status',  'f_method_name' => 'ApiGetNetworkInterfaceWanStatus',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceWanNotifyProto']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'notify_proto',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'notify_proto\'',  'f_args_txt' => 'network.interface.wan,notify_proto',  'f_method_name' => 'ApiSetNetworkInterfaceWanNotifyProto',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceWanDown']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'down',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'down\'',  'f_args_txt' => 'network.interface.wan,down',  'f_method_name' => 'ApiSetNetworkInterfaceWanDown',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceWanDown']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'down',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Bring interface WAN down',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'down\'',  'f_args_txt' => 'network.interface.wan,down',  'f_method_name' => 'ApiSetNetworkInterfaceWanDown',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceWanDump']=array (  'args' =>   array (    0 => 'network.interface.wan',    1 => 'dump',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan\',\'dump\'',  'f_args_txt' => 'network.interface.wan,dump',  'f_method_name' => 'ApiSetNetworkInterfaceWanDump',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetNetworkInterfaceWan6']=array (  'args' => 'network.interface.wan6',  'state' => '5',  'type' => 'get',  'call_index' => 'list',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List WAN6 Network Interface objects',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'network.interface.wan6\'',  'f_args_txt' => 'network.interface.wan6',  'f_method_name' => 'ApiGetNetworkInterfaceWan6',  'f_call' => 'MyRpcList',);
-		$def['ApiSetNetworkInterfaceWan6RemoveDevice']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'remove_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'remove_device\'',  'f_args_txt' => 'network.interface.wan6,remove_device',  'f_method_name' => 'ApiSetNetworkInterfaceWan6RemoveDevice',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceWan6Up']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'up',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'up\'',  'f_args_txt' => 'network.interface.wan6,up',  'f_method_name' => 'ApiSetNetworkInterfaceWan6Up',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceWan6AddDevice']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'add_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'add_device\'',  'f_args_txt' => 'network.interface.wan6,add_device',  'f_method_name' => 'ApiSetNetworkInterfaceWan6AddDevice',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceWan6Prepare']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'prepare',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'prepare\'',  'f_args_txt' => 'network.interface.wan6,prepare',  'f_method_name' => 'ApiSetNetworkInterfaceWan6Prepare',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceWan6RemoveDevice']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'remove_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Remove network device \'name\' from interface WAN6',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'remove_device\'',  'f_args_txt' => 'network.interface.wan6,remove_device',  'f_method_name' => 'ApiSetNetworkInterfaceWan6RemoveDevice',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceWan6Up']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'up',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Bring interface WAN6 up',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'up\'',  'f_args_txt' => 'network.interface.wan6,up',  'f_method_name' => 'ApiSetNetworkInterfaceWan6Up',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceWan6AddDevice']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'add_device',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'link-ext' => '',      'name' => '',      'vlan' => '',    ),    'parameters' => '$params=array(		\'link-ext\'	=> $link_ext,		\'name\'	=> $name,		\'vlan\'	=> $vlan,	);',    'arguments' => '$link_ext="", $name="", $vlan=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Add network device \'name\' to interface WAN6',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'add_device\'',  'f_args_txt' => 'network.interface.wan6,add_device',  'f_method_name' => 'ApiSetNetworkInterfaceWan6AddDevice',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceWan6Prepare']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'prepare',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Prepare setup of interface WAN6',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'prepare\'',  'f_args_txt' => 'network.interface.wan6,prepare',  'f_method_name' => 'ApiSetNetworkInterfaceWan6Prepare',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceWan6SetData']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'set_data',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'set_data\'',  'f_args_txt' => 'network.interface.wan6,set_data',  'f_method_name' => 'ApiSetNetworkInterfaceWan6SetData',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceWan6Remove']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'remove',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'remove\'',  'f_args_txt' => 'network.interface.wan6,remove',  'f_method_name' => 'ApiSetNetworkInterfaceWan6Remove',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceWan6Remove']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'remove',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Remove interface WAN6',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'remove\'',  'f_args_txt' => 'network.interface.wan6,remove',  'f_method_name' => 'ApiSetNetworkInterfaceWan6Remove',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceWan6Renew']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'renew',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'renew\'',  'f_args_txt' => 'network.interface.wan6,renew',  'f_method_name' => 'ApiSetNetworkInterfaceWan6Renew',  'f_call' => 'MyRpcCall',);
-		$def['ApiGetNetworkInterfaceWan6Status']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'status',  ),  'state' => '2',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DENIED -32002',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'network.interface.wan6\',\'status\'',  'f_args_txt' => 'network.interface.wan6,status',  'f_method_name' => 'ApiGetNetworkInterfaceWan6Status',  'f_call' => 'MyRpcCall',);
+		$def['ApiGetNetworkInterfaceWan6Status']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'status',  ),  'state' => '2',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dump status of interface WAN6',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'network.interface.wan6\',\'status\'',  'f_args_txt' => 'network.interface.wan6,status',  'f_method_name' => 'ApiGetNetworkInterfaceWan6Status',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceWan6NotifyProto']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'notify_proto',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'notify_proto\'',  'f_args_txt' => 'network.interface.wan6,notify_proto',  'f_method_name' => 'ApiSetNetworkInterfaceWan6NotifyProto',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkInterfaceWan6Down']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'down',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'down\'',  'f_args_txt' => 'network.interface.wan6,down',  'f_method_name' => 'ApiSetNetworkInterfaceWan6Down',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetNetworkInterfaceWan6Down']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'down',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Bring interface WAN6 down',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'down\'',  'f_args_txt' => 'network.interface.wan6,down',  'f_method_name' => 'ApiSetNetworkInterfaceWan6Down',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkInterfaceWan6Dump']=array (  'args' =>   array (    0 => 'network.interface.wan6',    1 => 'dump',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.interface.wan6\',\'dump\'',  'f_args_txt' => 'network.interface.wan6,dump',  'f_method_name' => 'ApiSetNetworkInterfaceWan6Dump',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetNetworkRrdns']=array (  'args' => 'network.rrdns',  'state' => '5',  'type' => 'get',  'call_index' => 'list',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List RrDns objects',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'network.rrdns\'',  'f_args_txt' => 'network.rrdns',  'f_method_name' => 'ApiGetNetworkRrdns',  'f_call' => 'MyRpcList',);
 		$def['ApiSetNetworkRrdnsLookup']=array (  'args' =>   array (    0 => 'network.rrdns',    1 => 'lookup',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'port' => '',      'timeout' => '',      'addrs' => '',      'limit' => '',      'server' => '',    ),    'parameters' => '$params=array(		\'port\'	=> $port,		\'timeout\'	=> $timeout,		\'addrs\'	=> $addrs,		\'limit\'	=> $limit,		\'server\'	=> $server,	);',    'arguments' => '$port="", $timeout="", $addrs="", $limit="", $server=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.rrdns\',\'lookup\'',  'f_args_txt' => 'network.rrdns,lookup',  'f_method_name' => 'ApiSetNetworkRrdnsLookup',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetNetworkWireless']=array (  'args' => 'network.wireless',  'state' => '5',  'type' => 'get',  'call_index' => 'list',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Wireless objects',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'network.wireless\'',  'f_args_txt' => 'network.wireless',  'f_method_name' => 'ApiGetNetworkWireless',  'f_call' => 'MyRpcList',);
 		$def['ApiGetNetworkWirelessGetValidate']=array (  'args' =>   array (    0 => 'network.wireless',    1 => 'get_validate',  ),  'state' => '1',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.wireless\',\'get_validate\'',  'f_args_txt' => 'network.wireless,get_validate',  'f_method_name' => 'ApiGetNetworkWirelessGetValidate',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkWirelessUp']=array (  'args' =>   array (    0 => 'network.wireless',    1 => 'up',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.wireless\',\'up\'',  'f_args_txt' => 'network.wireless,up',  'f_method_name' => 'ApiSetNetworkWirelessUp',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetNetworkWirelessStatus']=array (  'args' =>   array (    0 => 'network.wireless',    1 => 'status',  ),  'state' => '2',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DENIED -32002',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'network.wireless\',\'status\'',  'f_args_txt' => 'network.wireless,status',  'f_method_name' => 'ApiSetNetworkWirelessStatus',  'f_call' => 'MyRpcCall',);
+		$def['ApiGetNetworkWirelessStatus']=array (  'args' =>   array (    0 => 'network.wireless',    1 => 'status',  ),  'state' => '2',  'type' => 'get',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DENIED -32002',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'network.wireless\',\'status\'',  'f_args_txt' => 'network.wireless,status',  'f_method_name' => 'ApiGetNetworkWirelessStatus',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkWirelessReconf']=array (  'args' =>   array (    0 => 'network.wireless',    1 => 'reconf',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.wireless\',\'reconf\'',  'f_args_txt' => 'network.wireless,reconf',  'f_method_name' => 'ApiSetNetworkWirelessReconf',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkWirelessDown']=array (  'args' =>   array (    0 => 'network.wireless',    1 => 'down',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.wireless\',\'down\'',  'f_args_txt' => 'network.wireless,down',  'f_method_name' => 'ApiSetNetworkWirelessDown',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetNetworkWirelessNotify']=array (  'args' =>   array (    0 => 'network.wireless',    1 => 'notify',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'network.wireless\',\'notify\'',  'f_args_txt' => 'network.wireless,notify',  'f_method_name' => 'ApiSetNetworkWirelessNotify',  'f_call' => 'MyRpcCall',);
