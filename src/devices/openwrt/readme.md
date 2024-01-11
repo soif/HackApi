@@ -8,6 +8,42 @@ This API client works for OpenWrt 22.x.
 but it should actually work for many previous version.
 It does not require any specific packages.
 
+-------
+Please note that some methods are not permitted using the default OpenWrt configuration. _(You'll get a nice '-32002 error')_
+
+To grant access to all methods, you can add: 
+
+```json
+{
+	"superuser": {
+		"description": "Super user access role",
+		"read": {
+			"ubus": {
+					"*": [ "*" ]
+			},
+			"uci": [ "*" ],
+			"file": {
+					"*": ["*"]
+			}
+		},
+		"write": {
+			"ubus": {
+					"*": [ "*" ]
+			},
+			"uci": [ "*" ],
+			"file": {
+					"*": ["*"]
+			},
+			"cgi-io": ["*"]
+		}
+	}
+}
+```
+
+into a new file (in your OpenWRT router) at: `/usr/share/rpcd/acl.d/superuser.json`.
+
+_Then for security reasons, you might rather want to create a user dedicated to your API usage, with appropriate restrictions._
+
 
 
 ## Compatibility
@@ -16,7 +52,7 @@ Here are the models and version currently tested an reported by our fellow users
 
 | Model | Version | Date | Tester | Comment |
 | ----- | ------- | ---- | ------ | ------- |
-| openwrt | 22.03.2 | January 9th, 2024 | @soif | Most ApiGet methods have been tested. Most ApiSet methods still need tests |
+| openwrt | 22.03.2 | January 10th, 2024 | @soif | Most ApiGet methods have been tested. Most ApiSet methods still need tests |
 
 
 ### Contribute !
@@ -25,32 +61,30 @@ Please tell us which models you've tested by adding your line in the [template.p
 *You just have to edit the file directly from github!*
 
 
-## 182 methods are currently implemented
+## 184 methods are currently implemented
 
-- **4** standardized methods
-- **39** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
-- **5** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **5** methods with status of **UNDER DEV** (Work in propress)
-- **16** methods with status of **ERROR** (Returns an error)
-- **113** methods with status of **DRAFT** (Not tested)
+- **6** standardized methods
+- **41** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
+- **28** methods with status of **TESTED** (Params still not ordered or desc not set)
+- **8** methods with status of **UNDER DEV** (Work in propress)
+- **1** methods with status of **ERROR** (Returns an error)
+- **100** methods with status of **DRAFT** (Not tested)
 
 
 
-### 64 *Getter* methods (ReadOnly)
+### 72 *Getter* methods (ReadOnly)
 
 - **37** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
-- **5** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **4** methods with status of **UNDER DEV** (Work in propress)
-- **15** methods with status of **ERROR** (Returns an error)
-- **3** methods with status of **DRAFT** (Not tested)
+- **28** methods with status of **TESTED** (Params still not ordered or desc not set)
+- **7** methods with status of **UNDER DEV** (Work in propress)
 
 
-### 114 *Setter* methods (Writing or performing an action)
+### 106 *Setter* methods (Writing or performing an action)
 
-- **2** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
+- **4** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
 - **1** methods with status of **UNDER DEV** (Work in propress)
 - **1** methods with status of **ERROR** (Returns an error)
-- **110** methods with status of **DRAFT** (Not tested)
+- **100** methods with status of **DRAFT** (Not tested)
 
 
 
@@ -66,26 +100,31 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiReboot** |
 | **ApiWifiListClients** |
 | **ApiWifiListSsids** |
+| **ApiWifiStart** |
+| **ApiWifiStop** |
 
 ## Raw API Methods
 
 | Method | Description | Dev. State |
 | ------ | ----------- | ----------------- |
 | **ApiGetDhcp** | List DHCP objects | FINAL |
-| **ApiGetDhcpIpv4leases** | DENIED -32002 | ERROR |
-| **ApiGetDhcpIpv6leases** | DENIED -32002 | ERROR |
+| **ApiGetDhcpIpv4leases** | (ACL needed) ipv6 DHCP Leases | TESTED |
+| **ApiGetDhcpIpv6leases** | (ACL needed) ipv4 DHCP Leases | TESTED |
 | **ApiGetDnsmasq** | List DnsMasq objects | FINAL |
-| **ApiGetDnsmasqMetrics** | DENIED -32002 | ERROR |
+| **ApiGetDnsmasqMetrics** | (ACL needed) DnsMasq Metrics | TESTED |
 | **ApiGetFile** | List file objects | FINAL |
-| **ApiGetFileRead** | Read a file contents. The file path is encoded in Base64 if the base64 param set to “true”  | UNDER DEV |
+| **ApiGetFileList** | List files in the Directory | TESTED |
+| **ApiGetFileMd5** | File md5 sum | TESTED |
+| **ApiGetFileRead** | Read a file contents. The result is encoded in Base64 if the base64 param set to “true”  | TESTED |
+| **ApiGetFileStat** | File or Directory Statistics | TESTED |
 | **ApiGetIwinfo** | List Wireless objects | FINAL |
 | **ApiGetIwinfoAssoclist** | List Wifi Stations | TESTED |
 | **ApiGetIwinfoCountrylist** | Countries List | TESTED |
-| **ApiGetIwinfoDevices** | DENIED -32002 | ERROR |
+| **ApiGetIwinfoDevices** | (ACL needed) Wifi Interfaces List | TESTED |
 | **ApiGetIwinfoFreqlist** | Channels vs Frequencies List | FINAL |
 | **ApiGetIwinfoInfo** | Interface Information | FINAL |
-| **ApiGetIwinfoPhyname** | DENIED -32002 | ERROR |
-| **ApiGetIwinfoSurvey** | DENIED -32002 | ERROR |
+| **ApiGetIwinfoPhyname** | (ACL needed) Physical name | TESTED |
+| **ApiGetIwinfoSurvey** | (ACL needed) Wifi Channels Stats ??? | TESTED |
 | **ApiGetIwinfoTxpowerlist** | dbm vs Transmit Power List? | TESTED |
 | **ApiGetLuci** | List Luci objects | FINAL |
 | **ApiGetLuciGetBlockDevices** | ? | UNDER DEV |
@@ -94,12 +133,12 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiGetLuciGetFeatures** | Features | FINAL |
 | **ApiGetLuciGetInitList** | Init List | FINAL |
 | **ApiGetLuciGetLEDs** | LEDs status | FINAL |
-| **ApiGetLuciGetLocaltime** | DENIED -32002 | ERROR |
+| **ApiGetLuciGetLocaltime** | (ACL needed) Current local time | TESTED |
 | **ApiGetLuciGetMountPoints** | Mount Points | FINAL |
 | **ApiGetLuciGetProcessList** | Processes List | FINAL |
 | **ApiGetLuciGetRealtimeStats** | Realtime Statistics | TESTED |
-| **ApiGetLuciGetSwconfigFeatures** | Switch Config (?) | UNDER DEV |
-| **ApiGetLuciGetSwconfigPortState** |  | UNDER DEV |
+| **ApiGetLuciGetSwconfigFeatures** | Switch Configuration | TESTED |
+| **ApiGetLuciGetSwconfigPortState** | Switch Ports States | TESTED |
 | **ApiGetLuciGetTimezones** | Time zones list | FINAL |
 | **ApiGetLuciGetUSBDevices** | USB ports and devices | FINAL |
 | **ApiGetLuciRpc** | List luci-RPC objects | FINAL |
@@ -110,38 +149,40 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiGetLuciRpcGetWirelessDevices** | Wireless Devices - indexed by interfaces | FINAL |
 | **ApiGetNetwork** | List Network objects | FINAL |
 | **ApiGetNetworkDevice** | List Device objects | FINAL |
-| **ApiGetNetworkDeviceStatus** | Dump status of given network device ifname | ERROR |
+| **ApiGetNetworkDeviceStatus** | (ACL needed) Dump status of given network device ifname | TESTED |
 | **ApiGetNetworkGetProtoHandlers** | Proto? handlers | TESTED |
 | **ApiGetNetworkInterface** | List Network Interface objects | FINAL |
+| **ApiGetNetworkInterfaceDump** | (ACL needed) Interfaces status ??? | TESTED |
 | **ApiGetNetworkInterfaceLan** | List LAN Network Interface objects | FINAL |
-| **ApiGetNetworkInterfaceLanStatus** | Dump status of interface LAN | ERROR |
+| **ApiGetNetworkInterfaceLanDump** | (ACL needed) LAN Interfaces Status | TESTED |
+| **ApiGetNetworkInterfaceLanStatus** | (ACL needed) Dump status of interface LAN | TESTED |
 | **ApiGetNetworkInterfaceLoopback** | List Loopback Network Interface objects | FINAL |
-| **ApiGetNetworkInterfaceLoopbackStatus** | Dump status of interface LoopBack | ERROR |
-| **ApiGetNetworkInterfaceStatus** | DENIED -32002 | ERROR |
+| **ApiGetNetworkInterfaceLoopbackDump** | (ACL needed) LoopBack Interfaces Status | TESTED |
+| **ApiGetNetworkInterfaceLoopbackStatus** | (ACL needed) Dump status of interface LoopBack | TESTED |
+| **ApiGetNetworkInterfaceStatus** | (ACL needed) ???? | UNDER DEV |
 | **ApiGetNetworkInterfaceWan** | List WAN Network Interface objects | FINAL |
 | **ApiGetNetworkInterfaceWan6** | List WAN6 Network Interface objects | FINAL |
-| **ApiGetNetworkInterfaceWan6Status** | Dump status of interface WAN6 | ERROR |
-| **ApiGetNetworkInterfaceWanStatus** | Dump status of interface WAN | ERROR |
+| **ApiGetNetworkInterfaceWan6Dump** | (ACL needed) WAN6 Interfaces Status | UNDER DEV |
+| **ApiGetNetworkInterfaceWan6Status** | (ACL needed) Dump status of interface WAN6 | UNDER DEV |
+| **ApiGetNetworkInterfaceWanDump** | (ACL needed) WAN Interfaces Status | UNDER DEV |
+| **ApiGetNetworkInterfaceWanStatus** | (ACL needed) Dump status of interface WAN | UNDER DEV |
 | **ApiGetNetworkRrdns** | List RrDns objects | FINAL |
 | **ApiGetNetworkWireless** | List Wireless objects | FINAL |
-| **ApiGetNetworkWirelessGetValidate** |  | DRAFT |
-| **ApiGetNetworkWirelessStatus** | DENIED -32002 | ERROR |
+| **ApiGetNetworkWirelessGetValidate** | (ACL needed) ??? | TESTED |
+| **ApiGetNetworkWirelessStatus** | (ACL needed) Dump status of WLAN interfaces | TESTED |
 | **ApiGetService** | List Service objects | FINAL |
-| **ApiGetServiceList** |  | DRAFT |
+| **ApiGetServiceList** | (ACL needed) | UNDER DEV |
 | **ApiGetSession** | List Session objects | FINAL |
-| **ApiGetSessionList** |  | DRAFT |
+| **ApiGetSessionList** | (ACL needed) List (current) session | TESTED |
 | **ApiGetSystem** | List System objects | FINAL |
 | **ApiGetSystemBoard** | Board and Firmare Information | FINAL |
 | **ApiGetSystemInfo** | Memory, Storage, Load and Uptime | FINAL |
 | **ApiGetUci** |  | FINAL |
-| **ApiGetUciConfigs** | DENIED -32002 | ERROR |
+| **ApiGetUciConfigs** | (ACL needed) List UCI configurations | TESTED |
 | **ApiSetDhcpAddLease** |  | DRAFT |
 | **ApiSetFileExec** |  | DRAFT |
-| **ApiSetFileList** | List files | DRAFT |
-| **ApiSetFileMd5** |  | DRAFT |
 | **ApiSetFileRemove** |  | DRAFT |
-| **ApiSetFileStat** | Stat File | DRAFT |
-| **ApiSetFileWrite** | Write a data to a file by path. The file path is encoded in Base64 if the base64 param set to “true”. If the append param is “true” then file is not overwritten but the new content is added to the end of the file. The mode param if specified represent file permission mode. | DRAFT |
+| **ApiSetFileWrite** | Write a data to a file by path. | DRAFT |
 | **ApiSetIwinfoScan** | Scan neighbourhood Access Points | FINAL |
 | **ApiSetLuciSetBlockDetect** |  | DRAFT |
 | **ApiSetLuciSetInitAction** |  | DRAFT |
@@ -154,10 +195,8 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiSetNetworkDeviceStpInit** |  | DRAFT |
 | **ApiSetNetworkInterfaceAddDevice** |  | DRAFT |
 | **ApiSetNetworkInterfaceDown** |  | DRAFT |
-| **ApiSetNetworkInterfaceDump** |  | DRAFT |
 | **ApiSetNetworkInterfaceLanAddDevice** | Add network device 'name' to interface LAN | DRAFT |
-| **ApiSetNetworkInterfaceLanDown** |  | DRAFT |
-| **ApiSetNetworkInterfaceLanDump** | Bring interface LAN down | DRAFT |
+| **ApiSetNetworkInterfaceLanDown** | Bring interface LAN down | DRAFT |
 | **ApiSetNetworkInterfaceLanNotifyProto** |  | DRAFT |
 | **ApiSetNetworkInterfaceLanPrepare** | Prepare setup of interface LAN | DRAFT |
 | **ApiSetNetworkInterfaceLanRemove** | Remove interface LAN | DRAFT |
@@ -167,7 +206,6 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiSetNetworkInterfaceLanUp** | Bring interface LAN up | DRAFT |
 | **ApiSetNetworkInterfaceLoopbackAddDevice** | Add network device 'name' to interface LoopBack | DRAFT |
 | **ApiSetNetworkInterfaceLoopbackDown** | Bring interface LoopBack down | DRAFT |
-| **ApiSetNetworkInterfaceLoopbackDump** |  | DRAFT |
 | **ApiSetNetworkInterfaceLoopbackNotifyProto** |  | DRAFT |
 | **ApiSetNetworkInterfaceLoopbackPrepare** | Prepare setup of interface LoopBack | DRAFT |
 | **ApiSetNetworkInterfaceLoopbackRemove** | Remove interface LoopBack | DRAFT |
@@ -184,7 +222,6 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiSetNetworkInterfaceUp** |  | DRAFT |
 | **ApiSetNetworkInterfaceWan6AddDevice** | Add network device 'name' to interface WAN6 | DRAFT |
 | **ApiSetNetworkInterfaceWan6Down** | Bring interface WAN6 down | DRAFT |
-| **ApiSetNetworkInterfaceWan6Dump** |  | DRAFT |
 | **ApiSetNetworkInterfaceWan6NotifyProto** |  | DRAFT |
 | **ApiSetNetworkInterfaceWan6Prepare** | Prepare setup of interface WAN6 | DRAFT |
 | **ApiSetNetworkInterfaceWan6Remove** | Remove interface WAN6 | DRAFT |
@@ -194,7 +231,6 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiSetNetworkInterfaceWan6Up** | Bring interface WAN6 up | DRAFT |
 | **ApiSetNetworkInterfaceWanAddDevice** | Add network device 'name' to interface WAN | DRAFT |
 | **ApiSetNetworkInterfaceWanDown** | Bring interface WAN down | DRAFT |
-| **ApiSetNetworkInterfaceWanDump** |  | DRAFT |
 | **ApiSetNetworkInterfaceWanNotifyProto** |  | DRAFT |
 | **ApiSetNetworkInterfaceWanPrepare** | Prepare setup of interface WAN | DRAFT |
 | **ApiSetNetworkInterfaceWanRemove** | Remove interface WAN | DRAFT |
@@ -206,10 +242,10 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **ApiSetNetworkReload** |  | DRAFT |
 | **ApiSetNetworkRestart** |  Restart the network, reconfigures all interfaces | DRAFT |
 | **ApiSetNetworkRrdnsLookup** |  | DRAFT |
-| **ApiSetNetworkWirelessDown** |  | DRAFT |
+| **ApiSetNetworkWirelessDown** | Bring Wireless interfaces down | FINAL |
 | **ApiSetNetworkWirelessNotify** |  | DRAFT |
 | **ApiSetNetworkWirelessReconf** |  | DRAFT |
-| **ApiSetNetworkWirelessUp** |  | DRAFT |
+| **ApiSetNetworkWirelessUp** | Bring Wireless interfaces up | FINAL |
 | **ApiSetServiceAdd** |  | DRAFT |
 | **ApiSetServiceDelete** |  | DRAFT |
 | **ApiSetServiceEvent** |  | DRAFT |
