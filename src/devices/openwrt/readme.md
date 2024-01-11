@@ -1,4 +1,4 @@
-# Hackapi_Openwrt v0.41
+# Hackapi_Openwrt v0.90
 
 Writen in php, this API client aims to provide a nice interface with **OPENWRT**'s Routers.
 
@@ -63,7 +63,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 ## 184 methods are currently implemented
 
-- **6** standardized methods
+- **6** standardised methods
 - **41** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
 - **28** methods with status of **TESTED** (Params still not ordered or desc not set)
 - **8** methods with status of **UNDER DEV** (Work in propress)
@@ -92,7 +92,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 *The following methods are currently available:*
 
-## Standardized API Methods
+## standardised API Methods
 
 | Method |
 | ------ |
