@@ -267,6 +267,10 @@ class Hackapi_Openwrt extends Hackapi{
 				return $result[1]['results'];
 			}
 			elseif(isset($result[1])){
+				if(isset($result[1]['error']) and count($result[1])==1){
+					$this->SetError(8,$result[1]['error']);
+					return false;
+				}
 				return $result[1];
 			}
 			elseif(isset($result[0]) and $result[0]==0){
