@@ -301,11 +301,11 @@ class Hackapi_Openwrt extends Hackapi{
 		);
 		// since OWRT 23.05, ubus call fails when args is empty, so add it only when needed
 		if (! empty($ubus_params)) {
-			// foreach($ubus_params as $k=>$v){
-			// 	if(strtolower($v)=="false") $ubus_params[$k]=false;
-			// 	if(strtolower($v)=="true") $ubus_params[$k]=true;
-			// 	//if($k=='ubus_rpc_session') $ubus_params[$k]=$this->_ubus_session_id;
-			// }
+			foreach($ubus_params as $k=>$v){
+				if(strtolower($v)=="false")	$ubus_params[$k]=false;
+				if(strtolower($v)=="true")	$ubus_params[$k]=true;
+				//if($k=='ubus_rpc_session') $ubus_params[$k]=$this->_ubus_session_id;
+			}
 			$payload[]=$ubus_params;
 		}
 		else{
