@@ -20,11 +20,11 @@ Enter **HackApi**: a straightforward, lightweight solution designed for ease of 
 
 ## Currently Supported Devices
 
-- **Huawei** modems
-- **OpenWRT** based routers
-- **OPNSense** routers
-- **SFR** internet boxes provided by french "SFR" (or "Red-by-SFR") ISP
-- **ZTE** modems
+- **[Huawei](src/devices/huawei_modem)** modems
+- **[OpenWRT](src/devices/openwrt)** based routers
+- **[OPNSense](src/devices/opnsense)** routers
+- **[SFR](src/devices/sfr_box)** internet boxes provided by french "SFR" (or "Red-by-SFR") ISP
+- **[ZTE](src/devices/zte_modem)** modems
 
 *All tested models are listed in:* `/src/devices/(BRAND)/Readme.md`
 
