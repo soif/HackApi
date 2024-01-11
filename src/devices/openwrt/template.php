@@ -32,37 +32,38 @@ $p['definitions']=array(
 
 	[ 'dhcp',											'5',	'get',	'list',		'',		'List DHCP objects'],
 	[ ['dhcp',	'add_lease'],							'1',	'set',	'call',		['mac'=>'','leasetime'=>'','name'=>'','hostid'=>'','duid'=>'','ip'=>''],		''],
-	[ ['dhcp',	'ipv6leases'],							'2',	'get',	'call',		[],		'DENIED -32002'],
-	[ ['dhcp',	'ipv4leases'],							'2',	'get',	'call',		'',		'DENIED -32002'],
+	[ ['dhcp',	'ipv6leases'],							'4',	'get',	'call',		'',		'(ACL needed) ipv4 DHCP Leases'],
+	[ ['dhcp',	'ipv4leases'],							'4',	'get',	'call',		'',		'(ACL needed) ipv6 DHCP Leases'],
 
 	[ 'dnsmasq',										'5',	'get',	'list',		'',		'List DnsMasq objects'],
-	[ ['dnsmasq',	'metrics'],							'2',	'get',	'call',		'',		'DENIED -32002'],
+	[ ['dnsmasq',	'metrics'],							'4',	'get',	'call',		'',		'(ACL needed) DnsMasq Metrics'],
 
 	[ 'file',											'5',	'get',	'list',		'',		'List file objects'],
-	[ ['file',	'read'],								'3',	'get',	'call',		['path'=>'','base64'=>''],	'Read a file contents. The file path is encoded in Base64 if the base64 param set to “true” '],
-	[ ['file',	'write'],								'1',	'set',	'call',		['path'=>'','base64'=>'','append'=>'','mode'=>'','data'=>''],		'Write a data to a file by path. The file path is encoded in Base64 if the base64 param set to “true”. If the append param is “true” then file is not overwritten but the new content is added to the end of the file. The mode param if specified represent file permission mode.'],
-	[ ['file',	'list'],								'1',	'set',	'call',		['path'=>''],				'List files'],
-	[ ['file',	'md5'],									'1',	'set',	'call',		['path'=>''],				''],
+	[ ['file',	'read'],								'4',	'get',	'call',		['path'=>['!','File Path'],'base64'=>['false',['true','false'],'Is result base64 encoded?']],	'Read a file contents. The result is encoded in Base64 if the base64 param set to “true” '],
+	[ ['file',	'write'],								'1',	'set',	'call',		['path'=>['!','File Path'],'base64'=>['false',['true','false'],'Is result base64 encoded?'],'append'=>['false',['true','false'],'If "true",the file is not overwritten but the new content is added to the end of the file'],'mode'=>['','File permission mode'],'data'=>['','file content']],		'Write a data to a file by path.'],
+	[ ['file',	'list'],								'4',	'get',	'call',		['path'=>['/','Directory Path']],				'List files in the Directory'],
+	[ ['file',	'md5'],									'4',	'get',	'call',		['path'=>['!','File Path']],				'File md5 sum'],
 	[ ['file',	'exec'],								'1',	'set',	'call',		['command'=>'','env'=>'','params'=>''],		''],
-	[ ['file',	'stat'],								'1',	'set',	'call',		['path'=>''],				'Stat File'],
+	[ ['file',	'stat'],								'4',	'get',	'call',		['path'=>['!','File/Directory Path']],				'File or Directory Statistics'],
 	[ ['file',	'remove'],								'1',	'set',	'call',		['path'=>''],				''],
 
 	[ 'iwinfo',											'5',	'get',	'list',		'',		'List Wireless objects'],
 	[ ['iwinfo','assoclist'],							'4',	'get',	'call',		['device'=>['!', 'Interface name'],'mac'=>['','???']],		'List Wifi Stations'],
-	[ ['iwinfo','devices'],								'2',	'get',	'call',		['device'=>''],		'DENIED -32002'],
-	[ ['iwinfo','survey'],								'2',	'get',	'call',		['device'=>''],		'DENIED -32002'],
-	[ ['iwinfo','countrylist'],							'4',	'get',	'call',		['device'=>['!', 'Interface name']],		'Countries List'],
-	[ ['iwinfo','phyname'],								'2',	'get',	'call',		['device'=>''],		'DENIED -32002'],
-	[ ['iwinfo','scan'],								'5',	'set',	'call',		['device'=>['!', 'Interface name']],		'Scan neighbourhood Access Points'],
-	[ ['iwinfo','info'],								'5',	'get',	'call',		['device'=>['!', 'Interface name']],		'Interface Information'],
-	[ ['iwinfo','txpowerlist'],							'4',	'get',	'call',		['device'=>['!', 'Interface name']],		'dbm vs Transmit Power List?'],
-	[ ['iwinfo','freqlist'],							'5',	'get',	'call',		['device'=>['!', 'Interface name']],		'Channels vs Frequencies List'],
+	[ ['iwinfo','devices'],								'4',	'get',	'call',		'',										'(ACL needed) Wifi Interfaces List'],
+	[ ['iwinfo','survey'],								'4',	'get',	'call',		['device'=>['!', 'Interface name']],	'(ACL needed) Wifi Channels Stats ???'],
+	[ ['iwinfo','countrylist'],							'4',	'get',	'call',		['device'=>['!', 'Interface name']],	'Countries List'],
+	[ ['iwinfo','phyname'],								'4',	'get',	'call',		['section'=>['!', 'radio device (radioX)']],'(ACL needed) Physical name'],
+	[ ['iwinfo','scan'],								'5',	'set',	'call',		['device'=>['!', 'Interface name']],	'Scan neighbourhood Access Points'],
+	[ ['iwinfo','info'],								'5',	'get',	'call',		['device'=>['!', 'Interface name']],	'Interface Information'],
+	[ ['iwinfo','txpowerlist'],							'4',	'get',	'call',		['device'=>['!', 'Interface name']],	'dbm vs Transmit Power List?'],
+	[ ['iwinfo','freqlist'],							'5',	'get',	'call',		['device'=>['!', 'Interface name']],	'Channels vs Frequencies List'],
 
 	[ 'luci',											'5',	'get',	'list',		'',					'List Luci objects'],
 	[ ['luci','getMountPoints'],						'5',	'get',	'call',		'',					'Mount Points'],
 	[ ['luci','getFeatures'],							'5',	'get',	'call',		'',					'Features'],
-	[ ['luci','getLocaltime'],							'2',	'get',	'call',		'',					'DENIED -32002'],
-	[ ['luci','getSwconfigFeatures'],					'3',	'get',	'call',		['switch'=>''],		'Switch Config (?)'],
+	[ ['luci','getLocaltime'],							'4',	'get',	'call',		'',					'(ACL needed) Current local time'],
+	[ ['luci','getSwconfigFeatures'],					'4',	'get',	'call',		['switch'=>['!','Switch (ie "switch0")']],		'Switch Configuration'],
+	[ ['luci','getSwconfigPortState'],					'4',	'get',	'call',		['switch'=>['!','Switch (ie "switch0")']],		'Switch Ports States'],
 	[ ['luci','setPassword'],							'3',	'set',	'call',		['username'=>'','password'=>''],		''],
 	[ ['luci','getConntrackHelpers'],					'5',	'get',	'call',		'',					'Connection Track Helpers'],
 	[ ['luci','getUSBDevices'],							'5',	'get',	'call',		'',					'USB ports and devices'],
@@ -73,7 +74,6 @@ $p['definitions']=array(
 	[ ['luci','getConntrackList'],						'5',	'get',	'call',		'',					'Connection Track Helpers'],
 	[ ['luci','getBlockDevices'],						'3',	'get',	'call',		'',					'?'],
 	[ ['luci','getLEDs'],								'5',	'get',	'call',		'',					'LEDs status'],
-	[ ['luci','getSwconfigPortState'],					'3',	'get',	'call',		['switch'=>''],		''],
 	[ ['luci','getTimezones'],							'5',	'get',	'call',		'',					'Time zones list'],
 	[ ['luci','setInitAction'],							'1',	'set',	'call',		['name'=>'','action'=>''],		''],
 	[ ['luci','setBlockDetect'],						'1',	'set',	'call',		'',					''],
@@ -95,7 +95,7 @@ $p['definitions']=array(
 	[ ['network','reload'],								'1',	'set',	'call',		'',							''],
 
 	[ 'network.device',									'5',	'get',	'list',		'',								'List Device objects'],
-	[ ['network.device','status'],						'2',	'get',	'call',		['name'=>''],					'Dump status of given network device ifname'],
+	[ ['network.device','status'],						'4',	'get',	'call',		['name'=>['!','Interface name']],	'(ACL needed) Dump status of given network device ifname'],
 	[ ['network.device','set_alias'],					'1',	'set',	'call',		['alias'=>'','device'=>''],		''],
 	[ ['network.device','set_state'],					'1',	'set',	'call',		['defer'=>'','name'=>'','auth_status'=>''],	'Defer or ready the given network device ifname, depending on the boolean value defer'],
 	[ ['network.device','stp_init'],					'1',	'set',	'call',		'',								''],
@@ -108,10 +108,10 @@ $p['definitions']=array(
 	[ ['network.interface','set_data'],					'1',	'set',	'call',		'',		''],
 	[ ['network.interface','remove'],					'1',	'set',	'call',		'',		''],
 	[ ['network.interface','renew'],					'1',	'set',	'call',		'',		''],
-	[ ['network.interface','status'],					'2',	'get',	'call',		'',		'DENIED -32002'],
+	[ ['network.interface','status'],					'3',	'get',	'call',		'',		'(ACL needed) ????'],
 	[ ['network.interface','notify_proto'],				'1',	'set',	'call',		'',		''],
 	[ ['network.interface','down'],						'1',	'set',	'call',		'',		''],
-	[ ['network.interface','dump'],						'1',	'set',	'call',		'',		''],
+	[ ['network.interface','dump'],						'4',	'get',	'call',		'',		'(ACL needed) Interfaces status ???'],
 
 	[ 'network.interface.lan',							'5',	'get',	'list',		'',		'List LAN Network Interface objects'],
 	[ ['network.interface.lan','remove_device'],		'1',	'set',	'call',		['link-ext'=>'','name'=>'','vlan'=>''],	"Remove network device 'name' from interface LAN"],
@@ -121,10 +121,10 @@ $p['definitions']=array(
 	[ ['network.interface.lan','set_data'],				'1',	'set',	'call',		'',		''],
 	[ ['network.interface.lan','remove'],				'1',	'set',	'call',		'',		'Remove interface LAN'],
 	[ ['network.interface.lan','renew'],				'1',	'set',	'call',		'',		''],
-	[ ['network.interface.lan','status'],				'2',	'get',	'call',		'',		'Dump status of interface LAN'],
+	[ ['network.interface.lan','status'],				'4',	'get',	'call',		'',		'(ACL needed) Dump status of interface LAN'],
 	[ ['network.interface.lan','notify_proto'],			'1',	'set',	'call',		'',		''],
-	[ ['network.interface.lan','down'],					'1',	'set',	'call',		'',		''],
-	[ ['network.interface.lan','dump'],					'1',	'set',	'call',		'',		'Bring interface LAN down'],
+	[ ['network.interface.lan','down'],					'1',	'set',	'call',		'',		'Bring interface LAN down'],
+	[ ['network.interface.lan','dump'],					'4',	'get',	'call',		'',		'(ACL needed) LAN Interfaces Status'],
 
 	[ 'network.interface.loopback',						'5',	'get',	'list',		'',		'List Loopback Network Interface objects'],
 	[ ['network.interface.loopback','remove_device'],	'1',	'set',	'call',		['link-ext'=>'','name'=>'','vlan'=>''],	"Remove network device 'name' from interface LoopBack"],
@@ -134,10 +134,10 @@ $p['definitions']=array(
 	[ ['network.interface.loopback','set_data'],		'1',	'set',	'call',		'',		''],
 	[ ['network.interface.loopback','remove'],			'1',	'set',	'call',		'',		'Remove interface LoopBack'],
 	[ ['network.interface.loopback','renew'],			'1',	'set',	'call',		'',		''],
-	[ ['network.interface.loopback','status'],			'2',	'get',	'call',		'',		'Dump status of interface LoopBack'],
+	[ ['network.interface.loopback','status'],			'4',	'get',	'call',		'',		'(ACL needed) Dump status of interface LoopBack'],
 	[ ['network.interface.loopback','notify_proto'],	'1',	'set',	'call',		'',		''],
 	[ ['network.interface.loopback','down'],			'1',	'set',	'call',		'',		'Bring interface LoopBack down'],
-	[ ['network.interface.loopback','dump'],			'1',	'set',	'call',		'',		''],
+	[ ['network.interface.loopback','dump'],			'4',	'get',	'call',		'',		'(ACL needed) LoopBack Interfaces Status'],
 
 	[ 'network.interface.wan',							'5',	'get',	'list',		'',		'List WAN Network Interface objects'],
 	[ ['network.interface.wan','remove_device'],		'1',	'set',	'call',		['link-ext'=>'','name'=>'','vlan'=>''],	"Remove network device 'name' from interface WAN"],
@@ -147,10 +147,10 @@ $p['definitions']=array(
 	[ ['network.interface.wan','set_data'],				'1',	'set',	'call',		'',		''],
 	[ ['network.interface.wan','remove'],				'1',	'set',	'call',		'',		'Remove interface WAN'],
 	[ ['network.interface.wan','renew'],				'1',	'set',	'call',		'',		''],
-	[ ['network.interface.wan','status'],				'2',	'get',	'call',		'',		'Dump status of interface WAN'],
+	[ ['network.interface.wan','status'],				'3',	'get',	'call',		'',		'(ACL needed) Dump status of interface WAN'],
 	[ ['network.interface.wan','notify_proto'],			'1',	'set',	'call',		'',		''],
 	[ ['network.interface.wan','down'],					'1',	'set',	'call',		'',		'Bring interface WAN down'],
-	[ ['network.interface.wan','dump'],					'1',	'set',	'call',		'',		''],
+	[ ['network.interface.wan','dump'],					'3',	'get',	'call',		'',		'(ACL needed) WAN Interfaces Status'],
 
 	[ 'network.interface.wan6',							'5',	'get',	'list',		'',		'List WAN6 Network Interface objects'],
 	[ ['network.interface.wan6','remove_device'],		'1',	'set',	'call',		['link-ext'=>'','name'=>'','vlan'=>''],	"Remove network device 'name' from interface WAN6"],
@@ -160,20 +160,20 @@ $p['definitions']=array(
 	[ ['network.interface.wan6','set_data'],			'1',	'set',	'call',		'',		''],
 	[ ['network.interface.wan6','remove'],				'1',	'set',	'call',		'',		'Remove interface WAN6'],
 	[ ['network.interface.wan6','renew'],				'1',	'set',	'call',		'',		''],
-	[ ['network.interface.wan6','status'],				'2',	'get',	'call',		'',		'Dump status of interface WAN6'],
+	[ ['network.interface.wan6','status'],				'3',	'get',	'call',		'',		'(ACL needed) Dump status of interface WAN6'],
 	[ ['network.interface.wan6','notify_proto'],		'1',	'set',	'call',		'',		''],
 	[ ['network.interface.wan6','down'],				'1',	'set',	'call',		'',		'Bring interface WAN6 down'],
-	[ ['network.interface.wan6','dump'],				'1',	'set',	'call',		'',		''],
+	[ ['network.interface.wan6','dump'],				'3',	'get',	'call',		'',		'(ACL needed) WAN6 Interfaces Status'],
 
 	[ 'network.rrdns',									'5',	'get',	'list',		'',		'List RrDns objects'],
 	[ ['network.rrdns','lookup'],						'1',	'set',	'call',		['port'=>'','timeout'=>'','addrs'=>'','limit'=>'','server'=>''],	''],
 
 	[ 'network.wireless',								'5',	'get',	'list',		'',		'List Wireless objects'],
-	[ ['network.wireless','get_validate'],				'1',	'get',	'call',		'',		''],
-	[ ['network.wireless','up'],						'1',	'set',	'call',		'',		''],
-	[ ['network.wireless','status'],					'2',	'get',	'call',		'',		'DENIED -32002'],
+	[ ['network.wireless','get_validate'],				'4',	'get',	'call',		'',		'(ACL needed) ???'],
+	[ ['network.wireless','up'],						'5',	'set',	'call',		'',		'Bring Wireless interfaces up'],
+	[ ['network.wireless','status'],					'4',	'get',	'call',		'',		'(ACL needed) Dump status of WLAN interfaces'],
 	[ ['network.wireless','reconf'],					'1',	'set',	'call',		'',		''],
-	[ ['network.wireless','down'],						'1',	'set',	'call',		'',		''],
+	[ ['network.wireless','down'],						'5',	'set',	'call',		'',		'Bring Wireless interfaces down'],
 	[ ['network.wireless','notify'],					'1',	'set',	'call',		'',		''],
 
 	[ 'service',										'5',	'get',	'list',		'',				'List Service objects'],
@@ -184,7 +184,7 @@ $p['definitions']=array(
 	[ ['service','state'],								'1',	'set',	'call',		['name'=>'','spawn'=>''],	''],
 	[ ['service','add'],								'1',	'set',	'call',		['instances'=>'','script'=>'','validate'=>'','autostart'=>'','name'=>'','data'=>'','triggers'=>''],	''],
 	[ ['service','get_data'],							'1',	'set',	'call',		['instance'=>'','type'=>'','name'=>''],	''],
-	[ ['service','list'],								'1',	'get',	'call',		['name'=>'','verbose'=>''],	''],
+	[ ['service','list'],								'3',	'get',	'call',		['name'=>'','verbose'=>''],	'(ACL needed)'],
 	[ ['service','validate'],							'1',	'set',	'call',		['package'=>'','type'=>'','service'=>''],	''],
 	[ ['service','watchdog'],							'1',	'set',	'call',		['instance'=>'','mode'=>'','timeout'=>'','name'=>''],	''],
 	[ ['service','update_start'],						'1',	'set',	'call',		['name'=>''],	''],
@@ -196,7 +196,7 @@ $p['definitions']=array(
 	[ ['session','set'],								'1',	'set',	'call',		['ubus_rpc_session'=>'','values'=>''],	''],
 	[ ['session','create'],								'1',	'set',	'call',		['timeout'=>''],	''],
 	[ ['session','revoke'],								'1',	'set',	'call',		['ubus_rpc_session'=>'','objects'=>'','scope'=>''],	''],
-	[ ['session','list'],								'1',	'get',	'call',		['ubus_rpc_session'=>''],	''],
+	[ ['session','list'],								'4',	'get',	'call',		'',							'(ACL needed) List (current) session'],
 	[ ['session','login'],								'1',	'set',	'call',		['username'=>'','password'=>'','timeout'=>''],	''],
 	[ ['session','grant'],								'1',	'set',	'call',		['ubus_rpc_session'=>'','objects'=>'','scope'=>''],	''],
 	[ ['session','unset'],								'1',	'set',	'call',		['ubus_rpc_session'=>'','keys'=>''],	''],
@@ -217,7 +217,7 @@ $p['definitions']=array(
 	[ ['uci',	'get'],									'1',	'set',	'call',		['type'=>'','section'=>'','ubus_rpc_session'=>'','option'=>'','config'=>'','match'=>''],		''],
 	[ ['uci',	'set'],									'1',	'set',	'call',		['type'=>'','values'=>'','section'=>'','ubus_rpc_session'=>'','config'=>'','match'=>''],		''],
 	[ ['uci',	'order'],								'1',	'set',	'call',		['ubus_rpc_session'=>'','config'=>'','sections'=>''],		''],
-	[ ['uci',	'configs'],								'2',	'get',	'call',		'',		'DENIED -32002'],
+	[ ['uci',	'configs'],								'4',	'get',	'call',		'',													'(ACL needed) List UCI configurations'],
 	[ ['uci',	'changes'],								'1',	'set',	'call',		['ubus_rpc_session'=>'','config'=>''],		''],
 	[ ['uci',	'reload_config'],						'1',	'set',	'call',		'',		''],
 	[ ['uci',	'state'],								'1',	'set',	'call',		['type'=>'','section'=>'','ubus_rpc_session'=>'','option'=>'','config'=>'','match'=>''],		''],
@@ -275,6 +275,42 @@ This API client works for OpenWrt 22.x.
 but it should actually work for many previous version.
 It does not require any specific packages.
 
+-------
+Please note that some methods are not permitted using the default OpenWrt configuration. _(You'll get a nice '-32002 error')_
+
+To grant access to all methods, you can add: 
+
+```json
+{
+	"superuser": {
+		"description": "Super user access role",
+		"read": {
+			"ubus": {
+					"*": [ "*" ]
+			},
+			"uci": [ "*" ],
+			"file": {
+					"*": ["*"]
+			}
+		},
+		"write": {
+			"ubus": {
+					"*": [ "*" ]
+			},
+			"uci": [ "*" ],
+			"file": {
+					"*": ["*"]
+			},
+			"cgi-io": ["*"]
+		}
+	}
+}
+```
+
+into a new file (in your OpenWRT router) at: `/usr/share/rpcd/acl.d/superuser.json`.
+
+_Then for security reasons, you might rather want to create a user dedicated to your API usage, with appropriate restrictions._
+
 EOF;
 
 
@@ -285,7 +321,7 @@ Used to document the list of devices supported by this current API Client
 */
 // [ MODEL, 	SOWFTARE_VERSION,	DATE,			 @NickName|Full_Name, 	URL|email,					COMMENT ]
 $p['tests']=array(
-	['openwrt',	'22.03.2',			'2024-01-09',	'@soif',				'https://github.com/soif/', 'Most ApiGet methods have been tested. Most ApiSet methods still need tests']
+	['openwrt',	'22.03.2',			'2024-01-10',	'@soif',				'https://github.com/soif/', 'Most ApiGet methods have been tested. Most ApiSet methods still need tests']
 );
 
 ?>
