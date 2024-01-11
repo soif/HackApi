@@ -73,14 +73,14 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 | Method | Description | Dev. State |
 | ------ | ----------- | ----------------- |
-| **:white_check_mark: ApiGetHostNameList** | List Host names | TESTED |
-| **:white_check_mark: ApiGetSmsDataTotal** | SMS List | TESTED |
-| **:star: ApiGetStationList** | List Wifi Clients | FINAL |
-| **:alien: ApiSetChangeMode** | Enable Factory Backdoor? | DRAFT |
-| **:star: ApiSetConnectNetwork** | WAN Connect | FINAL |
-| **:star: ApiSetDeleteSms** | Delete SMS | FINAL |
-| **:star: ApiSetDisconnectNetwork** | WAN Disconnect | FINAL |
-| **:star: ApiSetRebootDevice** | Reboot | FINAL |
-| **:white_check_mark: ApiSetSendSms** | Send SMS | TESTED |
-| **:star: ApiSetSetWifiInfo** | Wifi Switches | FINAL |
-| **:alien: ApiSetUrlFilterAdd** | Exploits Nvram (url encoded as "http%3A%2F%2F_L33T_H4X0R_%2F%26%26telnetd%26%26"?)  | DRAFT |
+| **:white_check_mark: ApiGetHostNameList** | List Host names | TESTED |
+| **:white_check_mark: ApiGetSmsDataTotal** | SMS List | TESTED |
+| **:star: ApiGetStationList** | List Wifi Clients | FINAL |
+| **:alien: ApiSetChangeMode** | Enable Factory Backdoor? | DRAFT |
+| **:star: ApiSetConnectNetwork** | WAN Connect | FINAL |
+| **:star: ApiSetDeleteSms** | Delete SMS | FINAL |
+| **:star: ApiSetDisconnectNetwork** | WAN Disconnect | FINAL |
+| **:star: ApiSetRebootDevice** | Reboot | FINAL |
+| **:white_check_mark: ApiSetSendSms** | Send SMS | TESTED |
+| **:star: ApiSetSetWifiInfo** | Wifi Switches | FINAL |
+| **:alien: ApiSetUrlFilterAdd** | Exploits Nvram (url encoded as "http%3A%2F%2F_L33T_H4X0R_%2F%26%26telnetd%26%26"?)  | DRAFT |
