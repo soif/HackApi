@@ -542,7 +542,7 @@ class Hackapi{
 		else{
 			$this->last_error[$category][]=$txt;
 		}
-		$this->DebugLogVerbose("$category error set to: $key -> ",$txt);
+		//$this->DebugLogVerbose("$category error set to: $key -> ",$txt);
 		return true;
 	}
 
@@ -748,7 +748,7 @@ class Hackapi{
 		}
 		$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		$curl_info = curl_getinfo($ch);
-		
+
 		curl_close($ch);
 
 		$this->last_call['http_code']	=$http_code;
