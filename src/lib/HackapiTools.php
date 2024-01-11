@@ -956,7 +956,7 @@ EOF;
 				if($stand_methods=$this->ListApiMethods('standard')){
 					$out .=<<<EOF
 
-## standardised API Methods
+### Standardised API Methods
 
 | Method |
 | ------ |
@@ -968,7 +968,7 @@ EOF;
 				}
 				$out .=<<<EOF
 
-## Raw API Methods
+### Raw API Methods
 
 | Method | Description | Dev. State |
 | ------ | ----------- | ----------------- |
