@@ -786,7 +786,7 @@ public function {method}({arguments}){
 				$out .="// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";						
 				foreach($blocks as $txt){
 					$total_type[$type]++;
-					$total_state[$state_index]++;
+					@$total_state[$state_index]++;
 					$out .=$txt;
 				}
 				$out .="\n";						
