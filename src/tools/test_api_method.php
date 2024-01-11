@@ -50,7 +50,7 @@ if(!$method_name){
 	'4'	=> also shows verbose (ie with CURL calls)
  */
 
-//$otools->ShowDebug(4);
+$otools->ShowDebug(4);
 
 $otools->TestCallApi($method_name,$parameters);
 
