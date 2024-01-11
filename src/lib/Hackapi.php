@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License along with thi
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 class Hackapi{
-	private		$version			='1.02'; 	// HackApi Version
+	private		$version			='1.10'; 	// HackApi Version
 
 	// host and credentials ----------- 
 	protected	$host				="";		// (default) ip address or hostname
@@ -189,7 +189,7 @@ class Hackapi{
 
 
 	// ############################################################################################
-	// ## STANDARDIZED METHODS TO OVERRIDE (Optionnal) ############################################
+	// ## STANDARDISED METHODS TO OVERRIDE (Optionnal) ############################################
 	// ############################################################################################
 
 	// -------------------------------------------------------------------------
@@ -241,7 +241,7 @@ class Hackapi{
 
 	// -------------------------------------------------------------------------
 	/**
-	 * Returns a standardized array of Received SMS
+	 * Returns a standardised array of Received SMS
 	 *
 	 * @param integer $read_type	0=all, 1=read, 2=unread
 	 * @param integer $page			Page to start at (1 to n)
@@ -254,7 +254,7 @@ class Hackapi{
 
 	// -------------------------------------------------------------------------
 	/**
-	 * Returns a standardized array of Sent SMS
+	 * Returns a standardised array of Sent SMS
 	 *
 	 * @param integer $page	Page to start at (1 to n)
 	 * @param integer $max	Max messages per page
