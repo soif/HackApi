@@ -66,8 +66,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 - **6** standardised methods
 - **41** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
 - **28** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **8** methods with status of **UNDER DEV** (Work in propress)
-- **1** methods with status of **ERROR** (Returns an error)
+- **9** methods with status of **UNDER DEV** (Work in propress)
 - **100** methods with status of **DRAFT** (Not tested)
 
 
@@ -82,8 +81,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 ### 106 *Setter* methods (Writing or performing an action)
 
 - **4** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
-- **1** methods with status of **UNDER DEV** (Work in propress)
-- **1** methods with status of **ERROR** (Returns an error)
+- **2** methods with status of **UNDER DEV** (Work in propress)
 - **100** methods with status of **DRAFT** (Not tested)
 
 
@@ -267,7 +265,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:alien: ApiSetSessionSet** |  | DRAFT |
 | **:alien: ApiSetSessionUnset** |  | DRAFT |
 | **:star: ApiSetSystemReboot** | Reboot Device | FINAL |
-| **:warning: ApiSetSystemSignal** | DENIED -32002 | ERROR |
+| **:wrench: ApiSetSystemSignal** | (ACL needed) ? | UNDER DEV |
 | **:alien: ApiSetSystemSysupgrade** |  | DRAFT |
 | **:alien: ApiSetSystemValidateFirmwareImage** |  | DRAFT |
 | **:alien: ApiSetSystemWatchdog** |  | DRAFT |
