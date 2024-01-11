@@ -56,92 +56,92 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 *The following methods are currently available:*
 
-## standardised API Methods
+### Standardised API Methods
 
 | Method |
 | ------ |
-| **ApiLogin** |
-| **ApiReboot** |
-| **ApiWanStatus** |
-| **ApiWifiListClients** |
-| **ApiWifiListSsids** |
-| **ApiWifiStart** |
-| **ApiWifiStop** |
+| **:star: ApiLogin** |
+| **:star: ApiReboot** |
+| **:star: ApiWanStatus** |
+| **:star: ApiWifiListClients** |
+| **:star: ApiWifiListSsids** |
+| **:star: ApiWifiStart** |
+| **:star: ApiWifiStop** |
 
-## Raw API Methods
+### Raw API Methods
 
 | Method | Description | Dev. State |
 | ------ | ----------- | ----------------- |
-| **ApiGetAuthCheckToken** | Activate the Authentication Token Session (aka Login) | FINAL |
-| **ApiGetAuthGetToken** | Authentication Token | FINAL |
-| **ApiGetBackup3gGetPinCode** | Get Cellular PIN code | ERROR |
-| **ApiGetDdnsGetInfo** | DynDNS information | FINAL |
-| **ApiGetDslGetInfo** | DSL Information | FINAL |
-| **ApiGetFirewallGetInfo** | Firewall Information | FINAL |
-| **ApiGetFtthGetInfo** | FiberToTheHome Information  | FINAL |
-| **ApiGetGuestGetClientList** | List Guests Wifi (2.4GHz) Clients | FINAL |
-| **ApiGetGuestGetInfo** | Wifi (2.4GHz) Guests Information | FINAL |
-| **ApiGetHotspotGetClientList** | List Hotspot Clients | UNDER DEV |
-| **ApiGetHotspotGetInfo** | Hotspot Information | UNDER DEV |
-| **ApiGetLanGetDnsHostList** | List DNS host entries | FINAL |
-| **ApiGetLanGetHostsList** | List connected hosts | FINAL |
-| **ApiGetLanGetInfo** | LAN Information | FINAL |
-| **ApiGetOntGetInfo** | ONT Information | FINAL |
-| **ApiGetOntPull** | Get exec status about the latest push. (See API doc for returned codes) | TESTED |
-| **ApiGetP910ndGetInfo** | Information | FINAL |
-| **ApiGetPppGetCredentials** | PPP Credentials | FINAL |
-| **ApiGetPppGetInfo** | PPP Information | FINAL |
-| **ApiGetSmbGetInfo** | SMB Sharing Information | TESTED |
-| **ApiGetSystemGetIfList** | System Interface List | ERROR |
-| **ApiGetSystemGetInfo** | System Information | FINAL |
-| **ApiGetSystemGetWpaKey** | Default Wpa Key | FINAL |
-| **ApiGetTvGetInfo** | TV Information | TESTED |
-| **ApiGetUsbGetInfo** | USB Information | TESTED |
-| **ApiGetVoipGetCallhistoryList** | VOIP (phone) Call History | ERROR |
-| **ApiGetVoipGetInfo** | VOIP (phone) Information | TESTED |
-| **ApiGetWanGetInfo** | WAN Information | FINAL |
-| **ApiGetWlan5GetClientList** | Wifi (5Hz) Client List | FINAL |
-| **ApiGetWlan5GetInfo** | Wifi (5GHz) Information | FINAL |
-| **ApiGetWlanGetClientList** | Wifi (2.4GHz) Client List | FINAL |
-| **ApiGetWlanGetInfo** | Wifi (2.4GHz) Information | FINAL |
-| **ApiGetWlanGetScanList** | List of neighbour ssid found (both 2.4GHz and 5Ghz) | FINAL |
-| **ApiSetBackup3gForceDataLink** | Set (backup) Cellullar Mode | DRAFT |
-| **ApiSetBackup3gForceVoipLink** | Set (backup) Cellullar policy for VOIP | DRAFT |
-| **ApiSetBackup3gSetPinCode** | Set Cellular PIN code | DRAFT |
-| **ApiSetDdnsDisable** | Disable DynDNS service | FINAL |
-| **ApiSetDdnsEnable** | Enable DynDNS service | FINAL |
-| **ApiSetDdnsForceUpdate** | Force DynDNS update | UNDER DEV |
-| **ApiSetDdnsSetService** | Set DynDns Account | DRAFT |
-| **ApiSetGuestDisable** | Disable Guests Wifi (2.4GHz) | FINAL |
-| **ApiSetGuestEnable** | Enable Guests Wifi (2.4GHz) | FINAL |
-| **ApiSetGuestSetSsid** | Set Guest SSID | DRAFT |
-| **ApiSetGuestSetWpakey** | Set Guest WPA Key | DRAFT |
-| **ApiSetLanAddDnsHost** | Add DNS host entry | FINAL |
-| **ApiSetLanDeleteDnsHost** | Delete DNS host entry | FINAL |
-| **ApiSetOntPush** | Change ONT parameters | DRAFT |
-| **ApiSetOntSync** | Synchronize ONT Information with Box | DRAFT |
-| **ApiSetPppSetCredentials** | Set PPP Credentials | DRAFT |
-| **ApiSetSystemReboot** | Reboot | FINAL |
-| **ApiSetSystemSetNetMode** | Set Box Routing Mode | DRAFT |
-| **ApiSetSystemSetRefClient** | Set Client Reference | DRAFT |
-| **ApiSetVoipRestart** | Restart VOIP Service | DRAFT |
-| **ApiSetVoipStart** | Start VOIP Service | DRAFT |
-| **ApiSetVoipStop** | Stop VOIP Service | DRAFT |
-| **ApiSetWlan5SetChannel** | Set Wifi (5GHz) channel | DRAFT |
-| **ApiSetWlan5SetWl0Enc** | Set Wifi (5GHz) Security Type | DRAFT |
-| **ApiSetWlan5SetWl0Enctype** | Set Wifi (5Hz) Encryption Type | DRAFT |
-| **ApiSetWlan5SetWl0Keytype** | Set Wifi (5GHz) Key Type | DRAFT |
-| **ApiSetWlan5SetWl0Ssid** | Set Wifi (5GHz) SSID | DRAFT |
-| **ApiSetWlan5SetWl0Wepkey** | Set Wifi (5GHz) WEP Key | DRAFT |
-| **ApiSetWlan5SetWl0Wpakey** | Set Wifi (5GHz) WPA Key | DRAFT |
-| **ApiSetWlan5SetWlanMode** | Set Wifi (5GHz) Radio Mode. For NB5/NB6: (11n,11ng,11g). For NB4/CIBOX: (11b,11g,auto) | DRAFT |
-| **ApiSetWlanDisable** | Disable Wifi (2.4GHz) | FINAL |
-| **ApiSetWlanEnable** | Enable Wifi (2.4GHz) | FINAL |
-| **ApiSetWlanSetChannel** | Set Wifi (2.4GHz) channel | DRAFT |
-| **ApiSetWlanSetWl0Enc** | Set Wifi (2.4GHz) Security Type | DRAFT |
-| **ApiSetWlanSetWl0Enctype** | Set Wifi (2.4GHz) Encryption Type | DRAFT |
-| **ApiSetWlanSetWl0Keytype** | Set Wifi (2.4GHz) Key Type | DRAFT |
-| **ApiSetWlanSetWl0Ssid** | Set Wifi (2.4GHz) SSID | DRAFT |
-| **ApiSetWlanSetWl0Wepkey** | Set Wifi (2.4GHz) WEP Key | DRAFT |
-| **ApiSetWlanSetWl0Wpakey** | Set Wifi (2.4GHz) WPA Key | DRAFT |
-| **ApiSetWlanSetWlanMode** | Set Wifi (2.4GHz) Radio Mode. For NB5/NB6: (11n,11ng,11g). For NB4/CIBOX: (11b,11g,auto) | DRAFT |
+| **:star: ApiGetAuthCheckToken** | Activate the Authentication Token Session (aka Login) | FINAL |
+| **:star: ApiGetAuthGetToken** | Authentication Token | FINAL |
+| **:warning: ApiGetBackup3gGetPinCode** | Get Cellular PIN code | ERROR |
+| **:star: ApiGetDdnsGetInfo** | DynDNS information | FINAL |
+| **:star: ApiGetDslGetInfo** | DSL Information | FINAL |
+| **:star: ApiGetFirewallGetInfo** | Firewall Information | FINAL |
+| **:star: ApiGetFtthGetInfo** | FiberToTheHome Information  | FINAL |
+| **:star: ApiGetGuestGetClientList** | List Guests Wifi (2.4GHz) Clients | FINAL |
+| **:star: ApiGetGuestGetInfo** | Wifi (2.4GHz) Guests Information | FINAL |
+| **:wrench: ApiGetHotspotGetClientList** | List Hotspot Clients | UNDER DEV |
+| **:wrench: ApiGetHotspotGetInfo** | Hotspot Information | UNDER DEV |
+| **:star: ApiGetLanGetDnsHostList** | List DNS host entries | FINAL |
+| **:star: ApiGetLanGetHostsList** | List connected hosts | FINAL |
+| **:star: ApiGetLanGetInfo** | LAN Information | FINAL |
+| **:star: ApiGetOntGetInfo** | ONT Information | FINAL |
+| **:white_check_mark: ApiGetOntPull** | Get exec status about the latest push. (See API doc for returned codes) | TESTED |
+| **:star: ApiGetP910ndGetInfo** | Information | FINAL |
+| **:star: ApiGetPppGetCredentials** | PPP Credentials | FINAL |
+| **:star: ApiGetPppGetInfo** | PPP Information | FINAL |
+| **:white_check_mark: ApiGetSmbGetInfo** | SMB Sharing Information | TESTED |
+| **:warning: ApiGetSystemGetIfList** | System Interface List | ERROR |
+| **:star: ApiGetSystemGetInfo** | System Information | FINAL |
+| **:star: ApiGetSystemGetWpaKey** | Default Wpa Key | FINAL |
+| **:white_check_mark: ApiGetTvGetInfo** | TV Information | TESTED |
+| **:white_check_mark: ApiGetUsbGetInfo** | USB Information | TESTED |
+| **:warning: ApiGetVoipGetCallhistoryList** | VOIP (phone) Call History | ERROR |
+| **:white_check_mark: ApiGetVoipGetInfo** | VOIP (phone) Information | TESTED |
+| **:star: ApiGetWanGetInfo** | WAN Information | FINAL |
+| **:star: ApiGetWlan5GetClientList** | Wifi (5Hz) Client List | FINAL |
+| **:star: ApiGetWlan5GetInfo** | Wifi (5GHz) Information | FINAL |
+| **:star: ApiGetWlanGetClientList** | Wifi (2.4GHz) Client List | FINAL |
+| **:star: ApiGetWlanGetInfo** | Wifi (2.4GHz) Information | FINAL |
+| **:star: ApiGetWlanGetScanList** | List of neighbour ssid found (both 2.4GHz and 5Ghz) | FINAL |
+| **:alien: ApiSetBackup3gForceDataLink** | Set (backup) Cellullar Mode | DRAFT |
+| **:alien: ApiSetBackup3gForceVoipLink** | Set (backup) Cellullar policy for VOIP | DRAFT |
+| **:alien: ApiSetBackup3gSetPinCode** | Set Cellular PIN code | DRAFT |
+| **:star: ApiSetDdnsDisable** | Disable DynDNS service | FINAL |
+| **:star: ApiSetDdnsEnable** | Enable DynDNS service | FINAL |
+| **:wrench: ApiSetDdnsForceUpdate** | Force DynDNS update | UNDER DEV |
+| **:alien: ApiSetDdnsSetService** | Set DynDns Account | DRAFT |
+| **:star: ApiSetGuestDisable** | Disable Guests Wifi (2.4GHz) | FINAL |
+| **:star: ApiSetGuestEnable** | Enable Guests Wifi (2.4GHz) | FINAL |
+| **:alien: ApiSetGuestSetSsid** | Set Guest SSID | DRAFT |
+| **:alien: ApiSetGuestSetWpakey** | Set Guest WPA Key | DRAFT |
+| **:star: ApiSetLanAddDnsHost** | Add DNS host entry | FINAL |
+| **:star: ApiSetLanDeleteDnsHost** | Delete DNS host entry | FINAL |
+| **:alien: ApiSetOntPush** | Change ONT parameters | DRAFT |
+| **:alien: ApiSetOntSync** | Synchronize ONT Information with Box | DRAFT |
+| **:alien: ApiSetPppSetCredentials** | Set PPP Credentials | DRAFT |
+| **:star: ApiSetSystemReboot** | Reboot | FINAL |
+| **:alien: ApiSetSystemSetNetMode** | Set Box Routing Mode | DRAFT |
+| **:alien: ApiSetSystemSetRefClient** | Set Client Reference | DRAFT |
+| **:alien: ApiSetVoipRestart** | Restart VOIP Service | DRAFT |
+| **:alien: ApiSetVoipStart** | Start VOIP Service | DRAFT |
+| **:alien: ApiSetVoipStop** | Stop VOIP Service | DRAFT |
+| **:alien: ApiSetWlan5SetChannel** | Set Wifi (5GHz) channel | DRAFT |
+| **:alien: ApiSetWlan5SetWl0Enc** | Set Wifi (5GHz) Security Type | DRAFT |
+| **:alien: ApiSetWlan5SetWl0Enctype** | Set Wifi (5Hz) Encryption Type | DRAFT |
+| **:alien: ApiSetWlan5SetWl0Keytype** | Set Wifi (5GHz) Key Type | DRAFT |
+| **:alien: ApiSetWlan5SetWl0Ssid** | Set Wifi (5GHz) SSID | DRAFT |
+| **:alien: ApiSetWlan5SetWl0Wepkey** | Set Wifi (5GHz) WEP Key | DRAFT |
+| **:alien: ApiSetWlan5SetWl0Wpakey** | Set Wifi (5GHz) WPA Key | DRAFT |
+| **:alien: ApiSetWlan5SetWlanMode** | Set Wifi (5GHz) Radio Mode. For NB5/NB6: (11n,11ng,11g). For NB4/CIBOX: (11b,11g,auto) | DRAFT |
+| **:star: ApiSetWlanDisable** | Disable Wifi (2.4GHz) | FINAL |
+| **:star: ApiSetWlanEnable** | Enable Wifi (2.4GHz) | FINAL |
+| **:alien: ApiSetWlanSetChannel** | Set Wifi (2.4GHz) channel | DRAFT |
+| **:alien: ApiSetWlanSetWl0Enc** | Set Wifi (2.4GHz) Security Type | DRAFT |
+| **:alien: ApiSetWlanSetWl0Enctype** | Set Wifi (2.4GHz) Encryption Type | DRAFT |
+| **:alien: ApiSetWlanSetWl0Keytype** | Set Wifi (2.4GHz) Key Type | DRAFT |
+| **:alien: ApiSetWlanSetWl0Ssid** | Set Wifi (2.4GHz) SSID | DRAFT |
+| **:alien: ApiSetWlanSetWl0Wepkey** | Set Wifi (2.4GHz) WEP Key | DRAFT |
+| **:alien: ApiSetWlanSetWl0Wpakey** | Set Wifi (2.4GHz) WPA Key | DRAFT |
+| **:alien: ApiSetWlanSetWlanMode** | Set Wifi (2.4GHz) Radio Mode. For NB5/NB6: (11n,11ng,11g). For NB4/CIBOX: (11b,11g,auto) | DRAFT |

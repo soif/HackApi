@@ -50,90 +50,90 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 *The following methods are currently available:*
 
-## standardised API Methods
+### Standardised API Methods
 
 | Method |
 | ------ |
-| **ApiLogin** |
+| **:star: ApiLogin** |
 
-## Raw API Methods
+### Raw API Methods
 
 | Method | Description | Dev. State |
 | ------ | ----------- | ----------------- |
-| **ApiGetCoreMenuSearch** |  | TESTED |
-| **ApiGetIdsServiceGetAlertInfo** |  | DRAFT |
-| **ApiGetIdsServiceGetAlertLogs** |  | DRAFT |
-| **ApiGetIdsServiceStatus** |  | TESTED |
-| **ApiGetIdsSettingsCheckPolicyRule** |  | TESTED |
-| **ApiGetIdsSettingsGet** |  | TESTED |
-| **ApiGetIdsSettingsGetPolicy** |  | TESTED |
-| **ApiGetIdsSettingsGetPolicyRule** |  | TESTED |
-| **ApiGetIdsSettingsGetRuleInfo** |  | DRAFT |
-| **ApiGetIdsSettingsGetRuleset** |  | DRAFT |
-| **ApiGetIdsSettingsGetRulesetproperties** |  | TESTED |
-| **ApiGetIdsSettingsGetUserRule** |  | UNDER DEV |
-| **ApiGetIdsSettingsListRuleMetadata** |  | DRAFT |
-| **ApiGetIdsSettingsListRulesets** |  | TESTED |
-| **ApiGetInterfacesLaggSettingsGet** |  | DRAFT |
-| **ApiGetInterfacesLaggSettingsGetItem** |  | DRAFT |
-| **ApiGetInterfacesLoopbackSettingsGet** |  | TESTED |
-| **ApiGetInterfacesLoopbackSettingsGetItem** |  | UNDER DEV |
-| **ApiGetInterfacesVipSettingsGet** |  | TESTED |
-| **ApiGetInterfacesVipSettingsGetItem** |  | UNDER DEV |
-| **ApiGetInterfacesVipSettingsGetUnusedVhid** |  | TESTED |
-| **ApiGetInterfacesVlanSettingsGet** |  | TESTED |
-| **ApiGetInterfacesVlanSettingsGetItem** |  | UNDER DEV |
-| **ApiGetInterfacesVxlanSettingsGet** |  | TESTED |
-| **ApiGetInterfacesVxlanSettingsGetItem** |  | TESTED |
-| **ApiSetIdsServiceDropAlertLog** |  | DRAFT |
-| **ApiSetIdsServiceQueryAlerts** |  | DRAFT |
-| **ApiSetIdsServiceReconfigure** |  | DRAFT |
-| **ApiSetIdsServiceReloadRules** |  | DRAFT |
-| **ApiSetIdsServiceRestart** |  | DRAFT |
-| **ApiSetIdsServiceStart** |  | DRAFT |
-| **ApiSetIdsServiceStop** |  | DRAFT |
-| **ApiSetIdsServiceUpdateRules** |  | DRAFT |
-| **ApiSetIdsSettingsAddPolicy** |  | DRAFT |
-| **ApiSetIdsSettingsAddPolicyRule** |  | DRAFT |
-| **ApiSetIdsSettingsAddUserRule** |  | DRAFT |
-| **ApiSetIdsSettingsDelPolicy** |  | DRAFT |
-| **ApiSetIdsSettingsDelPolicyRule** |  | DRAFT |
-| **ApiSetIdsSettingsDelUserRule** |  | DRAFT |
-| **ApiSetIdsSettingsSearchInstalledRules** |  | DRAFT |
-| **ApiSetIdsSettingsSet** |  | DRAFT |
-| **ApiSetIdsSettingsSetPolicy** |  | DRAFT |
-| **ApiSetIdsSettingsSetPolicyRule** |  | DRAFT |
-| **ApiSetIdsSettingsSetRule** |  | DRAFT |
-| **ApiSetIdsSettingsSetRuleset** |  | DRAFT |
-| **ApiSetIdsSettingsSetRulesetproperties** |  | DRAFT |
-| **ApiSetIdsSettingsSetUserRule** |  | DRAFT |
-| **ApiSetIdsSettingsTogglePolicy** |  | DRAFT |
-| **ApiSetIdsSettingsTogglePolicyRule** |  | DRAFT |
-| **ApiSetIdsSettingsToggleRule** |  | DRAFT |
-| **ApiSetIdsSettingsToggleRuleset** |  | DRAFT |
-| **ApiSetIdsSettingsToggleUserRule** |  | DRAFT |
-| **ApiSetInterfacesLaggSettingsAddItem** |  | DRAFT |
-| **ApiSetInterfacesLaggSettingsDelItem** |  | DRAFT |
-| **ApiSetInterfacesLaggSettingsReconfigure** |  | DRAFT |
-| **ApiSetInterfacesLaggSettingsSet** |  | DRAFT |
-| **ApiSetInterfacesLaggSettingsSetItem** |  | DRAFT |
-| **ApiSetInterfacesLoopbackSettingsAddItem** |  | DRAFT |
-| **ApiSetInterfacesLoopbackSettingsDelItem** |  | DRAFT |
-| **ApiSetInterfacesLoopbackSettingsReconfigure** |  | DRAFT |
-| **ApiSetInterfacesLoopbackSettingsSet** |  | DRAFT |
-| **ApiSetInterfacesLoopbackSettingsSetItem** |  | DRAFT |
-| **ApiSetInterfacesVipSettingsAddItem** |  | DRAFT |
-| **ApiSetInterfacesVipSettingsDelItem** |  | DRAFT |
-| **ApiSetInterfacesVipSettingsReconfigure** |  | DRAFT |
-| **ApiSetInterfacesVipSettingsSet** |  | DRAFT |
-| **ApiSetInterfacesVipSettingsSetItem** |  | DRAFT |
-| **ApiSetInterfacesVlanSettingsAddItem** |  | DRAFT |
-| **ApiSetInterfacesVlanSettingsDelItem** |  | DRAFT |
-| **ApiSetInterfacesVlanSettingsReconfigure** |  | DRAFT |
-| **ApiSetInterfacesVlanSettingsSet** |  | DRAFT |
-| **ApiSetInterfacesVlanSettingsSetItem** |  | DRAFT |
-| **ApiSetInterfacesVxlanSettingsAddItem** |  | DRAFT |
-| **ApiSetInterfacesVxlanSettingsDelItem** |  | DRAFT |
-| **ApiSetInterfacesVxlanSettingsReconfigure** |  | DRAFT |
-| **ApiSetInterfacesVxlanSettingsSet** |  | DRAFT |
-| **ApiSetInterfacesVxlanSettingsSetItem** |  | DRAFT |
+| **:white_check_mark: ApiGetCoreMenuSearch** |  | TESTED |
+| **:alien: ApiGetIdsServiceGetAlertInfo** |  | DRAFT |
+| **:alien: ApiGetIdsServiceGetAlertLogs** |  | DRAFT |
+| **:white_check_mark: ApiGetIdsServiceStatus** |  | TESTED |
+| **:white_check_mark: ApiGetIdsSettingsCheckPolicyRule** |  | TESTED |
+| **:white_check_mark: ApiGetIdsSettingsGet** |  | TESTED |
+| **:white_check_mark: ApiGetIdsSettingsGetPolicy** |  | TESTED |
+| **:white_check_mark: ApiGetIdsSettingsGetPolicyRule** |  | TESTED |
+| **:alien: ApiGetIdsSettingsGetRuleInfo** |  | DRAFT |
+| **:alien: ApiGetIdsSettingsGetRuleset** |  | DRAFT |
+| **:white_check_mark: ApiGetIdsSettingsGetRulesetproperties** |  | TESTED |
+| **:wrench: ApiGetIdsSettingsGetUserRule** |  | UNDER DEV |
+| **:alien: ApiGetIdsSettingsListRuleMetadata** |  | DRAFT |
+| **:white_check_mark: ApiGetIdsSettingsListRulesets** |  | TESTED |
+| **:alien: ApiGetInterfacesLaggSettingsGet** |  | DRAFT |
+| **:alien: ApiGetInterfacesLaggSettingsGetItem** |  | DRAFT |
+| **:white_check_mark: ApiGetInterfacesLoopbackSettingsGet** |  | TESTED |
+| **:wrench: ApiGetInterfacesLoopbackSettingsGetItem** |  | UNDER DEV |
+| **:white_check_mark: ApiGetInterfacesVipSettingsGet** |  | TESTED |
+| **:wrench: ApiGetInterfacesVipSettingsGetItem** |  | UNDER DEV |
+| **:white_check_mark: ApiGetInterfacesVipSettingsGetUnusedVhid** |  | TESTED |
+| **:white_check_mark: ApiGetInterfacesVlanSettingsGet** |  | TESTED |
+| **:wrench: ApiGetInterfacesVlanSettingsGetItem** |  | UNDER DEV |
+| **:white_check_mark: ApiGetInterfacesVxlanSettingsGet** |  | TESTED |
+| **:white_check_mark: ApiGetInterfacesVxlanSettingsGetItem** |  | TESTED |
+| **:alien: ApiSetIdsServiceDropAlertLog** |  | DRAFT |
+| **:alien: ApiSetIdsServiceQueryAlerts** |  | DRAFT |
+| **:alien: ApiSetIdsServiceReconfigure** |  | DRAFT |
+| **:alien: ApiSetIdsServiceReloadRules** |  | DRAFT |
+| **:alien: ApiSetIdsServiceRestart** |  | DRAFT |
+| **:alien: ApiSetIdsServiceStart** |  | DRAFT |
+| **:alien: ApiSetIdsServiceStop** |  | DRAFT |
+| **:alien: ApiSetIdsServiceUpdateRules** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsAddPolicy** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsAddPolicyRule** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsAddUserRule** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsDelPolicy** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsDelPolicyRule** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsDelUserRule** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsSearchInstalledRules** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsSet** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsSetPolicy** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsSetPolicyRule** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsSetRule** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsSetRuleset** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsSetRulesetproperties** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsSetUserRule** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsTogglePolicy** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsTogglePolicyRule** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsToggleRule** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsToggleRuleset** |  | DRAFT |
+| **:alien: ApiSetIdsSettingsToggleUserRule** |  | DRAFT |
+| **:alien: ApiSetInterfacesLaggSettingsAddItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesLaggSettingsDelItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesLaggSettingsReconfigure** |  | DRAFT |
+| **:alien: ApiSetInterfacesLaggSettingsSet** |  | DRAFT |
+| **:alien: ApiSetInterfacesLaggSettingsSetItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesLoopbackSettingsAddItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesLoopbackSettingsDelItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesLoopbackSettingsReconfigure** |  | DRAFT |
+| **:alien: ApiSetInterfacesLoopbackSettingsSet** |  | DRAFT |
+| **:alien: ApiSetInterfacesLoopbackSettingsSetItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesVipSettingsAddItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesVipSettingsDelItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesVipSettingsReconfigure** |  | DRAFT |
+| **:alien: ApiSetInterfacesVipSettingsSet** |  | DRAFT |
+| **:alien: ApiSetInterfacesVipSettingsSetItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesVlanSettingsAddItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesVlanSettingsDelItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesVlanSettingsReconfigure** |  | DRAFT |
+| **:alien: ApiSetInterfacesVlanSettingsSet** |  | DRAFT |
+| **:alien: ApiSetInterfacesVlanSettingsSetItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesVxlanSettingsAddItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesVxlanSettingsDelItem** |  | DRAFT |
+| **:alien: ApiSetInterfacesVxlanSettingsReconfigure** |  | DRAFT |
+| **:alien: ApiSetInterfacesVxlanSettingsSet** |  | DRAFT |
+| **:alien: ApiSetInterfacesVxlanSettingsSetItem** |  | DRAFT |

@@ -36,6 +36,16 @@ class HackapiTools{
 		5 	=> ['FINAL',		'Fully tested: Params ordered, desc set'],
 	);
 
+	private $states_icons=array(
+		1 	=> ':alien:',
+		2 	=> ':warning:',
+		3 	=> ':wrench:',
+		4 	=> ':white_check_mark:',
+		5 	=> ':star:',
+	);
+
+
+
 	private $def_template='
 // -----------------------------------------------------------------------
 /**
@@ -962,8 +972,9 @@ EOF;
 | ------ |
 
 EOF;
+					$icon=$this->states_icons[5];
 					foreach($stand_methods as $meth){
-						$out .="| **{$meth}** |\n";
+						$out .="| **{$icon} {$meth}** |\n";
 					}
 				}
 				$out .=<<<EOF
@@ -978,8 +989,9 @@ EOF;
 				$definitions=$this->odev->ListMethodsDefinitions();
 				ksort($definitions);
 				foreach($definitions as $method => $def){		
+					$icon=$this->states_icons[$def['state']];
 					$def['desc']=str_replace('|',',',$def['desc']); // prevent colum(s) to be created if we have "|" in the description			
-					$out .="| **{$def['f_method_name']}** | {$def['desc']} | {$def['f_state_name']} |\n";
+					$out .="| **{$icon} {$def['f_method_name']}** | {$def['desc']} | {$def['f_state_name']} |\n";
 			}
 		
 		}
