@@ -333,8 +333,11 @@ public function {method}({arguments}){
 		//$this->PrintTitle("All methods {$col}s are:");
 		$fnprint='PrintLine';
 		$list_methods and $fnprint='PrintTitle';
+
+		$states=$this->states;
+		krsort($states);
 		
-		foreach($this->states as $value => $names){
+		foreach($states as $value => $names){
 			$count='0';
 			if($lines=$this->_ListMethodsDefinitionsBy($type,$col,$value)){
 				$count =count($lines);
