@@ -13,7 +13,7 @@ Enter **HackApi**: a straightforward, lightweight solution designed for ease of 
 
 ## Features
 
-- Standardized API methods
+- Standardised API methods
 - Full debug to ease API client development
 - Template based for building API endpoints methods & documentation very quickly
 - CLI commands to build, test, and debug API methods

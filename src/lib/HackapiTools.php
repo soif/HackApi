@@ -956,7 +956,7 @@ EOF;
 				if($stand_methods=$this->ListApiMethods('standard')){
 					$out .=<<<EOF
 
-## Standardized API Methods
+## standardised API Methods
 
 | Method |
 | ------ |
@@ -1015,7 +1015,7 @@ EOF;
 		$out  ="\n\n";
 		$out .="## $count_total methods are currently implemented\n\n";
 
-		$count_api and $out .="- **{$count_standard}** standardized methods\n";
+		$count_api and $out .="- **{$count_standard}** standardised methods\n";
 
 		$states=$this->states;
 		krsort($states);

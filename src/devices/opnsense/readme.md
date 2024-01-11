@@ -26,7 +26,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 ## 78 methods are currently implemented
 
-- **1** standardized methods
+- **1** standardised methods
 - **14** methods with status of **TESTED** (Params still not ordered or desc not set)
 - **4** methods with status of **UNDER DEV** (Work in propress)
 - **59** methods with status of **DRAFT** (Not tested)
@@ -50,7 +50,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 *The following methods are currently available:*
 
-## Standardized API Methods
+## standardised API Methods
 
 | Method |
 | ------ |

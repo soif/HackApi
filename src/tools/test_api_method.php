@@ -25,7 +25,7 @@ if(!$method_name){
 
 		$methods=$otools->ListApiMethods('');
 	
-		$otools->printTitle("Possible API Standardized methods:");
+		$otools->printTitle("Possible API Standardised methods:");
 		echo "  - ".@implode("\n  - ",$methods['standard'] )."\n";
 
 		$otools->printTitle("Possible API 'set' methods:");
