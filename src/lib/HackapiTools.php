@@ -485,12 +485,13 @@ public function {method}({arguments}){
 	private function PrintErrorReport($mode='errors',$total=0, $name='Endpoint'){
 		if($mode=='errors'){
 			$all_meth_failed=$this->_methods_with_errors;
-			$suffix="with errors";
+			$suffix="returning an error";
 		}
 		elseif($mode='false'){
 			$all_meth_failed=$this->_methods_with_false;
 			$suffix="returning FALSE";
 		}
+
 		$count_err=0;
 		if(count($all_meth_failed)){
 			//count all errors
@@ -512,7 +513,7 @@ public function {method}({arguments}){
 				$this->PrintTitle( "$count errors of type '$ecode' : ".$this->odev->GetErrorDesc($ecode));
 	
 				foreach($meth_failed as $meth => $err){
-					$this->PrintError( "In $name: $meth");
+					$this->PrintError( "In $name: $meth .........................");
 					echo $this->PrettifyArray($err)."\n";
 				}
 
