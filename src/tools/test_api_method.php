@@ -42,9 +42,13 @@ if(!$method_name){
 
 
 // now make stuff #########################################################################################################################
-// to see the whole (CURL) calls, Set ShowErrors level, by uncommenting the next line:
-//$otools->ShowErrors(1); // 0=no Debug, 1=debug only those who return false, 2=those with API Errors, 3=All calls
-//$otools->ShowErrors(0);
+// to see the whole (CURL) calls, Set ShowDebug level, by uncommenting the next line:
+/* Debug Levels are
+	'1'	=> show only error
+	'2'	=> also shows info
+	'3'	=> also shows debug
+	'4'	=> also shows verbose (ie with CURL calls)
+ */
 
 //$otools->ShowDebug(4);
 

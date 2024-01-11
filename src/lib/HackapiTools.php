@@ -26,7 +26,6 @@ class HackapiTools{
 	private $_methods_with_errors=array();
 	private $_methods_with_false=array();	
 	private $print_width=100;
-	private $error_level=0;
 
 	private $states=array(
 		1 	=> ['DRAFT',		'Not tested'],
@@ -75,16 +74,10 @@ public function {method}({arguments}){
 	}
 	
 	// -------------------------------------------------------------------------
-	public function ShowErrors($level=1){
-		$this->error_level=$level;
-		$this->PrintLine("Error mode set to level $level !");
-	}
-	// -------------------------------------------------------------------------
 	public function ShowDebug($level=1){
 		$this->odev->SetDebug($level, 1);
 		$this->PrintLine("Debug mode set to level $level !");
 	}
-
 
 	// -------------------------------------------------------------------------
 	public function SetDevice($device){
@@ -202,35 +195,18 @@ public function {method}({arguments}){
 					if(!preg_match('#\n$#',$pretty)){
 						echo "\n";
 					}
-					if($this->error_level>2){
-						//$this->PrintLine("Last call:");
-						//echo $this->PrettifyArray($instance->GetLastCall());
-						//$this->_methods_with_errors[$key_err]['call']=$instance->GetLastCall();
-					}
 				}
 				else{
 					if($i_err=$instance->GetLastError()){
 						
 						$my_err=$i_err['main']['code'];// or $err=$i_err['api']['code'];
 						$this->_methods_with_errors[$my_err][$key_err]=$i_err;
-
 						$this->PrintError(urldecode(http_build_query($i_err,'',',	')));
 												
-						if($this->error_level>1){
-							$this->PrintLine("Last call:");
-							echo $this->PrettifyArray($instance->GetLastCall());
-							
-							$this->_methods_with_errors[$my_err][$key_err]['call']=$instance->GetLastCall();
-						}
 					}
 					else{
-						$this->_methods_with_false[0][$key_err]['error']='Returns FALSE';
-						
+						$this->_methods_with_false[0][$key_err]['error']='Returns FALSE';						
 						$this->PrintError("The method '$method' returned FALSE! (This may be normal)");
-						if($this->error_level>0){
-							$this->PrintError("Last call:");
-							echo $this->PrettifyArray($instance->GetLastCall());
-						}
 					}
 				}
 			} 
