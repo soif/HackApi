@@ -29,7 +29,7 @@ class Hackapi_Openwrt extends Hackapi{
 	protected $user			="root";		// (default) user name
 	protected $password		="";			// (default) user password
 
-	protected	$client_version		='0.41';	// API client Version, formated as M.mm
+	protected	$client_version		='0.90';	// API client Version, formated as M.mm
 
 	protected $def_endpoint	='/cgi-bin/luci/admin/ubus';
 	//protected $def_endpoint	='/ubus'; // this endpoint also works, but methods returning -32002 with the above, now returns -32700... ???????
@@ -233,17 +233,17 @@ class Hackapi_Openwrt extends Hackapi{
 		}	
 	}
 
-/*
 	// -------------------------------------------------------------------------
 	public function ApiWifiStart(){
 		$this->DebugLogMethod();
+		return $this->ApiSetNetworkWirelessUp();
 	}
 
 	// -------------------------------------------------------------------------
 	public function ApiWifiStop(){
 		$this->DebugLogMethod();
+		return $this->ApiSetNetworkWirelessDown();
 	}
-*/
 
 
 
