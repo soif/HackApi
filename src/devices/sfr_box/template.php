@@ -35,7 +35,7 @@ $p['definitions']=array(
 
 	['backup3g.forceDataLink',		'1',	'set',	'set',		['mode'=>['!',['on'=>'Force Cell','off'=>'No Cell','auto'=>'Auto select']]],		'Set (backup) Cellullar Mode'],
 	['backup3g.forceVoipLink',		'1',	'set',	'set',		['mode'=>['!',['on'=>'Allow Cell','off'=>'Disallow Cell']]],		'Set (backup) Cellullar policy for VOIP'],
-	['backup3g.getPinCode',			'2',	'get',	'get',		'',						'Get Cellular PIN code'],
+//	['backup3g.getPinCode',			'2',	'get',	'get',		'',						'Get Cellular PIN code'],
 	['backup3g.setPinCode',			'1',	'set',	'set',		['pincode'=>''],		'Set Cellular PIN code'],
 
 	['ddns.getInfo',				'5',	'get',	'get',		'',		'DynDNS information'],
@@ -59,7 +59,7 @@ $p['definitions']=array(
 	['guest.setSsid',				'1',	'set',	'set',		['ssid'=>['!','ssid to set']],		'Set Guest SSID'],
 	['guest.setWpakey',				'1',	'set',	'set',		['wpakey'=>['!','WPA Key to set']],		'Set Guest WPA Key'],
 
-	['hotspot.getInfo',				'3',	'get',	'get',		'',		'Hotspot Information'],
+	['hotspot.getInfo',				'4',	'get',	'get',		'',		'Hotspot Information'],
 	['hotspot.getClientList',		'3',	'get',	'getlist',	'',		'List Hotspot Clients'],
 //	['hotspot.enable',				'3',	'set',	'set',		'',		'Enable Hotspot'],
 //	['hotspot.disable',				'3',	'set',	'set',		'',		'Disable Hotspot'],
@@ -81,7 +81,7 @@ $p['definitions']=array(
 																	'value'	=>['!','value to set'],
 																	'force'	=>'Forces change',
 																],		'Change ONT parameters'],
-	['ont.pull',					'4',	'get',	'get',		'',		'Get exec status about the latest push. (See API doc for returned codes)'],
+	['ont.pull',					'5',	'get',	'get',		'',		'Get exec status about the latest push. (See API doc for returned codes)'],
 
 	['p910nd.getInfo',				'5',	'get',	'get',		'',		'Information'],
 
@@ -95,7 +95,7 @@ $p['definitions']=array(
 	['smb.getInfo',					'4',	'get',	'get',		'',		'SMB Sharing Information'],
 
 	['system.getInfo',				'5',	'get',	'get',		'',		'System Information'],
-	['system.getIfList',			'2',	'get',	'getfix',	'',		'System Interface List'], // sometimes works
+	['system.getIfList',			'3',	'get',	'getfix',	'',		'System Interface List'], // sometimes works
 	['system.getWpaKey',			'5',	'get',	'get',		'',		'Default Wpa Key'],
 	['system.reboot',				'5',	'set',	'set',		'',		'Reboot'],
 	['system.setNetMode',			'1',	'set',	'set',		['mode'	=>['!',['router','bridge'],'Routing Mode']],		'Set Box Routing Mode'],
@@ -106,7 +106,7 @@ $p['definitions']=array(
 	['usb.getInfo',					'4',	'get',	'get',		'',		'USB Information'],
 
 	['voip.getInfo',				'4',	'get',	'get',		'',		'VOIP (phone) Information'],
-	['voip.getCallhistoryList',		'2',	'get',	'getlist',	'',		'VOIP (phone) Call History'],
+	['voip.getCallhistoryList',		'3',	'get',	'getlist',	'',		'VOIP (phone) Call History'],
 	['voip.restart',				'1',	'set',	'set',	'',			'Restart VOIP Service'],
 	['voip.start',					'1',	'set',	'set',	'',			'Start VOIP Service'],
 	['voip.stop',					'1',	'set',	'set',	'',			'Stop VOIP Service'],
@@ -202,7 +202,7 @@ Used to document the list of devices supported by this current API Client
 */
 // [ MODEL, 	SOWFTARE_VERSION,			DATE,			 @NickName|Full_Name, 	URL|email,					COMMENT ]
 $p['tests']=array(
-	['NB6VAC',	'NB6VAC-MAIN-R4.0.45d',		'2023-12-20',	'@soif',				'https://github.com/soif/', 'Most methods have been tested'],
+	['NB6VAC',	'NB6VAC-MAIN-R4.0.45d',		'2024-01-11',	'@soif',				'https://github.com/soif/', 'Most methods have been tested'],
 );
 
 ?>

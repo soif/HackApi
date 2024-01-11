@@ -197,6 +197,21 @@ trait Hackapi_Sfr_box_Trait {
 	
 	// -----------------------------------------------------------------------
 	/**
+	* ApiGetOntPull
+	*
+	* Get exec status about the latest push. (See API doc for returned codes)
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetOntPull(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('ont.pull');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
 	* ApiGetP910ndGetInfo
 	*
 	* Information
@@ -368,17 +383,17 @@ trait Hackapi_Sfr_box_Trait {
 	
 	// -----------------------------------------------------------------------
 	/**
-	* ApiGetOntPull
+	* ApiGetHotspotGetInfo
 	*
-	* Get exec status about the latest push. (See API doc for returned codes)
+	* Hotspot Information
 	*
 	* @category ApiGet
 	* @return Array[]
 	*/
-	public function ApiGetOntPull(){
+	public function ApiGetHotspotGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('ont.pull');
+		return $this->CallApiGet('hotspot.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -449,21 +464,6 @@ trait Hackapi_Sfr_box_Trait {
 	
 	// -----------------------------------------------------------------------
 	/**
-	* ApiGetHotspotGetInfo
-	*
-	* Hotspot Information
-	*
-	* @category ApiGet
-	* @return Array[]
-	*/
-	public function ApiGetHotspotGetInfo(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('hotspot.getInfo');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
 	* ApiGetHotspotGetClientList
 	*
 	* List Hotspot Clients
@@ -477,27 +477,6 @@ trait Hackapi_Sfr_box_Trait {
 		return $this->CallApiGetList('hotspot.getClientList');
 	}
 	
-	
-	
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	// +++ ERROR      Returns an error                         ++++++++++++++++++
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBackup3gGetPinCode
-	*
-	* Get Cellular PIN code
-	*
-	* @category ApiGet
-	* @return Array[]
-	*/
-	public function ApiGetBackup3gGetPinCode(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('backup3g.getPinCode');
-	}
-	
 	// -----------------------------------------------------------------------
 	/**
 	* ApiGetSystemGetIfList
@@ -509,7 +488,7 @@ trait Hackapi_Sfr_box_Trait {
 	*/
 	public function ApiGetSystemGetIfList(){
 		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
+		$this->HandleApiMethodStateAllowed(3);
 		return $this->CallApiGetFix('system.getIfList');
 	}
 	
@@ -524,7 +503,7 @@ trait Hackapi_Sfr_box_Trait {
 	*/
 	public function ApiGetVoipGetCallhistoryList(){
 		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
+		$this->HandleApiMethodStateAllowed(3);
 		return $this->CallApiGetList('voip.getCallhistoryList');
 	}
 	
@@ -1292,7 +1271,6 @@ trait Hackapi_Sfr_box_Trait {
 		$def['ApiGetAuthCheckToken']=array (  'args' => 'auth.checkToken',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Activate the Authentication Token Session (aka Login)',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'auth.checkToken\'',  'f_args_txt' => 'auth.checkToken',  'f_method_name' => 'ApiGetAuthCheckToken',  'f_call' => 'CallApiGet',);
 		$def['ApiSetBackup3gForceDataLink']=array (  'args' => 'backup3g.forceDataLink',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'mode' =>       array (        0 => '!',        1 =>         array (          'on' => 'Force Cell',          'off' => 'No Cell',          'auto' => 'Auto select',        ),      ),    ),    'parameters' => '$params=array(		\'mode\'	=> $mode,	);',    'arguments' => '$mode',    'call_params' => ', $params',    'doc_desc' => '* @param string $mode	*		\'on\'	: Force Cell,*		\'off\'	: No Cell,*		\'auto\'	: Auto select,',    'def_value' => '',  ),  'desc' => 'Set (backup) Cellullar Mode',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'backup3g.forceDataLink\'',  'f_args_txt' => 'backup3g.forceDataLink',  'f_method_name' => 'ApiSetBackup3gForceDataLink',  'f_call' => 'CallApiPost',);
 		$def['ApiSetBackup3gForceVoipLink']=array (  'args' => 'backup3g.forceVoipLink',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'mode' =>       array (        0 => '!',        1 =>         array (          'on' => 'Allow Cell',          'off' => 'Disallow Cell',        ),      ),    ),    'parameters' => '$params=array(		\'mode\'	=> $mode,	);',    'arguments' => '$mode',    'call_params' => ', $params',    'doc_desc' => '* @param string $mode	*		\'on\'	: Allow Cell,*		\'off\'	: Disallow Cell,',    'def_value' => '',  ),  'desc' => 'Set (backup) Cellullar policy for VOIP',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'backup3g.forceVoipLink\'',  'f_args_txt' => 'backup3g.forceVoipLink',  'f_method_name' => 'ApiSetBackup3gForceVoipLink',  'f_call' => 'CallApiPost',);
-		$def['ApiGetBackup3gGetPinCode']=array (  'args' => 'backup3g.getPinCode',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Get Cellular PIN code',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'backup3g.getPinCode\'',  'f_args_txt' => 'backup3g.getPinCode',  'f_method_name' => 'ApiGetBackup3gGetPinCode',  'f_call' => 'CallApiGet',);
 		$def['ApiSetBackup3gSetPinCode']=array (  'args' => 'backup3g.setPinCode',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'pincode' => '',    ),    'parameters' => '$params=array(		\'pincode\'	=> $pincode,	);',    'arguments' => '$pincode=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Set Cellular PIN code',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'backup3g.setPinCode\'',  'f_args_txt' => 'backup3g.setPinCode',  'f_method_name' => 'ApiSetBackup3gSetPinCode',  'f_call' => 'CallApiPost',);
 		$def['ApiGetDdnsGetInfo']=array (  'args' => 'ddns.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DynDNS information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ddns.getInfo\'',  'f_args_txt' => 'ddns.getInfo',  'f_method_name' => 'ApiGetDdnsGetInfo',  'f_call' => 'CallApiGet',);
 		$def['ApiSetDdnsDisable']=array (  'args' => 'ddns.disable',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Disable DynDNS service',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ddns.disable\'',  'f_args_txt' => 'ddns.disable',  'f_method_name' => 'ApiSetDdnsDisable',  'f_call' => 'CallApiPost',);
@@ -1308,7 +1286,7 @@ trait Hackapi_Sfr_box_Trait {
 		$def['ApiSetGuestDisable']=array (  'args' => 'guest.disable',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Disable Guests Wifi (2.4GHz)',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'guest.disable\'',  'f_args_txt' => 'guest.disable',  'f_method_name' => 'ApiSetGuestDisable',  'f_call' => 'CallApiPost',);
 		$def['ApiSetGuestSetSsid']=array (  'args' => 'guest.setSsid',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'ssid' =>       array (        0 => '!',        1 => 'ssid to set',      ),    ),    'parameters' => '$params=array(		\'ssid\'	=> $ssid,	);',    'arguments' => '$ssid',    'call_params' => ', $params',    'doc_desc' => '* @param string $ssid	ssid to set',    'def_value' => '',  ),  'desc' => 'Set Guest SSID',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'guest.setSsid\'',  'f_args_txt' => 'guest.setSsid',  'f_method_name' => 'ApiSetGuestSetSsid',  'f_call' => 'CallApiPost',);
 		$def['ApiSetGuestSetWpakey']=array (  'args' => 'guest.setWpakey',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'wpakey' =>       array (        0 => '!',        1 => 'WPA Key to set',      ),    ),    'parameters' => '$params=array(		\'wpakey\'	=> $wpakey,	);',    'arguments' => '$wpakey',    'call_params' => ', $params',    'doc_desc' => '* @param string $wpakey	WPA Key to set',    'def_value' => '',  ),  'desc' => 'Set Guest WPA Key',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'guest.setWpakey\'',  'f_args_txt' => 'guest.setWpakey',  'f_method_name' => 'ApiSetGuestSetWpakey',  'f_call' => 'CallApiPost',);
-		$def['ApiGetHotspotGetInfo']=array (  'args' => 'hotspot.getInfo',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Hotspot Information',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'hotspot.getInfo\'',  'f_args_txt' => 'hotspot.getInfo',  'f_method_name' => 'ApiGetHotspotGetInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetHotspotGetInfo']=array (  'args' => 'hotspot.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Hotspot Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'hotspot.getInfo\'',  'f_args_txt' => 'hotspot.getInfo',  'f_method_name' => 'ApiGetHotspotGetInfo',  'f_call' => 'CallApiGet',);
 		$def['ApiGetHotspotGetClientList']=array (  'args' => 'hotspot.getClientList',  'state' => '3',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Hotspot Clients',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'hotspot.getClientList\'',  'f_args_txt' => 'hotspot.getClientList',  'f_method_name' => 'ApiGetHotspotGetClientList',  'f_call' => 'CallApiGetList',);
 		$def['ApiGetLanGetInfo']=array (  'args' => 'lan.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'LAN Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'lan.getInfo\'',  'f_args_txt' => 'lan.getInfo',  'f_method_name' => 'ApiGetLanGetInfo',  'f_call' => 'CallApiGet',);
 		$def['ApiGetLanGetDnsHostList']=array (  'args' => 'lan.getDnsHostList',  'state' => '5',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List DNS host entries',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'lan.getDnsHostList\'',  'f_args_txt' => 'lan.getDnsHostList',  'f_method_name' => 'ApiGetLanGetDnsHostList',  'f_call' => 'CallApiGetList',);
@@ -1318,14 +1296,14 @@ trait Hackapi_Sfr_box_Trait {
 		$def['ApiGetOntGetInfo']=array (  'args' => 'ont.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'ONT Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ont.getInfo\'',  'f_args_txt' => 'ont.getInfo',  'f_method_name' => 'ApiGetOntGetInfo',  'f_call' => 'CallApiGet',);
 		$def['ApiSetOntSync']=array (  'args' => 'ont.sync',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Synchronize ONT Information with Box',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'ont.sync\'',  'f_args_txt' => 'ont.sync',  'f_method_name' => 'ApiSetOntSync',  'f_call' => 'CallApiPost',);
 		$def['ApiSetOntPush']=array (  'args' => 'ont.push',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'name' =>       array (        0 => 'slid',        1 =>         array (          'slid' => 'identifier',        ),        2 => 'parameter to change',      ),      'value' =>       array (        0 => '!',        1 => 'value to set',      ),      'force' => 'Forces change',    ),    'parameters' => '$params=array(		\'name\'	=> $name,		\'value\'	=> $value,		\'force\'	=> $force,	);',    'arguments' => '$name="slid", $value, $force="Forces change"',    'call_params' => ', $params',    'doc_desc' => '* @param string $name	parameter to change*		\'slid\'	: identifier,* @param string $value	value to set',    'def_value' => '',  ),  'desc' => 'Change ONT parameters',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'ont.push\'',  'f_args_txt' => 'ont.push',  'f_method_name' => 'ApiSetOntPush',  'f_call' => 'CallApiPost',);
-		$def['ApiGetOntPull']=array (  'args' => 'ont.pull',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Get exec status about the latest push. (See API doc for returned codes)',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'ont.pull\'',  'f_args_txt' => 'ont.pull',  'f_method_name' => 'ApiGetOntPull',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOntPull']=array (  'args' => 'ont.pull',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Get exec status about the latest push. (See API doc for returned codes)',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ont.pull\'',  'f_args_txt' => 'ont.pull',  'f_method_name' => 'ApiGetOntPull',  'f_call' => 'CallApiGet',);
 		$def['ApiGetP910ndGetInfo']=array (  'args' => 'p910nd.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'p910nd.getInfo\'',  'f_args_txt' => 'p910nd.getInfo',  'f_method_name' => 'ApiGetP910ndGetInfo',  'f_call' => 'CallApiGet',);
 		$def['ApiGetPppGetInfo']=array (  'args' => 'ppp.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'PPP Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ppp.getInfo\'',  'f_args_txt' => 'ppp.getInfo',  'f_method_name' => 'ApiGetPppGetInfo',  'f_call' => 'CallApiGet',);
 		$def['ApiGetPppGetCredentials']=array (  'args' => 'ppp.getCredentials',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'PPP Credentials',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'ppp.getCredentials\'',  'f_args_txt' => 'ppp.getCredentials',  'f_method_name' => 'ApiGetPppGetCredentials',  'f_call' => 'CallApiGet',);
 		$def['ApiSetPppSetCredentials']=array (  'args' => 'ppp.setCredentials',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'login' =>       array (        0 => '',        1 => 'Login',      ),      'password' =>       array (        0 => '',        1 => 'Password',      ),    ),    'parameters' => '$params=array(		\'login\'	=> $login,		\'password\'	=> $password,	);',    'arguments' => '$login="", $password=""',    'call_params' => ', $params',    'doc_desc' => '* @param string $login	Login* @param string $password	Password',    'def_value' => '',  ),  'desc' => 'Set PPP Credentials',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'ppp.setCredentials\'',  'f_args_txt' => 'ppp.setCredentials',  'f_method_name' => 'ApiSetPppSetCredentials',  'f_call' => 'CallApiPost',);
 		$def['ApiGetSmbGetInfo']=array (  'args' => 'smb.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SMB Sharing Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'smb.getInfo\'',  'f_args_txt' => 'smb.getInfo',  'f_method_name' => 'ApiGetSmbGetInfo',  'f_call' => 'CallApiGet',);
 		$def['ApiGetSystemGetInfo']=array (  'args' => 'system.getInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'System Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'system.getInfo\'',  'f_args_txt' => 'system.getInfo',  'f_method_name' => 'ApiGetSystemGetInfo',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSystemGetIfList']=array (  'args' => 'system.getIfList',  'state' => '2',  'type' => 'get',  'call_index' => 'getfix',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'System Interface List',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'system.getIfList\'',  'f_args_txt' => 'system.getIfList',  'f_method_name' => 'ApiGetSystemGetIfList',  'f_call' => 'CallApiGetFix',);
+		$def['ApiGetSystemGetIfList']=array (  'args' => 'system.getIfList',  'state' => '3',  'type' => 'get',  'call_index' => 'getfix',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'System Interface List',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'system.getIfList\'',  'f_args_txt' => 'system.getIfList',  'f_method_name' => 'ApiGetSystemGetIfList',  'f_call' => 'CallApiGetFix',);
 		$def['ApiGetSystemGetWpaKey']=array (  'args' => 'system.getWpaKey',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Default Wpa Key',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'system.getWpaKey\'',  'f_args_txt' => 'system.getWpaKey',  'f_method_name' => 'ApiGetSystemGetWpaKey',  'f_call' => 'CallApiGet',);
 		$def['ApiSetSystemReboot']=array (  'args' => 'system.reboot',  'state' => '5',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Reboot',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'system.reboot\'',  'f_args_txt' => 'system.reboot',  'f_method_name' => 'ApiSetSystemReboot',  'f_call' => 'CallApiPost',);
 		$def['ApiSetSystemSetNetMode']=array (  'args' => 'system.setNetMode',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' =>     array (      'mode' =>       array (        0 => '!',        1 =>         array (          0 => 'router',          1 => 'bridge',        ),        2 => 'Routing Mode',      ),    ),    'parameters' => '$params=array(		\'mode\'	=> $mode,	);',    'arguments' => '$mode',    'call_params' => ', $params',    'doc_desc' => '* @param string $mode	Routing Mode : either: router | bridge',    'def_value' => '',  ),  'desc' => 'Set Box Routing Mode',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'system.setNetMode\'',  'f_args_txt' => 'system.setNetMode',  'f_method_name' => 'ApiSetSystemSetNetMode',  'f_call' => 'CallApiPost',);
@@ -1333,7 +1311,7 @@ trait Hackapi_Sfr_box_Trait {
 		$def['ApiGetTvGetInfo']=array (  'args' => 'tv.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'TV Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'tv.getInfo\'',  'f_args_txt' => 'tv.getInfo',  'f_method_name' => 'ApiGetTvGetInfo',  'f_call' => 'CallApiGet',);
 		$def['ApiGetUsbGetInfo']=array (  'args' => 'usb.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'USB Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'usb.getInfo\'',  'f_args_txt' => 'usb.getInfo',  'f_method_name' => 'ApiGetUsbGetInfo',  'f_call' => 'CallApiGet',);
 		$def['ApiGetVoipGetInfo']=array (  'args' => 'voip.getInfo',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'VOIP (phone) Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'voip.getInfo\'',  'f_args_txt' => 'voip.getInfo',  'f_method_name' => 'ApiGetVoipGetInfo',  'f_call' => 'CallApiGet',);
-		$def['ApiGetVoipGetCallhistoryList']=array (  'args' => 'voip.getCallhistoryList',  'state' => '2',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'VOIP (phone) Call History',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'voip.getCallhistoryList\'',  'f_args_txt' => 'voip.getCallhistoryList',  'f_method_name' => 'ApiGetVoipGetCallhistoryList',  'f_call' => 'CallApiGetList',);
+		$def['ApiGetVoipGetCallhistoryList']=array (  'args' => 'voip.getCallhistoryList',  'state' => '3',  'type' => 'get',  'call_index' => 'getlist',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'VOIP (phone) Call History',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'voip.getCallhistoryList\'',  'f_args_txt' => 'voip.getCallhistoryList',  'f_method_name' => 'ApiGetVoipGetCallhistoryList',  'f_call' => 'CallApiGetList',);
 		$def['ApiSetVoipRestart']=array (  'args' => 'voip.restart',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Restart VOIP Service',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'voip.restart\'',  'f_args_txt' => 'voip.restart',  'f_method_name' => 'ApiSetVoipRestart',  'f_call' => 'CallApiPost',);
 		$def['ApiSetVoipStart']=array (  'args' => 'voip.start',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Start VOIP Service',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'voip.start\'',  'f_args_txt' => 'voip.start',  'f_method_name' => 'ApiSetVoipStart',  'f_call' => 'CallApiPost',);
 		$def['ApiSetVoipStop']=array (  'args' => 'voip.stop',  'state' => '1',  'type' => 'set',  'call_index' => 'set',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Stop VOIP Service',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'voip.stop\'',  'f_args_txt' => 'voip.stop',  'f_method_name' => 'ApiSetVoipStop',  'f_call' => 'CallApiPost',);

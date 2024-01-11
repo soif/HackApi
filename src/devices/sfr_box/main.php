@@ -33,7 +33,7 @@ class Hackapi_Sfr_box extends Hackapi{
 	protected $use_ssl	=false;				// it seems that the API dont work (don't even answers) in httpS mode
 	protected $user		="admin";			// default Box's user name
 
-	protected $client_version		='0.70';	// API client Version, formated as M.mm
+	protected $client_version		='0.90';	// API client Version, formated as M.mm
 
 	protected $use_cookies			=false;		// not needed
 	//protected $def_headers		=array();

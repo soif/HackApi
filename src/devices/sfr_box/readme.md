@@ -1,4 +1,4 @@
-# Hackapi_Sfr_box v0.70
+# Hackapi_Sfr_box v0.90
 
 Writen in php, this API client aims to provide a nice interface with **SFR**'s Boxes.
 
@@ -16,7 +16,7 @@ Here are the models and version currently tested an reported by our fellow users
 
 | Model | Version | Date | Tester | Comment |
 | ----- | ------- | ---- | ------ | ------- |
-| NB6VAC | NB6VAC-MAIN-R4.0.45d | December 20th, 2023 | @soif | Most methods have been tested |
+| NB6VAC | NB6VAC-MAIN-R4.0.45d | January 11th, 2024 | @soif | Most methods have been tested |
 
 
 ### Contribute !
@@ -25,23 +25,21 @@ Please tell us which models you've tested by adding your line in the [template.p
 *You just have to edit the file directly from github!*
 
 
-## 80 methods are currently implemented
+## 79 methods are currently implemented
 
 - **7** standardised methods
-- **32** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
+- **33** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
 - **5** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **3** methods with status of **UNDER DEV** (Work in propress)
-- **3** methods with status of **ERROR** (Returns an error)
+- **4** methods with status of **UNDER DEV** (Work in propress)
 - **30** methods with status of **DRAFT** (Not tested)
 
 
 
-### 33 *Getter* methods (ReadOnly)
+### 32 *Getter* methods (ReadOnly)
 
-- **23** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
+- **24** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
 - **5** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **2** methods with status of **UNDER DEV** (Work in propress)
-- **3** methods with status of **ERROR** (Returns an error)
+- **3** methods with status of **UNDER DEV** (Work in propress)
 
 
 ### 40 *Setter* methods (Writing or performing an action)
@@ -74,7 +72,6 @@ Please tell us which models you've tested by adding your line in the [template.p
 | ------ | ----------- | ----------------- |
 | **:star: ApiGetAuthCheckToken** | Activate the Authentication Token Session (aka Login) | FINAL |
 | **:star: ApiGetAuthGetToken** | Authentication Token | FINAL |
-| **:warning: ApiGetBackup3gGetPinCode** | Get Cellular PIN code | ERROR |
 | **:star: ApiGetDdnsGetInfo** | DynDNS information | FINAL |
 | **:star: ApiGetDslGetInfo** | DSL Information | FINAL |
 | **:star: ApiGetFirewallGetInfo** | Firewall Information | FINAL |
@@ -82,22 +79,22 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:star: ApiGetGuestGetClientList** | List Guests Wifi (2.4GHz) Clients | FINAL |
 | **:star: ApiGetGuestGetInfo** | Wifi (2.4GHz) Guests Information | FINAL |
 | **:wrench: ApiGetHotspotGetClientList** | List Hotspot Clients | UNDER DEV |
-| **:wrench: ApiGetHotspotGetInfo** | Hotspot Information | UNDER DEV |
+| **:white_check_mark: ApiGetHotspotGetInfo** | Hotspot Information | TESTED |
 | **:star: ApiGetLanGetDnsHostList** | List DNS host entries | FINAL |
 | **:star: ApiGetLanGetHostsList** | List connected hosts | FINAL |
 | **:star: ApiGetLanGetInfo** | LAN Information | FINAL |
 | **:star: ApiGetOntGetInfo** | ONT Information | FINAL |
-| **:white_check_mark: ApiGetOntPull** | Get exec status about the latest push. (See API doc for returned codes) | TESTED |
+| **:star: ApiGetOntPull** | Get exec status about the latest push. (See API doc for returned codes) | FINAL |
 | **:star: ApiGetP910ndGetInfo** | Information | FINAL |
 | **:star: ApiGetPppGetCredentials** | PPP Credentials | FINAL |
 | **:star: ApiGetPppGetInfo** | PPP Information | FINAL |
 | **:white_check_mark: ApiGetSmbGetInfo** | SMB Sharing Information | TESTED |
-| **:warning: ApiGetSystemGetIfList** | System Interface List | ERROR |
+| **:wrench: ApiGetSystemGetIfList** | System Interface List | UNDER DEV |
 | **:star: ApiGetSystemGetInfo** | System Information | FINAL |
 | **:star: ApiGetSystemGetWpaKey** | Default Wpa Key | FINAL |
 | **:white_check_mark: ApiGetTvGetInfo** | TV Information | TESTED |
 | **:white_check_mark: ApiGetUsbGetInfo** | USB Information | TESTED |
-| **:warning: ApiGetVoipGetCallhistoryList** | VOIP (phone) Call History | ERROR |
+| **:wrench: ApiGetVoipGetCallhistoryList** | VOIP (phone) Call History | UNDER DEV |
 | **:white_check_mark: ApiGetVoipGetInfo** | VOIP (phone) Information | TESTED |
 | **:star: ApiGetWanGetInfo** | WAN Information | FINAL |
 | **:star: ApiGetWlan5GetClientList** | Wifi (5Hz) Client List | FINAL |
