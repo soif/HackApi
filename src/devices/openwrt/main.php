@@ -43,7 +43,7 @@ class Hackapi_Openwrt extends Hackapi{
 		'1'			=> 	['UBUS_STATUS_INVALID_COMMAND',		8],
 		'2'			=> 	['UBUS_STATUS_INVALID_ARGUMENT',	1],
 		'3'			=> 	['UBUS_STATUS_METHOD_NOT_FOUND',	6],
-		'4'			=> 	['UBUS_STATUS_NOT_FOUND',			1],
+		'4'			=> 	['UBUS_STATUS_NOT_FOUND',			7],
 		'5'			=> 	['UBUS_STATUS_NO_DATA',				8],
 		'6'			=>	['UBUS_STATUS_PERMISSION_DENIED',	3], //login faile
 		'7'			=> 	['UBUS_STATUS_TIMEOUT',				8],
