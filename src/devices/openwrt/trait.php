@@ -1280,24 +1280,18 @@ trait Hackapi_Openwrt_Trait {
 		return $this->MyRpcCall('luci','setPassword', $params);
 	}
 	
-	
-	
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	// +++ ERROR      Returns an error                         ++++++++++++++++++
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	
 	// -----------------------------------------------------------------------
 	/**
 	* ApiSetSystemSignal
 	*
-	* DENIED -32002
+	* (ACL needed) ?
 	*
 	* @category ApiSet
 	* @return Array[]
 	*/
 	public function ApiSetSystemSignal($pid="", $signum=""){
 		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
+		$this->HandleApiMethodStateAllowed(3);
 		$params=array(
 			'pid'	=> $pid,
 			'signum'	=> $signum,
@@ -3139,7 +3133,7 @@ trait Hackapi_Openwrt_Trait {
 		$def['ApiSetSystemSysupgrade']=array (  'args' =>   array (    0 => 'system',    1 => 'sysupgrade',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'backup' => '',      'path' => '',      'prefix' => '',      'command' => '',      'force' => '',      'options' => '',    ),    'parameters' => '$params=array(		\'backup\'	=> $backup,		\'path\'	=> $path,		\'prefix\'	=> $prefix,		\'command\'	=> $command,		\'force\'	=> $force,		\'options\'	=> $options,	);',    'arguments' => '$backup="", $path="", $prefix="", $command="", $force="", $options=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'system\',\'sysupgrade\'',  'f_args_txt' => 'system,sysupgrade',  'f_method_name' => 'ApiSetSystemSysupgrade',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetSystemWatchdog']=array (  'args' =>   array (    0 => 'system',    1 => 'watchdog',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'timeout' => '',      'magicclose' => '',      'stop' => '',      'frequency' => '',    ),    'parameters' => '$params=array(		\'timeout\'	=> $timeout,		\'magicclose\'	=> $magicclose,		\'stop\'	=> $stop,		\'frequency\'	=> $frequency,	);',    'arguments' => '$timeout="", $magicclose="", $stop="", $frequency=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'system\',\'watchdog\'',  'f_args_txt' => 'system,watchdog',  'f_method_name' => 'ApiSetSystemWatchdog',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetSystemValidateFirmwareImage']=array (  'args' =>   array (    0 => 'system',    1 => 'validate_firmware_image',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'path' => '',    ),    'parameters' => '$params=array(		\'path\'	=> $path,	);',    'arguments' => '$path=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'system\',\'validate_firmware_image\'',  'f_args_txt' => 'system,validate_firmware_image',  'f_method_name' => 'ApiSetSystemValidateFirmwareImage',  'f_call' => 'MyRpcCall',);
-		$def['ApiSetSystemSignal']=array (  'args' =>   array (    0 => 'system',    1 => 'signal',  ),  'state' => '2',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'pid' => '',      'signum' => '',    ),    'parameters' => '$params=array(		\'pid\'	=> $pid,		\'signum\'	=> $signum,	);',    'arguments' => '$pid="", $signum=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DENIED -32002',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'system\',\'signal\'',  'f_args_txt' => 'system,signal',  'f_method_name' => 'ApiSetSystemSignal',  'f_call' => 'MyRpcCall',);
+		$def['ApiSetSystemSignal']=array (  'args' =>   array (    0 => 'system',    1 => 'signal',  ),  'state' => '3',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'pid' => '',      'signum' => '',    ),    'parameters' => '$params=array(		\'pid\'	=> $pid,		\'signum\'	=> $signum,	);',    'arguments' => '$pid="", $signum=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '(ACL needed) ?',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'system\',\'signal\'',  'f_args_txt' => 'system,signal',  'f_method_name' => 'ApiSetSystemSignal',  'f_call' => 'MyRpcCall',);
 		$def['ApiGetUci']=array (  'args' => 'uci',  'state' => '5',  'type' => 'get',  'call_index' => 'list',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'uci\'',  'f_args_txt' => 'uci',  'f_method_name' => 'ApiGetUci',  'f_call' => 'MyRpcList',);
 		$def['ApiSetUciDelete']=array (  'args' =>   array (    0 => 'uci',    1 => 'delete',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'type' => '',      'options' => '',      'section' => '',      'option' => '',      'ubus_rpc_session' => '',      'config' => '',      'match' => '',    ),    'parameters' => '$params=array(		\'type\'	=> $type,		\'options\'	=> $options,		\'section\'	=> $section,		\'option\'	=> $option,		\'ubus_rpc_session\'	=> $ubus_rpc_session,		\'config\'	=> $config,		\'match\'	=> $match,	);',    'arguments' => '$type="", $options="", $section="", $option="", $ubus_rpc_session="", $config="", $match=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'uci\',\'delete\'',  'f_args_txt' => 'uci,delete',  'f_method_name' => 'ApiSetUciDelete',  'f_call' => 'MyRpcCall',);
 		$def['ApiSetUciGet']=array (  'args' =>   array (    0 => 'uci',    1 => 'get',  ),  'state' => '1',  'type' => 'set',  'call_index' => 'call',  'params' =>   array (    'definitions' =>     array (      'type' => '',      'section' => '',      'ubus_rpc_session' => '',      'option' => '',      'config' => '',      'match' => '',    ),    'parameters' => '$params=array(		\'type\'	=> $type,		\'section\'	=> $section,		\'ubus_rpc_session\'	=> $ubus_rpc_session,		\'option\'	=> $option,		\'config\'	=> $config,		\'match\'	=> $match,	);',    'arguments' => '$type="", $section="", $ubus_rpc_session="", $option="", $config="", $match=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'uci\',\'get\'',  'f_args_txt' => 'uci,get',  'f_method_name' => 'ApiSetUciGet',  'f_call' => 'MyRpcCall',);

@@ -209,7 +209,7 @@ $p['definitions']=array(
 	[ ['system',	'sysupgrade'],						'1',	'set',	'call',		['backup'=>'','path'=>'','prefix'=>'','command'=>'','force'=>'','options'=>''],		''],
 	[ ['system',	'watchdog'],						'1',	'set',	'call',		['timeout'=>'','magicclose'=>'','stop'=>'','frequency'=>''],		''],
 	[ ['system',	'validate_firmware_image'],			'1',	'set',	'call',		['path'=>''],	''],
-	[ ['system',	'signal'],							'2',	'set',	'call',		['pid'=>'','signum'=>''],		'DENIED -32002'],
+	[ ['system',	'signal'],							'3',	'set',	'call',		['pid'=>'','signum'=>''],		'(ACL needed) ?'],
 
 
 	[ 'uci',											'5',	'get',	'list',		'',		''],
