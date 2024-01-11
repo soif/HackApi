@@ -200,7 +200,9 @@ public function {method}({arguments}){
 				}
 				else{
 					if($i_err=$instance->GetLastError()){
-						$this->_methods_with_errors[$i_err['code']][$key_err]=$i_err;
+						
+						$my_err=$i_err['main']['code'];// or $err=$i_err['api']['code'];
+						$this->_methods_with_errors[$my_err][$key_err]=$i_err;
 
 						$this->PrintError(urldecode(http_build_query($i_err,'',',	')));
 												
@@ -208,7 +210,7 @@ public function {method}({arguments}){
 							$this->PrintLine("Last call:");
 							echo $this->PrettifyArray($instance->GetLastCall());
 							
-							$this->_methods_with_errors[$i_err['code']][$key_err]['call']=$instance->GetLastCall();
+							$this->_methods_with_errors[$my_err][$key_err]['call']=$instance->GetLastCall();
 						}
 					}
 					else{
