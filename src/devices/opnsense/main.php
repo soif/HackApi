@@ -28,7 +28,7 @@ class Hackapi_OpnSense extends Hackapi{
 	protected $user			="root";			// (default) user name
 	protected $password		="opnsense";		// (default) user password
 
-	protected	$client_version		='0.50';	// API client Version, formated as M.mm
+	protected	$client_version		='0.90';	// API client Version, formated as M.mm
 
 	protected $def_endpoint='/api';
 
@@ -125,6 +125,9 @@ class Hackapi_OpnSense extends Hackapi{
 */
 
 
+
+
+
 	// ###############################################################################
 	// #### Our OWN methods ##########################################################
 	// ###############################################################################
@@ -160,19 +163,24 @@ class Hackapi_OpnSense extends Hackapi{
 	protected function ErrorFreeResult($arr=''){
 
 		if(is_array($arr)){
-			if( isset($arr['status']) ){
-				$valid_status=array('active','disabled','done','failed','ok','ready','running');
-				if(in_array($arr['status'], $valid_status)){
-					return $arr;
-				}
-				else{
-					$this->SetApiErrorCode($arr['status'],$arr['message'],$arr);
+			$yes_status=array('active','done','ok','ready','running','OK');
+			$no_status=array('disabled','failed','stopped','Error (1)');
+			$res_keys=array('status','result','response');
+			foreach($res_keys as $k){
+				if( isset($arr[$k]) and (count($arr)==1 or (count($arr)==2 and isset($arr['widget']) )) ){
+					if(in_array(trim($arr[$k]), $yes_status)){
+						return true;
+					}
+					elseif(in_array(trim($arr[$k]), $no_status)){
+						return false;
+					}
+					elseif(isset($arr['status'])){
+						$this->SetApiErrorCode($arr['status'],$arr['message'],$arr);
+					}
 				}
 			}
-			else{
-				//$this->SetError(0,'answer is a valid array, but empty');
-				return $arr;
-			}
+			//$this->SetError(0,'answer is a valid array, but empty');
+			return $arr;
 		}
 		else{
 			$this->SetError(0,'Result is not an array!');
@@ -180,7 +188,6 @@ class Hackapi_OpnSense extends Hackapi{
 		}
 		return false;
 	}
-
 
 }
 ?>
