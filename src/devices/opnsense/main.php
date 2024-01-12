@@ -64,14 +64,18 @@ class Hackapi_OpnSense extends Hackapi{
 	public function ApiIsLoggedIn(){
 		$this->DebugLogMethod();
 	}
+*/
 
 	// -------------------------------------------------------------------------
 	public function ApiReboot(){
 		$this->DebugLogMethod();
+		return $this->ApiSetCoreSystemReboot();
 	}
 	
+/*
 	// -------------------------------------------------------------------------
 	public function ApiCellStatus($fast_mode=false){
+		$this->DebugLogMethod();
 	}
 
 	// -------------------------------------------------------------------------
