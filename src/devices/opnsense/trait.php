@@ -12,8 +12,70 @@ trait Hackapi_Opnsense_Trait {
 	
 	
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	// +++ FINAL      Fully tested: Params ordered, desc set   ++++++++++++++++++
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetRoutesGatewayStatus
+	*
+	* Gateways Status
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetRoutesGatewayStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/routes/gateway/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIperfServiceStatus
+	*
+	* Iperf Service Status
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIperfServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/iperf/service/status');
+	}
+	
+	
+	
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	// +++ TESTED     Params still not ordered or desc not set ++++++++++++++++++
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetCoreBackupProviders
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetCoreBackupProviders(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/backup/providers');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetCoreMenuTree
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetCoreMenuTree(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/menu/tree');
+	}
 	
 	// -----------------------------------------------------------------------
 	/**
@@ -26,6 +88,1029 @@ trait Hackapi_Opnsense_Trait {
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
 		return $this->CallApiGet('/core/menu/search');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetCoreFirmwareGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetCoreFirmwareGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/firmware/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetCoreFirmwareGetOptions
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetCoreFirmwareGetOptions(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/firmware/getOptions');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetCoreFirmwareHealth
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetCoreFirmwareHealth(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiPost('/core/firmware/health');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetCoreFirmwareInfo
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetCoreFirmwareInfo(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/firmware/info');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetCoreFirmwareRunning
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetCoreFirmwareRunning(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/firmware/running');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetCoreFirmwareUpgradestatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetCoreFirmwareUpgradestatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/firmware/upgradestatus');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetCoreServiceSearch
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetCoreServiceSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/service/search');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetCoreSystemStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetCoreSystemStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/system/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetCronSettingsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetCronSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/cron/settings/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetCronSettingsGetJob
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetCronSettingsGetJob($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/cron/settings/getJob', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetCronSettingsSearchJobs
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetCronSettingsSearchJobs(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/cron/settings/searchJobs');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDhcpLeases4SearchLease
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDhcpLeases4SearchLease(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dhcp/leases4/searchLease');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDhcpServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDhcpServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dhcp/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDhcpv4LeasesSearchLease
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDhcpv4LeasesSearchLease(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dhcpv4/leases/searchLease');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDhcpv4ServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDhcpv4ServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dhcpv4/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDhcpv6LeasesSearchLease
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDhcpv6LeasesSearchLease(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dhcpv6/leases/searchLease');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDhcpv6LeasesSearchPrefix
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDhcpv6LeasesSearchPrefix(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dhcpv6/leases/searchPrefix');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDhcpv6ServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDhcpv6ServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dhcpv6/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsActivityGetActivity
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsActivityGetActivity(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/activity/getActivity');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsDnsDiagnosticsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsDnsDiagnosticsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/dns_diagnostics/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsFirewallListRuleIds
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsFirewallListRuleIds(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/firewall/listRuleIds');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsFirewallLogFilters
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsFirewallLogFilters(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/firewall/logFilters');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceGetArp
+	*
+	* ARP table
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceGetArp(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/getArp');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceGetBpfStatistics
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceGetBpfStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/getBpfStatistics');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceGetInterfaceConfig
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceGetInterfaceConfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/getInterfaceConfig');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceGetInterfaceNames
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceGetInterfaceNames(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/getInterfaceNames');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceGetInterfaceStatistics
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceGetInterfaceStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/getInterfaceStatistics');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceGetMemoryStatistics
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceGetMemoryStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/getMemoryStatistics');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceGetNetisrStatistics
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceGetNetisrStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/getNetisrStatistics');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceGetPfSyncNodes
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceGetPfSyncNodes(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/getPfSyncNodes');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceGetProtocolStatistics
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceGetProtocolStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/getProtocolStatistics');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceGetRoutes
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceGetRoutes(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/getRoutes');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceGetSocketStatistics
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceGetSocketStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/getSocketStatistics');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceGetVipStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceGetVipStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/getVipStatus');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceSearchArp
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceSearchArp(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/searchArp');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsInterfaceSearchNdp
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsInterfaceSearchNdp(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/searchNdp');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsLvtemplateGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsLvtemplateGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/lvtemplate/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsLvtemplateGetItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsLvtemplateGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/diagnostics/lvtemplate/getItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsLvtemplateSearchItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsLvtemplateSearchItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/lvtemplate/searchItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsNetflowCacheStats
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsNetflowCacheStats(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/netflow/cacheStats');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsNetflowGetconfig
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsNetflowGetconfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/netflow/getconfig');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsNetflowIsEnabled
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsNetflowIsEnabled(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/netflow/isEnabled');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsNetflowStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsNetflowStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/netflow/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsNetworkinsightGetInterfaces
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsNetworkinsightGetInterfaces(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/networkinsight/getInterfaces');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsNetworkinsightGetMetadata
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsNetworkinsightGetMetadata(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/networkinsight/getMetadata');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsNetworkinsightGetProtocols
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsNetworkinsightGetProtocols(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/networkinsight/getProtocols');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsNetworkinsightGetServices
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsNetworkinsightGetServices(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/networkinsight/getServices');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsPacketCaptureGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsPacketCaptureGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/packet_capture/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsPacketCaptureSearchJobs
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsPacketCaptureSearchJobs(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/packet_capture/searchJobs');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsPingGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsPingGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/ping/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsPingSearchJobs
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsPingSearchJobs(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/ping/searchJobs');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsPortprobeGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsPortprobeGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/portprobe/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsSystemMemory
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsSystemMemory(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/system/memory');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsSystemhealthGetInterfaces
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsSystemhealthGetInterfaces(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/systemhealth/getInterfaces');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsSystemhealthGetRRDlist
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsSystemhealthGetRRDlist(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/systemhealth/getRRDlist');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsSystemhealthGetSystemHealth
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsSystemhealthGetSystemHealth($rrd="", $inverse="0", $detail="-1"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'rrd'	=> $rrd,
+			'inverse'	=> $inverse,
+			'detail'	=> $detail,
+		);
+		return $this->CallApiGet('/diagnostics/systemhealth/getSystemHealth', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsTracerouteGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsTracerouteGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/traceroute/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsTrafficInterface
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsTrafficInterface(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/traffic/Interface');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallAliasExport
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallAliasExport(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/export');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallAliasGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallAliasGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallAliasGetGeoIP
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallAliasGetGeoIP(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/getGeoIP');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallAliasGetItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallAliasGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/firewall/alias/getItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallAliasGetTableSize
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallAliasGetTableSize(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/getTableSize');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallAliasListCategories
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallAliasListCategories(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/listCategories');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallAliasListCountries
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallAliasListCountries(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/listCountries');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallAliasListNetworkAliases
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallAliasListNetworkAliases(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/listNetworkAliases');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallAliasListUserGroups
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallAliasListUserGroups(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/listUserGroups');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallAliasSearchItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallAliasSearchItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/searchItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallAliasUtilAliases
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallAliasUtilAliases(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias_util/aliases');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallCategoryGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallCategoryGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/category/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallCategoryGetItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallCategoryGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/firewall/category/getItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallCategorySearchItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallCategorySearchItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/category/searchItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallCategorySearchNoCategoryItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallCategorySearchNoCategoryItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/category/searchNoCategoryItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallFilterUtilRuleStats
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallFilterUtilRuleStats(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/filter_util/ruleStats');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallGroupGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallGroupGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/group/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallGroupGetItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallGroupGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/firewall/group/getItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallGroupSearchItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallGroupSearchItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/group/searchItem');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -114,6 +1199,22 @@ trait Hackapi_Opnsense_Trait {
 	
 	// -----------------------------------------------------------------------
 	/**
+	* ApiGetIdsSettingsGetUserRule
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIdsSettingsGetUserRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ids/settings/getUserRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
 	* ApiGetIdsSettingsListRulesets
 	*
 	* @category ApiGet
@@ -123,6 +1224,87 @@ trait Hackapi_Opnsense_Trait {
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
 		return $this->CallApiGet('/ids/settings/listRulesets');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIdsSettingsSearchPolicy
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIdsSettingsSearchPolicy(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ids/settings/searchPolicy');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIdsSettingsSearchPolicyRule
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIdsSettingsSearchPolicyRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ids/settings/searchPolicyRule');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIdsSettingsSearchUserRule
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIdsSettingsSearchUserRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ids/settings/searchUserRule');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetInterfacesLaggSettingsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetInterfacesLaggSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/lagg_settings/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetInterfacesLaggSettingsGetItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetInterfacesLaggSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/lagg_settings/getItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetInterfacesLaggSettingsSearchItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetInterfacesLaggSettingsSearchItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/lagg_settings/searchItem');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -140,6 +1322,35 @@ trait Hackapi_Opnsense_Trait {
 	
 	// -----------------------------------------------------------------------
 	/**
+	* ApiGetInterfacesLoopbackSettingsGetItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetInterfacesLoopbackSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/loopback_settings/getItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetInterfacesLoopbackSettingsSearchItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetInterfacesLoopbackSettingsSearchItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/loopback_settings/searchItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
 	* ApiGetInterfacesVipSettingsGet
 	*
 	* @category ApiGet
@@ -149,6 +1360,22 @@ trait Hackapi_Opnsense_Trait {
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
 		return $this->CallApiGet('/interfaces/vip_settings/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetInterfacesVipSettingsGetItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetInterfacesVipSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/vip_settings/getItem', $params);
 	}
 	
 	// -----------------------------------------------------------------------
@@ -166,6 +1393,19 @@ trait Hackapi_Opnsense_Trait {
 	
 	// -----------------------------------------------------------------------
 	/**
+	* ApiGetInterfacesVipSettingsSearchItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetInterfacesVipSettingsSearchItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/vip_settings/searchItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
 	* ApiGetInterfacesVlanSettingsGet
 	*
 	* @category ApiGet
@@ -175,6 +1415,35 @@ trait Hackapi_Opnsense_Trait {
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
 		return $this->CallApiGet('/interfaces/vlan_settings/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetInterfacesVlanSettingsGetItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetInterfacesVlanSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/vlan_settings/getItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetInterfacesVlanSettingsSearchItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetInterfacesVlanSettingsSearchItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/vlan_settings/searchItem');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -206,6 +1475,1827 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiGet('/interfaces/vxlan_settings/getItem', $params);
 	}
 	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetInterfacesVxlanSettingsSearchItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetInterfacesVxlanSettingsSearchItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/vxlan_settings/searchItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecConnectionsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecConnectionsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/connections/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecConnectionsGetChild
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecConnectionsGetChild($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/connections/getChild', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecConnectionsGetConnection
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecConnectionsGetConnection($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/connections/getConnection', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecConnectionsGetLocal
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecConnectionsGetLocal($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/connections/getLocal', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecConnectionsGetRemote
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecConnectionsGetRemote($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/connections/getRemote', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecConnectionsIsEnabled
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecConnectionsIsEnabled(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/connections/isEnabled');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecConnectionsSearchChild
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecConnectionsSearchChild(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/connections/searchChild');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecConnectionsSearchConnection
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecConnectionsSearchConnection(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/connections/searchConnection');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecConnectionsSearchLocal
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecConnectionsSearchLocal(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/connections/searchLocal');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecConnectionsSearchRemote
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecConnectionsSearchRemote(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/connections/searchRemote');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecKeyPairsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecKeyPairsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/key_pairs/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecKeyPairsGetItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecKeyPairsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/key_pairs/getItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecKeyPairsSearchItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecKeyPairsSearchItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/key_pairs/searchItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecLeasesPools
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecLeasesPools(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/leases/pools');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecLeasesSearch
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecLeasesSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/leases/search');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecLegacySubsystemStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecLegacySubsystemStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/legacy_subsystem/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecManualSpdGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecManualSpdGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/manual_spd/get', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecManualSpdSearch
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecManualSpdSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/manual_spd/search');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecPoolsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecPoolsGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/pools/get', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecPoolsSearch
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecPoolsSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/pools/search');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecPreSharedKeysGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecPreSharedKeysGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/pre_shared_keys/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecPreSharedKeysGetItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecPreSharedKeysGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/pre_shared_keys/getItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecPreSharedKeysSearchItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecPreSharedKeysSearchItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/pre_shared_keys/searchItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecSadSearch
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecSadSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/sad/search');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecSessionsSearchPhase1
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecSessionsSearchPhase1(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/sessions/searchPhase1');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecSessionsSearchPhase2
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecSessionsSearchPhase2(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/sessions/searchPhase2');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecSpdSearch
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecSpdSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/spd/search');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecTunnelSearchPhase1
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecTunnelSearchPhase1(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/tunnel/searchPhase1');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecTunnelSearchPhase2
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecTunnelSearchPhase2(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/tunnel/searchPhase2');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecVtiGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecVtiGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/vti/get', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIpsecVtiSearch
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIpsecVtiSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/vti/search');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetMonitServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetMonitServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/monit/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetMonitSettingsDirty
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetMonitSettingsDirty(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/monit/settings/dirty');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetMonitSettingsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetMonitSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/monit/settings/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetMonitSettingsGetAlert
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetMonitSettingsGetAlert($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/monit/settings/getAlert', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetMonitSettingsGetGeneral
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetMonitSettingsGetGeneral(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/monit/settings/getGeneral');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetMonitSettingsGetService
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetMonitSettingsGetService($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/monit/settings/getService', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetMonitSettingsGetTest
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetMonitSettingsGetTest($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/monit/settings/getTest', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetMonitSettingsSearchAlert
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetMonitSettingsSearchAlert(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/monit/settings/searchAlert');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetMonitSettingsSearchService
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetMonitSettingsSearchService(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/monit/settings/searchService');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetMonitSettingsSearchTest
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetMonitSettingsSearchTest(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/monit/settings/searchTest');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetMonitStatusGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetMonitStatusGet($format="xml"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'format'	=> $format,
+		);
+		return $this->CallApiGet('/monit/status/get', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetOpenvpnClientOverwritesGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetOpenvpnClientOverwritesGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/openvpn/client_overwrites/get', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetOpenvpnClientOverwritesSearch
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetOpenvpnClientOverwritesSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/openvpn/client_overwrites/search');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetOpenvpnExportAccounts
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetOpenvpnExportAccounts($vpnid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'vpnid'	=> $vpnid,
+		);
+		return $this->CallApiGet('/openvpn/export/accounts', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetOpenvpnExportTemplates
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetOpenvpnExportTemplates(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/openvpn/export/templates');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetOpenvpnInstancesGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetOpenvpnInstancesGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/openvpn/instances/get', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetOpenvpnInstancesGetStaticKey
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetOpenvpnInstancesGetStaticKey($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/openvpn/instances/getStaticKey', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetOpenvpnInstancesSearch
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetOpenvpnInstancesSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/openvpn/instances/search');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetOpenvpnInstancesSearchStaticKey
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetOpenvpnInstancesSearchStaticKey(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/openvpn/instances/searchStaticKey');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetOpenvpnServiceSearchRoutes
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetOpenvpnServiceSearchRoutes(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/openvpn/service/searchRoutes');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetOpenvpnServiceSearchSessions
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetOpenvpnServiceSearchSessions(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/openvpn/service/searchSessions');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetProxyServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetProxyServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/proxy/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetProxySettingsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetProxySettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/proxy/settings/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetProxySettingsGetPACMatch
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetProxySettingsGetPACMatch($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/proxy/settings/getPACMatch', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetProxySettingsGetPACProxy
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetProxySettingsGetPACProxy($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/proxy/settings/getPACProxy', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetProxySettingsGetPACRule
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetProxySettingsGetPACRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/proxy/settings/getPACRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetProxySettingsGetRemoteBlacklist
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetProxySettingsGetRemoteBlacklist($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/proxy/settings/getRemoteBlacklist', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetProxySettingsSearchPACMatch
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetProxySettingsSearchPACMatch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/proxy/settings/searchPACMatch');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetProxySettingsSearchPACProxy
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetProxySettingsSearchPACProxy(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/proxy/settings/searchPACProxy');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetProxySettingsSearchPACRule
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetProxySettingsSearchPACRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/proxy/settings/searchPACRule');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetProxySettingsSearchRemoteBlacklists
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetProxySettingsSearchRemoteBlacklists(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/proxy/settings/searchRemoteBlacklists');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetRoutesRoutesGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetRoutesRoutesGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/routes/routes/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetRoutesRoutesGetroute
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetRoutesRoutesGetroute($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/routes/routes/getroute', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetRoutesRoutesSearchroute
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetRoutesRoutesSearchroute(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/routes/routes/searchroute');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetSyslogServiceStats
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetSyslogServiceStats(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/syslog/service/stats');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetSyslogServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetSyslogServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/syslog/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetSyslogSettingsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetSyslogSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/syslog/settings/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetSyslogSettingsGetDestination
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetSyslogSettingsGetDestination($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/syslog/settings/getDestination', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetSyslogSettingsSearchDestinations
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetSyslogSettingsSearchDestinations(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/syslog/settings/searchDestinations');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetTrafficshaperServiceStatistics
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetTrafficshaperServiceStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/trafficshaper/service/statistics');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetTrafficshaperSettingsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetTrafficshaperSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/trafficshaper/settings/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetTrafficshaperSettingsGetPipe
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetTrafficshaperSettingsGetPipe($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/trafficshaper/settings/getPipe', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetTrafficshaperSettingsGetQueue
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetTrafficshaperSettingsGetQueue($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/trafficshaper/settings/getQueue', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetTrafficshaperSettingsGetRule
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetTrafficshaperSettingsGetRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/trafficshaper/settings/getRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetTrafficshaperSettingsSearchPipes
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetTrafficshaperSettingsSearchPipes(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/trafficshaper/settings/searchPipes');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetTrafficshaperSettingsSearchQueues
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetTrafficshaperSettingsSearchQueues(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/trafficshaper/settings/searchQueues');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetTrafficshaperSettingsSearchRules
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetTrafficshaperSettingsSearchRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/trafficshaper/settings/searchRules');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundOverviewIsBlockListEnabled
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundOverviewIsBlockListEnabled(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/overview/isBlockListEnabled');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundOverviewIsEnabled
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundOverviewIsEnabled(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/overview/isEnabled');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundOverviewSearchQueries
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundOverviewSearchQueries(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/overview/searchQueries');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundSettingsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/settings/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundSettingsGetAcl
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundSettingsGetAcl($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/unbound/settings/getAcl', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundSettingsGetDomainOverride
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundSettingsGetDomainOverride($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/unbound/settings/getDomainOverride', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundSettingsGetForward
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundSettingsGetForward($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/unbound/settings/getForward', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundSettingsGetHostAlias
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundSettingsGetHostAlias($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/unbound/settings/getHostAlias', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundSettingsGetHostOverride
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundSettingsGetHostOverride($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/unbound/settings/getHostOverride', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundSettingsGetNameservers
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundSettingsGetNameservers(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/settings/getNameservers');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundSettingsSearchAcl
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundSettingsSearchAcl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/settings/searchAcl');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundSettingsSearchDomainOverride
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundSettingsSearchDomainOverride(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/settings/searchDomainOverride');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundSettingsSearchForward
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundSettingsSearchForward(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/settings/searchForward');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundSettingsSearchHostAlias
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundSettingsSearchHostAlias(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/settings/searchHostAlias');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundSettingsSearchHostOverride
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundSettingsSearchHostOverride(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/settings/searchHostOverride');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindAclGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindAclGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/acl/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindAclGetAcl
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindAclGetAcl($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/bind/acl/getAcl', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindAclSearchAcl
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindAclSearchAcl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/acl/searchAcl');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindDnsblGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindDnsblGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/dnsbl/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindDomainGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindDomainGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/domain/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindDomainGetDomain
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindDomainGetDomain($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/bind/domain/getDomain', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindDomainSearchMasterDomain
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindDomainSearchMasterDomain(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/domain/searchMasterDomain');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindDomainSearchPrimaryDomain
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindDomainSearchPrimaryDomain(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/domain/searchPrimaryDomain');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindDomainSearchSecondaryDomain
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindDomainSearchSecondaryDomain(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/domain/searchSecondaryDomain');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindDomainSearchSlaveDomain
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindDomainSearchSlaveDomain(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/domain/searchSlaveDomain');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindGeneralGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/general/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindRecordGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindRecordGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/record/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindRecordGetRecord
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindRecordGetRecord($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/bind/record/getRecord', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindRecordSearchRecord
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindRecordSearchRecord(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/record/searchRecord');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindServiceDnsbl
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindServiceDnsbl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/service/dnsbl');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetBindServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetBindServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDyndnsAccountsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDyndnsAccountsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dyndns/accounts/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDyndnsAccountsGetItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDyndnsAccountsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dyndns/accounts/getItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDyndnsAccountsSearchItem
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDyndnsAccountsSearchItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dyndns/accounts/searchItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDyndnsServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDyndnsServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dyndns/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDyndnsSettingsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDyndnsSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dyndns/settings/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIperfInstanceGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIperfInstanceGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/iperf/instance/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetMuninnodeGeneralGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetMuninnodeGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/muninnode/general/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetMuninnodeServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetMuninnodeServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/muninnode/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetNetdataGeneralGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetNetdataGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/netdata/general/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetNetdataServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetNetdataServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/netdata/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetNtopngGeneralGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetNtopngGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ntopng/general/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetNtopngServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetNtopngServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ntopng/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetRedisServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetRedisServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/redis/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetRedisSettingsGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetRedisSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/redis/settings/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetVnstatGeneralGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetVnstatGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/vnstat/general/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetVnstatServiceDaily
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetVnstatServiceDaily(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/vnstat/service/daily');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetVnstatServiceHourly
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetVnstatServiceHourly(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/vnstat/service/hourly');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetVnstatServiceMonthly
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetVnstatServiceMonthly(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/vnstat/service/monthly');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetVnstatServiceStatus
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetVnstatServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/vnstat/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetVnstatServiceYearly
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetVnstatServiceYearly(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/vnstat/service/yearly');
+	}
+	
 	
 	
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -214,89 +3304,83 @@ trait Hackapi_Opnsense_Trait {
 	
 	// -----------------------------------------------------------------------
 	/**
-	* ApiGetIdsSettingsGetUserRule
+	* ApiGetDiagnosticsDnsReverseLookup
 	*
 	* @category ApiGet
 	* @return Array[]
 	*/
-	public function ApiGetIdsSettingsGetUserRule($uuid="null"){
+	public function ApiGetDiagnosticsDnsReverseLookup(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(3);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/ids/settings/getUserRule', $params);
+		return $this->CallApiGet('/diagnostics/dns/reverseLookup');
 	}
 	
 	// -----------------------------------------------------------------------
 	/**
-	* ApiGetInterfacesLoopbackSettingsGetItem
+	* ApiGetDiagnosticsFirewallLog
 	*
 	* @category ApiGet
 	* @return Array[]
 	*/
-	public function ApiGetInterfacesLoopbackSettingsGetItem($uuid="null"){
+	public function ApiGetDiagnosticsFirewallLog(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(3);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/interfaces/loopback_settings/getItem', $params);
+		return $this->CallApiGet('/diagnostics/firewall/log');
 	}
 	
 	// -----------------------------------------------------------------------
 	/**
-	* ApiGetInterfacesVipSettingsGetItem
+	* ApiGetDiagnosticsFirewallPfStatistics
 	*
 	* @category ApiGet
 	* @return Array[]
 	*/
-	public function ApiGetInterfacesVipSettingsGetItem($uuid="null"){
+	public function ApiGetDiagnosticsFirewallPfStatistics($section="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(3);
 		$params=array(
-			'uuid'	=> $uuid,
+			'section'	=> $section,
 		);
-		return $this->CallApiGet('/interfaces/vip_settings/getItem', $params);
+		return $this->CallApiGet('/diagnostics/firewall/pfStatistics', $params);
 	}
 	
 	// -----------------------------------------------------------------------
 	/**
-	* ApiGetInterfacesVlanSettingsGetItem
+	* ApiGetDiagnosticsFirewallStats
 	*
 	* @category ApiGet
 	* @return Array[]
 	*/
-	public function ApiGetInterfacesVlanSettingsGetItem($uuid="null"){
+	public function ApiGetDiagnosticsFirewallStats(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(3);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/interfaces/vlan_settings/getItem', $params);
+		return $this->CallApiGet('/diagnostics/firewall/stats');
 	}
-	
-	
-	
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	// +++ DRAFT      Not tested                               ++++++++++++++++++
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
 	// -----------------------------------------------------------------------
 	/**
-	* ApiGetIdsServiceGetAlertInfo
+	* ApiGetDiagnosticsInterfaceGetNdp
 	*
 	* @category ApiGet
 	* @return Array[]
 	*/
-	public function ApiGetIdsServiceGetAlertInfo($alertId, $fileid=""){
+	public function ApiGetDiagnosticsInterfaceGetNdp(){
 		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		$params=array(
-			'alertId'	=> $alertId,
-			'fileid'	=> $fileid,
-		);
-		return $this->CallApiGet('/ids/service/getAlertInfo', $params);
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/diagnostics/interface/getNdp');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDiagnosticsPacketCaptureSet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetDiagnosticsPacketCaptureSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/diagnostics/packet_capture/set');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -308,7 +3392,7 @@ trait Hackapi_Opnsense_Trait {
 	*/
 	public function ApiGetIdsServiceGetAlertLogs(){
 		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
+		$this->HandleApiMethodStateAllowed(3);
 		return $this->CallApiGet('/ids/service/getAlertLogs');
 	}
 	
@@ -321,27 +3405,11 @@ trait Hackapi_Opnsense_Trait {
 	*/
 	public function ApiGetIdsSettingsGetRuleInfo($sid="null"){
 		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
+		$this->HandleApiMethodStateAllowed(3);
 		$params=array(
 			'sid'	=> $sid,
 		);
 		return $this->CallApiGet('/ids/settings/getRuleInfo', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsSettingsGetRuleset
-	*
-	* @category ApiGet
-	* @return Array[]
-	*/
-	public function ApiGetIdsSettingsGetRuleset($id){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		$params=array(
-			'id'	=> $id,
-		);
-		return $this->CallApiGet('/ids/settings/getRuleset', $params);
 	}
 	
 	// -----------------------------------------------------------------------
@@ -353,37 +3421,241 @@ trait Hackapi_Opnsense_Trait {
 	*/
 	public function ApiGetIdsSettingsListRuleMetadata(){
 		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
+		$this->HandleApiMethodStateAllowed(3);
 		return $this->CallApiGet('/ids/settings/listRuleMetadata');
 	}
 	
 	// -----------------------------------------------------------------------
 	/**
-	* ApiGetInterfacesLaggSettingsGet
+	* ApiGetOpenvpnExportProviders
 	*
 	* @category ApiGet
 	* @return Array[]
 	*/
-	public function ApiGetInterfacesLaggSettingsGet(){
+	public function ApiGetOpenvpnExportProviders(){
 		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiGet('/interfaces/lagg_settings/get');
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/openvpn/export/providers');
 	}
 	
 	// -----------------------------------------------------------------------
 	/**
-	* ApiGetInterfacesLaggSettingsGetItem
+	* ApiGetProxyTemplateGet
 	*
 	* @category ApiGet
 	* @return Array[]
 	*/
-	public function ApiGetInterfacesLaggSettingsGetItem($uuid="null"){
+	public function ApiGetProxyTemplateGet(){
 		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/proxy/template/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundDiagnosticsDumpcache
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundDiagnosticsDumpcache(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/unbound/diagnostics/dumpcache');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundDiagnosticsDumpinfra
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundDiagnosticsDumpinfra(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/unbound/diagnostics/dumpinfra');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundDiagnosticsListinsecure
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundDiagnosticsListinsecure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/unbound/diagnostics/listinsecure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundDiagnosticsListlocaldata
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundDiagnosticsListlocaldata(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/unbound/diagnostics/listlocaldata');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundDiagnosticsListlocalzones
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundDiagnosticsListlocalzones(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/unbound/diagnostics/listlocalzones');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundDiagnosticsStats
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundDiagnosticsStats(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/unbound/diagnostics/stats');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundServiceDnsbl
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundServiceDnsbl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/unbound/service/dnsbl');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetUnboundServiceReconfigureGeneral
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetUnboundServiceReconfigureGeneral(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/unbound/service/reconfigureGeneral');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetNtopngServiceCheckredis
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetNtopngServiceCheckredis(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/ntopng/service/checkredis');
+	}
+	
+	
+	
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	// +++ ERROR      Returns an error                         ++++++++++++++++++
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallFilterBaseGet
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallFilterBaseGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/filter_base/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallFilterGetRule
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallFilterGetRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiGet('/interfaces/lagg_settings/getItem', $params);
+		return $this->CallApiGet('/firewall/filter/getRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallFilterSearchRule
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallFilterSearchRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/filter/searchRule');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallSourceNatGetRule
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallSourceNatGetRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/firewall/source_nat/getRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetFirewallSourceNatSearchRule
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetFirewallSourceNatSearchRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/source_nat/searchRule');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetIperfInstanceQuery
+	*
+	* @category ApiGet
+	* @return Array[]
+	*/
+	public function ApiGetIperfInstanceQuery(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/iperf/instance/query');
 	}
 	
 	
@@ -395,8 +3667,1499 @@ trait Hackapi_Opnsense_Trait {
 	
 	
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	// +++ FINAL      Fully tested: Params ordered, desc set   ++++++++++++++++++
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreSystemReboot
+	*
+	* Reboot
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreSystemReboot(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('/core/system/reboot');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindServiceRestart
+	*
+	* Bind Service Restart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('/bind/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindServiceStart
+	*
+	* Bind Service Start
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('/bind/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindServiceStop
+	*
+	* Bind Service Stop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('/bind/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIperfServiceRestart
+	*
+	* Iperf Service Restart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIperfServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('/iperf/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIperfServiceStart
+	*
+	* Iperf Service Start
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIperfServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('/iperf/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIperfServiceStop
+	*
+	* Iperf Service Stop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIperfServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('/iperf/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMuninnodeServiceRestart
+	*
+	* Munin-node Service Restart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMuninnodeServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('/muninnode/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMuninnodeServiceStart
+	*
+	* Munin-node Service Start
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMuninnodeServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('/muninnode/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMuninnodeServiceStop
+	*
+	* Munin-node Service Stop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMuninnodeServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiPost('/muninnode/service/stop');
+	}
+	
+	
+	
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	// +++ TESTED     Params still not ordered or desc not set ++++++++++++++++++
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallAliasUtilUpdateBogons
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallAliasUtilUpdateBogons(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiPost('/firewall/alias_util/updateBogons');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnInstancesGenKey
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnInstancesGenKey(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiPost('/openvpn/instances/genKey');
+	}
+	
+	
+	
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	// +++ DRAFT      Not tested                               ++++++++++++++++++
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareAudit
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareAudit(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/audit');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareChangelog
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareChangelog($version){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'version'	=> $version,
+		);
+		return $this->CallApiPost('/core/firmware/changelog', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareCheck
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareCheck(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/check');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareConnection
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareConnection(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/connection');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareLog
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareLog($clear){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'clear'	=> $clear,
+		);
+		return $this->CallApiPost('/core/firmware/log', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwarePoweroff
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwarePoweroff(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/poweroff');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareReboot
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareReboot(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/reboot');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareResyncPlugins
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareResyncPlugins(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/resyncPlugins');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareStatus
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareSyncPlugins
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareSyncPlugins(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/syncPlugins');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareUpdate
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareUpdate(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/update');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareUpgrade
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareUpgrade(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/upgrade');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareDetails
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareDetails($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/details', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareInstall
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareInstall($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/install', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareLicense
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareLicense($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/license', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareLock
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareLock($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/lock', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareRemove
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareRemove($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/remove', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareReinstall
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareReinstall($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/reinstall', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreFirmwareUnlock
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreFirmwareUnlock($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/unlock', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreServiceRestart($name, $id=""){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'name'	=> $name,
+			'id'	=> $id,
+		);
+		return $this->CallApiPost('/core/service/restart', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreServiceStart($name, $id=""){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'name'	=> $name,
+			'id'	=> $id,
+		);
+		return $this->CallApiPost('/core/service/start', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreServiceStop($name, $id=""){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'name'	=> $name,
+			'id'	=> $id,
+		);
+		return $this->CallApiPost('/core/service/stop', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreSystemDismissStatus
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreSystemDismissStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/system/dismissStatus');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCoreSystemHalt
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCoreSystemHalt(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/system/halt');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCronServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCronServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cron/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCronSettingsAddJob
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCronSettingsAddJob(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cron/settings/addJob');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCronSettingsDelJob
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCronSettingsDelJob($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/cron/settings/delJob', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCronSettingsSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCronSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cron/settings/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCronSettingsSetJob
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCronSettingsSetJob($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/cron/settings/setJob', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetCronSettingsToggleJob
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetCronSettingsToggleJob($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/cron/settings/toggleJob', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpLeases4DelLease
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpLeases4DelLease($ip){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ip'	=> $ip,
+		);
+		return $this->CallApiPost('/dhcp/leases4/delLease', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcp/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcp/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcp/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpv4LeasesDelLease
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpv4LeasesDelLease($ip){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ip'	=> $ip,
+		);
+		return $this->CallApiPost('/dhcpv4/leases/delLease', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpv4ServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpv4ServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv4/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpv4ServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpv4ServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv4/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpv4ServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpv4ServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv4/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpv4ServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpv4ServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv4/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpv6LeasesDelLease
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpv6LeasesDelLease($ip){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ip'	=> $ip,
+		);
+		return $this->CallApiPost('/dhcpv6/leases/delLease', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpv6ServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpv6ServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv6/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpv6ServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpv6ServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv6/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpv6ServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpv6ServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv6/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDhcpv6ServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDhcpv6ServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv6/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsDnsDiagnosticsSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsDnsDiagnosticsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/dns_diagnostics/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsFirewallDelState
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsFirewallDelState($stateid, $creatorid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'stateid'	=> $stateid,
+			'creatorid'	=> $creatorid,
+		);
+		return $this->CallApiPost('/diagnostics/firewall/delState', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsFirewallFlushSources
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsFirewallFlushSources(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/firewall/flushSources');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsFirewallFlushStates
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsFirewallFlushStates(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/firewall/flushStates');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsFirewallKillStates
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsFirewallKillStates(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/firewall/killStates');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsFirewallQueryPfTop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsFirewallQueryPfTop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/firewall/queryPfTop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsFirewallQueryStates
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsFirewallQueryStates(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/firewall/queryStates');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsInterfaceCarpStatus
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsInterfaceCarpStatus($status){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'status'	=> $status,
+		);
+		return $this->CallApiPost('/diagnostics/interface/CarpStatus', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsInterfaceDelRoute
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsInterfaceDelRoute(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/interface/delRoute');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsInterfaceFlushArp
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsInterfaceFlushArp(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/interface/flushArp');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsLvtemplateAddItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsLvtemplateAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/lvtemplate/addItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsLvtemplateDelItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsLvtemplateDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/diagnostics/lvtemplate/delItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsLvtemplateSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsLvtemplateSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/lvtemplate/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsLvtemplateSetItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsLvtemplateSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/diagnostics/lvtemplate/setItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsNetflowReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsNetflowReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/netflow/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsNetflowSetconfig
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsNetflowSetconfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/netflow/setconfig');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsPacketCaptureRemove
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsPacketCaptureRemove($jobid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobid'	=> $jobid,
+		);
+		return $this->CallApiPost('/diagnostics/packet_capture/remove', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsPacketCaptureSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsPacketCaptureSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/packet_capture/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsPacketCaptureStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsPacketCaptureStart($jobid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobid'	=> $jobid,
+		);
+		return $this->CallApiPost('/diagnostics/packet_capture/start', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsPacketCaptureStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsPacketCaptureStop($jobid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobid'	=> $jobid,
+		);
+		return $this->CallApiPost('/diagnostics/packet_capture/stop', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsPingRemove
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsPingRemove($jobid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobid'	=> $jobid,
+		);
+		return $this->CallApiPost('/diagnostics/ping/remove', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsPingSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsPingSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/ping/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsPingStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsPingStart($jobid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobid'	=> $jobid,
+		);
+		return $this->CallApiPost('/diagnostics/ping/start', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsPingStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsPingStop($jobid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobid'	=> $jobid,
+		);
+		return $this->CallApiPost('/diagnostics/ping/stop', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsPortprobeSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsPortprobeSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/portprobe/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDiagnosticsTracerouteSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDiagnosticsTracerouteSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/traceroute/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallAliasAddItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallAliasAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/alias/addItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallAliasDelItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallAliasDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/alias/delItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallAliasImport
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallAliasImport(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/alias/import');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallAliasReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallAliasReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/alias/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallAliasSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallAliasSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/alias/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallAliasSetItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallAliasSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/alias/setItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallAliasToggleItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallAliasToggleItem($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/firewall/alias/toggleItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallAliasUtilAdd
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallAliasUtilAdd($alias){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'alias'	=> $alias,
+		);
+		return $this->CallApiPost('/firewall/alias_util/add', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallAliasUtilDelete
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallAliasUtilDelete($alias){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'alias'	=> $alias,
+		);
+		return $this->CallApiPost('/firewall/alias_util/delete', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallAliasUtilFindReferences
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallAliasUtilFindReferences(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/alias_util/findReferences');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallAliasUtilFlush
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallAliasUtilFlush($alias){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'alias'	=> $alias,
+		);
+		return $this->CallApiPost('/firewall/alias_util/flush', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallCategoryAddItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallCategoryAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/category/addItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallCategoryDelItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallCategoryDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/category/delItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallCategorySet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallCategorySet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/category/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallCategorySetItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallCategorySetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/category/setItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallGroupAddItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallGroupAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/group/addItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallGroupDelItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallGroupDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/group/delItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallGroupReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallGroupReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/group/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallGroupSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallGroupSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/group/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallGroupSetItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallGroupSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/group/setItem', $params);
+	}
 	
 	// -----------------------------------------------------------------------
 	/**
@@ -1151,6 +5914,3448 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/interfaces/vxlan_settings/setItem', $params);
 	}
 	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsAddChild
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsAddChild(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/connections/addChild');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsAddConnection
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsAddConnection(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/connections/addConnection');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsAddLocal
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsAddLocal(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/connections/addLocal');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsAddRemote
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsAddRemote(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/connections/addRemote');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsDelChild
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsDelChild($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/connections/delChild', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsDelConnection
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsDelConnection($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/connections/delConnection', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsDelLocal
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsDelLocal($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/connections/delLocal', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsDelRemote
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsDelRemote($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/connections/delRemote', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/connections/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsSetChild
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsSetChild($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/connections/setChild', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsSetConnection
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsSetConnection($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/connections/setConnection', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsSetLocal
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsSetLocal($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/connections/setLocal', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsSetRemote
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsSetRemote($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/connections/setRemote', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsToggle
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsToggle($enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/ipsec/connections/toggle', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsToggleChild
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsToggleChild($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/ipsec/connections/toggleChild', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsToggleConnection
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsToggleConnection($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/ipsec/connections/toggleConnection', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsToggleLocal
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsToggleLocal($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/ipsec/connections/toggleLocal', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecConnectionsToggleRemote
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecConnectionsToggleRemote($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/ipsec/connections/toggleRemote', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecKeyPairsAddItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecKeyPairsAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/key_pairs/addItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecKeyPairsDelItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecKeyPairsDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/key_pairs/delItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecKeyPairsSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecKeyPairsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/key_pairs/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecKeyPairsSetItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecKeyPairsSetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/key_pairs/setItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecLegacySubsystemApplyConfig
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecLegacySubsystemApplyConfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/legacy_subsystem/applyConfig');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecManualSpdAdd
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecManualSpdAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/manual_spd/add');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecManualSpdDel
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecManualSpdDel($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/manual_spd/del', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecManualSpdSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecManualSpdSet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/manual_spd/set', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecManualSpdToggle
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecManualSpdToggle($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/ipsec/manual_spd/toggle', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecPoolsAdd
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecPoolsAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/pools/add');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecPoolsDel
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecPoolsDel($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/pools/del', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecPoolsSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecPoolsSet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/pools/set', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecPoolsToggle
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecPoolsToggle($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/ipsec/pools/toggle', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecPreSharedKeysAddItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecPreSharedKeysAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/pre_shared_keys/addItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecPreSharedKeysDelItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecPreSharedKeysDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/pre_shared_keys/delItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecPreSharedKeysSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecPreSharedKeysSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/pre_shared_keys/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecPreSharedKeysSetItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecPreSharedKeysSetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/pre_shared_keys/setItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecSadDelete
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecSadDelete($id){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'id'	=> $id,
+		);
+		return $this->CallApiPost('/ipsec/sad/delete', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecSessionsConnect
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecSessionsConnect($id){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'id'	=> $id,
+		);
+		return $this->CallApiPost('/ipsec/sessions/connect', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecSessionsDisconnect
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecSessionsDisconnect($id){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'id'	=> $id,
+		);
+		return $this->CallApiPost('/ipsec/sessions/disconnect', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecSpdDelete
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecSpdDelete($id){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'id'	=> $id,
+		);
+		return $this->CallApiPost('/ipsec/spd/delete', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecTunnelDelPhase1
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecTunnelDelPhase1($ikeid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ikeid'	=> $ikeid,
+		);
+		return $this->CallApiPost('/ipsec/tunnel/delPhase1', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecTunnelDelPhase2
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecTunnelDelPhase2($seqid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'seqid'	=> $seqid,
+		);
+		return $this->CallApiPost('/ipsec/tunnel/delPhase2', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecTunnelToggle
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecTunnelToggle($enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/ipsec/tunnel/toggle', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecTunnelTogglePhase1
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecTunnelTogglePhase1($ikeid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ikeid'	=> $ikeid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/ipsec/tunnel/togglePhase1', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecTunnelTogglePhase2
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecTunnelTogglePhase2($seqid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'seqid'	=> $seqid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/ipsec/tunnel/togglePhase2', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecVtiAdd
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecVtiAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/vti/add');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecVtiDel
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecVtiDel($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/vti/del', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecVtiSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecVtiSet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ipsec/vti/set', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIpsecVtiToggle
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIpsecVtiToggle($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/ipsec/vti/toggle', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitServiceCheck
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitServiceCheck(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/monit/service/check');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/monit/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/monit/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/monit/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/monit/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitSettingsAddAlert
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitSettingsAddAlert(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/monit/settings/addAlert');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitSettingsAddService
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitSettingsAddService(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/monit/settings/addService');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitSettingsAddTest
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitSettingsAddTest(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/monit/settings/addTest');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitSettingsDelAlert
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitSettingsDelAlert($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/monit/settings/delAlert', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitSettingsDelService
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitSettingsDelService($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/monit/settings/delService', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitSettingsDelTest
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitSettingsDelTest($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/monit/settings/delTest', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitSettingsSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/monit/settings/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitSettingsSetAlert
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitSettingsSetAlert($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/monit/settings/setAlert', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitSettingsSetService
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitSettingsSetService($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/monit/settings/setService', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitSettingsSetTest
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitSettingsSetTest($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/monit/settings/setTest', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitSettingsToggleAlert
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitSettingsToggleAlert($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/monit/settings/toggleAlert', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMonitSettingsToggleService
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMonitSettingsToggleService($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/monit/settings/toggleService', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnClientOverwritesAdd
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnClientOverwritesAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/openvpn/client_overwrites/add');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnClientOverwritesDel
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnClientOverwritesDel($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/openvpn/client_overwrites/del', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnClientOverwritesSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnClientOverwritesSet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/openvpn/client_overwrites/set', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnClientOverwritesToggle
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnClientOverwritesToggle($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/openvpn/client_overwrites/toggle', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnExportDownload
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnExportDownload($vpnid, $certref="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'vpnid'	=> $vpnid,
+			'certref'	=> $certref,
+		);
+		return $this->CallApiPost('/openvpn/export/download', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnExportStorePresets
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnExportStorePresets($vpnid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'vpnid'	=> $vpnid,
+		);
+		return $this->CallApiPost('/openvpn/export/storePresets', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnExportValidatePresets
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnExportValidatePresets($vpnid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'vpnid'	=> $vpnid,
+		);
+		return $this->CallApiPost('/openvpn/export/validatePresets', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnInstancesAdd
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnInstancesAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/openvpn/instances/add');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnInstancesAddStaticKey
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnInstancesAddStaticKey(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/openvpn/instances/addStaticKey');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnInstancesDel
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnInstancesDel($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/openvpn/instances/del', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnInstancesDelStaticKey
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnInstancesDelStaticKey($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/openvpn/instances/delStaticKey', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnInstancesSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnInstancesSet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/openvpn/instances/set', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnInstancesSetStaticKey
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnInstancesSetStaticKey($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/openvpn/instances/setStaticKey', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnInstancesToggle
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnInstancesToggle($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/openvpn/instances/toggle', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnServiceKillSession
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnServiceKillSession(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/openvpn/service/killSession');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/openvpn/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnServiceRestartService
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnServiceRestartService($id="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'id'	=> $id,
+		);
+		return $this->CallApiPost('/openvpn/service/restartService', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnServiceStartService
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnServiceStartService($id="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'id'	=> $id,
+		);
+		return $this->CallApiPost('/openvpn/service/startService', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetOpenvpnServiceStopService
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetOpenvpnServiceStopService($id="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'id'	=> $id,
+		);
+		return $this->CallApiPost('/openvpn/service/stopService', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxyServiceDownloadacls
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxyServiceDownloadacls(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/service/downloadacls');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxyServiceFetchacls
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxyServiceFetchacls(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/service/fetchacls');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxyServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxyServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxyServiceRefreshTemplate
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxyServiceRefreshTemplate(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/service/refreshTemplate');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxyServiceReset
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxyServiceReset(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/service/reset');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxyServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxyServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxyServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxyServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxyServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxyServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsAddPACMatch
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsAddPACMatch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/settings/addPACMatch');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsAddPACProxy
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsAddPACProxy(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/settings/addPACProxy');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsAddPACRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsAddPACRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/settings/addPACRule');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsAddRemoteBlacklist
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsAddRemoteBlacklist(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/settings/addRemoteBlacklist');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsDelPACMatch
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsDelPACMatch($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/delPACMatch', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsDelPACProxy
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsDelPACProxy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/delPACProxy', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsDelPACRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsDelPACRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/delPACRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsDelRemoteBlacklist
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsDelRemoteBlacklist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/delRemoteBlacklist', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsFetchRBCron
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsFetchRBCron(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/settings/fetchRBCron');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/settings/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsSetPACMatch
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsSetPACMatch($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/setPACMatch', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsSetPACProxy
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsSetPACProxy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/setPACProxy', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsSetPACRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsSetPACRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/setPACRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsSetRemoteBlacklist
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsSetRemoteBlacklist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/setRemoteBlacklist', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsTogglePACRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsTogglePACRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/togglePACRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxySettingsToggleRemoteBlacklist
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxySettingsToggleRemoteBlacklist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/toggleRemoteBlacklist', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxyTemplateReset
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxyTemplateReset(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/template/reset');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetProxyTemplateSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetProxyTemplateSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/template/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetRoutesRoutesAddroute
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetRoutesRoutesAddroute(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/routes/routes/addroute');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetRoutesRoutesDelroute
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetRoutesRoutesDelroute($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/routes/routes/delroute', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetRoutesRoutesReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetRoutesRoutesReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/routes/routes/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetRoutesRoutesSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetRoutesRoutesSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/routes/routes/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetRoutesRoutesSetroute
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetRoutesRoutesSetroute($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/routes/routes/setroute', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetRoutesRoutesToggleroute
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetRoutesRoutesToggleroute($uuid, $disabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'disabled'	=> $disabled,
+		);
+		return $this->CallApiPost('/routes/routes/toggleroute', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetSyslogServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetSyslogServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/syslog/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetSyslogServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetSyslogServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/syslog/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetSyslogServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetSyslogServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/syslog/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetSyslogServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetSyslogServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/syslog/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetSyslogSettingsAddDestination
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetSyslogSettingsAddDestination(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/syslog/settings/addDestination');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetSyslogSettingsDelDestination
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetSyslogSettingsDelDestination($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/syslog/settings/delDestination', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetSyslogSettingsSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetSyslogSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/syslog/settings/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetSyslogSettingsSetDestination
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetSyslogSettingsSetDestination($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/syslog/settings/setDestination', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetSyslogSettingsToggleDestination
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetSyslogSettingsToggleDestination($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/syslog/settings/toggleDestination', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperServiceFlushreload
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperServiceFlushreload(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/trafficshaper/service/flushreload');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/trafficshaper/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperSettingsAddPipe
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperSettingsAddPipe(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/trafficshaper/settings/addPipe');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperSettingsAddQueue
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperSettingsAddQueue(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/trafficshaper/settings/addQueue');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperSettingsAddRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperSettingsAddRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/trafficshaper/settings/addRule');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperSettingsDelPipe
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperSettingsDelPipe($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/trafficshaper/settings/delPipe', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperSettingsDelQueue
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperSettingsDelQueue($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/trafficshaper/settings/delQueue', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperSettingsDelRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperSettingsDelRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/trafficshaper/settings/delRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperSettingsSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/trafficshaper/settings/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperSettingsSetPipe
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperSettingsSetPipe($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/trafficshaper/settings/setPipe', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperSettingsSetQueue
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperSettingsSetQueue($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/trafficshaper/settings/setQueue', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperSettingsSetRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperSettingsSetRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/trafficshaper/settings/setRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperSettingsTogglePipe
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperSettingsTogglePipe($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/trafficshaper/settings/togglePipe', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperSettingsToggleQueue
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperSettingsToggleQueue($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/trafficshaper/settings/toggleQueue', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetTrafficshaperSettingsToggleRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetTrafficshaperSettingsToggleRule($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/trafficshaper/settings/toggleRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsAddAcl
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsAddAcl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/settings/addAcl');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsAddDomainOverride
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsAddDomainOverride(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/settings/addDomainOverride');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsAddForward
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsAddForward(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/settings/addForward');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsAddHostAlias
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsAddHostAlias(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/settings/addHostAlias');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsAddHostOverride
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsAddHostOverride(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/settings/addHostOverride');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsDelAcl
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsDelAcl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/unbound/settings/delAcl', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsDelDomainOverride
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsDelDomainOverride($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/unbound/settings/delDomainOverride', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsDelForward
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsDelForward($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/unbound/settings/delForward', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsDelHostAlias
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsDelHostAlias($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/unbound/settings/delHostAlias', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsDelHostOverride
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsDelHostOverride($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/unbound/settings/delHostOverride', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/settings/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsSetAcl
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsSetAcl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/unbound/settings/setAcl', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsSetDomainOverride
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsSetDomainOverride($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/unbound/settings/setDomainOverride', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsSetForward
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsSetForward($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/unbound/settings/setForward', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsSetHostAlias
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsSetHostAlias($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/unbound/settings/setHostAlias', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsSetHostOverride
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsSetHostOverride($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/unbound/settings/setHostOverride', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsToggleAcl
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsToggleAcl($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/unbound/settings/toggleAcl', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsToggleDomainOverride
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsToggleDomainOverride($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/unbound/settings/toggleDomainOverride', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsToggleForward
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsToggleForward($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/unbound/settings/toggleForward', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsToggleHostAlias
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsToggleHostAlias($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/unbound/settings/toggleHostAlias', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsToggleHostOverride
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsToggleHostOverride($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/unbound/settings/toggleHostOverride', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetUnboundSettingsUpdateBlocklist
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetUnboundSettingsUpdateBlocklist(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/settings/updateBlocklist');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindAclAddAcl
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindAclAddAcl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/bind/acl/addAcl');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindAclDelAcl
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindAclDelAcl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/bind/acl/delAcl', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindAclSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindAclSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/bind/acl/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindAclSetAcl
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindAclSetAcl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/bind/acl/setAcl', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindAclToggleAcl
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindAclToggleAcl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/bind/acl/toggleAcl', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindDnsblSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindDnsblSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/bind/dnsbl/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindDomainAddPrimaryDomain
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindDomainAddPrimaryDomain($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/bind/domain/addPrimaryDomain', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindDomainAddSecondaryDomain
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindDomainAddSecondaryDomain($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/bind/domain/addSecondaryDomain', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindDomainDelDomain
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindDomainDelDomain($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/bind/domain/delDomain', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindDomainSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindDomainSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/bind/domain/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindDomainSetDomain
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindDomainSetDomain($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/bind/domain/setDomain', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindDomainToggleDomain
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindDomainToggleDomain($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/bind/domain/toggleDomain', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindGeneralSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/bind/general/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindRecordAddRecord
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindRecordAddRecord(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/bind/record/addRecord');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindRecordDelRecord
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindRecordDelRecord($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/bind/record/delRecord', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindRecordSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindRecordSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/bind/record/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindRecordSetRecord
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindRecordSetRecord($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/bind/record/setRecord', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindRecordToggleRecord
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindRecordToggleRecord($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/bind/record/toggleRecord', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetBindServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetBindServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/bind/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDyndnsAccountsAddItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDyndnsAccountsAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dyndns/accounts/addItem');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDyndnsAccountsDelItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDyndnsAccountsDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dyndns/accounts/delItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDyndnsAccountsSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDyndnsAccountsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dyndns/accounts/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDyndnsAccountsSetItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDyndnsAccountsSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dyndns/accounts/setItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDyndnsAccountsToggleItem
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDyndnsAccountsToggleItem($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/dyndns/accounts/toggleItem', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDyndnsServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDyndnsServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dyndns/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDyndnsServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDyndnsServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dyndns/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDyndnsServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDyndnsServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dyndns/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDyndnsServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDyndnsServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dyndns/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetDyndnsSettingsSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetDyndnsSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dyndns/settings/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallFilterBaseApply
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallFilterBaseApply($rollback_revision="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'rollback_revision'	=> $rollback_revision,
+		);
+		return $this->CallApiPost('/firewall/filter_base/apply', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallFilterBaseCancelRollback
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallFilterBaseCancelRollback($rollback_revision){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'rollback_revision'	=> $rollback_revision,
+		);
+		return $this->CallApiPost('/firewall/filter_base/cancelRollback', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallFilterBaseRevert
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallFilterBaseRevert($revision){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'revision'	=> $revision,
+		);
+		return $this->CallApiPost('/firewall/filter_base/revert', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallFilterBaseSavepoint
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallFilterBaseSavepoint(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/filter_base/savepoint');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallFilterBaseSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallFilterBaseSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/filter_base/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallFilterAddRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallFilterAddRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/filter/addRule');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallFilterDelRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallFilterDelRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/filter/delRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallFilterSetRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallFilterSetRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/filter/setRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallFilterToggleRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallFilterToggleRule($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/firewall/filter/toggleRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallSourceNatAddRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallSourceNatAddRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/source_nat/addRule');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallSourceNatDelRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallSourceNatDelRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/source_nat/delRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallSourceNatSetRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallSourceNatSetRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/source_nat/setRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetFirewallSourceNatToggleRule
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetFirewallSourceNatToggleRule($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/firewall/source_nat/toggleRule', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetIperfInstanceSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetIperfInstanceSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/iperf/instance/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMuninnodeGeneralSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMuninnodeGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/muninnode/general/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetMuninnodeServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetMuninnodeServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/muninnode/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetNetdataGeneralSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetNetdataGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netdata/general/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetNetdataServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetNetdataServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netdata/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetNetdataServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetNetdataServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netdata/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetNetdataServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetNetdataServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netdata/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetNetdataServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetNetdataServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netdata/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetNtopngGeneralSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetNtopngGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ntopng/general/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetNtopngServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetNtopngServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ntopng/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetNtopngServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetNtopngServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ntopng/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetNtopngServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetNtopngServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ntopng/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetNtopngServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetNtopngServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ntopng/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetRedisServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetRedisServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/redis/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetRedisServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetRedisServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/redis/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetRedisServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetRedisServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/redis/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetRedisServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetRedisServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/redis/service/stop');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetRedisSettingsSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetRedisSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/redis/settings/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetVnstatGeneralSet
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetVnstatGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/vnstat/general/set');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetVnstatServiceReconfigure
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetVnstatServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/vnstat/service/reconfigure');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetVnstatServiceRestart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetVnstatServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/vnstat/service/restart');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetVnstatServiceStart
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetVnstatServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/vnstat/service/start');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiSetVnstatServiceStop
+	*
+	* @category ApiSet
+	* @return Array[]
+	*/
+	public function ApiSetVnstatServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/vnstat/service/stop');
+	}
+	
 	
 	
 	
@@ -1161,34 +9366,213 @@ trait Hackapi_Opnsense_Trait {
 	
 	public function ListMethodsDefinitions(){
 		$def=array();
+		$def['ApiGetCoreBackupProviders']=array (  'args' => '/core/backup/providers',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/core/backup/providers\'',  'f_args_txt' => '/core/backup/providers',  'f_method_name' => 'ApiGetCoreBackupProviders',  'f_call' => 'CallApiGet',);
+		$def['ApiGetCoreMenuTree']=array (  'args' => '/core/menu/tree',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/core/menu/tree\'',  'f_args_txt' => '/core/menu/tree',  'f_method_name' => 'ApiGetCoreMenuTree',  'f_call' => 'CallApiGet',);
 		$def['ApiGetCoreMenuSearch']=array (  'args' => '/core/menu/search',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/core/menu/search\'',  'f_args_txt' => '/core/menu/search',  'f_method_name' => 'ApiGetCoreMenuSearch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetCoreFirmwareGet']=array (  'args' => '/core/firmware/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/core/firmware/get\'',  'f_args_txt' => '/core/firmware/get',  'f_method_name' => 'ApiGetCoreFirmwareGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetCoreFirmwareGetOptions']=array (  'args' => '/core/firmware/getOptions',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/core/firmware/getOptions\'',  'f_args_txt' => '/core/firmware/getOptions',  'f_method_name' => 'ApiGetCoreFirmwareGetOptions',  'f_call' => 'CallApiGet',);
+		$def['ApiGetCoreFirmwareHealth']=array (  'args' => '/core/firmware/health',  'state' => '4',  'type' => 'get',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/core/firmware/health\'',  'f_args_txt' => '/core/firmware/health',  'f_method_name' => 'ApiGetCoreFirmwareHealth',  'f_call' => 'CallApiPost',);
+		$def['ApiGetCoreFirmwareInfo']=array (  'args' => '/core/firmware/info',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/core/firmware/info\'',  'f_args_txt' => '/core/firmware/info',  'f_method_name' => 'ApiGetCoreFirmwareInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetCoreFirmwareRunning']=array (  'args' => '/core/firmware/running',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/core/firmware/running\'',  'f_args_txt' => '/core/firmware/running',  'f_method_name' => 'ApiGetCoreFirmwareRunning',  'f_call' => 'CallApiGet',);
+		$def['ApiGetCoreFirmwareUpgradestatus']=array (  'args' => '/core/firmware/upgradestatus',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/core/firmware/upgradestatus\'',  'f_args_txt' => '/core/firmware/upgradestatus',  'f_method_name' => 'ApiGetCoreFirmwareUpgradestatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetCoreServiceSearch']=array (  'args' => '/core/service/search',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/core/service/search\'',  'f_args_txt' => '/core/service/search',  'f_method_name' => 'ApiGetCoreServiceSearch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetCoreSystemStatus']=array (  'args' => '/core/system/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/core/system/status\'',  'f_args_txt' => '/core/system/status',  'f_method_name' => 'ApiGetCoreSystemStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiSetCoreFirmwareAudit']=array (  'args' => '/core/firmware/audit',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/audit\'',  'f_args_txt' => '/core/firmware/audit',  'f_method_name' => 'ApiSetCoreFirmwareAudit',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareChangelog']=array (  'args' => '/core/firmware/changelog',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'version' => '!',    ),    'parameters' => '$params=array(		\'version\'	=> $version,	);',    'arguments' => '$version',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/changelog\'',  'f_args_txt' => '/core/firmware/changelog',  'f_method_name' => 'ApiSetCoreFirmwareChangelog',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareCheck']=array (  'args' => '/core/firmware/check',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/check\'',  'f_args_txt' => '/core/firmware/check',  'f_method_name' => 'ApiSetCoreFirmwareCheck',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareConnection']=array (  'args' => '/core/firmware/connection',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/connection\'',  'f_args_txt' => '/core/firmware/connection',  'f_method_name' => 'ApiSetCoreFirmwareConnection',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareLog']=array (  'args' => '/core/firmware/log',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'clear' => '!',    ),    'parameters' => '$params=array(		\'clear\'	=> $clear,	);',    'arguments' => '$clear',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/log\'',  'f_args_txt' => '/core/firmware/log',  'f_method_name' => 'ApiSetCoreFirmwareLog',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwarePoweroff']=array (  'args' => '/core/firmware/poweroff',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/poweroff\'',  'f_args_txt' => '/core/firmware/poweroff',  'f_method_name' => 'ApiSetCoreFirmwarePoweroff',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareReboot']=array (  'args' => '/core/firmware/reboot',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/reboot\'',  'f_args_txt' => '/core/firmware/reboot',  'f_method_name' => 'ApiSetCoreFirmwareReboot',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareResyncPlugins']=array (  'args' => '/core/firmware/resyncPlugins',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/resyncPlugins\'',  'f_args_txt' => '/core/firmware/resyncPlugins',  'f_method_name' => 'ApiSetCoreFirmwareResyncPlugins',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareSet']=array (  'args' => '/core/firmware/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/set\'',  'f_args_txt' => '/core/firmware/set',  'f_method_name' => 'ApiSetCoreFirmwareSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareStatus']=array (  'args' => '/core/firmware/status',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/status\'',  'f_args_txt' => '/core/firmware/status',  'f_method_name' => 'ApiSetCoreFirmwareStatus',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareSyncPlugins']=array (  'args' => '/core/firmware/syncPlugins',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/syncPlugins\'',  'f_args_txt' => '/core/firmware/syncPlugins',  'f_method_name' => 'ApiSetCoreFirmwareSyncPlugins',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareUpdate']=array (  'args' => '/core/firmware/update',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/update\'',  'f_args_txt' => '/core/firmware/update',  'f_method_name' => 'ApiSetCoreFirmwareUpdate',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareUpgrade']=array (  'args' => '/core/firmware/upgrade',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/upgrade\'',  'f_args_txt' => '/core/firmware/upgrade',  'f_method_name' => 'ApiSetCoreFirmwareUpgrade',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareDetails']=array (  'args' => '/core/firmware/details',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'pkg_name' => '!',    ),    'parameters' => '$params=array(		\'pkg_name\'	=> $pkg_name,	);',    'arguments' => '$pkg_name',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/details\'',  'f_args_txt' => '/core/firmware/details',  'f_method_name' => 'ApiSetCoreFirmwareDetails',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareInstall']=array (  'args' => '/core/firmware/install',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'pkg_name' => '!',    ),    'parameters' => '$params=array(		\'pkg_name\'	=> $pkg_name,	);',    'arguments' => '$pkg_name',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/install\'',  'f_args_txt' => '/core/firmware/install',  'f_method_name' => 'ApiSetCoreFirmwareInstall',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareLicense']=array (  'args' => '/core/firmware/license',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'pkg_name' => '!',    ),    'parameters' => '$params=array(		\'pkg_name\'	=> $pkg_name,	);',    'arguments' => '$pkg_name',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/license\'',  'f_args_txt' => '/core/firmware/license',  'f_method_name' => 'ApiSetCoreFirmwareLicense',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareLock']=array (  'args' => '/core/firmware/lock',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'pkg_name' => '!',    ),    'parameters' => '$params=array(		\'pkg_name\'	=> $pkg_name,	);',    'arguments' => '$pkg_name',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/lock\'',  'f_args_txt' => '/core/firmware/lock',  'f_method_name' => 'ApiSetCoreFirmwareLock',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareRemove']=array (  'args' => '/core/firmware/remove',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'pkg_name' => '!',    ),    'parameters' => '$params=array(		\'pkg_name\'	=> $pkg_name,	);',    'arguments' => '$pkg_name',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/remove\'',  'f_args_txt' => '/core/firmware/remove',  'f_method_name' => 'ApiSetCoreFirmwareRemove',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareReinstall']=array (  'args' => '/core/firmware/reinstall',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'pkg_name' => '!',    ),    'parameters' => '$params=array(		\'pkg_name\'	=> $pkg_name,	);',    'arguments' => '$pkg_name',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/reinstall\'',  'f_args_txt' => '/core/firmware/reinstall',  'f_method_name' => 'ApiSetCoreFirmwareReinstall',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreFirmwareUnlock']=array (  'args' => '/core/firmware/unlock',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'pkg_name' => '!',    ),    'parameters' => '$params=array(		\'pkg_name\'	=> $pkg_name,	);',    'arguments' => '$pkg_name',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/firmware/unlock\'',  'f_args_txt' => '/core/firmware/unlock',  'f_method_name' => 'ApiSetCoreFirmwareUnlock',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreServiceRestart']=array (  'args' => '/core/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'name' => '!',      'id' => '',    ),    'parameters' => '$params=array(		\'name\'	=> $name,		\'id\'	=> $id,	);',    'arguments' => '$name, $id=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/service/restart\'',  'f_args_txt' => '/core/service/restart',  'f_method_name' => 'ApiSetCoreServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreServiceStart']=array (  'args' => '/core/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'name' => '!',      'id' => '',    ),    'parameters' => '$params=array(		\'name\'	=> $name,		\'id\'	=> $id,	);',    'arguments' => '$name, $id=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/service/start\'',  'f_args_txt' => '/core/service/start',  'f_method_name' => 'ApiSetCoreServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreServiceStop']=array (  'args' => '/core/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'name' => '!',      'id' => '',    ),    'parameters' => '$params=array(		\'name\'	=> $name,		\'id\'	=> $id,	);',    'arguments' => '$name, $id=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/service/stop\'',  'f_args_txt' => '/core/service/stop',  'f_method_name' => 'ApiSetCoreServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreSystemDismissStatus']=array (  'args' => '/core/system/dismissStatus',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/system/dismissStatus\'',  'f_args_txt' => '/core/system/dismissStatus',  'f_method_name' => 'ApiSetCoreSystemDismissStatus',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreSystemHalt']=array (  'args' => '/core/system/halt',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/core/system/halt\'',  'f_args_txt' => '/core/system/halt',  'f_method_name' => 'ApiSetCoreSystemHalt',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCoreSystemReboot']=array (  'args' => '/core/system/reboot',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Reboot',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/core/system/reboot\'',  'f_args_txt' => '/core/system/reboot',  'f_method_name' => 'ApiSetCoreSystemReboot',  'f_call' => 'CallApiPost',);
+		$def['ApiGetCronSettingsGet']=array (  'args' => '/cron/settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/cron/settings/get\'',  'f_args_txt' => '/cron/settings/get',  'f_method_name' => 'ApiGetCronSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetCronSettingsGetJob']=array (  'args' => '/cron/settings/getJob',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/cron/settings/getJob\'',  'f_args_txt' => '/cron/settings/getJob',  'f_method_name' => 'ApiGetCronSettingsGetJob',  'f_call' => 'CallApiGet',);
+		$def['ApiGetCronSettingsSearchJobs']=array (  'args' => '/cron/settings/searchJobs',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/cron/settings/searchJobs\'',  'f_args_txt' => '/cron/settings/searchJobs',  'f_method_name' => 'ApiGetCronSettingsSearchJobs',  'f_call' => 'CallApiGet',);
+		$def['ApiSetCronServiceReconfigure']=array (  'args' => '/cron/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/cron/service/reconfigure\'',  'f_args_txt' => '/cron/service/reconfigure',  'f_method_name' => 'ApiSetCronServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCronSettingsAddJob']=array (  'args' => '/cron/settings/addJob',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/cron/settings/addJob\'',  'f_args_txt' => '/cron/settings/addJob',  'f_method_name' => 'ApiSetCronSettingsAddJob',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCronSettingsDelJob']=array (  'args' => '/cron/settings/delJob',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/cron/settings/delJob\'',  'f_args_txt' => '/cron/settings/delJob',  'f_method_name' => 'ApiSetCronSettingsDelJob',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCronSettingsSet']=array (  'args' => '/cron/settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/cron/settings/set\'',  'f_args_txt' => '/cron/settings/set',  'f_method_name' => 'ApiSetCronSettingsSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCronSettingsSetJob']=array (  'args' => '/cron/settings/setJob',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/cron/settings/setJob\'',  'f_args_txt' => '/cron/settings/setJob',  'f_method_name' => 'ApiSetCronSettingsSetJob',  'f_call' => 'CallApiPost',);
+		$def['ApiSetCronSettingsToggleJob']=array (  'args' => '/cron/settings/toggleJob',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/cron/settings/toggleJob\'',  'f_args_txt' => '/cron/settings/toggleJob',  'f_method_name' => 'ApiSetCronSettingsToggleJob',  'f_call' => 'CallApiPost',);
+		$def['ApiGetDhcpLeases4SearchLease']=array (  'args' => '/dhcp/leases4/searchLease',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dhcp/leases4/searchLease\'',  'f_args_txt' => '/dhcp/leases4/searchLease',  'f_method_name' => 'ApiGetDhcpLeases4SearchLease',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDhcpServiceStatus']=array (  'args' => '/dhcp/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dhcp/service/status\'',  'f_args_txt' => '/dhcp/service/status',  'f_method_name' => 'ApiGetDhcpServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiSetDhcpLeases4DelLease']=array (  'args' => '/dhcp/leases4/delLease',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'ip' => '!',    ),    'parameters' => '$params=array(		\'ip\'	=> $ip,	);',    'arguments' => '$ip',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcp/leases4/delLease\'',  'f_args_txt' => '/dhcp/leases4/delLease',  'f_method_name' => 'ApiSetDhcpLeases4DelLease',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDhcpServiceRestart']=array (  'args' => '/dhcp/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcp/service/restart\'',  'f_args_txt' => '/dhcp/service/restart',  'f_method_name' => 'ApiSetDhcpServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDhcpServiceStart']=array (  'args' => '/dhcp/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcp/service/start\'',  'f_args_txt' => '/dhcp/service/start',  'f_method_name' => 'ApiSetDhcpServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDhcpServiceStop']=array (  'args' => '/dhcp/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcp/service/stop\'',  'f_args_txt' => '/dhcp/service/stop',  'f_method_name' => 'ApiSetDhcpServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiGetDhcpv4LeasesSearchLease']=array (  'args' => '/dhcpv4/leases/searchLease',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dhcpv4/leases/searchLease\'',  'f_args_txt' => '/dhcpv4/leases/searchLease',  'f_method_name' => 'ApiGetDhcpv4LeasesSearchLease',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDhcpv4ServiceStatus']=array (  'args' => '/dhcpv4/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dhcpv4/service/status\'',  'f_args_txt' => '/dhcpv4/service/status',  'f_method_name' => 'ApiGetDhcpv4ServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiSetDhcpv4LeasesDelLease']=array (  'args' => '/dhcpv4/leases/delLease',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'ip' => '!',    ),    'parameters' => '$params=array(		\'ip\'	=> $ip,	);',    'arguments' => '$ip',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcpv4/leases/delLease\'',  'f_args_txt' => '/dhcpv4/leases/delLease',  'f_method_name' => 'ApiSetDhcpv4LeasesDelLease',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDhcpv4ServiceReconfigure']=array (  'args' => '/dhcpv4/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcpv4/service/reconfigure\'',  'f_args_txt' => '/dhcpv4/service/reconfigure',  'f_method_name' => 'ApiSetDhcpv4ServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDhcpv4ServiceRestart']=array (  'args' => '/dhcpv4/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcpv4/service/restart\'',  'f_args_txt' => '/dhcpv4/service/restart',  'f_method_name' => 'ApiSetDhcpv4ServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDhcpv4ServiceStart']=array (  'args' => '/dhcpv4/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcpv4/service/start\'',  'f_args_txt' => '/dhcpv4/service/start',  'f_method_name' => 'ApiSetDhcpv4ServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDhcpv4ServiceStop']=array (  'args' => '/dhcpv4/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcpv4/service/stop\'',  'f_args_txt' => '/dhcpv4/service/stop',  'f_method_name' => 'ApiSetDhcpv4ServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiGetDhcpv6LeasesSearchLease']=array (  'args' => '/dhcpv6/leases/searchLease',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dhcpv6/leases/searchLease\'',  'f_args_txt' => '/dhcpv6/leases/searchLease',  'f_method_name' => 'ApiGetDhcpv6LeasesSearchLease',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDhcpv6LeasesSearchPrefix']=array (  'args' => '/dhcpv6/leases/searchPrefix',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dhcpv6/leases/searchPrefix\'',  'f_args_txt' => '/dhcpv6/leases/searchPrefix',  'f_method_name' => 'ApiGetDhcpv6LeasesSearchPrefix',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDhcpv6ServiceStatus']=array (  'args' => '/dhcpv6/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dhcpv6/service/status\'',  'f_args_txt' => '/dhcpv6/service/status',  'f_method_name' => 'ApiGetDhcpv6ServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiSetDhcpv6LeasesDelLease']=array (  'args' => '/dhcpv6/leases/delLease',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'ip' => '!',    ),    'parameters' => '$params=array(		\'ip\'	=> $ip,	);',    'arguments' => '$ip',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcpv6/leases/delLease\'',  'f_args_txt' => '/dhcpv6/leases/delLease',  'f_method_name' => 'ApiSetDhcpv6LeasesDelLease',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDhcpv6ServiceReconfigure']=array (  'args' => '/dhcpv6/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcpv6/service/reconfigure\'',  'f_args_txt' => '/dhcpv6/service/reconfigure',  'f_method_name' => 'ApiSetDhcpv6ServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDhcpv6ServiceRestart']=array (  'args' => '/dhcpv6/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcpv6/service/restart\'',  'f_args_txt' => '/dhcpv6/service/restart',  'f_method_name' => 'ApiSetDhcpv6ServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDhcpv6ServiceStart']=array (  'args' => '/dhcpv6/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcpv6/service/start\'',  'f_args_txt' => '/dhcpv6/service/start',  'f_method_name' => 'ApiSetDhcpv6ServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDhcpv6ServiceStop']=array (  'args' => '/dhcpv6/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcpv6/service/stop\'',  'f_args_txt' => '/dhcpv6/service/stop',  'f_method_name' => 'ApiSetDhcpv6ServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiGetDiagnosticsActivityGetActivity']=array (  'args' => '/diagnostics/activity/getActivity',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/activity/getActivity\'',  'f_args_txt' => '/diagnostics/activity/getActivity',  'f_method_name' => 'ApiGetDiagnosticsActivityGetActivity',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsDnsDiagnosticsGet']=array (  'args' => '/diagnostics/dns_diagnostics/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/dns_diagnostics/get\'',  'f_args_txt' => '/diagnostics/dns_diagnostics/get',  'f_method_name' => 'ApiGetDiagnosticsDnsDiagnosticsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsDnsReverseLookup']=array (  'args' => '/diagnostics/dns/reverseLookup',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/diagnostics/dns/reverseLookup\'',  'f_args_txt' => '/diagnostics/dns/reverseLookup',  'f_method_name' => 'ApiGetDiagnosticsDnsReverseLookup',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsFirewallListRuleIds']=array (  'args' => '/diagnostics/firewall/listRuleIds',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/firewall/listRuleIds\'',  'f_args_txt' => '/diagnostics/firewall/listRuleIds',  'f_method_name' => 'ApiGetDiagnosticsFirewallListRuleIds',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsFirewallLog']=array (  'args' => '/diagnostics/firewall/log',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/diagnostics/firewall/log\'',  'f_args_txt' => '/diagnostics/firewall/log',  'f_method_name' => 'ApiGetDiagnosticsFirewallLog',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsFirewallLogFilters']=array (  'args' => '/diagnostics/firewall/logFilters',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/firewall/logFilters\'',  'f_args_txt' => '/diagnostics/firewall/logFilters',  'f_method_name' => 'ApiGetDiagnosticsFirewallLogFilters',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsFirewallPfStatistics']=array (  'args' => '/diagnostics/firewall/pfStatistics',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'section' => 'null',    ),    'parameters' => '$params=array(		\'section\'	=> $section,	);',    'arguments' => '$section="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/diagnostics/firewall/pfStatistics\'',  'f_args_txt' => '/diagnostics/firewall/pfStatistics',  'f_method_name' => 'ApiGetDiagnosticsFirewallPfStatistics',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsFirewallStats']=array (  'args' => '/diagnostics/firewall/stats',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/diagnostics/firewall/stats\'',  'f_args_txt' => '/diagnostics/firewall/stats',  'f_method_name' => 'ApiGetDiagnosticsFirewallStats',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceGetArp']=array (  'args' => '/diagnostics/interface/getArp',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'ARP table',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/getArp\'',  'f_args_txt' => '/diagnostics/interface/getArp',  'f_method_name' => 'ApiGetDiagnosticsInterfaceGetArp',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceGetBpfStatistics']=array (  'args' => '/diagnostics/interface/getBpfStatistics',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/getBpfStatistics\'',  'f_args_txt' => '/diagnostics/interface/getBpfStatistics',  'f_method_name' => 'ApiGetDiagnosticsInterfaceGetBpfStatistics',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceGetInterfaceConfig']=array (  'args' => '/diagnostics/interface/getInterfaceConfig',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/getInterfaceConfig\'',  'f_args_txt' => '/diagnostics/interface/getInterfaceConfig',  'f_method_name' => 'ApiGetDiagnosticsInterfaceGetInterfaceConfig',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceGetInterfaceNames']=array (  'args' => '/diagnostics/interface/getInterfaceNames',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/getInterfaceNames\'',  'f_args_txt' => '/diagnostics/interface/getInterfaceNames',  'f_method_name' => 'ApiGetDiagnosticsInterfaceGetInterfaceNames',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceGetInterfaceStatistics']=array (  'args' => '/diagnostics/interface/getInterfaceStatistics',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/getInterfaceStatistics\'',  'f_args_txt' => '/diagnostics/interface/getInterfaceStatistics',  'f_method_name' => 'ApiGetDiagnosticsInterfaceGetInterfaceStatistics',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceGetMemoryStatistics']=array (  'args' => '/diagnostics/interface/getMemoryStatistics',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/getMemoryStatistics\'',  'f_args_txt' => '/diagnostics/interface/getMemoryStatistics',  'f_method_name' => 'ApiGetDiagnosticsInterfaceGetMemoryStatistics',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceGetNdp']=array (  'args' => '/diagnostics/interface/getNdp',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/diagnostics/interface/getNdp\'',  'f_args_txt' => '/diagnostics/interface/getNdp',  'f_method_name' => 'ApiGetDiagnosticsInterfaceGetNdp',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceGetNetisrStatistics']=array (  'args' => '/diagnostics/interface/getNetisrStatistics',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/getNetisrStatistics\'',  'f_args_txt' => '/diagnostics/interface/getNetisrStatistics',  'f_method_name' => 'ApiGetDiagnosticsInterfaceGetNetisrStatistics',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceGetPfSyncNodes']=array (  'args' => '/diagnostics/interface/getPfSyncNodes',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/getPfSyncNodes\'',  'f_args_txt' => '/diagnostics/interface/getPfSyncNodes',  'f_method_name' => 'ApiGetDiagnosticsInterfaceGetPfSyncNodes',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceGetProtocolStatistics']=array (  'args' => '/diagnostics/interface/getProtocolStatistics',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/getProtocolStatistics\'',  'f_args_txt' => '/diagnostics/interface/getProtocolStatistics',  'f_method_name' => 'ApiGetDiagnosticsInterfaceGetProtocolStatistics',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceGetRoutes']=array (  'args' => '/diagnostics/interface/getRoutes',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/getRoutes\'',  'f_args_txt' => '/diagnostics/interface/getRoutes',  'f_method_name' => 'ApiGetDiagnosticsInterfaceGetRoutes',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceGetSocketStatistics']=array (  'args' => '/diagnostics/interface/getSocketStatistics',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/getSocketStatistics\'',  'f_args_txt' => '/diagnostics/interface/getSocketStatistics',  'f_method_name' => 'ApiGetDiagnosticsInterfaceGetSocketStatistics',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceGetVipStatus']=array (  'args' => '/diagnostics/interface/getVipStatus',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/getVipStatus\'',  'f_args_txt' => '/diagnostics/interface/getVipStatus',  'f_method_name' => 'ApiGetDiagnosticsInterfaceGetVipStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceSearchArp']=array (  'args' => '/diagnostics/interface/searchArp',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/searchArp\'',  'f_args_txt' => '/diagnostics/interface/searchArp',  'f_method_name' => 'ApiGetDiagnosticsInterfaceSearchArp',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsInterfaceSearchNdp']=array (  'args' => '/diagnostics/interface/searchNdp',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/interface/searchNdp\'',  'f_args_txt' => '/diagnostics/interface/searchNdp',  'f_method_name' => 'ApiGetDiagnosticsInterfaceSearchNdp',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsLvtemplateGet']=array (  'args' => '/diagnostics/lvtemplate/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/lvtemplate/get\'',  'f_args_txt' => '/diagnostics/lvtemplate/get',  'f_method_name' => 'ApiGetDiagnosticsLvtemplateGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsLvtemplateGetItem']=array (  'args' => '/diagnostics/lvtemplate/getItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/lvtemplate/getItem\'',  'f_args_txt' => '/diagnostics/lvtemplate/getItem',  'f_method_name' => 'ApiGetDiagnosticsLvtemplateGetItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsLvtemplateSearchItem']=array (  'args' => '/diagnostics/lvtemplate/searchItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/lvtemplate/searchItem\'',  'f_args_txt' => '/diagnostics/lvtemplate/searchItem',  'f_method_name' => 'ApiGetDiagnosticsLvtemplateSearchItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsNetflowCacheStats']=array (  'args' => '/diagnostics/netflow/cacheStats',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/netflow/cacheStats\'',  'f_args_txt' => '/diagnostics/netflow/cacheStats',  'f_method_name' => 'ApiGetDiagnosticsNetflowCacheStats',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsNetflowGetconfig']=array (  'args' => '/diagnostics/netflow/getconfig',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/netflow/getconfig\'',  'f_args_txt' => '/diagnostics/netflow/getconfig',  'f_method_name' => 'ApiGetDiagnosticsNetflowGetconfig',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsNetflowIsEnabled']=array (  'args' => '/diagnostics/netflow/isEnabled',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/netflow/isEnabled\'',  'f_args_txt' => '/diagnostics/netflow/isEnabled',  'f_method_name' => 'ApiGetDiagnosticsNetflowIsEnabled',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsNetflowStatus']=array (  'args' => '/diagnostics/netflow/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/netflow/status\'',  'f_args_txt' => '/diagnostics/netflow/status',  'f_method_name' => 'ApiGetDiagnosticsNetflowStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsNetworkinsightGetInterfaces']=array (  'args' => '/diagnostics/networkinsight/getInterfaces',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/networkinsight/getInterfaces\'',  'f_args_txt' => '/diagnostics/networkinsight/getInterfaces',  'f_method_name' => 'ApiGetDiagnosticsNetworkinsightGetInterfaces',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsNetworkinsightGetMetadata']=array (  'args' => '/diagnostics/networkinsight/getMetadata',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/networkinsight/getMetadata\'',  'f_args_txt' => '/diagnostics/networkinsight/getMetadata',  'f_method_name' => 'ApiGetDiagnosticsNetworkinsightGetMetadata',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsNetworkinsightGetProtocols']=array (  'args' => '/diagnostics/networkinsight/getProtocols',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/networkinsight/getProtocols\'',  'f_args_txt' => '/diagnostics/networkinsight/getProtocols',  'f_method_name' => 'ApiGetDiagnosticsNetworkinsightGetProtocols',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsNetworkinsightGetServices']=array (  'args' => '/diagnostics/networkinsight/getServices',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/networkinsight/getServices\'',  'f_args_txt' => '/diagnostics/networkinsight/getServices',  'f_method_name' => 'ApiGetDiagnosticsNetworkinsightGetServices',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsPacketCaptureGet']=array (  'args' => '/diagnostics/packet_capture/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/packet_capture/get\'',  'f_args_txt' => '/diagnostics/packet_capture/get',  'f_method_name' => 'ApiGetDiagnosticsPacketCaptureGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsPacketCaptureSearchJobs']=array (  'args' => '/diagnostics/packet_capture/searchJobs',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/packet_capture/searchJobs\'',  'f_args_txt' => '/diagnostics/packet_capture/searchJobs',  'f_method_name' => 'ApiGetDiagnosticsPacketCaptureSearchJobs',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsPacketCaptureSet']=array (  'args' => '/diagnostics/packet_capture/set',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/diagnostics/packet_capture/set\'',  'f_args_txt' => '/diagnostics/packet_capture/set',  'f_method_name' => 'ApiGetDiagnosticsPacketCaptureSet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsPingGet']=array (  'args' => '/diagnostics/ping/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/ping/get\'',  'f_args_txt' => '/diagnostics/ping/get',  'f_method_name' => 'ApiGetDiagnosticsPingGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsPingSearchJobs']=array (  'args' => '/diagnostics/ping/searchJobs',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/ping/searchJobs\'',  'f_args_txt' => '/diagnostics/ping/searchJobs',  'f_method_name' => 'ApiGetDiagnosticsPingSearchJobs',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsPortprobeGet']=array (  'args' => '/diagnostics/portprobe/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/portprobe/get\'',  'f_args_txt' => '/diagnostics/portprobe/get',  'f_method_name' => 'ApiGetDiagnosticsPortprobeGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsSystemMemory']=array (  'args' => '/diagnostics/system/memory',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/system/memory\'',  'f_args_txt' => '/diagnostics/system/memory',  'f_method_name' => 'ApiGetDiagnosticsSystemMemory',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsSystemhealthGetInterfaces']=array (  'args' => '/diagnostics/systemhealth/getInterfaces',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/systemhealth/getInterfaces\'',  'f_args_txt' => '/diagnostics/systemhealth/getInterfaces',  'f_method_name' => 'ApiGetDiagnosticsSystemhealthGetInterfaces',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsSystemhealthGetRRDlist']=array (  'args' => '/diagnostics/systemhealth/getRRDlist',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/systemhealth/getRRDlist\'',  'f_args_txt' => '/diagnostics/systemhealth/getRRDlist',  'f_method_name' => 'ApiGetDiagnosticsSystemhealthGetRRDlist',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsSystemhealthGetSystemHealth']=array (  'args' => '/diagnostics/systemhealth/getSystemHealth',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'rrd' => '',      'inverse' => '0',      'detail' => '-1',    ),    'parameters' => '$params=array(		\'rrd\'	=> $rrd,		\'inverse\'	=> $inverse,		\'detail\'	=> $detail,	);',    'arguments' => '$rrd="", $inverse="0", $detail="-1"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/systemhealth/getSystemHealth\'',  'f_args_txt' => '/diagnostics/systemhealth/getSystemHealth',  'f_method_name' => 'ApiGetDiagnosticsSystemhealthGetSystemHealth',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsTracerouteGet']=array (  'args' => '/diagnostics/traceroute/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/traceroute/get\'',  'f_args_txt' => '/diagnostics/traceroute/get',  'f_method_name' => 'ApiGetDiagnosticsTracerouteGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosticsTrafficInterface']=array (  'args' => '/diagnostics/traffic/Interface',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/traffic/Interface\'',  'f_args_txt' => '/diagnostics/traffic/Interface',  'f_method_name' => 'ApiGetDiagnosticsTrafficInterface',  'f_call' => 'CallApiGet',);
+		$def['ApiSetDiagnosticsDnsDiagnosticsSet']=array (  'args' => '/diagnostics/dns_diagnostics/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/dns_diagnostics/set\'',  'f_args_txt' => '/diagnostics/dns_diagnostics/set',  'f_method_name' => 'ApiSetDiagnosticsDnsDiagnosticsSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsFirewallDelState']=array (  'args' => '/diagnostics/firewall/delState',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'stateid' => '!',      'creatorid' => '!',    ),    'parameters' => '$params=array(		\'stateid\'	=> $stateid,		\'creatorid\'	=> $creatorid,	);',    'arguments' => '$stateid, $creatorid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/firewall/delState\'',  'f_args_txt' => '/diagnostics/firewall/delState',  'f_method_name' => 'ApiSetDiagnosticsFirewallDelState',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsFirewallFlushSources']=array (  'args' => '/diagnostics/firewall/flushSources',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/firewall/flushSources\'',  'f_args_txt' => '/diagnostics/firewall/flushSources',  'f_method_name' => 'ApiSetDiagnosticsFirewallFlushSources',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsFirewallFlushStates']=array (  'args' => '/diagnostics/firewall/flushStates',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/firewall/flushStates\'',  'f_args_txt' => '/diagnostics/firewall/flushStates',  'f_method_name' => 'ApiSetDiagnosticsFirewallFlushStates',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsFirewallKillStates']=array (  'args' => '/diagnostics/firewall/killStates',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/firewall/killStates\'',  'f_args_txt' => '/diagnostics/firewall/killStates',  'f_method_name' => 'ApiSetDiagnosticsFirewallKillStates',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsFirewallQueryPfTop']=array (  'args' => '/diagnostics/firewall/queryPfTop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/firewall/queryPfTop\'',  'f_args_txt' => '/diagnostics/firewall/queryPfTop',  'f_method_name' => 'ApiSetDiagnosticsFirewallQueryPfTop',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsFirewallQueryStates']=array (  'args' => '/diagnostics/firewall/queryStates',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/firewall/queryStates\'',  'f_args_txt' => '/diagnostics/firewall/queryStates',  'f_method_name' => 'ApiSetDiagnosticsFirewallQueryStates',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsInterfaceCarpStatus']=array (  'args' => '/diagnostics/interface/CarpStatus',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'status' => '!',    ),    'parameters' => '$params=array(		\'status\'	=> $status,	);',    'arguments' => '$status',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/interface/CarpStatus\'',  'f_args_txt' => '/diagnostics/interface/CarpStatus',  'f_method_name' => 'ApiSetDiagnosticsInterfaceCarpStatus',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsInterfaceDelRoute']=array (  'args' => '/diagnostics/interface/delRoute',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/interface/delRoute\'',  'f_args_txt' => '/diagnostics/interface/delRoute',  'f_method_name' => 'ApiSetDiagnosticsInterfaceDelRoute',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsInterfaceFlushArp']=array (  'args' => '/diagnostics/interface/flushArp',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/interface/flushArp\'',  'f_args_txt' => '/diagnostics/interface/flushArp',  'f_method_name' => 'ApiSetDiagnosticsInterfaceFlushArp',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsLvtemplateAddItem']=array (  'args' => '/diagnostics/lvtemplate/addItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/lvtemplate/addItem\'',  'f_args_txt' => '/diagnostics/lvtemplate/addItem',  'f_method_name' => 'ApiSetDiagnosticsLvtemplateAddItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsLvtemplateDelItem']=array (  'args' => '/diagnostics/lvtemplate/delItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/lvtemplate/delItem\'',  'f_args_txt' => '/diagnostics/lvtemplate/delItem',  'f_method_name' => 'ApiSetDiagnosticsLvtemplateDelItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsLvtemplateSet']=array (  'args' => '/diagnostics/lvtemplate/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/lvtemplate/set\'',  'f_args_txt' => '/diagnostics/lvtemplate/set',  'f_method_name' => 'ApiSetDiagnosticsLvtemplateSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsLvtemplateSetItem']=array (  'args' => '/diagnostics/lvtemplate/setItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/lvtemplate/setItem\'',  'f_args_txt' => '/diagnostics/lvtemplate/setItem',  'f_method_name' => 'ApiSetDiagnosticsLvtemplateSetItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsNetflowReconfigure']=array (  'args' => '/diagnostics/netflow/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/netflow/reconfigure\'',  'f_args_txt' => '/diagnostics/netflow/reconfigure',  'f_method_name' => 'ApiSetDiagnosticsNetflowReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsNetflowSetconfig']=array (  'args' => '/diagnostics/netflow/setconfig',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/netflow/setconfig\'',  'f_args_txt' => '/diagnostics/netflow/setconfig',  'f_method_name' => 'ApiSetDiagnosticsNetflowSetconfig',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsPacketCaptureRemove']=array (  'args' => '/diagnostics/packet_capture/remove',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'jobid' => '!',    ),    'parameters' => '$params=array(		\'jobid\'	=> $jobid,	);',    'arguments' => '$jobid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/packet_capture/remove\'',  'f_args_txt' => '/diagnostics/packet_capture/remove',  'f_method_name' => 'ApiSetDiagnosticsPacketCaptureRemove',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsPacketCaptureSet']=array (  'args' => '/diagnostics/packet_capture/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/packet_capture/set\'',  'f_args_txt' => '/diagnostics/packet_capture/set',  'f_method_name' => 'ApiSetDiagnosticsPacketCaptureSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsPacketCaptureStart']=array (  'args' => '/diagnostics/packet_capture/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'jobid' => '!',    ),    'parameters' => '$params=array(		\'jobid\'	=> $jobid,	);',    'arguments' => '$jobid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/packet_capture/start\'',  'f_args_txt' => '/diagnostics/packet_capture/start',  'f_method_name' => 'ApiSetDiagnosticsPacketCaptureStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsPacketCaptureStop']=array (  'args' => '/diagnostics/packet_capture/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'jobid' => '!',    ),    'parameters' => '$params=array(		\'jobid\'	=> $jobid,	);',    'arguments' => '$jobid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/packet_capture/stop\'',  'f_args_txt' => '/diagnostics/packet_capture/stop',  'f_method_name' => 'ApiSetDiagnosticsPacketCaptureStop',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsPingRemove']=array (  'args' => '/diagnostics/ping/remove',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'jobid' => '!',    ),    'parameters' => '$params=array(		\'jobid\'	=> $jobid,	);',    'arguments' => '$jobid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/ping/remove\'',  'f_args_txt' => '/diagnostics/ping/remove',  'f_method_name' => 'ApiSetDiagnosticsPingRemove',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsPingSet']=array (  'args' => '/diagnostics/ping/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/ping/set\'',  'f_args_txt' => '/diagnostics/ping/set',  'f_method_name' => 'ApiSetDiagnosticsPingSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsPingStart']=array (  'args' => '/diagnostics/ping/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'jobid' => '!',    ),    'parameters' => '$params=array(		\'jobid\'	=> $jobid,	);',    'arguments' => '$jobid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/ping/start\'',  'f_args_txt' => '/diagnostics/ping/start',  'f_method_name' => 'ApiSetDiagnosticsPingStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsPingStop']=array (  'args' => '/diagnostics/ping/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'jobid' => '!',    ),    'parameters' => '$params=array(		\'jobid\'	=> $jobid,	);',    'arguments' => '$jobid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/ping/stop\'',  'f_args_txt' => '/diagnostics/ping/stop',  'f_method_name' => 'ApiSetDiagnosticsPingStop',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsPortprobeSet']=array (  'args' => '/diagnostics/portprobe/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/portprobe/set\'',  'f_args_txt' => '/diagnostics/portprobe/set',  'f_method_name' => 'ApiSetDiagnosticsPortprobeSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDiagnosticsTracerouteSet']=array (  'args' => '/diagnostics/traceroute/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/diagnostics/traceroute/set\'',  'f_args_txt' => '/diagnostics/traceroute/set',  'f_method_name' => 'ApiSetDiagnosticsTracerouteSet',  'f_call' => 'CallApiPost',);
+		$def['ApiGetFirewallAliasExport']=array (  'args' => '/firewall/alias/export',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/alias/export\'',  'f_args_txt' => '/firewall/alias/export',  'f_method_name' => 'ApiGetFirewallAliasExport',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallAliasGet']=array (  'args' => '/firewall/alias/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/alias/get\'',  'f_args_txt' => '/firewall/alias/get',  'f_method_name' => 'ApiGetFirewallAliasGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallAliasGetGeoIP']=array (  'args' => '/firewall/alias/getGeoIP',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/alias/getGeoIP\'',  'f_args_txt' => '/firewall/alias/getGeoIP',  'f_method_name' => 'ApiGetFirewallAliasGetGeoIP',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallAliasGetItem']=array (  'args' => '/firewall/alias/getItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/alias/getItem\'',  'f_args_txt' => '/firewall/alias/getItem',  'f_method_name' => 'ApiGetFirewallAliasGetItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallAliasGetTableSize']=array (  'args' => '/firewall/alias/getTableSize',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/alias/getTableSize\'',  'f_args_txt' => '/firewall/alias/getTableSize',  'f_method_name' => 'ApiGetFirewallAliasGetTableSize',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallAliasListCategories']=array (  'args' => '/firewall/alias/listCategories',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/alias/listCategories\'',  'f_args_txt' => '/firewall/alias/listCategories',  'f_method_name' => 'ApiGetFirewallAliasListCategories',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallAliasListCountries']=array (  'args' => '/firewall/alias/listCountries',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/alias/listCountries\'',  'f_args_txt' => '/firewall/alias/listCountries',  'f_method_name' => 'ApiGetFirewallAliasListCountries',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallAliasListNetworkAliases']=array (  'args' => '/firewall/alias/listNetworkAliases',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/alias/listNetworkAliases\'',  'f_args_txt' => '/firewall/alias/listNetworkAliases',  'f_method_name' => 'ApiGetFirewallAliasListNetworkAliases',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallAliasListUserGroups']=array (  'args' => '/firewall/alias/listUserGroups',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/alias/listUserGroups\'',  'f_args_txt' => '/firewall/alias/listUserGroups',  'f_method_name' => 'ApiGetFirewallAliasListUserGroups',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallAliasSearchItem']=array (  'args' => '/firewall/alias/searchItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/alias/searchItem\'',  'f_args_txt' => '/firewall/alias/searchItem',  'f_method_name' => 'ApiGetFirewallAliasSearchItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallAliasUtilAliases']=array (  'args' => '/firewall/alias_util/aliases',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/alias_util/aliases\'',  'f_args_txt' => '/firewall/alias_util/aliases',  'f_method_name' => 'ApiGetFirewallAliasUtilAliases',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallCategoryGet']=array (  'args' => '/firewall/category/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/category/get\'',  'f_args_txt' => '/firewall/category/get',  'f_method_name' => 'ApiGetFirewallCategoryGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallCategoryGetItem']=array (  'args' => '/firewall/category/getItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/category/getItem\'',  'f_args_txt' => '/firewall/category/getItem',  'f_method_name' => 'ApiGetFirewallCategoryGetItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallCategorySearchItem']=array (  'args' => '/firewall/category/searchItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/category/searchItem\'',  'f_args_txt' => '/firewall/category/searchItem',  'f_method_name' => 'ApiGetFirewallCategorySearchItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallCategorySearchNoCategoryItem']=array (  'args' => '/firewall/category/searchNoCategoryItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/category/searchNoCategoryItem\'',  'f_args_txt' => '/firewall/category/searchNoCategoryItem',  'f_method_name' => 'ApiGetFirewallCategorySearchNoCategoryItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallFilterUtilRuleStats']=array (  'args' => '/firewall/filter_util/ruleStats',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/filter_util/ruleStats\'',  'f_args_txt' => '/firewall/filter_util/ruleStats',  'f_method_name' => 'ApiGetFirewallFilterUtilRuleStats',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallGroupGet']=array (  'args' => '/firewall/group/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/group/get\'',  'f_args_txt' => '/firewall/group/get',  'f_method_name' => 'ApiGetFirewallGroupGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallGroupGetItem']=array (  'args' => '/firewall/group/getItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/group/getItem\'',  'f_args_txt' => '/firewall/group/getItem',  'f_method_name' => 'ApiGetFirewallGroupGetItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallGroupSearchItem']=array (  'args' => '/firewall/group/searchItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/group/searchItem\'',  'f_args_txt' => '/firewall/group/searchItem',  'f_method_name' => 'ApiGetFirewallGroupSearchItem',  'f_call' => 'CallApiGet',);
+		$def['ApiSetFirewallAliasAddItem']=array (  'args' => '/firewall/alias/addItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/alias/addItem\'',  'f_args_txt' => '/firewall/alias/addItem',  'f_method_name' => 'ApiSetFirewallAliasAddItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallAliasDelItem']=array (  'args' => '/firewall/alias/delItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/alias/delItem\'',  'f_args_txt' => '/firewall/alias/delItem',  'f_method_name' => 'ApiSetFirewallAliasDelItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallAliasImport']=array (  'args' => '/firewall/alias/import',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/alias/import\'',  'f_args_txt' => '/firewall/alias/import',  'f_method_name' => 'ApiSetFirewallAliasImport',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallAliasReconfigure']=array (  'args' => '/firewall/alias/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/alias/reconfigure\'',  'f_args_txt' => '/firewall/alias/reconfigure',  'f_method_name' => 'ApiSetFirewallAliasReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallAliasSet']=array (  'args' => '/firewall/alias/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/alias/set\'',  'f_args_txt' => '/firewall/alias/set',  'f_method_name' => 'ApiSetFirewallAliasSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallAliasSetItem']=array (  'args' => '/firewall/alias/setItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/alias/setItem\'',  'f_args_txt' => '/firewall/alias/setItem',  'f_method_name' => 'ApiSetFirewallAliasSetItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallAliasToggleItem']=array (  'args' => '/firewall/alias/toggleItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/alias/toggleItem\'',  'f_args_txt' => '/firewall/alias/toggleItem',  'f_method_name' => 'ApiSetFirewallAliasToggleItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallAliasUtilAdd']=array (  'args' => '/firewall/alias_util/add',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'alias' => '!',    ),    'parameters' => '$params=array(		\'alias\'	=> $alias,	);',    'arguments' => '$alias',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/alias_util/add\'',  'f_args_txt' => '/firewall/alias_util/add',  'f_method_name' => 'ApiSetFirewallAliasUtilAdd',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallAliasUtilDelete']=array (  'args' => '/firewall/alias_util/delete',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'alias' => '!',    ),    'parameters' => '$params=array(		\'alias\'	=> $alias,	);',    'arguments' => '$alias',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/alias_util/delete\'',  'f_args_txt' => '/firewall/alias_util/delete',  'f_method_name' => 'ApiSetFirewallAliasUtilDelete',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallAliasUtilFindReferences']=array (  'args' => '/firewall/alias_util/findReferences',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/alias_util/findReferences\'',  'f_args_txt' => '/firewall/alias_util/findReferences',  'f_method_name' => 'ApiSetFirewallAliasUtilFindReferences',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallAliasUtilFlush']=array (  'args' => '/firewall/alias_util/flush',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'alias' => '!',    ),    'parameters' => '$params=array(		\'alias\'	=> $alias,	);',    'arguments' => '$alias',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/alias_util/flush\'',  'f_args_txt' => '/firewall/alias_util/flush',  'f_method_name' => 'ApiSetFirewallAliasUtilFlush',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallAliasUtilUpdateBogons']=array (  'args' => '/firewall/alias_util/updateBogons',  'state' => '4',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/firewall/alias_util/updateBogons\'',  'f_args_txt' => '/firewall/alias_util/updateBogons',  'f_method_name' => 'ApiSetFirewallAliasUtilUpdateBogons',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallCategoryAddItem']=array (  'args' => '/firewall/category/addItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/category/addItem\'',  'f_args_txt' => '/firewall/category/addItem',  'f_method_name' => 'ApiSetFirewallCategoryAddItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallCategoryDelItem']=array (  'args' => '/firewall/category/delItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/category/delItem\'',  'f_args_txt' => '/firewall/category/delItem',  'f_method_name' => 'ApiSetFirewallCategoryDelItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallCategorySet']=array (  'args' => '/firewall/category/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/category/set\'',  'f_args_txt' => '/firewall/category/set',  'f_method_name' => 'ApiSetFirewallCategorySet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallCategorySetItem']=array (  'args' => '/firewall/category/setItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/category/setItem\'',  'f_args_txt' => '/firewall/category/setItem',  'f_method_name' => 'ApiSetFirewallCategorySetItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallGroupAddItem']=array (  'args' => '/firewall/group/addItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/group/addItem\'',  'f_args_txt' => '/firewall/group/addItem',  'f_method_name' => 'ApiSetFirewallGroupAddItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallGroupDelItem']=array (  'args' => '/firewall/group/delItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/group/delItem\'',  'f_args_txt' => '/firewall/group/delItem',  'f_method_name' => 'ApiSetFirewallGroupDelItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallGroupReconfigure']=array (  'args' => '/firewall/group/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/group/reconfigure\'',  'f_args_txt' => '/firewall/group/reconfigure',  'f_method_name' => 'ApiSetFirewallGroupReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallGroupSet']=array (  'args' => '/firewall/group/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/group/set\'',  'f_args_txt' => '/firewall/group/set',  'f_method_name' => 'ApiSetFirewallGroupSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallGroupSetItem']=array (  'args' => '/firewall/group/setItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/group/setItem\'',  'f_args_txt' => '/firewall/group/setItem',  'f_method_name' => 'ApiSetFirewallGroupSetItem',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsServiceDropAlertLog']=array (  'args' => '/ids/service/dropAlertLog',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/service/dropAlertLog\'',  'f_args_txt' => '/ids/service/dropAlertLog',  'f_method_name' => 'ApiSetIdsServiceDropAlertLog',  'f_call' => 'CallApiPost',);
-		$def['ApiGetIdsServiceGetAlertInfo']=array (  'args' => '/ids/service/getAlertInfo',  'state' => '1',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'alertId' => '!',      'fileid' => '',    ),    'parameters' => '$params=array(		\'alertId\'	=> $alertId,		\'fileid\'	=> $fileid,	);',    'arguments' => '$alertId, $fileid=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/service/getAlertInfo\'',  'f_args_txt' => '/ids/service/getAlertInfo',  'f_method_name' => 'ApiGetIdsServiceGetAlertInfo',  'f_call' => 'CallApiGet',);
-		$def['ApiGetIdsServiceGetAlertLogs']=array (  'args' => '/ids/service/getAlertLogs',  'state' => '1',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/service/getAlertLogs\'',  'f_args_txt' => '/ids/service/getAlertLogs',  'f_method_name' => 'ApiGetIdsServiceGetAlertLogs',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsServiceGetAlertLogs']=array (  'args' => '/ids/service/getAlertLogs',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/ids/service/getAlertLogs\'',  'f_args_txt' => '/ids/service/getAlertLogs',  'f_method_name' => 'ApiGetIdsServiceGetAlertLogs',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsServiceStatus']=array (  'args' => '/ids/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/service/status\'',  'f_args_txt' => '/ids/service/status',  'f_method_name' => 'ApiGetIdsServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsSettingsCheckPolicyRule']=array (  'args' => '/ids/settings/checkPolicyRule',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/checkPolicyRule\'',  'f_args_txt' => '/ids/settings/checkPolicyRule',  'f_method_name' => 'ApiGetIdsSettingsCheckPolicyRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsSettingsGet']=array (  'args' => '/ids/settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/get\'',  'f_args_txt' => '/ids/settings/get',  'f_method_name' => 'ApiGetIdsSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsSettingsGetPolicy']=array (  'args' => '/ids/settings/getPolicy',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/getPolicy\'',  'f_args_txt' => '/ids/settings/getPolicy',  'f_method_name' => 'ApiGetIdsSettingsGetPolicy',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsSettingsGetPolicyRule']=array (  'args' => '/ids/settings/getPolicyRule',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/getPolicyRule\'',  'f_args_txt' => '/ids/settings/getPolicyRule',  'f_method_name' => 'ApiGetIdsSettingsGetPolicyRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsSettingsGetRuleInfo']=array (  'args' => '/ids/settings/getRuleInfo',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'sid' => 'null',    ),    'parameters' => '$params=array(		\'sid\'	=> $sid,	);',    'arguments' => '$sid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/ids/settings/getRuleInfo\'',  'f_args_txt' => '/ids/settings/getRuleInfo',  'f_method_name' => 'ApiGetIdsSettingsGetRuleInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsSettingsGetRulesetproperties']=array (  'args' => '/ids/settings/getRulesetproperties',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/getRulesetproperties\'',  'f_args_txt' => '/ids/settings/getRulesetproperties',  'f_method_name' => 'ApiGetIdsSettingsGetRulesetproperties',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsSettingsGetUserRule']=array (  'args' => '/ids/settings/getUserRule',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/getUserRule\'',  'f_args_txt' => '/ids/settings/getUserRule',  'f_method_name' => 'ApiGetIdsSettingsGetUserRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsSettingsListRuleMetadata']=array (  'args' => '/ids/settings/listRuleMetadata',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/ids/settings/listRuleMetadata\'',  'f_args_txt' => '/ids/settings/listRuleMetadata',  'f_method_name' => 'ApiGetIdsSettingsListRuleMetadata',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsSettingsListRulesets']=array (  'args' => '/ids/settings/listRulesets',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/listRulesets\'',  'f_args_txt' => '/ids/settings/listRulesets',  'f_method_name' => 'ApiGetIdsSettingsListRulesets',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsSettingsSearchPolicy']=array (  'args' => '/ids/settings/searchPolicy',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/searchPolicy\'',  'f_args_txt' => '/ids/settings/searchPolicy',  'f_method_name' => 'ApiGetIdsSettingsSearchPolicy',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsSettingsSearchPolicyRule']=array (  'args' => '/ids/settings/searchPolicyRule',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/searchPolicyRule\'',  'f_args_txt' => '/ids/settings/searchPolicyRule',  'f_method_name' => 'ApiGetIdsSettingsSearchPolicyRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIdsSettingsSearchUserRule']=array (  'args' => '/ids/settings/searchUserRule',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/searchUserRule\'',  'f_args_txt' => '/ids/settings/searchUserRule',  'f_method_name' => 'ApiGetIdsSettingsSearchUserRule',  'f_call' => 'CallApiGet',);
 		$def['ApiSetIdsServiceQueryAlerts']=array (  'args' => '/ids/service/queryAlerts',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/service/queryAlerts\'',  'f_args_txt' => '/ids/service/queryAlerts',  'f_method_name' => 'ApiSetIdsServiceQueryAlerts',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsServiceReconfigure']=array (  'args' => '/ids/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/service/reconfigure\'',  'f_args_txt' => '/ids/service/reconfigure',  'f_method_name' => 'ApiSetIdsServiceReconfigure',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsServiceReloadRules']=array (  'args' => '/ids/service/reloadRules',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/service/reloadRules\'',  'f_args_txt' => '/ids/service/reloadRules',  'f_method_name' => 'ApiSetIdsServiceReloadRules',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsServiceRestart']=array (  'args' => '/ids/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/service/restart\'',  'f_args_txt' => '/ids/service/restart',  'f_method_name' => 'ApiSetIdsServiceRestart',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsServiceStart']=array (  'args' => '/ids/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/service/start\'',  'f_args_txt' => '/ids/service/start',  'f_method_name' => 'ApiSetIdsServiceStart',  'f_call' => 'CallApiPost',);
-		$def['ApiGetIdsServiceStatus']=array (  'args' => '/ids/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/service/status\'',  'f_args_txt' => '/ids/service/status',  'f_method_name' => 'ApiGetIdsServiceStatus',  'f_call' => 'CallApiGet',);
 		$def['ApiSetIdsServiceStop']=array (  'args' => '/ids/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/service/stop\'',  'f_args_txt' => '/ids/service/stop',  'f_method_name' => 'ApiSetIdsServiceStop',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsServiceUpdateRules']=array (  'args' => '/ids/service/updateRules',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'wait' => 'null',    ),    'parameters' => '$params=array(		\'wait\'	=> $wait,	);',    'arguments' => '$wait="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/service/updateRules\'',  'f_args_txt' => '/ids/service/updateRules',  'f_method_name' => 'ApiSetIdsServiceUpdateRules',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsSettingsAddPolicy']=array (  'args' => '/ids/settings/addPolicy',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/addPolicy\'',  'f_args_txt' => '/ids/settings/addPolicy',  'f_method_name' => 'ApiSetIdsSettingsAddPolicy',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsSettingsAddPolicyRule']=array (  'args' => '/ids/settings/addPolicyRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/addPolicyRule\'',  'f_args_txt' => '/ids/settings/addPolicyRule',  'f_method_name' => 'ApiSetIdsSettingsAddPolicyRule',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsSettingsAddUserRule']=array (  'args' => '/ids/settings/addUserRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/addUserRule\'',  'f_args_txt' => '/ids/settings/addUserRule',  'f_method_name' => 'ApiSetIdsSettingsAddUserRule',  'f_call' => 'CallApiPost',);
-		$def['ApiGetIdsSettingsCheckPolicyRule']=array (  'args' => '/ids/settings/checkPolicyRule',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/checkPolicyRule\'',  'f_args_txt' => '/ids/settings/checkPolicyRule',  'f_method_name' => 'ApiGetIdsSettingsCheckPolicyRule',  'f_call' => 'CallApiGet',);
 		$def['ApiSetIdsSettingsDelPolicy']=array (  'args' => '/ids/settings/delPolicy',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/delPolicy\'',  'f_args_txt' => '/ids/settings/delPolicy',  'f_method_name' => 'ApiSetIdsSettingsDelPolicy',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsSettingsDelPolicyRule']=array (  'args' => '/ids/settings/delPolicyRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/delPolicyRule\'',  'f_args_txt' => '/ids/settings/delPolicyRule',  'f_method_name' => 'ApiSetIdsSettingsDelPolicyRule',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsSettingsDelUserRule']=array (  'args' => '/ids/settings/delUserRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/delUserRule\'',  'f_args_txt' => '/ids/settings/delUserRule',  'f_method_name' => 'ApiSetIdsSettingsDelUserRule',  'f_call' => 'CallApiPost',);
-		$def['ApiGetIdsSettingsGet']=array (  'args' => '/ids/settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/get\'',  'f_args_txt' => '/ids/settings/get',  'f_method_name' => 'ApiGetIdsSettingsGet',  'f_call' => 'CallApiGet',);
-		$def['ApiGetIdsSettingsGetPolicy']=array (  'args' => '/ids/settings/getPolicy',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/getPolicy\'',  'f_args_txt' => '/ids/settings/getPolicy',  'f_method_name' => 'ApiGetIdsSettingsGetPolicy',  'f_call' => 'CallApiGet',);
-		$def['ApiGetIdsSettingsGetPolicyRule']=array (  'args' => '/ids/settings/getPolicyRule',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/getPolicyRule\'',  'f_args_txt' => '/ids/settings/getPolicyRule',  'f_method_name' => 'ApiGetIdsSettingsGetPolicyRule',  'f_call' => 'CallApiGet',);
-		$def['ApiGetIdsSettingsGetRuleInfo']=array (  'args' => '/ids/settings/getRuleInfo',  'state' => '1',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'sid' => 'null',    ),    'parameters' => '$params=array(		\'sid\'	=> $sid,	);',    'arguments' => '$sid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/getRuleInfo\'',  'f_args_txt' => '/ids/settings/getRuleInfo',  'f_method_name' => 'ApiGetIdsSettingsGetRuleInfo',  'f_call' => 'CallApiGet',);
-		$def['ApiGetIdsSettingsGetRuleset']=array (  'args' => '/ids/settings/getRuleset',  'state' => '1',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'id' => '!',    ),    'parameters' => '$params=array(		\'id\'	=> $id,	);',    'arguments' => '$id',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/getRuleset\'',  'f_args_txt' => '/ids/settings/getRuleset',  'f_method_name' => 'ApiGetIdsSettingsGetRuleset',  'f_call' => 'CallApiGet',);
-		$def['ApiGetIdsSettingsGetRulesetproperties']=array (  'args' => '/ids/settings/getRulesetproperties',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/getRulesetproperties\'',  'f_args_txt' => '/ids/settings/getRulesetproperties',  'f_method_name' => 'ApiGetIdsSettingsGetRulesetproperties',  'f_call' => 'CallApiGet',);
-		$def['ApiGetIdsSettingsGetUserRule']=array (  'args' => '/ids/settings/getUserRule',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/ids/settings/getUserRule\'',  'f_args_txt' => '/ids/settings/getUserRule',  'f_method_name' => 'ApiGetIdsSettingsGetUserRule',  'f_call' => 'CallApiGet',);
-		$def['ApiGetIdsSettingsListRuleMetadata']=array (  'args' => '/ids/settings/listRuleMetadata',  'state' => '1',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/listRuleMetadata\'',  'f_args_txt' => '/ids/settings/listRuleMetadata',  'f_method_name' => 'ApiGetIdsSettingsListRuleMetadata',  'f_call' => 'CallApiGet',);
-		$def['ApiGetIdsSettingsListRulesets']=array (  'args' => '/ids/settings/listRulesets',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ids/settings/listRulesets\'',  'f_args_txt' => '/ids/settings/listRulesets',  'f_method_name' => 'ApiGetIdsSettingsListRulesets',  'f_call' => 'CallApiGet',);
 		$def['ApiSetIdsSettingsSearchInstalledRules']=array (  'args' => '/ids/settings/searchInstalledRules',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/searchInstalledRules\'',  'f_args_txt' => '/ids/settings/searchInstalledRules',  'f_method_name' => 'ApiSetIdsSettingsSearchInstalledRules',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsSettingsSet']=array (  'args' => '/ids/settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/set\'',  'f_args_txt' => '/ids/settings/set',  'f_method_name' => 'ApiSetIdsSettingsSet',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsSettingsSetPolicy']=array (  'args' => '/ids/settings/setPolicy',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/setPolicy\'',  'f_args_txt' => '/ids/settings/setPolicy',  'f_method_name' => 'ApiSetIdsSettingsSetPolicy',  'f_call' => 'CallApiPost',);
@@ -1202,42 +9586,442 @@ trait Hackapi_Opnsense_Trait {
 		$def['ApiSetIdsSettingsToggleRule']=array (  'args' => '/ids/settings/toggleRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'sids' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'sids\'	=> $sids,		\'enabled\'	=> $enabled,	);',    'arguments' => '$sids, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/toggleRule\'',  'f_args_txt' => '/ids/settings/toggleRule',  'f_method_name' => 'ApiSetIdsSettingsToggleRule',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsSettingsToggleRuleset']=array (  'args' => '/ids/settings/toggleRuleset',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'filenames' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'filenames\'	=> $filenames,		\'enabled\'	=> $enabled,	);',    'arguments' => '$filenames, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/toggleRuleset\'',  'f_args_txt' => '/ids/settings/toggleRuleset',  'f_method_name' => 'ApiSetIdsSettingsToggleRuleset',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIdsSettingsToggleUserRule']=array (  'args' => '/ids/settings/toggleUserRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ids/settings/toggleUserRule\'',  'f_args_txt' => '/ids/settings/toggleUserRule',  'f_method_name' => 'ApiSetIdsSettingsToggleUserRule',  'f_call' => 'CallApiPost',);
+		$def['ApiGetInterfacesLaggSettingsGet']=array (  'args' => '/interfaces/lagg_settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/lagg_settings/get\'',  'f_args_txt' => '/interfaces/lagg_settings/get',  'f_method_name' => 'ApiGetInterfacesLaggSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesLaggSettingsGetItem']=array (  'args' => '/interfaces/lagg_settings/getItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/lagg_settings/getItem\'',  'f_args_txt' => '/interfaces/lagg_settings/getItem',  'f_method_name' => 'ApiGetInterfacesLaggSettingsGetItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesLaggSettingsSearchItem']=array (  'args' => '/interfaces/lagg_settings/searchItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/lagg_settings/searchItem\'',  'f_args_txt' => '/interfaces/lagg_settings/searchItem',  'f_method_name' => 'ApiGetInterfacesLaggSettingsSearchItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesLoopbackSettingsGet']=array (  'args' => '/interfaces/loopback_settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/loopback_settings/get\'',  'f_args_txt' => '/interfaces/loopback_settings/get',  'f_method_name' => 'ApiGetInterfacesLoopbackSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesLoopbackSettingsGetItem']=array (  'args' => '/interfaces/loopback_settings/getItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/loopback_settings/getItem\'',  'f_args_txt' => '/interfaces/loopback_settings/getItem',  'f_method_name' => 'ApiGetInterfacesLoopbackSettingsGetItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesLoopbackSettingsSearchItem']=array (  'args' => '/interfaces/loopback_settings/searchItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/loopback_settings/searchItem\'',  'f_args_txt' => '/interfaces/loopback_settings/searchItem',  'f_method_name' => 'ApiGetInterfacesLoopbackSettingsSearchItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesVipSettingsGet']=array (  'args' => '/interfaces/vip_settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vip_settings/get\'',  'f_args_txt' => '/interfaces/vip_settings/get',  'f_method_name' => 'ApiGetInterfacesVipSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesVipSettingsGetItem']=array (  'args' => '/interfaces/vip_settings/getItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vip_settings/getItem\'',  'f_args_txt' => '/interfaces/vip_settings/getItem',  'f_method_name' => 'ApiGetInterfacesVipSettingsGetItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesVipSettingsGetUnusedVhid']=array (  'args' => '/interfaces/vip_settings/getUnusedVhid',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vip_settings/getUnusedVhid\'',  'f_args_txt' => '/interfaces/vip_settings/getUnusedVhid',  'f_method_name' => 'ApiGetInterfacesVipSettingsGetUnusedVhid',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesVipSettingsSearchItem']=array (  'args' => '/interfaces/vip_settings/searchItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vip_settings/searchItem\'',  'f_args_txt' => '/interfaces/vip_settings/searchItem',  'f_method_name' => 'ApiGetInterfacesVipSettingsSearchItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesVlanSettingsGet']=array (  'args' => '/interfaces/vlan_settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vlan_settings/get\'',  'f_args_txt' => '/interfaces/vlan_settings/get',  'f_method_name' => 'ApiGetInterfacesVlanSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesVlanSettingsGetItem']=array (  'args' => '/interfaces/vlan_settings/getItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vlan_settings/getItem\'',  'f_args_txt' => '/interfaces/vlan_settings/getItem',  'f_method_name' => 'ApiGetInterfacesVlanSettingsGetItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesVlanSettingsSearchItem']=array (  'args' => '/interfaces/vlan_settings/searchItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vlan_settings/searchItem\'',  'f_args_txt' => '/interfaces/vlan_settings/searchItem',  'f_method_name' => 'ApiGetInterfacesVlanSettingsSearchItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesVxlanSettingsGet']=array (  'args' => '/interfaces/vxlan_settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vxlan_settings/get\'',  'f_args_txt' => '/interfaces/vxlan_settings/get',  'f_method_name' => 'ApiGetInterfacesVxlanSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesVxlanSettingsGetItem']=array (  'args' => '/interfaces/vxlan_settings/getItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vxlan_settings/getItem\'',  'f_args_txt' => '/interfaces/vxlan_settings/getItem',  'f_method_name' => 'ApiGetInterfacesVxlanSettingsGetItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetInterfacesVxlanSettingsSearchItem']=array (  'args' => '/interfaces/vxlan_settings/searchItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vxlan_settings/searchItem\'',  'f_args_txt' => '/interfaces/vxlan_settings/searchItem',  'f_method_name' => 'ApiGetInterfacesVxlanSettingsSearchItem',  'f_call' => 'CallApiGet',);
 		$def['ApiSetInterfacesLaggSettingsAddItem']=array (  'args' => '/interfaces/lagg_settings/addItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/lagg_settings/addItem\'',  'f_args_txt' => '/interfaces/lagg_settings/addItem',  'f_method_name' => 'ApiSetInterfacesLaggSettingsAddItem',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesLaggSettingsDelItem']=array (  'args' => '/interfaces/lagg_settings/delItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/lagg_settings/delItem\'',  'f_args_txt' => '/interfaces/lagg_settings/delItem',  'f_method_name' => 'ApiSetInterfacesLaggSettingsDelItem',  'f_call' => 'CallApiPost',);
-		$def['ApiGetInterfacesLaggSettingsGet']=array (  'args' => '/interfaces/lagg_settings/get',  'state' => '1',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/lagg_settings/get\'',  'f_args_txt' => '/interfaces/lagg_settings/get',  'f_method_name' => 'ApiGetInterfacesLaggSettingsGet',  'f_call' => 'CallApiGet',);
-		$def['ApiGetInterfacesLaggSettingsGetItem']=array (  'args' => '/interfaces/lagg_settings/getItem',  'state' => '1',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/lagg_settings/getItem\'',  'f_args_txt' => '/interfaces/lagg_settings/getItem',  'f_method_name' => 'ApiGetInterfacesLaggSettingsGetItem',  'f_call' => 'CallApiGet',);
 		$def['ApiSetInterfacesLaggSettingsReconfigure']=array (  'args' => '/interfaces/lagg_settings/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/lagg_settings/reconfigure\'',  'f_args_txt' => '/interfaces/lagg_settings/reconfigure',  'f_method_name' => 'ApiSetInterfacesLaggSettingsReconfigure',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesLaggSettingsSet']=array (  'args' => '/interfaces/lagg_settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/lagg_settings/set\'',  'f_args_txt' => '/interfaces/lagg_settings/set',  'f_method_name' => 'ApiSetInterfacesLaggSettingsSet',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesLaggSettingsSetItem']=array (  'args' => '/interfaces/lagg_settings/setItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/lagg_settings/setItem\'',  'f_args_txt' => '/interfaces/lagg_settings/setItem',  'f_method_name' => 'ApiSetInterfacesLaggSettingsSetItem',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesLoopbackSettingsAddItem']=array (  'args' => '/interfaces/loopback_settings/addItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/loopback_settings/addItem\'',  'f_args_txt' => '/interfaces/loopback_settings/addItem',  'f_method_name' => 'ApiSetInterfacesLoopbackSettingsAddItem',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesLoopbackSettingsDelItem']=array (  'args' => '/interfaces/loopback_settings/delItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/loopback_settings/delItem\'',  'f_args_txt' => '/interfaces/loopback_settings/delItem',  'f_method_name' => 'ApiSetInterfacesLoopbackSettingsDelItem',  'f_call' => 'CallApiPost',);
-		$def['ApiGetInterfacesLoopbackSettingsGet']=array (  'args' => '/interfaces/loopback_settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/loopback_settings/get\'',  'f_args_txt' => '/interfaces/loopback_settings/get',  'f_method_name' => 'ApiGetInterfacesLoopbackSettingsGet',  'f_call' => 'CallApiGet',);
-		$def['ApiGetInterfacesLoopbackSettingsGetItem']=array (  'args' => '/interfaces/loopback_settings/getItem',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/interfaces/loopback_settings/getItem\'',  'f_args_txt' => '/interfaces/loopback_settings/getItem',  'f_method_name' => 'ApiGetInterfacesLoopbackSettingsGetItem',  'f_call' => 'CallApiGet',);
 		$def['ApiSetInterfacesLoopbackSettingsReconfigure']=array (  'args' => '/interfaces/loopback_settings/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/loopback_settings/reconfigure\'',  'f_args_txt' => '/interfaces/loopback_settings/reconfigure',  'f_method_name' => 'ApiSetInterfacesLoopbackSettingsReconfigure',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesLoopbackSettingsSet']=array (  'args' => '/interfaces/loopback_settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/loopback_settings/set\'',  'f_args_txt' => '/interfaces/loopback_settings/set',  'f_method_name' => 'ApiSetInterfacesLoopbackSettingsSet',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesLoopbackSettingsSetItem']=array (  'args' => '/interfaces/loopback_settings/setItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/loopback_settings/setItem\'',  'f_args_txt' => '/interfaces/loopback_settings/setItem',  'f_method_name' => 'ApiSetInterfacesLoopbackSettingsSetItem',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesVipSettingsAddItem']=array (  'args' => '/interfaces/vip_settings/addItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vip_settings/addItem\'',  'f_args_txt' => '/interfaces/vip_settings/addItem',  'f_method_name' => 'ApiSetInterfacesVipSettingsAddItem',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesVipSettingsDelItem']=array (  'args' => '/interfaces/vip_settings/delItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vip_settings/delItem\'',  'f_args_txt' => '/interfaces/vip_settings/delItem',  'f_method_name' => 'ApiSetInterfacesVipSettingsDelItem',  'f_call' => 'CallApiPost',);
-		$def['ApiGetInterfacesVipSettingsGet']=array (  'args' => '/interfaces/vip_settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vip_settings/get\'',  'f_args_txt' => '/interfaces/vip_settings/get',  'f_method_name' => 'ApiGetInterfacesVipSettingsGet',  'f_call' => 'CallApiGet',);
-		$def['ApiGetInterfacesVipSettingsGetItem']=array (  'args' => '/interfaces/vip_settings/getItem',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/interfaces/vip_settings/getItem\'',  'f_args_txt' => '/interfaces/vip_settings/getItem',  'f_method_name' => 'ApiGetInterfacesVipSettingsGetItem',  'f_call' => 'CallApiGet',);
-		$def['ApiGetInterfacesVipSettingsGetUnusedVhid']=array (  'args' => '/interfaces/vip_settings/getUnusedVhid',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vip_settings/getUnusedVhid\'',  'f_args_txt' => '/interfaces/vip_settings/getUnusedVhid',  'f_method_name' => 'ApiGetInterfacesVipSettingsGetUnusedVhid',  'f_call' => 'CallApiGet',);
 		$def['ApiSetInterfacesVipSettingsReconfigure']=array (  'args' => '/interfaces/vip_settings/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vip_settings/reconfigure\'',  'f_args_txt' => '/interfaces/vip_settings/reconfigure',  'f_method_name' => 'ApiSetInterfacesVipSettingsReconfigure',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesVipSettingsSet']=array (  'args' => '/interfaces/vip_settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vip_settings/set\'',  'f_args_txt' => '/interfaces/vip_settings/set',  'f_method_name' => 'ApiSetInterfacesVipSettingsSet',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesVipSettingsSetItem']=array (  'args' => '/interfaces/vip_settings/setItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vip_settings/setItem\'',  'f_args_txt' => '/interfaces/vip_settings/setItem',  'f_method_name' => 'ApiSetInterfacesVipSettingsSetItem',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesVlanSettingsAddItem']=array (  'args' => '/interfaces/vlan_settings/addItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vlan_settings/addItem\'',  'f_args_txt' => '/interfaces/vlan_settings/addItem',  'f_method_name' => 'ApiSetInterfacesVlanSettingsAddItem',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesVlanSettingsDelItem']=array (  'args' => '/interfaces/vlan_settings/delItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vlan_settings/delItem\'',  'f_args_txt' => '/interfaces/vlan_settings/delItem',  'f_method_name' => 'ApiSetInterfacesVlanSettingsDelItem',  'f_call' => 'CallApiPost',);
-		$def['ApiGetInterfacesVlanSettingsGet']=array (  'args' => '/interfaces/vlan_settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vlan_settings/get\'',  'f_args_txt' => '/interfaces/vlan_settings/get',  'f_method_name' => 'ApiGetInterfacesVlanSettingsGet',  'f_call' => 'CallApiGet',);
-		$def['ApiGetInterfacesVlanSettingsGetItem']=array (  'args' => '/interfaces/vlan_settings/getItem',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/interfaces/vlan_settings/getItem\'',  'f_args_txt' => '/interfaces/vlan_settings/getItem',  'f_method_name' => 'ApiGetInterfacesVlanSettingsGetItem',  'f_call' => 'CallApiGet',);
 		$def['ApiSetInterfacesVlanSettingsReconfigure']=array (  'args' => '/interfaces/vlan_settings/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vlan_settings/reconfigure\'',  'f_args_txt' => '/interfaces/vlan_settings/reconfigure',  'f_method_name' => 'ApiSetInterfacesVlanSettingsReconfigure',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesVlanSettingsSet']=array (  'args' => '/interfaces/vlan_settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vlan_settings/set\'',  'f_args_txt' => '/interfaces/vlan_settings/set',  'f_method_name' => 'ApiSetInterfacesVlanSettingsSet',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesVlanSettingsSetItem']=array (  'args' => '/interfaces/vlan_settings/setItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vlan_settings/setItem\'',  'f_args_txt' => '/interfaces/vlan_settings/setItem',  'f_method_name' => 'ApiSetInterfacesVlanSettingsSetItem',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesVxlanSettingsAddItem']=array (  'args' => '/interfaces/vxlan_settings/addItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vxlan_settings/addItem\'',  'f_args_txt' => '/interfaces/vxlan_settings/addItem',  'f_method_name' => 'ApiSetInterfacesVxlanSettingsAddItem',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesVxlanSettingsDelItem']=array (  'args' => '/interfaces/vxlan_settings/delItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vxlan_settings/delItem\'',  'f_args_txt' => '/interfaces/vxlan_settings/delItem',  'f_method_name' => 'ApiSetInterfacesVxlanSettingsDelItem',  'f_call' => 'CallApiPost',);
-		$def['ApiGetInterfacesVxlanSettingsGet']=array (  'args' => '/interfaces/vxlan_settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vxlan_settings/get\'',  'f_args_txt' => '/interfaces/vxlan_settings/get',  'f_method_name' => 'ApiGetInterfacesVxlanSettingsGet',  'f_call' => 'CallApiGet',);
-		$def['ApiGetInterfacesVxlanSettingsGetItem']=array (  'args' => '/interfaces/vxlan_settings/getItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/interfaces/vxlan_settings/getItem\'',  'f_args_txt' => '/interfaces/vxlan_settings/getItem',  'f_method_name' => 'ApiGetInterfacesVxlanSettingsGetItem',  'f_call' => 'CallApiGet',);
 		$def['ApiSetInterfacesVxlanSettingsReconfigure']=array (  'args' => '/interfaces/vxlan_settings/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vxlan_settings/reconfigure\'',  'f_args_txt' => '/interfaces/vxlan_settings/reconfigure',  'f_method_name' => 'ApiSetInterfacesVxlanSettingsReconfigure',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesVxlanSettingsSet']=array (  'args' => '/interfaces/vxlan_settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vxlan_settings/set\'',  'f_args_txt' => '/interfaces/vxlan_settings/set',  'f_method_name' => 'ApiSetInterfacesVxlanSettingsSet',  'f_call' => 'CallApiPost',);
 		$def['ApiSetInterfacesVxlanSettingsSetItem']=array (  'args' => '/interfaces/vxlan_settings/setItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/interfaces/vxlan_settings/setItem\'',  'f_args_txt' => '/interfaces/vxlan_settings/setItem',  'f_method_name' => 'ApiSetInterfacesVxlanSettingsSetItem',  'f_call' => 'CallApiPost',);
+		$def['ApiGetIpsecConnectionsGet']=array (  'args' => '/ipsec/connections/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/connections/get\'',  'f_args_txt' => '/ipsec/connections/get',  'f_method_name' => 'ApiGetIpsecConnectionsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecConnectionsGetChild']=array (  'args' => '/ipsec/connections/getChild',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/connections/getChild\'',  'f_args_txt' => '/ipsec/connections/getChild',  'f_method_name' => 'ApiGetIpsecConnectionsGetChild',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecConnectionsGetConnection']=array (  'args' => '/ipsec/connections/getConnection',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/connections/getConnection\'',  'f_args_txt' => '/ipsec/connections/getConnection',  'f_method_name' => 'ApiGetIpsecConnectionsGetConnection',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecConnectionsGetLocal']=array (  'args' => '/ipsec/connections/getLocal',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/connections/getLocal\'',  'f_args_txt' => '/ipsec/connections/getLocal',  'f_method_name' => 'ApiGetIpsecConnectionsGetLocal',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecConnectionsGetRemote']=array (  'args' => '/ipsec/connections/getRemote',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/connections/getRemote\'',  'f_args_txt' => '/ipsec/connections/getRemote',  'f_method_name' => 'ApiGetIpsecConnectionsGetRemote',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecConnectionsIsEnabled']=array (  'args' => '/ipsec/connections/isEnabled',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/connections/isEnabled\'',  'f_args_txt' => '/ipsec/connections/isEnabled',  'f_method_name' => 'ApiGetIpsecConnectionsIsEnabled',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecConnectionsSearchChild']=array (  'args' => '/ipsec/connections/searchChild',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/connections/searchChild\'',  'f_args_txt' => '/ipsec/connections/searchChild',  'f_method_name' => 'ApiGetIpsecConnectionsSearchChild',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecConnectionsSearchConnection']=array (  'args' => '/ipsec/connections/searchConnection',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/connections/searchConnection\'',  'f_args_txt' => '/ipsec/connections/searchConnection',  'f_method_name' => 'ApiGetIpsecConnectionsSearchConnection',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecConnectionsSearchLocal']=array (  'args' => '/ipsec/connections/searchLocal',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/connections/searchLocal\'',  'f_args_txt' => '/ipsec/connections/searchLocal',  'f_method_name' => 'ApiGetIpsecConnectionsSearchLocal',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecConnectionsSearchRemote']=array (  'args' => '/ipsec/connections/searchRemote',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/connections/searchRemote\'',  'f_args_txt' => '/ipsec/connections/searchRemote',  'f_method_name' => 'ApiGetIpsecConnectionsSearchRemote',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecKeyPairsGet']=array (  'args' => '/ipsec/key_pairs/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/key_pairs/get\'',  'f_args_txt' => '/ipsec/key_pairs/get',  'f_method_name' => 'ApiGetIpsecKeyPairsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecKeyPairsGetItem']=array (  'args' => '/ipsec/key_pairs/getItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/key_pairs/getItem\'',  'f_args_txt' => '/ipsec/key_pairs/getItem',  'f_method_name' => 'ApiGetIpsecKeyPairsGetItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecKeyPairsSearchItem']=array (  'args' => '/ipsec/key_pairs/searchItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/key_pairs/searchItem\'',  'f_args_txt' => '/ipsec/key_pairs/searchItem',  'f_method_name' => 'ApiGetIpsecKeyPairsSearchItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecLeasesPools']=array (  'args' => '/ipsec/leases/pools',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/leases/pools\'',  'f_args_txt' => '/ipsec/leases/pools',  'f_method_name' => 'ApiGetIpsecLeasesPools',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecLeasesSearch']=array (  'args' => '/ipsec/leases/search',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/leases/search\'',  'f_args_txt' => '/ipsec/leases/search',  'f_method_name' => 'ApiGetIpsecLeasesSearch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecLegacySubsystemStatus']=array (  'args' => '/ipsec/legacy_subsystem/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/legacy_subsystem/status\'',  'f_args_txt' => '/ipsec/legacy_subsystem/status',  'f_method_name' => 'ApiGetIpsecLegacySubsystemStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecManualSpdGet']=array (  'args' => '/ipsec/manual_spd/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/manual_spd/get\'',  'f_args_txt' => '/ipsec/manual_spd/get',  'f_method_name' => 'ApiGetIpsecManualSpdGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecManualSpdSearch']=array (  'args' => '/ipsec/manual_spd/search',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/manual_spd/search\'',  'f_args_txt' => '/ipsec/manual_spd/search',  'f_method_name' => 'ApiGetIpsecManualSpdSearch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecPoolsGet']=array (  'args' => '/ipsec/pools/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/pools/get\'',  'f_args_txt' => '/ipsec/pools/get',  'f_method_name' => 'ApiGetIpsecPoolsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecPoolsSearch']=array (  'args' => '/ipsec/pools/search',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/pools/search\'',  'f_args_txt' => '/ipsec/pools/search',  'f_method_name' => 'ApiGetIpsecPoolsSearch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecPreSharedKeysGet']=array (  'args' => '/ipsec/pre_shared_keys/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/pre_shared_keys/get\'',  'f_args_txt' => '/ipsec/pre_shared_keys/get',  'f_method_name' => 'ApiGetIpsecPreSharedKeysGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecPreSharedKeysGetItem']=array (  'args' => '/ipsec/pre_shared_keys/getItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/pre_shared_keys/getItem\'',  'f_args_txt' => '/ipsec/pre_shared_keys/getItem',  'f_method_name' => 'ApiGetIpsecPreSharedKeysGetItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecPreSharedKeysSearchItem']=array (  'args' => '/ipsec/pre_shared_keys/searchItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/pre_shared_keys/searchItem\'',  'f_args_txt' => '/ipsec/pre_shared_keys/searchItem',  'f_method_name' => 'ApiGetIpsecPreSharedKeysSearchItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecSadSearch']=array (  'args' => '/ipsec/sad/search',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/sad/search\'',  'f_args_txt' => '/ipsec/sad/search',  'f_method_name' => 'ApiGetIpsecSadSearch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecServiceStatus']=array (  'args' => '/ipsec/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/service/status\'',  'f_args_txt' => '/ipsec/service/status',  'f_method_name' => 'ApiGetIpsecServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecSessionsSearchPhase1']=array (  'args' => '/ipsec/sessions/searchPhase1',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/sessions/searchPhase1\'',  'f_args_txt' => '/ipsec/sessions/searchPhase1',  'f_method_name' => 'ApiGetIpsecSessionsSearchPhase1',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecSessionsSearchPhase2']=array (  'args' => '/ipsec/sessions/searchPhase2',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/sessions/searchPhase2\'',  'f_args_txt' => '/ipsec/sessions/searchPhase2',  'f_method_name' => 'ApiGetIpsecSessionsSearchPhase2',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecSpdSearch']=array (  'args' => '/ipsec/spd/search',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/spd/search\'',  'f_args_txt' => '/ipsec/spd/search',  'f_method_name' => 'ApiGetIpsecSpdSearch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecTunnelSearchPhase1']=array (  'args' => '/ipsec/tunnel/searchPhase1',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/tunnel/searchPhase1\'',  'f_args_txt' => '/ipsec/tunnel/searchPhase1',  'f_method_name' => 'ApiGetIpsecTunnelSearchPhase1',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecTunnelSearchPhase2']=array (  'args' => '/ipsec/tunnel/searchPhase2',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/tunnel/searchPhase2\'',  'f_args_txt' => '/ipsec/tunnel/searchPhase2',  'f_method_name' => 'ApiGetIpsecTunnelSearchPhase2',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecVtiGet']=array (  'args' => '/ipsec/vti/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/vti/get\'',  'f_args_txt' => '/ipsec/vti/get',  'f_method_name' => 'ApiGetIpsecVtiGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIpsecVtiSearch']=array (  'args' => '/ipsec/vti/search',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ipsec/vti/search\'',  'f_args_txt' => '/ipsec/vti/search',  'f_method_name' => 'ApiGetIpsecVtiSearch',  'f_call' => 'CallApiGet',);
+		$def['ApiSetIpsecConnectionsAddChild']=array (  'args' => '/ipsec/connections/addChild',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/addChild\'',  'f_args_txt' => '/ipsec/connections/addChild',  'f_method_name' => 'ApiSetIpsecConnectionsAddChild',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsAddConnection']=array (  'args' => '/ipsec/connections/addConnection',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/addConnection\'',  'f_args_txt' => '/ipsec/connections/addConnection',  'f_method_name' => 'ApiSetIpsecConnectionsAddConnection',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsAddLocal']=array (  'args' => '/ipsec/connections/addLocal',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/addLocal\'',  'f_args_txt' => '/ipsec/connections/addLocal',  'f_method_name' => 'ApiSetIpsecConnectionsAddLocal',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsAddRemote']=array (  'args' => '/ipsec/connections/addRemote',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/addRemote\'',  'f_args_txt' => '/ipsec/connections/addRemote',  'f_method_name' => 'ApiSetIpsecConnectionsAddRemote',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsDelChild']=array (  'args' => '/ipsec/connections/delChild',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/delChild\'',  'f_args_txt' => '/ipsec/connections/delChild',  'f_method_name' => 'ApiSetIpsecConnectionsDelChild',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsDelConnection']=array (  'args' => '/ipsec/connections/delConnection',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/delConnection\'',  'f_args_txt' => '/ipsec/connections/delConnection',  'f_method_name' => 'ApiSetIpsecConnectionsDelConnection',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsDelLocal']=array (  'args' => '/ipsec/connections/delLocal',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/delLocal\'',  'f_args_txt' => '/ipsec/connections/delLocal',  'f_method_name' => 'ApiSetIpsecConnectionsDelLocal',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsDelRemote']=array (  'args' => '/ipsec/connections/delRemote',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/delRemote\'',  'f_args_txt' => '/ipsec/connections/delRemote',  'f_method_name' => 'ApiSetIpsecConnectionsDelRemote',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsSet']=array (  'args' => '/ipsec/connections/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/set\'',  'f_args_txt' => '/ipsec/connections/set',  'f_method_name' => 'ApiSetIpsecConnectionsSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsSetChild']=array (  'args' => '/ipsec/connections/setChild',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/setChild\'',  'f_args_txt' => '/ipsec/connections/setChild',  'f_method_name' => 'ApiSetIpsecConnectionsSetChild',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsSetConnection']=array (  'args' => '/ipsec/connections/setConnection',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/setConnection\'',  'f_args_txt' => '/ipsec/connections/setConnection',  'f_method_name' => 'ApiSetIpsecConnectionsSetConnection',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsSetLocal']=array (  'args' => '/ipsec/connections/setLocal',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/setLocal\'',  'f_args_txt' => '/ipsec/connections/setLocal',  'f_method_name' => 'ApiSetIpsecConnectionsSetLocal',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsSetRemote']=array (  'args' => '/ipsec/connections/setRemote',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/setRemote\'',  'f_args_txt' => '/ipsec/connections/setRemote',  'f_method_name' => 'ApiSetIpsecConnectionsSetRemote',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsToggle']=array (  'args' => '/ipsec/connections/toggle',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'enabled\'	=> $enabled,	);',    'arguments' => '$enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/toggle\'',  'f_args_txt' => '/ipsec/connections/toggle',  'f_method_name' => 'ApiSetIpsecConnectionsToggle',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsToggleChild']=array (  'args' => '/ipsec/connections/toggleChild',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/toggleChild\'',  'f_args_txt' => '/ipsec/connections/toggleChild',  'f_method_name' => 'ApiSetIpsecConnectionsToggleChild',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsToggleConnection']=array (  'args' => '/ipsec/connections/toggleConnection',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/toggleConnection\'',  'f_args_txt' => '/ipsec/connections/toggleConnection',  'f_method_name' => 'ApiSetIpsecConnectionsToggleConnection',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsToggleLocal']=array (  'args' => '/ipsec/connections/toggleLocal',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/toggleLocal\'',  'f_args_txt' => '/ipsec/connections/toggleLocal',  'f_method_name' => 'ApiSetIpsecConnectionsToggleLocal',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecConnectionsToggleRemote']=array (  'args' => '/ipsec/connections/toggleRemote',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/connections/toggleRemote\'',  'f_args_txt' => '/ipsec/connections/toggleRemote',  'f_method_name' => 'ApiSetIpsecConnectionsToggleRemote',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecKeyPairsAddItem']=array (  'args' => '/ipsec/key_pairs/addItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/key_pairs/addItem\'',  'f_args_txt' => '/ipsec/key_pairs/addItem',  'f_method_name' => 'ApiSetIpsecKeyPairsAddItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecKeyPairsDelItem']=array (  'args' => '/ipsec/key_pairs/delItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/key_pairs/delItem\'',  'f_args_txt' => '/ipsec/key_pairs/delItem',  'f_method_name' => 'ApiSetIpsecKeyPairsDelItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecKeyPairsSet']=array (  'args' => '/ipsec/key_pairs/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/key_pairs/set\'',  'f_args_txt' => '/ipsec/key_pairs/set',  'f_method_name' => 'ApiSetIpsecKeyPairsSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecKeyPairsSetItem']=array (  'args' => '/ipsec/key_pairs/setItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/key_pairs/setItem\'',  'f_args_txt' => '/ipsec/key_pairs/setItem',  'f_method_name' => 'ApiSetIpsecKeyPairsSetItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecLegacySubsystemApplyConfig']=array (  'args' => '/ipsec/legacy_subsystem/applyConfig',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/legacy_subsystem/applyConfig\'',  'f_args_txt' => '/ipsec/legacy_subsystem/applyConfig',  'f_method_name' => 'ApiSetIpsecLegacySubsystemApplyConfig',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecManualSpdAdd']=array (  'args' => '/ipsec/manual_spd/add',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/manual_spd/add\'',  'f_args_txt' => '/ipsec/manual_spd/add',  'f_method_name' => 'ApiSetIpsecManualSpdAdd',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecManualSpdDel']=array (  'args' => '/ipsec/manual_spd/del',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/manual_spd/del\'',  'f_args_txt' => '/ipsec/manual_spd/del',  'f_method_name' => 'ApiSetIpsecManualSpdDel',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecManualSpdSet']=array (  'args' => '/ipsec/manual_spd/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/manual_spd/set\'',  'f_args_txt' => '/ipsec/manual_spd/set',  'f_method_name' => 'ApiSetIpsecManualSpdSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecManualSpdToggle']=array (  'args' => '/ipsec/manual_spd/toggle',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/manual_spd/toggle\'',  'f_args_txt' => '/ipsec/manual_spd/toggle',  'f_method_name' => 'ApiSetIpsecManualSpdToggle',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecPoolsAdd']=array (  'args' => '/ipsec/pools/add',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/pools/add\'',  'f_args_txt' => '/ipsec/pools/add',  'f_method_name' => 'ApiSetIpsecPoolsAdd',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecPoolsDel']=array (  'args' => '/ipsec/pools/del',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/pools/del\'',  'f_args_txt' => '/ipsec/pools/del',  'f_method_name' => 'ApiSetIpsecPoolsDel',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecPoolsSet']=array (  'args' => '/ipsec/pools/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/pools/set\'',  'f_args_txt' => '/ipsec/pools/set',  'f_method_name' => 'ApiSetIpsecPoolsSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecPoolsToggle']=array (  'args' => '/ipsec/pools/toggle',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/pools/toggle\'',  'f_args_txt' => '/ipsec/pools/toggle',  'f_method_name' => 'ApiSetIpsecPoolsToggle',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecPreSharedKeysAddItem']=array (  'args' => '/ipsec/pre_shared_keys/addItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/pre_shared_keys/addItem\'',  'f_args_txt' => '/ipsec/pre_shared_keys/addItem',  'f_method_name' => 'ApiSetIpsecPreSharedKeysAddItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecPreSharedKeysDelItem']=array (  'args' => '/ipsec/pre_shared_keys/delItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/pre_shared_keys/delItem\'',  'f_args_txt' => '/ipsec/pre_shared_keys/delItem',  'f_method_name' => 'ApiSetIpsecPreSharedKeysDelItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecPreSharedKeysSet']=array (  'args' => '/ipsec/pre_shared_keys/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/pre_shared_keys/set\'',  'f_args_txt' => '/ipsec/pre_shared_keys/set',  'f_method_name' => 'ApiSetIpsecPreSharedKeysSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecPreSharedKeysSetItem']=array (  'args' => '/ipsec/pre_shared_keys/setItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/pre_shared_keys/setItem\'',  'f_args_txt' => '/ipsec/pre_shared_keys/setItem',  'f_method_name' => 'ApiSetIpsecPreSharedKeysSetItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecSadDelete']=array (  'args' => '/ipsec/sad/delete',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'id' => '!',    ),    'parameters' => '$params=array(		\'id\'	=> $id,	);',    'arguments' => '$id',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/sad/delete\'',  'f_args_txt' => '/ipsec/sad/delete',  'f_method_name' => 'ApiSetIpsecSadDelete',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecServiceReconfigure']=array (  'args' => '/ipsec/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/service/reconfigure\'',  'f_args_txt' => '/ipsec/service/reconfigure',  'f_method_name' => 'ApiSetIpsecServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecServiceRestart']=array (  'args' => '/ipsec/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/service/restart\'',  'f_args_txt' => '/ipsec/service/restart',  'f_method_name' => 'ApiSetIpsecServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecServiceStart']=array (  'args' => '/ipsec/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/service/start\'',  'f_args_txt' => '/ipsec/service/start',  'f_method_name' => 'ApiSetIpsecServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecServiceStop']=array (  'args' => '/ipsec/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/service/stop\'',  'f_args_txt' => '/ipsec/service/stop',  'f_method_name' => 'ApiSetIpsecServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecSessionsConnect']=array (  'args' => '/ipsec/sessions/connect',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'id' => '!',    ),    'parameters' => '$params=array(		\'id\'	=> $id,	);',    'arguments' => '$id',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/sessions/connect\'',  'f_args_txt' => '/ipsec/sessions/connect',  'f_method_name' => 'ApiSetIpsecSessionsConnect',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecSessionsDisconnect']=array (  'args' => '/ipsec/sessions/disconnect',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'id' => '!',    ),    'parameters' => '$params=array(		\'id\'	=> $id,	);',    'arguments' => '$id',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/sessions/disconnect\'',  'f_args_txt' => '/ipsec/sessions/disconnect',  'f_method_name' => 'ApiSetIpsecSessionsDisconnect',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecSpdDelete']=array (  'args' => '/ipsec/spd/delete',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'id' => '!',    ),    'parameters' => '$params=array(		\'id\'	=> $id,	);',    'arguments' => '$id',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/spd/delete\'',  'f_args_txt' => '/ipsec/spd/delete',  'f_method_name' => 'ApiSetIpsecSpdDelete',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecTunnelDelPhase1']=array (  'args' => '/ipsec/tunnel/delPhase1',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'ikeid' => '!',    ),    'parameters' => '$params=array(		\'ikeid\'	=> $ikeid,	);',    'arguments' => '$ikeid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/tunnel/delPhase1\'',  'f_args_txt' => '/ipsec/tunnel/delPhase1',  'f_method_name' => 'ApiSetIpsecTunnelDelPhase1',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecTunnelDelPhase2']=array (  'args' => '/ipsec/tunnel/delPhase2',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'seqid' => '!',    ),    'parameters' => '$params=array(		\'seqid\'	=> $seqid,	);',    'arguments' => '$seqid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/tunnel/delPhase2\'',  'f_args_txt' => '/ipsec/tunnel/delPhase2',  'f_method_name' => 'ApiSetIpsecTunnelDelPhase2',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecTunnelToggle']=array (  'args' => '/ipsec/tunnel/toggle',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'enabled\'	=> $enabled,	);',    'arguments' => '$enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/tunnel/toggle\'',  'f_args_txt' => '/ipsec/tunnel/toggle',  'f_method_name' => 'ApiSetIpsecTunnelToggle',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecTunnelTogglePhase1']=array (  'args' => '/ipsec/tunnel/togglePhase1',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'ikeid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'ikeid\'	=> $ikeid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$ikeid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/tunnel/togglePhase1\'',  'f_args_txt' => '/ipsec/tunnel/togglePhase1',  'f_method_name' => 'ApiSetIpsecTunnelTogglePhase1',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecTunnelTogglePhase2']=array (  'args' => '/ipsec/tunnel/togglePhase2',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'seqid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'seqid\'	=> $seqid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$seqid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/tunnel/togglePhase2\'',  'f_args_txt' => '/ipsec/tunnel/togglePhase2',  'f_method_name' => 'ApiSetIpsecTunnelTogglePhase2',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecVtiAdd']=array (  'args' => '/ipsec/vti/add',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/vti/add\'',  'f_args_txt' => '/ipsec/vti/add',  'f_method_name' => 'ApiSetIpsecVtiAdd',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecVtiDel']=array (  'args' => '/ipsec/vti/del',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/vti/del\'',  'f_args_txt' => '/ipsec/vti/del',  'f_method_name' => 'ApiSetIpsecVtiDel',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecVtiSet']=array (  'args' => '/ipsec/vti/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/vti/set\'',  'f_args_txt' => '/ipsec/vti/set',  'f_method_name' => 'ApiSetIpsecVtiSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIpsecVtiToggle']=array (  'args' => '/ipsec/vti/toggle',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ipsec/vti/toggle\'',  'f_args_txt' => '/ipsec/vti/toggle',  'f_method_name' => 'ApiSetIpsecVtiToggle',  'f_call' => 'CallApiPost',);
+		$def['ApiGetMonitServiceStatus']=array (  'args' => '/monit/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/monit/service/status\'',  'f_args_txt' => '/monit/service/status',  'f_method_name' => 'ApiGetMonitServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitSettingsDirty']=array (  'args' => '/monit/settings/dirty',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/monit/settings/dirty\'',  'f_args_txt' => '/monit/settings/dirty',  'f_method_name' => 'ApiGetMonitSettingsDirty',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitSettingsGet']=array (  'args' => '/monit/settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/monit/settings/get\'',  'f_args_txt' => '/monit/settings/get',  'f_method_name' => 'ApiGetMonitSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitSettingsGetAlert']=array (  'args' => '/monit/settings/getAlert',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/monit/settings/getAlert\'',  'f_args_txt' => '/monit/settings/getAlert',  'f_method_name' => 'ApiGetMonitSettingsGetAlert',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitSettingsGetGeneral']=array (  'args' => '/monit/settings/getGeneral',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/monit/settings/getGeneral\'',  'f_args_txt' => '/monit/settings/getGeneral',  'f_method_name' => 'ApiGetMonitSettingsGetGeneral',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitSettingsGetService']=array (  'args' => '/monit/settings/getService',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/monit/settings/getService\'',  'f_args_txt' => '/monit/settings/getService',  'f_method_name' => 'ApiGetMonitSettingsGetService',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitSettingsGetTest']=array (  'args' => '/monit/settings/getTest',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/monit/settings/getTest\'',  'f_args_txt' => '/monit/settings/getTest',  'f_method_name' => 'ApiGetMonitSettingsGetTest',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitSettingsSearchAlert']=array (  'args' => '/monit/settings/searchAlert',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/monit/settings/searchAlert\'',  'f_args_txt' => '/monit/settings/searchAlert',  'f_method_name' => 'ApiGetMonitSettingsSearchAlert',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitSettingsSearchService']=array (  'args' => '/monit/settings/searchService',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/monit/settings/searchService\'',  'f_args_txt' => '/monit/settings/searchService',  'f_method_name' => 'ApiGetMonitSettingsSearchService',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitSettingsSearchTest']=array (  'args' => '/monit/settings/searchTest',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/monit/settings/searchTest\'',  'f_args_txt' => '/monit/settings/searchTest',  'f_method_name' => 'ApiGetMonitSettingsSearchTest',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitStatusGet']=array (  'args' => '/monit/status/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'format' => 'xml',    ),    'parameters' => '$params=array(		\'format\'	=> $format,	);',    'arguments' => '$format="xml"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/monit/status/get\'',  'f_args_txt' => '/monit/status/get',  'f_method_name' => 'ApiGetMonitStatusGet',  'f_call' => 'CallApiGet',);
+		$def['ApiSetMonitServiceCheck']=array (  'args' => '/monit/service/check',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/service/check\'',  'f_args_txt' => '/monit/service/check',  'f_method_name' => 'ApiSetMonitServiceCheck',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitServiceReconfigure']=array (  'args' => '/monit/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/service/reconfigure\'',  'f_args_txt' => '/monit/service/reconfigure',  'f_method_name' => 'ApiSetMonitServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitServiceRestart']=array (  'args' => '/monit/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/service/restart\'',  'f_args_txt' => '/monit/service/restart',  'f_method_name' => 'ApiSetMonitServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitServiceStart']=array (  'args' => '/monit/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/service/start\'',  'f_args_txt' => '/monit/service/start',  'f_method_name' => 'ApiSetMonitServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitServiceStop']=array (  'args' => '/monit/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/service/stop\'',  'f_args_txt' => '/monit/service/stop',  'f_method_name' => 'ApiSetMonitServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitSettingsAddAlert']=array (  'args' => '/monit/settings/addAlert',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/settings/addAlert\'',  'f_args_txt' => '/monit/settings/addAlert',  'f_method_name' => 'ApiSetMonitSettingsAddAlert',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitSettingsAddService']=array (  'args' => '/monit/settings/addService',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/settings/addService\'',  'f_args_txt' => '/monit/settings/addService',  'f_method_name' => 'ApiSetMonitSettingsAddService',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitSettingsAddTest']=array (  'args' => '/monit/settings/addTest',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/settings/addTest\'',  'f_args_txt' => '/monit/settings/addTest',  'f_method_name' => 'ApiSetMonitSettingsAddTest',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitSettingsDelAlert']=array (  'args' => '/monit/settings/delAlert',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/settings/delAlert\'',  'f_args_txt' => '/monit/settings/delAlert',  'f_method_name' => 'ApiSetMonitSettingsDelAlert',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitSettingsDelService']=array (  'args' => '/monit/settings/delService',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/settings/delService\'',  'f_args_txt' => '/monit/settings/delService',  'f_method_name' => 'ApiSetMonitSettingsDelService',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitSettingsDelTest']=array (  'args' => '/monit/settings/delTest',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/settings/delTest\'',  'f_args_txt' => '/monit/settings/delTest',  'f_method_name' => 'ApiSetMonitSettingsDelTest',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitSettingsSet']=array (  'args' => '/monit/settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/settings/set\'',  'f_args_txt' => '/monit/settings/set',  'f_method_name' => 'ApiSetMonitSettingsSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitSettingsSetAlert']=array (  'args' => '/monit/settings/setAlert',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/settings/setAlert\'',  'f_args_txt' => '/monit/settings/setAlert',  'f_method_name' => 'ApiSetMonitSettingsSetAlert',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitSettingsSetService']=array (  'args' => '/monit/settings/setService',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/settings/setService\'',  'f_args_txt' => '/monit/settings/setService',  'f_method_name' => 'ApiSetMonitSettingsSetService',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitSettingsSetTest']=array (  'args' => '/monit/settings/setTest',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/settings/setTest\'',  'f_args_txt' => '/monit/settings/setTest',  'f_method_name' => 'ApiSetMonitSettingsSetTest',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitSettingsToggleAlert']=array (  'args' => '/monit/settings/toggleAlert',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/settings/toggleAlert\'',  'f_args_txt' => '/monit/settings/toggleAlert',  'f_method_name' => 'ApiSetMonitSettingsToggleAlert',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMonitSettingsToggleService']=array (  'args' => '/monit/settings/toggleService',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/monit/settings/toggleService\'',  'f_args_txt' => '/monit/settings/toggleService',  'f_method_name' => 'ApiSetMonitSettingsToggleService',  'f_call' => 'CallApiPost',);
+		$def['ApiGetOpenvpnClientOverwritesGet']=array (  'args' => '/openvpn/client_overwrites/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/openvpn/client_overwrites/get\'',  'f_args_txt' => '/openvpn/client_overwrites/get',  'f_method_name' => 'ApiGetOpenvpnClientOverwritesGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOpenvpnClientOverwritesSearch']=array (  'args' => '/openvpn/client_overwrites/search',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/openvpn/client_overwrites/search\'',  'f_args_txt' => '/openvpn/client_overwrites/search',  'f_method_name' => 'ApiGetOpenvpnClientOverwritesSearch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOpenvpnExportAccounts']=array (  'args' => '/openvpn/export/accounts',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'vpnid' => 'null',    ),    'parameters' => '$params=array(		\'vpnid\'	=> $vpnid,	);',    'arguments' => '$vpnid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/openvpn/export/accounts\'',  'f_args_txt' => '/openvpn/export/accounts',  'f_method_name' => 'ApiGetOpenvpnExportAccounts',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOpenvpnExportProviders']=array (  'args' => '/openvpn/export/providers',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/openvpn/export/providers\'',  'f_args_txt' => '/openvpn/export/providers',  'f_method_name' => 'ApiGetOpenvpnExportProviders',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOpenvpnExportTemplates']=array (  'args' => '/openvpn/export/templates',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/openvpn/export/templates\'',  'f_args_txt' => '/openvpn/export/templates',  'f_method_name' => 'ApiGetOpenvpnExportTemplates',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOpenvpnInstancesGet']=array (  'args' => '/openvpn/instances/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/openvpn/instances/get\'',  'f_args_txt' => '/openvpn/instances/get',  'f_method_name' => 'ApiGetOpenvpnInstancesGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOpenvpnInstancesGetStaticKey']=array (  'args' => '/openvpn/instances/getStaticKey',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/openvpn/instances/getStaticKey\'',  'f_args_txt' => '/openvpn/instances/getStaticKey',  'f_method_name' => 'ApiGetOpenvpnInstancesGetStaticKey',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOpenvpnInstancesSearch']=array (  'args' => '/openvpn/instances/search',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/openvpn/instances/search\'',  'f_args_txt' => '/openvpn/instances/search',  'f_method_name' => 'ApiGetOpenvpnInstancesSearch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOpenvpnInstancesSearchStaticKey']=array (  'args' => '/openvpn/instances/searchStaticKey',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/openvpn/instances/searchStaticKey\'',  'f_args_txt' => '/openvpn/instances/searchStaticKey',  'f_method_name' => 'ApiGetOpenvpnInstancesSearchStaticKey',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOpenvpnServiceSearchRoutes']=array (  'args' => '/openvpn/service/searchRoutes',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/openvpn/service/searchRoutes\'',  'f_args_txt' => '/openvpn/service/searchRoutes',  'f_method_name' => 'ApiGetOpenvpnServiceSearchRoutes',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOpenvpnServiceSearchSessions']=array (  'args' => '/openvpn/service/searchSessions',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/openvpn/service/searchSessions\'',  'f_args_txt' => '/openvpn/service/searchSessions',  'f_method_name' => 'ApiGetOpenvpnServiceSearchSessions',  'f_call' => 'CallApiGet',);
+		$def['ApiSetOpenvpnClientOverwritesAdd']=array (  'args' => '/openvpn/client_overwrites/add',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/client_overwrites/add\'',  'f_args_txt' => '/openvpn/client_overwrites/add',  'f_method_name' => 'ApiSetOpenvpnClientOverwritesAdd',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnClientOverwritesDel']=array (  'args' => '/openvpn/client_overwrites/del',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/client_overwrites/del\'',  'f_args_txt' => '/openvpn/client_overwrites/del',  'f_method_name' => 'ApiSetOpenvpnClientOverwritesDel',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnClientOverwritesSet']=array (  'args' => '/openvpn/client_overwrites/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/client_overwrites/set\'',  'f_args_txt' => '/openvpn/client_overwrites/set',  'f_method_name' => 'ApiSetOpenvpnClientOverwritesSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnClientOverwritesToggle']=array (  'args' => '/openvpn/client_overwrites/toggle',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/client_overwrites/toggle\'',  'f_args_txt' => '/openvpn/client_overwrites/toggle',  'f_method_name' => 'ApiSetOpenvpnClientOverwritesToggle',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnExportDownload']=array (  'args' => '/openvpn/export/download',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'vpnid' => '!',      'certref' => 'null',    ),    'parameters' => '$params=array(		\'vpnid\'	=> $vpnid,		\'certref\'	=> $certref,	);',    'arguments' => '$vpnid, $certref="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/export/download\'',  'f_args_txt' => '/openvpn/export/download',  'f_method_name' => 'ApiSetOpenvpnExportDownload',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnExportStorePresets']=array (  'args' => '/openvpn/export/storePresets',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'vpnid' => '!',    ),    'parameters' => '$params=array(		\'vpnid\'	=> $vpnid,	);',    'arguments' => '$vpnid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/export/storePresets\'',  'f_args_txt' => '/openvpn/export/storePresets',  'f_method_name' => 'ApiSetOpenvpnExportStorePresets',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnExportValidatePresets']=array (  'args' => '/openvpn/export/validatePresets',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'vpnid' => '!',    ),    'parameters' => '$params=array(		\'vpnid\'	=> $vpnid,	);',    'arguments' => '$vpnid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/export/validatePresets\'',  'f_args_txt' => '/openvpn/export/validatePresets',  'f_method_name' => 'ApiSetOpenvpnExportValidatePresets',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnInstancesAdd']=array (  'args' => '/openvpn/instances/add',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/instances/add\'',  'f_args_txt' => '/openvpn/instances/add',  'f_method_name' => 'ApiSetOpenvpnInstancesAdd',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnInstancesAddStaticKey']=array (  'args' => '/openvpn/instances/addStaticKey',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/instances/addStaticKey\'',  'f_args_txt' => '/openvpn/instances/addStaticKey',  'f_method_name' => 'ApiSetOpenvpnInstancesAddStaticKey',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnInstancesDel']=array (  'args' => '/openvpn/instances/del',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/instances/del\'',  'f_args_txt' => '/openvpn/instances/del',  'f_method_name' => 'ApiSetOpenvpnInstancesDel',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnInstancesDelStaticKey']=array (  'args' => '/openvpn/instances/delStaticKey',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/instances/delStaticKey\'',  'f_args_txt' => '/openvpn/instances/delStaticKey',  'f_method_name' => 'ApiSetOpenvpnInstancesDelStaticKey',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnInstancesGenKey']=array (  'args' => '/openvpn/instances/genKey',  'state' => '4',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/openvpn/instances/genKey\'',  'f_args_txt' => '/openvpn/instances/genKey',  'f_method_name' => 'ApiSetOpenvpnInstancesGenKey',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnInstancesSet']=array (  'args' => '/openvpn/instances/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/instances/set\'',  'f_args_txt' => '/openvpn/instances/set',  'f_method_name' => 'ApiSetOpenvpnInstancesSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnInstancesSetStaticKey']=array (  'args' => '/openvpn/instances/setStaticKey',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/instances/setStaticKey\'',  'f_args_txt' => '/openvpn/instances/setStaticKey',  'f_method_name' => 'ApiSetOpenvpnInstancesSetStaticKey',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnInstancesToggle']=array (  'args' => '/openvpn/instances/toggle',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/instances/toggle\'',  'f_args_txt' => '/openvpn/instances/toggle',  'f_method_name' => 'ApiSetOpenvpnInstancesToggle',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnServiceKillSession']=array (  'args' => '/openvpn/service/killSession',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/service/killSession\'',  'f_args_txt' => '/openvpn/service/killSession',  'f_method_name' => 'ApiSetOpenvpnServiceKillSession',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnServiceReconfigure']=array (  'args' => '/openvpn/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/service/reconfigure\'',  'f_args_txt' => '/openvpn/service/reconfigure',  'f_method_name' => 'ApiSetOpenvpnServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnServiceRestartService']=array (  'args' => '/openvpn/service/restartService',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'id' => 'null',    ),    'parameters' => '$params=array(		\'id\'	=> $id,	);',    'arguments' => '$id="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/service/restartService\'',  'f_args_txt' => '/openvpn/service/restartService',  'f_method_name' => 'ApiSetOpenvpnServiceRestartService',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnServiceStartService']=array (  'args' => '/openvpn/service/startService',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'id' => 'null',    ),    'parameters' => '$params=array(		\'id\'	=> $id,	);',    'arguments' => '$id="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/service/startService\'',  'f_args_txt' => '/openvpn/service/startService',  'f_method_name' => 'ApiSetOpenvpnServiceStartService',  'f_call' => 'CallApiPost',);
+		$def['ApiSetOpenvpnServiceStopService']=array (  'args' => '/openvpn/service/stopService',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'id' => 'null',    ),    'parameters' => '$params=array(		\'id\'	=> $id,	);',    'arguments' => '$id="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/openvpn/service/stopService\'',  'f_args_txt' => '/openvpn/service/stopService',  'f_method_name' => 'ApiSetOpenvpnServiceStopService',  'f_call' => 'CallApiPost',);
+		$def['ApiGetProxyServiceStatus']=array (  'args' => '/proxy/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/proxy/service/status\'',  'f_args_txt' => '/proxy/service/status',  'f_method_name' => 'ApiGetProxyServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetProxySettingsGet']=array (  'args' => '/proxy/settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/proxy/settings/get\'',  'f_args_txt' => '/proxy/settings/get',  'f_method_name' => 'ApiGetProxySettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetProxySettingsGetPACMatch']=array (  'args' => '/proxy/settings/getPACMatch',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/proxy/settings/getPACMatch\'',  'f_args_txt' => '/proxy/settings/getPACMatch',  'f_method_name' => 'ApiGetProxySettingsGetPACMatch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetProxySettingsGetPACProxy']=array (  'args' => '/proxy/settings/getPACProxy',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/proxy/settings/getPACProxy\'',  'f_args_txt' => '/proxy/settings/getPACProxy',  'f_method_name' => 'ApiGetProxySettingsGetPACProxy',  'f_call' => 'CallApiGet',);
+		$def['ApiGetProxySettingsGetPACRule']=array (  'args' => '/proxy/settings/getPACRule',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/proxy/settings/getPACRule\'',  'f_args_txt' => '/proxy/settings/getPACRule',  'f_method_name' => 'ApiGetProxySettingsGetPACRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetProxySettingsGetRemoteBlacklist']=array (  'args' => '/proxy/settings/getRemoteBlacklist',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/proxy/settings/getRemoteBlacklist\'',  'f_args_txt' => '/proxy/settings/getRemoteBlacklist',  'f_method_name' => 'ApiGetProxySettingsGetRemoteBlacklist',  'f_call' => 'CallApiGet',);
+		$def['ApiGetProxySettingsSearchPACMatch']=array (  'args' => '/proxy/settings/searchPACMatch',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/proxy/settings/searchPACMatch\'',  'f_args_txt' => '/proxy/settings/searchPACMatch',  'f_method_name' => 'ApiGetProxySettingsSearchPACMatch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetProxySettingsSearchPACProxy']=array (  'args' => '/proxy/settings/searchPACProxy',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/proxy/settings/searchPACProxy\'',  'f_args_txt' => '/proxy/settings/searchPACProxy',  'f_method_name' => 'ApiGetProxySettingsSearchPACProxy',  'f_call' => 'CallApiGet',);
+		$def['ApiGetProxySettingsSearchPACRule']=array (  'args' => '/proxy/settings/searchPACRule',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/proxy/settings/searchPACRule\'',  'f_args_txt' => '/proxy/settings/searchPACRule',  'f_method_name' => 'ApiGetProxySettingsSearchPACRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetProxySettingsSearchRemoteBlacklists']=array (  'args' => '/proxy/settings/searchRemoteBlacklists',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/proxy/settings/searchRemoteBlacklists\'',  'f_args_txt' => '/proxy/settings/searchRemoteBlacklists',  'f_method_name' => 'ApiGetProxySettingsSearchRemoteBlacklists',  'f_call' => 'CallApiGet',);
+		$def['ApiGetProxyTemplateGet']=array (  'args' => '/proxy/template/get',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/proxy/template/get\'',  'f_args_txt' => '/proxy/template/get',  'f_method_name' => 'ApiGetProxyTemplateGet',  'f_call' => 'CallApiGet',);
+		$def['ApiSetProxyServiceDownloadacls']=array (  'args' => '/proxy/service/downloadacls',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/service/downloadacls\'',  'f_args_txt' => '/proxy/service/downloadacls',  'f_method_name' => 'ApiSetProxyServiceDownloadacls',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxyServiceFetchacls']=array (  'args' => '/proxy/service/fetchacls',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/service/fetchacls\'',  'f_args_txt' => '/proxy/service/fetchacls',  'f_method_name' => 'ApiSetProxyServiceFetchacls',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxyServiceReconfigure']=array (  'args' => '/proxy/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/service/reconfigure\'',  'f_args_txt' => '/proxy/service/reconfigure',  'f_method_name' => 'ApiSetProxyServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxyServiceRefreshTemplate']=array (  'args' => '/proxy/service/refreshTemplate',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/service/refreshTemplate\'',  'f_args_txt' => '/proxy/service/refreshTemplate',  'f_method_name' => 'ApiSetProxyServiceRefreshTemplate',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxyServiceReset']=array (  'args' => '/proxy/service/reset',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/service/reset\'',  'f_args_txt' => '/proxy/service/reset',  'f_method_name' => 'ApiSetProxyServiceReset',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxyServiceRestart']=array (  'args' => '/proxy/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/service/restart\'',  'f_args_txt' => '/proxy/service/restart',  'f_method_name' => 'ApiSetProxyServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxyServiceStart']=array (  'args' => '/proxy/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/service/start\'',  'f_args_txt' => '/proxy/service/start',  'f_method_name' => 'ApiSetProxyServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxyServiceStop']=array (  'args' => '/proxy/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/service/stop\'',  'f_args_txt' => '/proxy/service/stop',  'f_method_name' => 'ApiSetProxyServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsAddPACMatch']=array (  'args' => '/proxy/settings/addPACMatch',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/addPACMatch\'',  'f_args_txt' => '/proxy/settings/addPACMatch',  'f_method_name' => 'ApiSetProxySettingsAddPACMatch',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsAddPACProxy']=array (  'args' => '/proxy/settings/addPACProxy',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/addPACProxy\'',  'f_args_txt' => '/proxy/settings/addPACProxy',  'f_method_name' => 'ApiSetProxySettingsAddPACProxy',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsAddPACRule']=array (  'args' => '/proxy/settings/addPACRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/addPACRule\'',  'f_args_txt' => '/proxy/settings/addPACRule',  'f_method_name' => 'ApiSetProxySettingsAddPACRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsAddRemoteBlacklist']=array (  'args' => '/proxy/settings/addRemoteBlacklist',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/addRemoteBlacklist\'',  'f_args_txt' => '/proxy/settings/addRemoteBlacklist',  'f_method_name' => 'ApiSetProxySettingsAddRemoteBlacklist',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsDelPACMatch']=array (  'args' => '/proxy/settings/delPACMatch',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/delPACMatch\'',  'f_args_txt' => '/proxy/settings/delPACMatch',  'f_method_name' => 'ApiSetProxySettingsDelPACMatch',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsDelPACProxy']=array (  'args' => '/proxy/settings/delPACProxy',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/delPACProxy\'',  'f_args_txt' => '/proxy/settings/delPACProxy',  'f_method_name' => 'ApiSetProxySettingsDelPACProxy',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsDelPACRule']=array (  'args' => '/proxy/settings/delPACRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/delPACRule\'',  'f_args_txt' => '/proxy/settings/delPACRule',  'f_method_name' => 'ApiSetProxySettingsDelPACRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsDelRemoteBlacklist']=array (  'args' => '/proxy/settings/delRemoteBlacklist',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/delRemoteBlacklist\'',  'f_args_txt' => '/proxy/settings/delRemoteBlacklist',  'f_method_name' => 'ApiSetProxySettingsDelRemoteBlacklist',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsFetchRBCron']=array (  'args' => '/proxy/settings/fetchRBCron',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/fetchRBCron\'',  'f_args_txt' => '/proxy/settings/fetchRBCron',  'f_method_name' => 'ApiSetProxySettingsFetchRBCron',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsSet']=array (  'args' => '/proxy/settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/set\'',  'f_args_txt' => '/proxy/settings/set',  'f_method_name' => 'ApiSetProxySettingsSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsSetPACMatch']=array (  'args' => '/proxy/settings/setPACMatch',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/setPACMatch\'',  'f_args_txt' => '/proxy/settings/setPACMatch',  'f_method_name' => 'ApiSetProxySettingsSetPACMatch',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsSetPACProxy']=array (  'args' => '/proxy/settings/setPACProxy',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/setPACProxy\'',  'f_args_txt' => '/proxy/settings/setPACProxy',  'f_method_name' => 'ApiSetProxySettingsSetPACProxy',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsSetPACRule']=array (  'args' => '/proxy/settings/setPACRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/setPACRule\'',  'f_args_txt' => '/proxy/settings/setPACRule',  'f_method_name' => 'ApiSetProxySettingsSetPACRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsSetRemoteBlacklist']=array (  'args' => '/proxy/settings/setRemoteBlacklist',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/setRemoteBlacklist\'',  'f_args_txt' => '/proxy/settings/setRemoteBlacklist',  'f_method_name' => 'ApiSetProxySettingsSetRemoteBlacklist',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsTogglePACRule']=array (  'args' => '/proxy/settings/togglePACRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/togglePACRule\'',  'f_args_txt' => '/proxy/settings/togglePACRule',  'f_method_name' => 'ApiSetProxySettingsTogglePACRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxySettingsToggleRemoteBlacklist']=array (  'args' => '/proxy/settings/toggleRemoteBlacklist',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/settings/toggleRemoteBlacklist\'',  'f_args_txt' => '/proxy/settings/toggleRemoteBlacklist',  'f_method_name' => 'ApiSetProxySettingsToggleRemoteBlacklist',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxyTemplateReset']=array (  'args' => '/proxy/template/reset',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/template/reset\'',  'f_args_txt' => '/proxy/template/reset',  'f_method_name' => 'ApiSetProxyTemplateReset',  'f_call' => 'CallApiPost',);
+		$def['ApiSetProxyTemplateSet']=array (  'args' => '/proxy/template/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/proxy/template/set\'',  'f_args_txt' => '/proxy/template/set',  'f_method_name' => 'ApiSetProxyTemplateSet',  'f_call' => 'CallApiPost',);
+		$def['ApiGetRoutesGatewayStatus']=array (  'args' => '/routes/gateway/status',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Gateways Status',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/routes/gateway/status\'',  'f_args_txt' => '/routes/gateway/status',  'f_method_name' => 'ApiGetRoutesGatewayStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetRoutesRoutesGet']=array (  'args' => '/routes/routes/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/routes/routes/get\'',  'f_args_txt' => '/routes/routes/get',  'f_method_name' => 'ApiGetRoutesRoutesGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetRoutesRoutesGetroute']=array (  'args' => '/routes/routes/getroute',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/routes/routes/getroute\'',  'f_args_txt' => '/routes/routes/getroute',  'f_method_name' => 'ApiGetRoutesRoutesGetroute',  'f_call' => 'CallApiGet',);
+		$def['ApiGetRoutesRoutesSearchroute']=array (  'args' => '/routes/routes/searchroute',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/routes/routes/searchroute\'',  'f_args_txt' => '/routes/routes/searchroute',  'f_method_name' => 'ApiGetRoutesRoutesSearchroute',  'f_call' => 'CallApiGet',);
+		$def['ApiSetRoutesRoutesAddroute']=array (  'args' => '/routes/routes/addroute',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/routes/routes/addroute\'',  'f_args_txt' => '/routes/routes/addroute',  'f_method_name' => 'ApiSetRoutesRoutesAddroute',  'f_call' => 'CallApiPost',);
+		$def['ApiSetRoutesRoutesDelroute']=array (  'args' => '/routes/routes/delroute',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/routes/routes/delroute\'',  'f_args_txt' => '/routes/routes/delroute',  'f_method_name' => 'ApiSetRoutesRoutesDelroute',  'f_call' => 'CallApiPost',);
+		$def['ApiSetRoutesRoutesReconfigure']=array (  'args' => '/routes/routes/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/routes/routes/reconfigure\'',  'f_args_txt' => '/routes/routes/reconfigure',  'f_method_name' => 'ApiSetRoutesRoutesReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetRoutesRoutesSet']=array (  'args' => '/routes/routes/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/routes/routes/set\'',  'f_args_txt' => '/routes/routes/set',  'f_method_name' => 'ApiSetRoutesRoutesSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetRoutesRoutesSetroute']=array (  'args' => '/routes/routes/setroute',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/routes/routes/setroute\'',  'f_args_txt' => '/routes/routes/setroute',  'f_method_name' => 'ApiSetRoutesRoutesSetroute',  'f_call' => 'CallApiPost',);
+		$def['ApiSetRoutesRoutesToggleroute']=array (  'args' => '/routes/routes/toggleroute',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'disabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'disabled\'	=> $disabled,	);',    'arguments' => '$uuid, $disabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/routes/routes/toggleroute\'',  'f_args_txt' => '/routes/routes/toggleroute',  'f_method_name' => 'ApiSetRoutesRoutesToggleroute',  'f_call' => 'CallApiPost',);
+		$def['ApiGetSyslogServiceStats']=array (  'args' => '/syslog/service/stats',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/syslog/service/stats\'',  'f_args_txt' => '/syslog/service/stats',  'f_method_name' => 'ApiGetSyslogServiceStats',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSyslogServiceStatus']=array (  'args' => '/syslog/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/syslog/service/status\'',  'f_args_txt' => '/syslog/service/status',  'f_method_name' => 'ApiGetSyslogServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSyslogSettingsGet']=array (  'args' => '/syslog/settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/syslog/settings/get\'',  'f_args_txt' => '/syslog/settings/get',  'f_method_name' => 'ApiGetSyslogSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSyslogSettingsGetDestination']=array (  'args' => '/syslog/settings/getDestination',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/syslog/settings/getDestination\'',  'f_args_txt' => '/syslog/settings/getDestination',  'f_method_name' => 'ApiGetSyslogSettingsGetDestination',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSyslogSettingsSearchDestinations']=array (  'args' => '/syslog/settings/searchDestinations',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/syslog/settings/searchDestinations\'',  'f_args_txt' => '/syslog/settings/searchDestinations',  'f_method_name' => 'ApiGetSyslogSettingsSearchDestinations',  'f_call' => 'CallApiGet',);
+		$def['ApiSetSyslogServiceReconfigure']=array (  'args' => '/syslog/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/syslog/service/reconfigure\'',  'f_args_txt' => '/syslog/service/reconfigure',  'f_method_name' => 'ApiSetSyslogServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetSyslogServiceRestart']=array (  'args' => '/syslog/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/syslog/service/restart\'',  'f_args_txt' => '/syslog/service/restart',  'f_method_name' => 'ApiSetSyslogServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetSyslogServiceStart']=array (  'args' => '/syslog/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/syslog/service/start\'',  'f_args_txt' => '/syslog/service/start',  'f_method_name' => 'ApiSetSyslogServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetSyslogServiceStop']=array (  'args' => '/syslog/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/syslog/service/stop\'',  'f_args_txt' => '/syslog/service/stop',  'f_method_name' => 'ApiSetSyslogServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiSetSyslogSettingsAddDestination']=array (  'args' => '/syslog/settings/addDestination',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/syslog/settings/addDestination\'',  'f_args_txt' => '/syslog/settings/addDestination',  'f_method_name' => 'ApiSetSyslogSettingsAddDestination',  'f_call' => 'CallApiPost',);
+		$def['ApiSetSyslogSettingsDelDestination']=array (  'args' => '/syslog/settings/delDestination',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/syslog/settings/delDestination\'',  'f_args_txt' => '/syslog/settings/delDestination',  'f_method_name' => 'ApiSetSyslogSettingsDelDestination',  'f_call' => 'CallApiPost',);
+		$def['ApiSetSyslogSettingsSet']=array (  'args' => '/syslog/settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/syslog/settings/set\'',  'f_args_txt' => '/syslog/settings/set',  'f_method_name' => 'ApiSetSyslogSettingsSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetSyslogSettingsSetDestination']=array (  'args' => '/syslog/settings/setDestination',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/syslog/settings/setDestination\'',  'f_args_txt' => '/syslog/settings/setDestination',  'f_method_name' => 'ApiSetSyslogSettingsSetDestination',  'f_call' => 'CallApiPost',);
+		$def['ApiSetSyslogSettingsToggleDestination']=array (  'args' => '/syslog/settings/toggleDestination',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/syslog/settings/toggleDestination\'',  'f_args_txt' => '/syslog/settings/toggleDestination',  'f_method_name' => 'ApiSetSyslogSettingsToggleDestination',  'f_call' => 'CallApiPost',);
+		$def['ApiGetTrafficshaperServiceStatistics']=array (  'args' => '/trafficshaper/service/statistics',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/trafficshaper/service/statistics\'',  'f_args_txt' => '/trafficshaper/service/statistics',  'f_method_name' => 'ApiGetTrafficshaperServiceStatistics',  'f_call' => 'CallApiGet',);
+		$def['ApiGetTrafficshaperSettingsGet']=array (  'args' => '/trafficshaper/settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/trafficshaper/settings/get\'',  'f_args_txt' => '/trafficshaper/settings/get',  'f_method_name' => 'ApiGetTrafficshaperSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetTrafficshaperSettingsGetPipe']=array (  'args' => '/trafficshaper/settings/getPipe',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/trafficshaper/settings/getPipe\'',  'f_args_txt' => '/trafficshaper/settings/getPipe',  'f_method_name' => 'ApiGetTrafficshaperSettingsGetPipe',  'f_call' => 'CallApiGet',);
+		$def['ApiGetTrafficshaperSettingsGetQueue']=array (  'args' => '/trafficshaper/settings/getQueue',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/trafficshaper/settings/getQueue\'',  'f_args_txt' => '/trafficshaper/settings/getQueue',  'f_method_name' => 'ApiGetTrafficshaperSettingsGetQueue',  'f_call' => 'CallApiGet',);
+		$def['ApiGetTrafficshaperSettingsGetRule']=array (  'args' => '/trafficshaper/settings/getRule',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/trafficshaper/settings/getRule\'',  'f_args_txt' => '/trafficshaper/settings/getRule',  'f_method_name' => 'ApiGetTrafficshaperSettingsGetRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetTrafficshaperSettingsSearchPipes']=array (  'args' => '/trafficshaper/settings/searchPipes',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/trafficshaper/settings/searchPipes\'',  'f_args_txt' => '/trafficshaper/settings/searchPipes',  'f_method_name' => 'ApiGetTrafficshaperSettingsSearchPipes',  'f_call' => 'CallApiGet',);
+		$def['ApiGetTrafficshaperSettingsSearchQueues']=array (  'args' => '/trafficshaper/settings/searchQueues',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/trafficshaper/settings/searchQueues\'',  'f_args_txt' => '/trafficshaper/settings/searchQueues',  'f_method_name' => 'ApiGetTrafficshaperSettingsSearchQueues',  'f_call' => 'CallApiGet',);
+		$def['ApiGetTrafficshaperSettingsSearchRules']=array (  'args' => '/trafficshaper/settings/searchRules',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/trafficshaper/settings/searchRules\'',  'f_args_txt' => '/trafficshaper/settings/searchRules',  'f_method_name' => 'ApiGetTrafficshaperSettingsSearchRules',  'f_call' => 'CallApiGet',);
+		$def['ApiSetTrafficshaperServiceFlushreload']=array (  'args' => '/trafficshaper/service/flushreload',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/service/flushreload\'',  'f_args_txt' => '/trafficshaper/service/flushreload',  'f_method_name' => 'ApiSetTrafficshaperServiceFlushreload',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperServiceReconfigure']=array (  'args' => '/trafficshaper/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/service/reconfigure\'',  'f_args_txt' => '/trafficshaper/service/reconfigure',  'f_method_name' => 'ApiSetTrafficshaperServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperSettingsAddPipe']=array (  'args' => '/trafficshaper/settings/addPipe',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/settings/addPipe\'',  'f_args_txt' => '/trafficshaper/settings/addPipe',  'f_method_name' => 'ApiSetTrafficshaperSettingsAddPipe',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperSettingsAddQueue']=array (  'args' => '/trafficshaper/settings/addQueue',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/settings/addQueue\'',  'f_args_txt' => '/trafficshaper/settings/addQueue',  'f_method_name' => 'ApiSetTrafficshaperSettingsAddQueue',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperSettingsAddRule']=array (  'args' => '/trafficshaper/settings/addRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/settings/addRule\'',  'f_args_txt' => '/trafficshaper/settings/addRule',  'f_method_name' => 'ApiSetTrafficshaperSettingsAddRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperSettingsDelPipe']=array (  'args' => '/trafficshaper/settings/delPipe',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/settings/delPipe\'',  'f_args_txt' => '/trafficshaper/settings/delPipe',  'f_method_name' => 'ApiSetTrafficshaperSettingsDelPipe',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperSettingsDelQueue']=array (  'args' => '/trafficshaper/settings/delQueue',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/settings/delQueue\'',  'f_args_txt' => '/trafficshaper/settings/delQueue',  'f_method_name' => 'ApiSetTrafficshaperSettingsDelQueue',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperSettingsDelRule']=array (  'args' => '/trafficshaper/settings/delRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/settings/delRule\'',  'f_args_txt' => '/trafficshaper/settings/delRule',  'f_method_name' => 'ApiSetTrafficshaperSettingsDelRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperSettingsSet']=array (  'args' => '/trafficshaper/settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/settings/set\'',  'f_args_txt' => '/trafficshaper/settings/set',  'f_method_name' => 'ApiSetTrafficshaperSettingsSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperSettingsSetPipe']=array (  'args' => '/trafficshaper/settings/setPipe',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/settings/setPipe\'',  'f_args_txt' => '/trafficshaper/settings/setPipe',  'f_method_name' => 'ApiSetTrafficshaperSettingsSetPipe',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperSettingsSetQueue']=array (  'args' => '/trafficshaper/settings/setQueue',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/settings/setQueue\'',  'f_args_txt' => '/trafficshaper/settings/setQueue',  'f_method_name' => 'ApiSetTrafficshaperSettingsSetQueue',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperSettingsSetRule']=array (  'args' => '/trafficshaper/settings/setRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/settings/setRule\'',  'f_args_txt' => '/trafficshaper/settings/setRule',  'f_method_name' => 'ApiSetTrafficshaperSettingsSetRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperSettingsTogglePipe']=array (  'args' => '/trafficshaper/settings/togglePipe',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/settings/togglePipe\'',  'f_args_txt' => '/trafficshaper/settings/togglePipe',  'f_method_name' => 'ApiSetTrafficshaperSettingsTogglePipe',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperSettingsToggleQueue']=array (  'args' => '/trafficshaper/settings/toggleQueue',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/settings/toggleQueue\'',  'f_args_txt' => '/trafficshaper/settings/toggleQueue',  'f_method_name' => 'ApiSetTrafficshaperSettingsToggleQueue',  'f_call' => 'CallApiPost',);
+		$def['ApiSetTrafficshaperSettingsToggleRule']=array (  'args' => '/trafficshaper/settings/toggleRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/trafficshaper/settings/toggleRule\'',  'f_args_txt' => '/trafficshaper/settings/toggleRule',  'f_method_name' => 'ApiSetTrafficshaperSettingsToggleRule',  'f_call' => 'CallApiPost',);
+		$def['ApiGetUnboundDiagnosticsDumpcache']=array (  'args' => '/unbound/diagnostics/dumpcache',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/unbound/diagnostics/dumpcache\'',  'f_args_txt' => '/unbound/diagnostics/dumpcache',  'f_method_name' => 'ApiGetUnboundDiagnosticsDumpcache',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundDiagnosticsDumpinfra']=array (  'args' => '/unbound/diagnostics/dumpinfra',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/unbound/diagnostics/dumpinfra\'',  'f_args_txt' => '/unbound/diagnostics/dumpinfra',  'f_method_name' => 'ApiGetUnboundDiagnosticsDumpinfra',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundDiagnosticsListinsecure']=array (  'args' => '/unbound/diagnostics/listinsecure',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/unbound/diagnostics/listinsecure\'',  'f_args_txt' => '/unbound/diagnostics/listinsecure',  'f_method_name' => 'ApiGetUnboundDiagnosticsListinsecure',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundDiagnosticsListlocaldata']=array (  'args' => '/unbound/diagnostics/listlocaldata',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/unbound/diagnostics/listlocaldata\'',  'f_args_txt' => '/unbound/diagnostics/listlocaldata',  'f_method_name' => 'ApiGetUnboundDiagnosticsListlocaldata',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundDiagnosticsListlocalzones']=array (  'args' => '/unbound/diagnostics/listlocalzones',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/unbound/diagnostics/listlocalzones\'',  'f_args_txt' => '/unbound/diagnostics/listlocalzones',  'f_method_name' => 'ApiGetUnboundDiagnosticsListlocalzones',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundDiagnosticsStats']=array (  'args' => '/unbound/diagnostics/stats',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/unbound/diagnostics/stats\'',  'f_args_txt' => '/unbound/diagnostics/stats',  'f_method_name' => 'ApiGetUnboundDiagnosticsStats',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundOverviewIsBlockListEnabled']=array (  'args' => '/unbound/overview/isBlockListEnabled',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/overview/isBlockListEnabled\'',  'f_args_txt' => '/unbound/overview/isBlockListEnabled',  'f_method_name' => 'ApiGetUnboundOverviewIsBlockListEnabled',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundOverviewIsEnabled']=array (  'args' => '/unbound/overview/isEnabled',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/overview/isEnabled\'',  'f_args_txt' => '/unbound/overview/isEnabled',  'f_method_name' => 'ApiGetUnboundOverviewIsEnabled',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundOverviewSearchQueries']=array (  'args' => '/unbound/overview/searchQueries',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/overview/searchQueries\'',  'f_args_txt' => '/unbound/overview/searchQueries',  'f_method_name' => 'ApiGetUnboundOverviewSearchQueries',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundServiceDnsbl']=array (  'args' => '/unbound/service/dnsbl',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/unbound/service/dnsbl\'',  'f_args_txt' => '/unbound/service/dnsbl',  'f_method_name' => 'ApiGetUnboundServiceDnsbl',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundServiceReconfigureGeneral']=array (  'args' => '/unbound/service/reconfigureGeneral',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/unbound/service/reconfigureGeneral\'',  'f_args_txt' => '/unbound/service/reconfigureGeneral',  'f_method_name' => 'ApiGetUnboundServiceReconfigureGeneral',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundServiceStatus']=array (  'args' => '/unbound/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/service/status\'',  'f_args_txt' => '/unbound/service/status',  'f_method_name' => 'ApiGetUnboundServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundSettingsGet']=array (  'args' => '/unbound/settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/settings/get\'',  'f_args_txt' => '/unbound/settings/get',  'f_method_name' => 'ApiGetUnboundSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundSettingsGetAcl']=array (  'args' => '/unbound/settings/getAcl',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/settings/getAcl\'',  'f_args_txt' => '/unbound/settings/getAcl',  'f_method_name' => 'ApiGetUnboundSettingsGetAcl',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundSettingsGetDomainOverride']=array (  'args' => '/unbound/settings/getDomainOverride',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/settings/getDomainOverride\'',  'f_args_txt' => '/unbound/settings/getDomainOverride',  'f_method_name' => 'ApiGetUnboundSettingsGetDomainOverride',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundSettingsGetForward']=array (  'args' => '/unbound/settings/getForward',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/settings/getForward\'',  'f_args_txt' => '/unbound/settings/getForward',  'f_method_name' => 'ApiGetUnboundSettingsGetForward',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundSettingsGetHostAlias']=array (  'args' => '/unbound/settings/getHostAlias',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/settings/getHostAlias\'',  'f_args_txt' => '/unbound/settings/getHostAlias',  'f_method_name' => 'ApiGetUnboundSettingsGetHostAlias',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundSettingsGetHostOverride']=array (  'args' => '/unbound/settings/getHostOverride',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/settings/getHostOverride\'',  'f_args_txt' => '/unbound/settings/getHostOverride',  'f_method_name' => 'ApiGetUnboundSettingsGetHostOverride',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundSettingsGetNameservers']=array (  'args' => '/unbound/settings/getNameservers',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/settings/getNameservers\'',  'f_args_txt' => '/unbound/settings/getNameservers',  'f_method_name' => 'ApiGetUnboundSettingsGetNameservers',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundSettingsSearchAcl']=array (  'args' => '/unbound/settings/searchAcl',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/settings/searchAcl\'',  'f_args_txt' => '/unbound/settings/searchAcl',  'f_method_name' => 'ApiGetUnboundSettingsSearchAcl',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundSettingsSearchDomainOverride']=array (  'args' => '/unbound/settings/searchDomainOverride',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/settings/searchDomainOverride\'',  'f_args_txt' => '/unbound/settings/searchDomainOverride',  'f_method_name' => 'ApiGetUnboundSettingsSearchDomainOverride',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundSettingsSearchForward']=array (  'args' => '/unbound/settings/searchForward',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/settings/searchForward\'',  'f_args_txt' => '/unbound/settings/searchForward',  'f_method_name' => 'ApiGetUnboundSettingsSearchForward',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundSettingsSearchHostAlias']=array (  'args' => '/unbound/settings/searchHostAlias',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/settings/searchHostAlias\'',  'f_args_txt' => '/unbound/settings/searchHostAlias',  'f_method_name' => 'ApiGetUnboundSettingsSearchHostAlias',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUnboundSettingsSearchHostOverride']=array (  'args' => '/unbound/settings/searchHostOverride',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/unbound/settings/searchHostOverride\'',  'f_args_txt' => '/unbound/settings/searchHostOverride',  'f_method_name' => 'ApiGetUnboundSettingsSearchHostOverride',  'f_call' => 'CallApiGet',);
+		$def['ApiSetUnboundServiceReconfigure']=array (  'args' => '/unbound/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/service/reconfigure\'',  'f_args_txt' => '/unbound/service/reconfigure',  'f_method_name' => 'ApiSetUnboundServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundServiceRestart']=array (  'args' => '/unbound/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/service/restart\'',  'f_args_txt' => '/unbound/service/restart',  'f_method_name' => 'ApiSetUnboundServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundServiceStart']=array (  'args' => '/unbound/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/service/start\'',  'f_args_txt' => '/unbound/service/start',  'f_method_name' => 'ApiSetUnboundServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundServiceStop']=array (  'args' => '/unbound/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/service/stop\'',  'f_args_txt' => '/unbound/service/stop',  'f_method_name' => 'ApiSetUnboundServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsAddAcl']=array (  'args' => '/unbound/settings/addAcl',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/addAcl\'',  'f_args_txt' => '/unbound/settings/addAcl',  'f_method_name' => 'ApiSetUnboundSettingsAddAcl',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsAddDomainOverride']=array (  'args' => '/unbound/settings/addDomainOverride',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/addDomainOverride\'',  'f_args_txt' => '/unbound/settings/addDomainOverride',  'f_method_name' => 'ApiSetUnboundSettingsAddDomainOverride',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsAddForward']=array (  'args' => '/unbound/settings/addForward',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/addForward\'',  'f_args_txt' => '/unbound/settings/addForward',  'f_method_name' => 'ApiSetUnboundSettingsAddForward',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsAddHostAlias']=array (  'args' => '/unbound/settings/addHostAlias',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/addHostAlias\'',  'f_args_txt' => '/unbound/settings/addHostAlias',  'f_method_name' => 'ApiSetUnboundSettingsAddHostAlias',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsAddHostOverride']=array (  'args' => '/unbound/settings/addHostOverride',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/addHostOverride\'',  'f_args_txt' => '/unbound/settings/addHostOverride',  'f_method_name' => 'ApiSetUnboundSettingsAddHostOverride',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsDelAcl']=array (  'args' => '/unbound/settings/delAcl',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/delAcl\'',  'f_args_txt' => '/unbound/settings/delAcl',  'f_method_name' => 'ApiSetUnboundSettingsDelAcl',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsDelDomainOverride']=array (  'args' => '/unbound/settings/delDomainOverride',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/delDomainOverride\'',  'f_args_txt' => '/unbound/settings/delDomainOverride',  'f_method_name' => 'ApiSetUnboundSettingsDelDomainOverride',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsDelForward']=array (  'args' => '/unbound/settings/delForward',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/delForward\'',  'f_args_txt' => '/unbound/settings/delForward',  'f_method_name' => 'ApiSetUnboundSettingsDelForward',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsDelHostAlias']=array (  'args' => '/unbound/settings/delHostAlias',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/delHostAlias\'',  'f_args_txt' => '/unbound/settings/delHostAlias',  'f_method_name' => 'ApiSetUnboundSettingsDelHostAlias',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsDelHostOverride']=array (  'args' => '/unbound/settings/delHostOverride',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/delHostOverride\'',  'f_args_txt' => '/unbound/settings/delHostOverride',  'f_method_name' => 'ApiSetUnboundSettingsDelHostOverride',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsSet']=array (  'args' => '/unbound/settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/set\'',  'f_args_txt' => '/unbound/settings/set',  'f_method_name' => 'ApiSetUnboundSettingsSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsSetAcl']=array (  'args' => '/unbound/settings/setAcl',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/setAcl\'',  'f_args_txt' => '/unbound/settings/setAcl',  'f_method_name' => 'ApiSetUnboundSettingsSetAcl',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsSetDomainOverride']=array (  'args' => '/unbound/settings/setDomainOverride',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/setDomainOverride\'',  'f_args_txt' => '/unbound/settings/setDomainOverride',  'f_method_name' => 'ApiSetUnboundSettingsSetDomainOverride',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsSetForward']=array (  'args' => '/unbound/settings/setForward',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/setForward\'',  'f_args_txt' => '/unbound/settings/setForward',  'f_method_name' => 'ApiSetUnboundSettingsSetForward',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsSetHostAlias']=array (  'args' => '/unbound/settings/setHostAlias',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/setHostAlias\'',  'f_args_txt' => '/unbound/settings/setHostAlias',  'f_method_name' => 'ApiSetUnboundSettingsSetHostAlias',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsSetHostOverride']=array (  'args' => '/unbound/settings/setHostOverride',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/setHostOverride\'',  'f_args_txt' => '/unbound/settings/setHostOverride',  'f_method_name' => 'ApiSetUnboundSettingsSetHostOverride',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsToggleAcl']=array (  'args' => '/unbound/settings/toggleAcl',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/toggleAcl\'',  'f_args_txt' => '/unbound/settings/toggleAcl',  'f_method_name' => 'ApiSetUnboundSettingsToggleAcl',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsToggleDomainOverride']=array (  'args' => '/unbound/settings/toggleDomainOverride',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/toggleDomainOverride\'',  'f_args_txt' => '/unbound/settings/toggleDomainOverride',  'f_method_name' => 'ApiSetUnboundSettingsToggleDomainOverride',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsToggleForward']=array (  'args' => '/unbound/settings/toggleForward',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/toggleForward\'',  'f_args_txt' => '/unbound/settings/toggleForward',  'f_method_name' => 'ApiSetUnboundSettingsToggleForward',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsToggleHostAlias']=array (  'args' => '/unbound/settings/toggleHostAlias',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/toggleHostAlias\'',  'f_args_txt' => '/unbound/settings/toggleHostAlias',  'f_method_name' => 'ApiSetUnboundSettingsToggleHostAlias',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsToggleHostOverride']=array (  'args' => '/unbound/settings/toggleHostOverride',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/toggleHostOverride\'',  'f_args_txt' => '/unbound/settings/toggleHostOverride',  'f_method_name' => 'ApiSetUnboundSettingsToggleHostOverride',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUnboundSettingsUpdateBlocklist']=array (  'args' => '/unbound/settings/updateBlocklist',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/unbound/settings/updateBlocklist\'',  'f_args_txt' => '/unbound/settings/updateBlocklist',  'f_method_name' => 'ApiSetUnboundSettingsUpdateBlocklist',  'f_call' => 'CallApiPost',);
+		$def['ApiGetBindAclGet']=array (  'args' => '/bind/acl/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/acl/get\'',  'f_args_txt' => '/bind/acl/get',  'f_method_name' => 'ApiGetBindAclGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindAclGetAcl']=array (  'args' => '/bind/acl/getAcl',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/acl/getAcl\'',  'f_args_txt' => '/bind/acl/getAcl',  'f_method_name' => 'ApiGetBindAclGetAcl',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindAclSearchAcl']=array (  'args' => '/bind/acl/searchAcl',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/acl/searchAcl\'',  'f_args_txt' => '/bind/acl/searchAcl',  'f_method_name' => 'ApiGetBindAclSearchAcl',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindDnsblGet']=array (  'args' => '/bind/dnsbl/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/dnsbl/get\'',  'f_args_txt' => '/bind/dnsbl/get',  'f_method_name' => 'ApiGetBindDnsblGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindDomainGet']=array (  'args' => '/bind/domain/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/domain/get\'',  'f_args_txt' => '/bind/domain/get',  'f_method_name' => 'ApiGetBindDomainGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindDomainGetDomain']=array (  'args' => '/bind/domain/getDomain',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/domain/getDomain\'',  'f_args_txt' => '/bind/domain/getDomain',  'f_method_name' => 'ApiGetBindDomainGetDomain',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindDomainSearchMasterDomain']=array (  'args' => '/bind/domain/searchMasterDomain',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/domain/searchMasterDomain\'',  'f_args_txt' => '/bind/domain/searchMasterDomain',  'f_method_name' => 'ApiGetBindDomainSearchMasterDomain',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindDomainSearchPrimaryDomain']=array (  'args' => '/bind/domain/searchPrimaryDomain',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/domain/searchPrimaryDomain\'',  'f_args_txt' => '/bind/domain/searchPrimaryDomain',  'f_method_name' => 'ApiGetBindDomainSearchPrimaryDomain',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindDomainSearchSecondaryDomain']=array (  'args' => '/bind/domain/searchSecondaryDomain',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/domain/searchSecondaryDomain\'',  'f_args_txt' => '/bind/domain/searchSecondaryDomain',  'f_method_name' => 'ApiGetBindDomainSearchSecondaryDomain',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindDomainSearchSlaveDomain']=array (  'args' => '/bind/domain/searchSlaveDomain',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/domain/searchSlaveDomain\'',  'f_args_txt' => '/bind/domain/searchSlaveDomain',  'f_method_name' => 'ApiGetBindDomainSearchSlaveDomain',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindGeneralGet']=array (  'args' => '/bind/general/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/general/get\'',  'f_args_txt' => '/bind/general/get',  'f_method_name' => 'ApiGetBindGeneralGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindRecordGet']=array (  'args' => '/bind/record/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/record/get\'',  'f_args_txt' => '/bind/record/get',  'f_method_name' => 'ApiGetBindRecordGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindRecordGetRecord']=array (  'args' => '/bind/record/getRecord',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/record/getRecord\'',  'f_args_txt' => '/bind/record/getRecord',  'f_method_name' => 'ApiGetBindRecordGetRecord',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindRecordSearchRecord']=array (  'args' => '/bind/record/searchRecord',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/record/searchRecord\'',  'f_args_txt' => '/bind/record/searchRecord',  'f_method_name' => 'ApiGetBindRecordSearchRecord',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindServiceDnsbl']=array (  'args' => '/bind/service/dnsbl',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/service/dnsbl\'',  'f_args_txt' => '/bind/service/dnsbl',  'f_method_name' => 'ApiGetBindServiceDnsbl',  'f_call' => 'CallApiGet',);
+		$def['ApiGetBindServiceStatus']=array (  'args' => '/bind/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/bind/service/status\'',  'f_args_txt' => '/bind/service/status',  'f_method_name' => 'ApiGetBindServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiSetBindAclAddAcl']=array (  'args' => '/bind/acl/addAcl',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/acl/addAcl\'',  'f_args_txt' => '/bind/acl/addAcl',  'f_method_name' => 'ApiSetBindAclAddAcl',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindAclDelAcl']=array (  'args' => '/bind/acl/delAcl',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/acl/delAcl\'',  'f_args_txt' => '/bind/acl/delAcl',  'f_method_name' => 'ApiSetBindAclDelAcl',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindAclSet']=array (  'args' => '/bind/acl/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/acl/set\'',  'f_args_txt' => '/bind/acl/set',  'f_method_name' => 'ApiSetBindAclSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindAclSetAcl']=array (  'args' => '/bind/acl/setAcl',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/acl/setAcl\'',  'f_args_txt' => '/bind/acl/setAcl',  'f_method_name' => 'ApiSetBindAclSetAcl',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindAclToggleAcl']=array (  'args' => '/bind/acl/toggleAcl',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/acl/toggleAcl\'',  'f_args_txt' => '/bind/acl/toggleAcl',  'f_method_name' => 'ApiSetBindAclToggleAcl',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindDnsblSet']=array (  'args' => '/bind/dnsbl/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/dnsbl/set\'',  'f_args_txt' => '/bind/dnsbl/set',  'f_method_name' => 'ApiSetBindDnsblSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindDomainAddPrimaryDomain']=array (  'args' => '/bind/domain/addPrimaryDomain',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/domain/addPrimaryDomain\'',  'f_args_txt' => '/bind/domain/addPrimaryDomain',  'f_method_name' => 'ApiSetBindDomainAddPrimaryDomain',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindDomainAddSecondaryDomain']=array (  'args' => '/bind/domain/addSecondaryDomain',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/domain/addSecondaryDomain\'',  'f_args_txt' => '/bind/domain/addSecondaryDomain',  'f_method_name' => 'ApiSetBindDomainAddSecondaryDomain',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindDomainDelDomain']=array (  'args' => '/bind/domain/delDomain',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/domain/delDomain\'',  'f_args_txt' => '/bind/domain/delDomain',  'f_method_name' => 'ApiSetBindDomainDelDomain',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindDomainSet']=array (  'args' => '/bind/domain/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/domain/set\'',  'f_args_txt' => '/bind/domain/set',  'f_method_name' => 'ApiSetBindDomainSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindDomainSetDomain']=array (  'args' => '/bind/domain/setDomain',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/domain/setDomain\'',  'f_args_txt' => '/bind/domain/setDomain',  'f_method_name' => 'ApiSetBindDomainSetDomain',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindDomainToggleDomain']=array (  'args' => '/bind/domain/toggleDomain',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/domain/toggleDomain\'',  'f_args_txt' => '/bind/domain/toggleDomain',  'f_method_name' => 'ApiSetBindDomainToggleDomain',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindGeneralSet']=array (  'args' => '/bind/general/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/general/set\'',  'f_args_txt' => '/bind/general/set',  'f_method_name' => 'ApiSetBindGeneralSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindRecordAddRecord']=array (  'args' => '/bind/record/addRecord',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/record/addRecord\'',  'f_args_txt' => '/bind/record/addRecord',  'f_method_name' => 'ApiSetBindRecordAddRecord',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindRecordDelRecord']=array (  'args' => '/bind/record/delRecord',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/record/delRecord\'',  'f_args_txt' => '/bind/record/delRecord',  'f_method_name' => 'ApiSetBindRecordDelRecord',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindRecordSet']=array (  'args' => '/bind/record/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/record/set\'',  'f_args_txt' => '/bind/record/set',  'f_method_name' => 'ApiSetBindRecordSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindRecordSetRecord']=array (  'args' => '/bind/record/setRecord',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/record/setRecord\'',  'f_args_txt' => '/bind/record/setRecord',  'f_method_name' => 'ApiSetBindRecordSetRecord',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindRecordToggleRecord']=array (  'args' => '/bind/record/toggleRecord',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/record/toggleRecord\'',  'f_args_txt' => '/bind/record/toggleRecord',  'f_method_name' => 'ApiSetBindRecordToggleRecord',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindServiceReconfigure']=array (  'args' => '/bind/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/bind/service/reconfigure\'',  'f_args_txt' => '/bind/service/reconfigure',  'f_method_name' => 'ApiSetBindServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindServiceRestart']=array (  'args' => '/bind/service/restart',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Bind Service Restart',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/bind/service/restart\'',  'f_args_txt' => '/bind/service/restart',  'f_method_name' => 'ApiSetBindServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindServiceStart']=array (  'args' => '/bind/service/start',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Bind Service Start',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/bind/service/start\'',  'f_args_txt' => '/bind/service/start',  'f_method_name' => 'ApiSetBindServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetBindServiceStop']=array (  'args' => '/bind/service/stop',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Bind Service Stop',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/bind/service/stop\'',  'f_args_txt' => '/bind/service/stop',  'f_method_name' => 'ApiSetBindServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiGetDyndnsAccountsGet']=array (  'args' => '/dyndns/accounts/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dyndns/accounts/get\'',  'f_args_txt' => '/dyndns/accounts/get',  'f_method_name' => 'ApiGetDyndnsAccountsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDyndnsAccountsGetItem']=array (  'args' => '/dyndns/accounts/getItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dyndns/accounts/getItem\'',  'f_args_txt' => '/dyndns/accounts/getItem',  'f_method_name' => 'ApiGetDyndnsAccountsGetItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDyndnsAccountsSearchItem']=array (  'args' => '/dyndns/accounts/searchItem',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dyndns/accounts/searchItem\'',  'f_args_txt' => '/dyndns/accounts/searchItem',  'f_method_name' => 'ApiGetDyndnsAccountsSearchItem',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDyndnsServiceStatus']=array (  'args' => '/dyndns/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dyndns/service/status\'',  'f_args_txt' => '/dyndns/service/status',  'f_method_name' => 'ApiGetDyndnsServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDyndnsSettingsGet']=array (  'args' => '/dyndns/settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dyndns/settings/get\'',  'f_args_txt' => '/dyndns/settings/get',  'f_method_name' => 'ApiGetDyndnsSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiSetDyndnsAccountsAddItem']=array (  'args' => '/dyndns/accounts/addItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dyndns/accounts/addItem\'',  'f_args_txt' => '/dyndns/accounts/addItem',  'f_method_name' => 'ApiSetDyndnsAccountsAddItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDyndnsAccountsDelItem']=array (  'args' => '/dyndns/accounts/delItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dyndns/accounts/delItem\'',  'f_args_txt' => '/dyndns/accounts/delItem',  'f_method_name' => 'ApiSetDyndnsAccountsDelItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDyndnsAccountsSet']=array (  'args' => '/dyndns/accounts/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dyndns/accounts/set\'',  'f_args_txt' => '/dyndns/accounts/set',  'f_method_name' => 'ApiSetDyndnsAccountsSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDyndnsAccountsSetItem']=array (  'args' => '/dyndns/accounts/setItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dyndns/accounts/setItem\'',  'f_args_txt' => '/dyndns/accounts/setItem',  'f_method_name' => 'ApiSetDyndnsAccountsSetItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDyndnsAccountsToggleItem']=array (  'args' => '/dyndns/accounts/toggleItem',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dyndns/accounts/toggleItem\'',  'f_args_txt' => '/dyndns/accounts/toggleItem',  'f_method_name' => 'ApiSetDyndnsAccountsToggleItem',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDyndnsServiceReconfigure']=array (  'args' => '/dyndns/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dyndns/service/reconfigure\'',  'f_args_txt' => '/dyndns/service/reconfigure',  'f_method_name' => 'ApiSetDyndnsServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDyndnsServiceRestart']=array (  'args' => '/dyndns/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dyndns/service/restart\'',  'f_args_txt' => '/dyndns/service/restart',  'f_method_name' => 'ApiSetDyndnsServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDyndnsServiceStart']=array (  'args' => '/dyndns/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dyndns/service/start\'',  'f_args_txt' => '/dyndns/service/start',  'f_method_name' => 'ApiSetDyndnsServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDyndnsServiceStop']=array (  'args' => '/dyndns/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dyndns/service/stop\'',  'f_args_txt' => '/dyndns/service/stop',  'f_method_name' => 'ApiSetDyndnsServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDyndnsSettingsSet']=array (  'args' => '/dyndns/settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dyndns/settings/set\'',  'f_args_txt' => '/dyndns/settings/set',  'f_method_name' => 'ApiSetDyndnsSettingsSet',  'f_call' => 'CallApiPost',);
+		$def['ApiGetFirewallFilterBaseGet']=array (  'args' => '/firewall/filter_base/get',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/filter_base/get\'',  'f_args_txt' => '/firewall/filter_base/get',  'f_method_name' => 'ApiGetFirewallFilterBaseGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallFilterGetRule']=array (  'args' => '/firewall/filter/getRule',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/filter/getRule\'',  'f_args_txt' => '/firewall/filter/getRule',  'f_method_name' => 'ApiGetFirewallFilterGetRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallFilterSearchRule']=array (  'args' => '/firewall/filter/searchRule',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/filter/searchRule\'',  'f_args_txt' => '/firewall/filter/searchRule',  'f_method_name' => 'ApiGetFirewallFilterSearchRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallSourceNatGetRule']=array (  'args' => '/firewall/source_nat/getRule',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/source_nat/getRule\'',  'f_args_txt' => '/firewall/source_nat/getRule',  'f_method_name' => 'ApiGetFirewallSourceNatGetRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallSourceNatSearchRule']=array (  'args' => '/firewall/source_nat/searchRule',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/source_nat/searchRule\'',  'f_args_txt' => '/firewall/source_nat/searchRule',  'f_method_name' => 'ApiGetFirewallSourceNatSearchRule',  'f_call' => 'CallApiGet',);
+		$def['ApiSetFirewallFilterBaseApply']=array (  'args' => '/firewall/filter_base/apply',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'rollback_revision' => 'null',    ),    'parameters' => '$params=array(		\'rollback_revision\'	=> $rollback_revision,	);',    'arguments' => '$rollback_revision="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/filter_base/apply\'',  'f_args_txt' => '/firewall/filter_base/apply',  'f_method_name' => 'ApiSetFirewallFilterBaseApply',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallFilterBaseCancelRollback']=array (  'args' => '/firewall/filter_base/cancelRollback',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'rollback_revision' => '!',    ),    'parameters' => '$params=array(		\'rollback_revision\'	=> $rollback_revision,	);',    'arguments' => '$rollback_revision',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/filter_base/cancelRollback\'',  'f_args_txt' => '/firewall/filter_base/cancelRollback',  'f_method_name' => 'ApiSetFirewallFilterBaseCancelRollback',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallFilterBaseRevert']=array (  'args' => '/firewall/filter_base/revert',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'revision' => '!',    ),    'parameters' => '$params=array(		\'revision\'	=> $revision,	);',    'arguments' => '$revision',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/filter_base/revert\'',  'f_args_txt' => '/firewall/filter_base/revert',  'f_method_name' => 'ApiSetFirewallFilterBaseRevert',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallFilterBaseSavepoint']=array (  'args' => '/firewall/filter_base/savepoint',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/filter_base/savepoint\'',  'f_args_txt' => '/firewall/filter_base/savepoint',  'f_method_name' => 'ApiSetFirewallFilterBaseSavepoint',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallFilterBaseSet']=array (  'args' => '/firewall/filter_base/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/filter_base/set\'',  'f_args_txt' => '/firewall/filter_base/set',  'f_method_name' => 'ApiSetFirewallFilterBaseSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallFilterAddRule']=array (  'args' => '/firewall/filter/addRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/filter/addRule\'',  'f_args_txt' => '/firewall/filter/addRule',  'f_method_name' => 'ApiSetFirewallFilterAddRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallFilterDelRule']=array (  'args' => '/firewall/filter/delRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/filter/delRule\'',  'f_args_txt' => '/firewall/filter/delRule',  'f_method_name' => 'ApiSetFirewallFilterDelRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallFilterSetRule']=array (  'args' => '/firewall/filter/setRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/filter/setRule\'',  'f_args_txt' => '/firewall/filter/setRule',  'f_method_name' => 'ApiSetFirewallFilterSetRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallFilterToggleRule']=array (  'args' => '/firewall/filter/toggleRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/filter/toggleRule\'',  'f_args_txt' => '/firewall/filter/toggleRule',  'f_method_name' => 'ApiSetFirewallFilterToggleRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallSourceNatAddRule']=array (  'args' => '/firewall/source_nat/addRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/source_nat/addRule\'',  'f_args_txt' => '/firewall/source_nat/addRule',  'f_method_name' => 'ApiSetFirewallSourceNatAddRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallSourceNatDelRule']=array (  'args' => '/firewall/source_nat/delRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/source_nat/delRule\'',  'f_args_txt' => '/firewall/source_nat/delRule',  'f_method_name' => 'ApiSetFirewallSourceNatDelRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallSourceNatSetRule']=array (  'args' => '/firewall/source_nat/setRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/source_nat/setRule\'',  'f_args_txt' => '/firewall/source_nat/setRule',  'f_method_name' => 'ApiSetFirewallSourceNatSetRule',  'f_call' => 'CallApiPost',);
+		$def['ApiSetFirewallSourceNatToggleRule']=array (  'args' => '/firewall/source_nat/toggleRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/source_nat/toggleRule\'',  'f_args_txt' => '/firewall/source_nat/toggleRule',  'f_method_name' => 'ApiSetFirewallSourceNatToggleRule',  'f_call' => 'CallApiPost',);
+		$def['ApiGetIperfInstanceGet']=array (  'args' => '/iperf/instance/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/iperf/instance/get\'',  'f_args_txt' => '/iperf/instance/get',  'f_method_name' => 'ApiGetIperfInstanceGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIperfInstanceQuery']=array (  'args' => '/iperf/instance/query',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/iperf/instance/query\'',  'f_args_txt' => '/iperf/instance/query',  'f_method_name' => 'ApiGetIperfInstanceQuery',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIperfServiceStatus']=array (  'args' => '/iperf/service/status',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Iperf Service Status',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/iperf/service/status\'',  'f_args_txt' => '/iperf/service/status',  'f_method_name' => 'ApiGetIperfServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiSetIperfInstanceSet']=array (  'args' => '/iperf/instance/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/iperf/instance/set\'',  'f_args_txt' => '/iperf/instance/set',  'f_method_name' => 'ApiSetIperfInstanceSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIperfServiceRestart']=array (  'args' => '/iperf/service/restart',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Iperf Service Restart',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/iperf/service/restart\'',  'f_args_txt' => '/iperf/service/restart',  'f_method_name' => 'ApiSetIperfServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIperfServiceStart']=array (  'args' => '/iperf/service/start',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Iperf Service Start',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/iperf/service/start\'',  'f_args_txt' => '/iperf/service/start',  'f_method_name' => 'ApiSetIperfServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetIperfServiceStop']=array (  'args' => '/iperf/service/stop',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Iperf Service Stop',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/iperf/service/stop\'',  'f_args_txt' => '/iperf/service/stop',  'f_method_name' => 'ApiSetIperfServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiGetMuninnodeGeneralGet']=array (  'args' => '/muninnode/general/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/muninnode/general/get\'',  'f_args_txt' => '/muninnode/general/get',  'f_method_name' => 'ApiGetMuninnodeGeneralGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMuninnodeServiceStatus']=array (  'args' => '/muninnode/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/muninnode/service/status\'',  'f_args_txt' => '/muninnode/service/status',  'f_method_name' => 'ApiGetMuninnodeServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiSetMuninnodeGeneralSet']=array (  'args' => '/muninnode/general/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/muninnode/general/set\'',  'f_args_txt' => '/muninnode/general/set',  'f_method_name' => 'ApiSetMuninnodeGeneralSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMuninnodeServiceReconfigure']=array (  'args' => '/muninnode/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/muninnode/service/reconfigure\'',  'f_args_txt' => '/muninnode/service/reconfigure',  'f_method_name' => 'ApiSetMuninnodeServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMuninnodeServiceRestart']=array (  'args' => '/muninnode/service/restart',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Munin-node Service Restart',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/muninnode/service/restart\'',  'f_args_txt' => '/muninnode/service/restart',  'f_method_name' => 'ApiSetMuninnodeServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMuninnodeServiceStart']=array (  'args' => '/muninnode/service/start',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Munin-node Service Start',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/muninnode/service/start\'',  'f_args_txt' => '/muninnode/service/start',  'f_method_name' => 'ApiSetMuninnodeServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetMuninnodeServiceStop']=array (  'args' => '/muninnode/service/stop',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Munin-node Service Stop',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/muninnode/service/stop\'',  'f_args_txt' => '/muninnode/service/stop',  'f_method_name' => 'ApiSetMuninnodeServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiGetNetdataGeneralGet']=array (  'args' => '/netdata/general/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/netdata/general/get\'',  'f_args_txt' => '/netdata/general/get',  'f_method_name' => 'ApiGetNetdataGeneralGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNetdataServiceStatus']=array (  'args' => '/netdata/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/netdata/service/status\'',  'f_args_txt' => '/netdata/service/status',  'f_method_name' => 'ApiGetNetdataServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiSetNetdataGeneralSet']=array (  'args' => '/netdata/general/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/netdata/general/set\'',  'f_args_txt' => '/netdata/general/set',  'f_method_name' => 'ApiSetNetdataGeneralSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetNetdataServiceReconfigure']=array (  'args' => '/netdata/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/netdata/service/reconfigure\'',  'f_args_txt' => '/netdata/service/reconfigure',  'f_method_name' => 'ApiSetNetdataServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetNetdataServiceRestart']=array (  'args' => '/netdata/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/netdata/service/restart\'',  'f_args_txt' => '/netdata/service/restart',  'f_method_name' => 'ApiSetNetdataServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetNetdataServiceStart']=array (  'args' => '/netdata/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/netdata/service/start\'',  'f_args_txt' => '/netdata/service/start',  'f_method_name' => 'ApiSetNetdataServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetNetdataServiceStop']=array (  'args' => '/netdata/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/netdata/service/stop\'',  'f_args_txt' => '/netdata/service/stop',  'f_method_name' => 'ApiSetNetdataServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiGetNtopngGeneralGet']=array (  'args' => '/ntopng/general/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ntopng/general/get\'',  'f_args_txt' => '/ntopng/general/get',  'f_method_name' => 'ApiGetNtopngGeneralGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNtopngServiceCheckredis']=array (  'args' => '/ntopng/service/checkredis',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/ntopng/service/checkredis\'',  'f_args_txt' => '/ntopng/service/checkredis',  'f_method_name' => 'ApiGetNtopngServiceCheckredis',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNtopngServiceStatus']=array (  'args' => '/ntopng/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/ntopng/service/status\'',  'f_args_txt' => '/ntopng/service/status',  'f_method_name' => 'ApiGetNtopngServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiSetNtopngGeneralSet']=array (  'args' => '/ntopng/general/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ntopng/general/set\'',  'f_args_txt' => '/ntopng/general/set',  'f_method_name' => 'ApiSetNtopngGeneralSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetNtopngServiceReconfigure']=array (  'args' => '/ntopng/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ntopng/service/reconfigure\'',  'f_args_txt' => '/ntopng/service/reconfigure',  'f_method_name' => 'ApiSetNtopngServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetNtopngServiceRestart']=array (  'args' => '/ntopng/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ntopng/service/restart\'',  'f_args_txt' => '/ntopng/service/restart',  'f_method_name' => 'ApiSetNtopngServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetNtopngServiceStart']=array (  'args' => '/ntopng/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ntopng/service/start\'',  'f_args_txt' => '/ntopng/service/start',  'f_method_name' => 'ApiSetNtopngServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetNtopngServiceStop']=array (  'args' => '/ntopng/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/ntopng/service/stop\'',  'f_args_txt' => '/ntopng/service/stop',  'f_method_name' => 'ApiSetNtopngServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiGetRedisServiceStatus']=array (  'args' => '/redis/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/redis/service/status\'',  'f_args_txt' => '/redis/service/status',  'f_method_name' => 'ApiGetRedisServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetRedisSettingsGet']=array (  'args' => '/redis/settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/redis/settings/get\'',  'f_args_txt' => '/redis/settings/get',  'f_method_name' => 'ApiGetRedisSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiSetRedisServiceReconfigure']=array (  'args' => '/redis/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/redis/service/reconfigure\'',  'f_args_txt' => '/redis/service/reconfigure',  'f_method_name' => 'ApiSetRedisServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetRedisServiceRestart']=array (  'args' => '/redis/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/redis/service/restart\'',  'f_args_txt' => '/redis/service/restart',  'f_method_name' => 'ApiSetRedisServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetRedisServiceStart']=array (  'args' => '/redis/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/redis/service/start\'',  'f_args_txt' => '/redis/service/start',  'f_method_name' => 'ApiSetRedisServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetRedisServiceStop']=array (  'args' => '/redis/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/redis/service/stop\'',  'f_args_txt' => '/redis/service/stop',  'f_method_name' => 'ApiSetRedisServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiSetRedisSettingsSet']=array (  'args' => '/redis/settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/redis/settings/set\'',  'f_args_txt' => '/redis/settings/set',  'f_method_name' => 'ApiSetRedisSettingsSet',  'f_call' => 'CallApiPost',);
+		$def['ApiGetVnstatGeneralGet']=array (  'args' => '/vnstat/general/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/vnstat/general/get\'',  'f_args_txt' => '/vnstat/general/get',  'f_method_name' => 'ApiGetVnstatGeneralGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetVnstatServiceDaily']=array (  'args' => '/vnstat/service/daily',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/vnstat/service/daily\'',  'f_args_txt' => '/vnstat/service/daily',  'f_method_name' => 'ApiGetVnstatServiceDaily',  'f_call' => 'CallApiGet',);
+		$def['ApiGetVnstatServiceHourly']=array (  'args' => '/vnstat/service/hourly',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/vnstat/service/hourly\'',  'f_args_txt' => '/vnstat/service/hourly',  'f_method_name' => 'ApiGetVnstatServiceHourly',  'f_call' => 'CallApiGet',);
+		$def['ApiGetVnstatServiceMonthly']=array (  'args' => '/vnstat/service/monthly',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/vnstat/service/monthly\'',  'f_args_txt' => '/vnstat/service/monthly',  'f_method_name' => 'ApiGetVnstatServiceMonthly',  'f_call' => 'CallApiGet',);
+		$def['ApiGetVnstatServiceStatus']=array (  'args' => '/vnstat/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/vnstat/service/status\'',  'f_args_txt' => '/vnstat/service/status',  'f_method_name' => 'ApiGetVnstatServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetVnstatServiceYearly']=array (  'args' => '/vnstat/service/yearly',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/vnstat/service/yearly\'',  'f_args_txt' => '/vnstat/service/yearly',  'f_method_name' => 'ApiGetVnstatServiceYearly',  'f_call' => 'CallApiGet',);
+		$def['ApiSetVnstatGeneralSet']=array (  'args' => '/vnstat/general/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/vnstat/general/set\'',  'f_args_txt' => '/vnstat/general/set',  'f_method_name' => 'ApiSetVnstatGeneralSet',  'f_call' => 'CallApiPost',);
+		$def['ApiSetVnstatServiceReconfigure']=array (  'args' => '/vnstat/service/reconfigure',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/vnstat/service/reconfigure\'',  'f_args_txt' => '/vnstat/service/reconfigure',  'f_method_name' => 'ApiSetVnstatServiceReconfigure',  'f_call' => 'CallApiPost',);
+		$def['ApiSetVnstatServiceRestart']=array (  'args' => '/vnstat/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/vnstat/service/restart\'',  'f_args_txt' => '/vnstat/service/restart',  'f_method_name' => 'ApiSetVnstatServiceRestart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetVnstatServiceStart']=array (  'args' => '/vnstat/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/vnstat/service/start\'',  'f_args_txt' => '/vnstat/service/start',  'f_method_name' => 'ApiSetVnstatServiceStart',  'f_call' => 'CallApiPost',);
+		$def['ApiSetVnstatServiceStop']=array (  'args' => '/vnstat/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/vnstat/service/stop\'',  'f_args_txt' => '/vnstat/service/stop',  'f_method_name' => 'ApiSetVnstatServiceStop',  'f_call' => 'CallApiPost',);
 	
 		return $def;
 	}
