@@ -533,9 +533,25 @@ public function {method}({arguments}){
 		isset($pref['regex'][0]) or $pref['regex'][0]=null ;
 		isset($pref['regex'][1]) or $pref['regex'][1]=null ;
 
+//make sure array_combine has the name number of keys
+		$col_keys=['args','state','type','call_index','params','desc','return'];
+		$c_keys=count($col_keys);
+		$c_cols=count($def_array);
+		$diff=$c_cols - $c_keys;
+		if($diff){
+			for ($i=0 ; $i < abs($diff) ; $i++) {
+				if($diff > 0){
+					$col_keys[]='';
+				}
+				else{
+					$def_array[]='';
+				}
+			}
+		}
+		$out=array_combine($col_keys,$def_array);
 
-		$out=array_combine(['args','state','type','call_index','params','desc'],$def_array);
 		$out['params']=$this->_FormatParams($out['params']);
+
 		// makes states ----------------
 		$out['f_state_name']=$this->states[$out['state']][0];
 		$out['f_state_desc']=$this->states[$out['state']][1];
@@ -736,17 +752,16 @@ public function {method}({arguments}){
 				$block=$this->_replaceVar('state',			$def['state'],					$block);
 
 				//@return
-				$doc_arr=array();
-				$doc_str=implode("\n* ",$doc_arr) and $doc_str.="\n";
-				$block=$this->_replaceVar('return',		'@return Array['.$doc_str.']',		$block);
-				
-				/*
-				//@todo
-				$doc_arr=array_keys($this->_indexArrayByFirst($pref['tests'])) or $doc_arr=array();
-				$doc_str=implode("',' ",$doc_arr) and $doc_str="@todo Successfully tested on: Array[ '$doc_str' ]";
-				$block=$this->_replaceVar('todo',		$doc_str,		$block);
-				*/
-				
+				//$doc_arr=array();
+				//$doc_str=implode("\n* ",$doc_arr) and $doc_str.="\n";
+				$ret="@return Array[] | false (when empty, or when failed)";
+				if(isset($def['return'])){
+					if($def['return']=='bool'){
+						$ret="@return boolean";
+					}
+				}
+				$block=$this->_replaceVar('return',		$ret,		$block);
+								
 				// makes E_NOTICE happy
 				isset($built[$def['type']]) 				or $built[$def['type']]=array();
 				isset($built[$def['type']][$def['state']])	or $built[$def['type']][$def['state']]=array();
