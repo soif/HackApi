@@ -22,7 +22,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Privacy Policy
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetAppPrivacypolicy(){
 		$this->DebugLogMethod();
@@ -37,7 +37,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Hardware MAC Address
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetCradleFactoryMac(){
 		$this->DebugLogMethod();
@@ -52,7 +52,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* MAC Adresses
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetCradleMacInfo(){
 		$this->DebugLogMethod();
@@ -67,7 +67,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Antennas Types
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDeviceAntennaType(){
 		$this->DebugLogMethod();
@@ -82,7 +82,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Device (Basic) Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDeviceBasicInformation(){
 		$this->DebugLogMethod();
@@ -97,7 +97,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Device Features
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDeviceDeviceFeatureSwitch(){
 		$this->DebugLogMethod();
@@ -112,7 +112,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Device (Full) Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDeviceInformation(){
 		$this->DebugLogMethod();
@@ -127,7 +127,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Cellular Signal Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDeviceSignal(){
 		$this->DebugLogMethod();
@@ -142,7 +142,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* DHCP Features
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDhcpFeatureSwitch(){
 		$this->DebugLogMethod();
@@ -157,7 +157,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* DHCP Settings
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDhcpSettings(){
 		$this->DebugLogMethod();
@@ -172,7 +172,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* WAN Service Name
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDiagnosisGetWanServiceName(){
 		$this->DebugLogMethod();
@@ -187,7 +187,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Dialup Connection Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDialupConnection(){
 		$this->DebugLogMethod();
@@ -202,7 +202,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Dialup Features
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDialupDialupFeatureSwitch(){
 		$this->DebugLogMethod();
@@ -217,7 +217,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Cellular Connection Profiles
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDialupProfiles(){
 		$this->DebugLogMethod();
@@ -232,7 +232,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Logs
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetLogLoginfo(){
 		$this->DebugLogMethod();
@@ -247,7 +247,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Notifications
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetMonitoringCheckNotifications(){
 		$this->DebugLogMethod();
@@ -262,7 +262,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* SIM states & current language
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetMonitoringConvergedStatus(){
 		$this->DebugLogMethod();
@@ -277,7 +277,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Month Statistics
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetMonitoringMonthStatistics(){
 		$this->DebugLogMethod();
@@ -292,7 +292,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Statistic Features
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetMonitoringStatisticFeatureSwitch(){
 		$this->DebugLogMethod();
@@ -307,7 +307,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Gerenal (Wan,Wifi,Cellular) Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetMonitoringStatus(){
 		$this->DebugLogMethod();
@@ -322,7 +322,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Traffic Statistics
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetMonitoringTrafficStatistics(){
 		$this->DebugLogMethod();
@@ -337,7 +337,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Cellular Cell Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNetCellInfo(){
 		$this->DebugLogMethod();
@@ -352,7 +352,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Current Cellular Provider Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNetCurrentPlmn(){
 		$this->DebugLogMethod();
@@ -367,7 +367,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Network Features Switches
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNetNetFeatureSwitch(){
 		$this->DebugLogMethod();
@@ -382,7 +382,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Online Auto Update Configuration
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetOnlineUpdateAutoupdateConfig(){
 		$this->DebugLogMethod();
@@ -397,7 +397,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Online Update Configuration
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetOnlineUpdateConfiguration(){
 		$this->DebugLogMethod();
@@ -412,7 +412,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Online Update Status
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetOnlineUpdateStatus(){
 		$this->DebugLogMethod();
@@ -427,7 +427,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* SIM Pin Lock Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetPinSimlock(){
 		$this->DebugLogMethod();
@@ -442,7 +442,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* SIM Pin Status
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetPinStatus(){
 		$this->DebugLogMethod();
@@ -457,7 +457,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* DMZ Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSecurityDmz(){
 		$this->DebugLogMethod();
@@ -472,7 +472,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Security Features Switches
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSecurityFeatureSwitch(){
 		$this->DebugLogMethod();
@@ -487,7 +487,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Firewall Features Switches
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSecurityFirewallSwitch(){
 		$this->DebugLogMethod();
@@ -502,7 +502,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* SIP Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSecuritySip(){
 		$this->DebugLogMethod();
@@ -517,7 +517,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Upnp Status
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSecurityUpnp(){
 		$this->DebugLogMethod();
@@ -532,7 +532,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Url Filters
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSecurityUrlFilter(){
 		$this->DebugLogMethod();
@@ -547,7 +547,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Virtual Servers
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSecurityVirtualServers(){
 		$this->DebugLogMethod();
@@ -562,7 +562,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* White LAN Ip Filter
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSecurityWhiteLanIpFilter(){
 		$this->DebugLogMethod();
@@ -577,7 +577,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* White Url Filter
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSecurityWhiteUrlFilter(){
 		$this->DebugLogMethod();
@@ -592,7 +592,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* SMS Configuration
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSmsConfig(){
 		$this->DebugLogMethod();
@@ -607,7 +607,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* SMS Contacts Count
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSmsSmsCountContact(){
 		$this->DebugLogMethod();
@@ -622,7 +622,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* SMS Counts
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSmsSmsCount(){
 		$this->DebugLogMethod();
@@ -637,7 +637,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* SMS Features
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSmsSmsFeatureSwitch(){
 		$this->DebugLogMethod();
@@ -652,7 +652,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* SNTP Servers list
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSntpServerinfo(){
 		$this->DebugLogMethod();
@@ -667,7 +667,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* SNTP switch
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSntpSntpswitch(){
 		$this->DebugLogMethod();
@@ -682,7 +682,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* SNTP Time Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSntpTimeinfo(){
 		$this->DebugLogMethod();
@@ -697,7 +697,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ARP Hosts Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSystemHostInfo(){
 		$this->DebugLogMethod();
@@ -712,7 +712,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Device and Sytem Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSystemOnlinestate(){
 		$this->DebugLogMethod();
@@ -727,7 +727,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Login Timeout (min)
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetTimeTimeout(){
 		$this->DebugLogMethod();
@@ -742,7 +742,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Time Rules
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetTimeruleTimerule(){
 		$this->DebugLogMethod();
@@ -757,7 +757,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Hilink Login
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetUserHilinkLogin(){
 		$this->DebugLogMethod();
@@ -772,7 +772,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* User Rules
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetUserRule(){
 		$this->DebugLogMethod();
@@ -787,7 +787,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Login State
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetUserStateLogin(){
 		$this->DebugLogMethod();
@@ -802,7 +802,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Web Features Switches
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetUserWebFeatureSwitch(){
 		$this->DebugLogMethod();
@@ -817,7 +817,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* VPN Features Switches
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetVpnFeatureSwitch(){
 		$this->DebugLogMethod();
@@ -832,7 +832,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* VPN L2tp Settings
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetVpnL2tpSettings(){
 		$this->DebugLogMethod();
@@ -847,7 +847,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* VPN PPTP Settings
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetVpnPptpSettings(){
 		$this->DebugLogMethod();
@@ -862,7 +862,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Webserver Token
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetWebserverToken(){
 		$this->DebugLogMethod();
@@ -877,7 +877,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Wifi Guest Time Settings
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetWlanGuesttimeSetting(){
 		$this->DebugLogMethod();
@@ -892,7 +892,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Wifi Settings
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetWlanMultiBasicSettings(){
 		$this->DebugLogMethod();
@@ -907,7 +907,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Wifi MAC filter settings (Ex?)
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetWlanMultiMacfilterSettingsEx(){
 		$this->DebugLogMethod();
@@ -922,7 +922,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Wifi Switch Settings
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetWlanStatusSwitchSettings(){
 		$this->DebugLogMethod();
@@ -937,7 +937,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Wifi Features Switches
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetWlanWifiFeatureSwitch(){
 		$this->DebugLogMethod();
@@ -952,7 +952,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Device Configuration
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDeviceConfigXml(){
 		$this->DebugLogMethod();
@@ -967,7 +967,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Device Information Switches
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDeviceinformationConfigXml(){
 		$this->DebugLogMethod();
@@ -982,7 +982,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Dialup Information Switches
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDialupConfigXml(){
 		$this->DebugLogMethod();
@@ -997,7 +997,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Dialup Connect Mode
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDialupConnectmodeXml(){
 		$this->DebugLogMethod();
@@ -1012,7 +1012,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Global Configuration
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetGlobalConfigXml(){
 		$this->DebugLogMethod();
@@ -1027,7 +1027,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Languages list
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetGlobalLanguagelistXml(){
 		$this->DebugLogMethod();
@@ -1042,7 +1042,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Network Types?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetGlobalNetTypeXml(){
 		$this->DebugLogMethod();
@@ -1057,7 +1057,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* LAN Configuration
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetLanConfigXml(){
 		$this->DebugLogMethod();
@@ -1072,7 +1072,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* PIN code Configuration
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetPincodeConfigXml(){
 		$this->DebugLogMethod();
@@ -1087,7 +1087,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Web UI Configuration
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetWebuicfgConfigXml(){
 		$this->DebugLogMethod();
@@ -1108,7 +1108,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* WAN Network Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetCradleBasicInfo(){
 		$this->DebugLogMethod();
@@ -1123,7 +1123,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* WAN Network Information 2
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetCradleStatusInfo(){
 		$this->DebugLogMethod();
@@ -1138,7 +1138,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* DynDNS Information
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDdnsDdnsList(){
 		$this->DebugLogMethod();
@@ -1153,7 +1153,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* DynDNS Servers
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDdnsServerlist(){
 		$this->DebugLogMethod();
@@ -1168,7 +1168,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* DynDNS Status
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDdnsStatus(){
 		$this->DebugLogMethod();
@@ -1183,7 +1183,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* DHCP (Static?) Leases
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDhcpStaticAddrInfo(){
 		$this->DebugLogMethod();
@@ -1198,7 +1198,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* WatchDog ?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDiagnosisTimeReboot(){
 		$this->DebugLogMethod();
@@ -1213,7 +1213,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Cellular Data Switch
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDialupMobileDataswitch(){
 		$this->DebugLogMethod();
@@ -1228,7 +1228,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Global Modules Switches ?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetGlobalModuleSwitch(){
 		$this->DebugLogMethod();
@@ -1243,7 +1243,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Leds Information ?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetLedAppctrlled(){
 		$this->DebugLogMethod();
@@ -1258,7 +1258,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Start Date ?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetMonitoringStartDate(){
 		$this->DebugLogMethod();
@@ -1273,7 +1273,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Csps State?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNetCspsState(){
 		$this->DebugLogMethod();
@@ -1288,7 +1288,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Cellulars Bands ?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNetNetModeList(){
 		$this->DebugLogMethod();
@@ -1303,7 +1303,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNetNetMode(){
 		$this->DebugLogMethod();
@@ -1318,7 +1318,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNetNetwork(){
 		$this->DebugLogMethod();
@@ -1333,7 +1333,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNetRegister(){
 		$this->DebugLogMethod();
@@ -1348,7 +1348,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* UPNP Ports?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNtwkLanUpnpPortmapping(){
 		$this->DebugLogMethod();
@@ -1363,7 +1363,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* SIM Pin Save?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetPinSavePin(){
 		$this->DebugLogMethod();
@@ -1378,7 +1378,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* LAN Ip Filters?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSecurityLanIpFilter(){
 		$this->DebugLogMethod();
@@ -1393,7 +1393,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* NAT Features ?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSecurityNat(){
 		$this->DebugLogMethod();
@@ -1408,7 +1408,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Ports Information?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSecuritySpecialApplications(){
 		$this->DebugLogMethod();
@@ -1430,7 +1430,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* @param string $Ascending	Sort Type : either: Descending | Ascending
 	* @param string $UnreadPreferred	??? : either: ? | ?
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSmsSmsList($PageIndex="1", $ReadCount="20", $BoxType="1", $SortType="0", $Ascending="0", $UnreadPreferred="0"){
 		$this->DebugLogMethod();
@@ -1453,7 +1453,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* SMS Split Info?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSmsSplitinfoSms(){
 		$this->DebugLogMethod();
@@ -1468,7 +1468,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Device Information (Ex?)
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSystemDeviceinfoex(){
 		$this->DebugLogMethod();
@@ -1483,7 +1483,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* User Pwd ?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetUserPwd(){
 		$this->DebugLogMethod();
@@ -1498,7 +1498,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Wifi Hosts List
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetWlanHostList(){
 		$this->DebugLogMethod();
@@ -1513,7 +1513,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Wifi dbho?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetWlanWlandbho(){
 		$this->DebugLogMethod();
@@ -1528,7 +1528,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Network Net Modes?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNetworkNetModeXml(){
 		$this->DebugLogMethod();
@@ -1543,7 +1543,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* Net Modes?
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNetworkNetworkmodeXml(){
 		$this->DebugLogMethod();
@@ -1562,7 +1562,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ApiGetCradleFeatureSwitch
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetCradleFeatureSwitch(){
 		$this->DebugLogMethod();
@@ -1575,7 +1575,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ApiGetDeviceUsbTetheringSwitch
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDeviceUsbTetheringSwitch(){
 		$this->DebugLogMethod();
@@ -1588,7 +1588,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ApiGetDeviceVendorname
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDeviceVendorname(){
 		$this->DebugLogMethod();
@@ -1601,7 +1601,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ApiGetDialupMultiWanProfiles
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetDialupMultiWanProfiles(){
 		$this->DebugLogMethod();
@@ -1614,7 +1614,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ApiGetMonitoringDailyDataLimit
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetMonitoringDailyDataLimit(){
 		$this->DebugLogMethod();
@@ -1627,7 +1627,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ApiGetNtwkCelllock
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNtwkCelllock(){
 		$this->DebugLogMethod();
@@ -1640,7 +1640,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ApiGetNtwkDualwaninfo
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNtwkDualwaninfo(){
 		$this->DebugLogMethod();
@@ -1653,7 +1653,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ApiGetNtwkLanWanConfig
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNtwkLanWanConfig(){
 		$this->DebugLogMethod();
@@ -1666,7 +1666,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ApiGetSecurityBridgemode
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSecurityBridgemode(){
 		$this->DebugLogMethod();
@@ -1679,7 +1679,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ApiGetSmsSmsListContact
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSmsSmsListContact(){
 		$this->DebugLogMethod();
@@ -1692,7 +1692,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ApiGetStatisticFeatureRoamStatistic
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetStatisticFeatureRoamStatistic(){
 		$this->DebugLogMethod();
@@ -1705,7 +1705,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ApiGetSystemOnlineupg
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetSystemOnlineupg(){
 		$this->DebugLogMethod();
@@ -1718,7 +1718,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* ApiGetNetworkNetworkbandNullXml
 	*
 	* @category ApiGet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiGetNetworkNetworkbandNullXml(){
 		$this->DebugLogMethod();
@@ -1746,7 +1746,7 @@ trait Hackapi_Huawei_modem_Trait {
 	*
 	* @param string $dataswitch	either: Disconnect | Connect
 	* @category ApiSet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiSetDialupMobileDataswitch($dataswitch){
 		$this->DebugLogMethod();
@@ -1765,7 +1765,7 @@ trait Hackapi_Huawei_modem_Trait {
 	*
 	* @param string $Index	Message's Index
 	* @category ApiSet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiSetSmsDeleteSms($Index){
 		$this->DebugLogMethod();
@@ -1796,7 +1796,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* @param string $SendType	???
 	* @param string $Index	???
 	* @category ApiSet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiSetSmsSendSms($Phones, $Content, $Length, $Reserved="1", $Date, $SendType="0", $Index="-1"){
 		$this->DebugLogMethod();
@@ -1822,7 +1822,7 @@ trait Hackapi_Huawei_modem_Trait {
 	* @param string $Control	Set to 1 to reboot
 	*		'1'	: Reboot,
 	* @category ApiSet
-	* @return Array[]
+	* @return Array[] | false (when empty, or when failed)
 	*/
 	public function ApiSetDeviceControl($Control="1"){
 		$this->DebugLogMethod();
@@ -1843,124 +1843,124 @@ trait Hackapi_Huawei_modem_Trait {
 	
 	public function ListMethodsDefinitions(){
 		$def=array();
-		$def['ApiGetAppPrivacypolicy']=array (  'args' => '/api/app/privacypolicy',  'state' => '5',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Privacy Policy',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/app/privacypolicy\'',  'f_args_txt' => '/api/app/privacypolicy',  'f_method_name' => 'ApiGetAppPrivacypolicy',  'f_call' => 'CallApiGetJson',);
-		$def['ApiGetCradleBasicInfo']=array (  'args' => '/api/cradle/basic-info',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WAN Network Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/cradle/basic-info\'',  'f_args_txt' => '/api/cradle/basic-info',  'f_method_name' => 'ApiGetCradleBasicInfo',  'f_call' => 'CallApiGet',);
-		$def['ApiGetCradleFactoryMac']=array (  'args' => '/api/cradle/factory-mac',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Hardware MAC Address',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/cradle/factory-mac\'',  'f_args_txt' => '/api/cradle/factory-mac',  'f_method_name' => 'ApiGetCradleFactoryMac',  'f_call' => 'CallApiGet',);
-		$def['ApiGetCradleFeatureSwitch']=array (  'args' => '/api/cradle/feature-switch',  'state' => '2',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/cradle/feature-switch\'',  'f_args_txt' => '/api/cradle/feature-switch',  'f_method_name' => 'ApiGetCradleFeatureSwitch',  'f_call' => 'CallApiGetJson',);
-		$def['ApiGetCradleMacInfo']=array (  'args' => '/api/cradle/mac-info',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'MAC Adresses',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/cradle/mac-info\'',  'f_args_txt' => '/api/cradle/mac-info',  'f_method_name' => 'ApiGetCradleMacInfo',  'f_call' => 'CallApiGet',);
-		$def['ApiGetCradleStatusInfo']=array (  'args' => '/api/cradle/status-info',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WAN Network Information 2',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/cradle/status-info\'',  'f_args_txt' => '/api/cradle/status-info',  'f_method_name' => 'ApiGetCradleStatusInfo',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDdnsDdnsList']=array (  'args' => '/api/ddns/ddns-list',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DynDNS Information',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/ddns/ddns-list\'',  'f_args_txt' => '/api/ddns/ddns-list',  'f_method_name' => 'ApiGetDdnsDdnsList',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDdnsServerlist']=array (  'args' => '/api/ddns/serverlist',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DynDNS Servers',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/ddns/serverlist\'',  'f_args_txt' => '/api/ddns/serverlist',  'f_method_name' => 'ApiGetDdnsServerlist',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDdnsStatus']=array (  'args' => '/api/ddns/status',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DynDNS Status',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/ddns/status\'',  'f_args_txt' => '/api/ddns/status',  'f_method_name' => 'ApiGetDdnsStatus',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDeviceAntennaType']=array (  'args' => '/api/device/antenna_type',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Antennas Types',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/device/antenna_type\'',  'f_args_txt' => '/api/device/antenna_type',  'f_method_name' => 'ApiGetDeviceAntennaType',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDeviceBasicInformation']=array (  'args' => '/api/device/basic_information',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device (Basic) Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/device/basic_information\'',  'f_args_txt' => '/api/device/basic_information',  'f_method_name' => 'ApiGetDeviceBasicInformation',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDeviceDeviceFeatureSwitch']=array (  'args' => '/api/device/device-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device Features',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/device/device-feature-switch\'',  'f_args_txt' => '/api/device/device-feature-switch',  'f_method_name' => 'ApiGetDeviceDeviceFeatureSwitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDeviceInformation']=array (  'args' => '/api/device/information',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device (Full) Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/device/information\'',  'f_args_txt' => '/api/device/information',  'f_method_name' => 'ApiGetDeviceInformation',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDeviceSignal']=array (  'args' => '/api/device/signal',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Cellular Signal Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/device/signal\'',  'f_args_txt' => '/api/device/signal',  'f_method_name' => 'ApiGetDeviceSignal',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDeviceUsbTetheringSwitch']=array (  'args' => '/api/device/usb-tethering-switch',  'state' => '2',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/device/usb-tethering-switch\'',  'f_args_txt' => '/api/device/usb-tethering-switch',  'f_method_name' => 'ApiGetDeviceUsbTetheringSwitch',  'f_call' => 'CallApiGetJson',);
-		$def['ApiGetDeviceVendorname']=array (  'args' => '/api/device/vendorname',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/device/vendorname\'',  'f_args_txt' => '/api/device/vendorname',  'f_method_name' => 'ApiGetDeviceVendorname',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDhcpFeatureSwitch']=array (  'args' => '/api/dhcp/feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DHCP Features',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dhcp/feature-switch\'',  'f_args_txt' => '/api/dhcp/feature-switch',  'f_method_name' => 'ApiGetDhcpFeatureSwitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDhcpSettings']=array (  'args' => '/api/dhcp/settings',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DHCP Settings',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dhcp/settings\'',  'f_args_txt' => '/api/dhcp/settings',  'f_method_name' => 'ApiGetDhcpSettings',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDhcpStaticAddrInfo']=array (  'args' => '/api/dhcp/static-addr-info',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DHCP (Static?) Leases',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/dhcp/static-addr-info\'',  'f_args_txt' => '/api/dhcp/static-addr-info',  'f_method_name' => 'ApiGetDhcpStaticAddrInfo',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDiagnosisGetWanServiceName']=array (  'args' => '/api/diagnosis/get-wan-service-name',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WAN Service Name',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/diagnosis/get-wan-service-name\'',  'f_args_txt' => '/api/diagnosis/get-wan-service-name',  'f_method_name' => 'ApiGetDiagnosisGetWanServiceName',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDiagnosisTimeReboot']=array (  'args' => '/api/diagnosis/time_reboot',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WatchDog ?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/diagnosis/time_reboot\'',  'f_args_txt' => '/api/diagnosis/time_reboot',  'f_method_name' => 'ApiGetDiagnosisTimeReboot',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDialupConnection']=array (  'args' => '/api/dialup/connection',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dialup Connection Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dialup/connection\'',  'f_args_txt' => '/api/dialup/connection',  'f_method_name' => 'ApiGetDialupConnection',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDialupDialupFeatureSwitch']=array (  'args' => '/api/dialup/dialup-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dialup Features',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dialup/dialup-feature-switch\'',  'f_args_txt' => '/api/dialup/dialup-feature-switch',  'f_method_name' => 'ApiGetDialupDialupFeatureSwitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDialupMobileDataswitch']=array (  'args' => '/api/dialup/mobile-dataswitch',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Cellular Data Switch',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/dialup/mobile-dataswitch\'',  'f_args_txt' => '/api/dialup/mobile-dataswitch',  'f_method_name' => 'ApiGetDialupMobileDataswitch',  'f_call' => 'CallApiGet',);
-		$def['ApiSetDialupMobileDataswitch']=array (  'args' => '/api/dialup/mobile-dataswitch',  'state' => '5',  'type' => 'set',  'call_index' => 'xml_p',  'params' =>   array (    'definitions' =>     array (      'dataswitch' =>       array (        0 => '!',        1 =>         array (          0 => 'Disconnect',          1 => 'Connect',        ),        2 => '',      ),    ),    'parameters' => '$params=array(		\'dataswitch\'	=> $dataswitch,	);',    'arguments' => '$dataswitch',    'call_params' => ', $params',    'doc_desc' => '* @param string $dataswitch	either: Disconnect | Connect',    'def_value' => '',  ),  'desc' => 'Cellular Connect/Disconnect',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dialup/mobile-dataswitch\'',  'f_args_txt' => '/api/dialup/mobile-dataswitch',  'f_method_name' => 'ApiSetDialupMobileDataswitch',  'f_call' => 'CallApiPost',);
-		$def['ApiGetDialupMultiWanProfiles']=array (  'args' => '/api/dialup/multiWanProfiles',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/dialup/multiWanProfiles\'',  'f_args_txt' => '/api/dialup/multiWanProfiles',  'f_method_name' => 'ApiGetDialupMultiWanProfiles',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDialupProfiles']=array (  'args' => '/api/dialup/profiles',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Cellular Connection Profiles',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dialup/profiles\'',  'f_args_txt' => '/api/dialup/profiles',  'f_method_name' => 'ApiGetDialupProfiles',  'f_call' => 'CallApiGet',);
-		$def['ApiGetGlobalModuleSwitch']=array (  'args' => '/api/global/module-switch',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Global Modules Switches ?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/global/module-switch\'',  'f_args_txt' => '/api/global/module-switch',  'f_method_name' => 'ApiGetGlobalModuleSwitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetLedAppctrlled']=array (  'args' => '/api/led/appctrlled',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Leds Information ?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/led/appctrlled\'',  'f_args_txt' => '/api/led/appctrlled',  'f_method_name' => 'ApiGetLedAppctrlled',  'f_call' => 'CallApiGet',);
-		$def['ApiGetLogLoginfo']=array (  'args' => '/api/log/loginfo',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Logs',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/log/loginfo\'',  'f_args_txt' => '/api/log/loginfo',  'f_method_name' => 'ApiGetLogLoginfo',  'f_call' => 'CallApiGet',);
-		$def['ApiGetMonitoringCheckNotifications']=array (  'args' => '/api/monitoring/check-notifications',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Notifications',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/monitoring/check-notifications\'',  'f_args_txt' => '/api/monitoring/check-notifications',  'f_method_name' => 'ApiGetMonitoringCheckNotifications',  'f_call' => 'CallApiGet',);
-		$def['ApiGetMonitoringConvergedStatus']=array (  'args' => '/api/monitoring/converged-status',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SIM states & current language',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/monitoring/converged-status\'',  'f_args_txt' => '/api/monitoring/converged-status',  'f_method_name' => 'ApiGetMonitoringConvergedStatus',  'f_call' => 'CallApiGet',);
-		$def['ApiGetMonitoringDailyDataLimit']=array (  'args' => '/api/monitoring/daily-data-limit',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/monitoring/daily-data-limit\'',  'f_args_txt' => '/api/monitoring/daily-data-limit',  'f_method_name' => 'ApiGetMonitoringDailyDataLimit',  'f_call' => 'CallApiGet',);
-		$def['ApiGetMonitoringMonthStatistics']=array (  'args' => '/api/monitoring/month_statistics',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Month Statistics',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/monitoring/month_statistics\'',  'f_args_txt' => '/api/monitoring/month_statistics',  'f_method_name' => 'ApiGetMonitoringMonthStatistics',  'f_call' => 'CallApiGet',);
-		$def['ApiGetMonitoringStartDate']=array (  'args' => '/api/monitoring/start_date',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Start Date ?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/monitoring/start_date\'',  'f_args_txt' => '/api/monitoring/start_date',  'f_method_name' => 'ApiGetMonitoringStartDate',  'f_call' => 'CallApiGet',);
-		$def['ApiGetMonitoringStatisticFeatureSwitch']=array (  'args' => '/api/monitoring/statistic-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Statistic Features',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/monitoring/statistic-feature-switch\'',  'f_args_txt' => '/api/monitoring/statistic-feature-switch',  'f_method_name' => 'ApiGetMonitoringStatisticFeatureSwitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetMonitoringStatus']=array (  'args' => '/api/monitoring/status',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Gerenal (Wan,Wifi,Cellular) Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/monitoring/status\'',  'f_args_txt' => '/api/monitoring/status',  'f_method_name' => 'ApiGetMonitoringStatus',  'f_call' => 'CallApiGet',);
-		$def['ApiGetMonitoringTrafficStatistics']=array (  'args' => '/api/monitoring/traffic-statistics',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Traffic Statistics',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/monitoring/traffic-statistics\'',  'f_args_txt' => '/api/monitoring/traffic-statistics',  'f_method_name' => 'ApiGetMonitoringTrafficStatistics',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNetCellInfo']=array (  'args' => '/api/net/cell-info',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Cellular Cell Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/net/cell-info\'',  'f_args_txt' => '/api/net/cell-info',  'f_method_name' => 'ApiGetNetCellInfo',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNetCspsState']=array (  'args' => '/api/net/csps_state',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Csps State?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/net/csps_state\'',  'f_args_txt' => '/api/net/csps_state',  'f_method_name' => 'ApiGetNetCspsState',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNetCurrentPlmn']=array (  'args' => '/api/net/current-plmn',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Current Cellular Provider Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/net/current-plmn\'',  'f_args_txt' => '/api/net/current-plmn',  'f_method_name' => 'ApiGetNetCurrentPlmn',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNetNetFeatureSwitch']=array (  'args' => '/api/net/net-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Network Features Switches',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/net/net-feature-switch\'',  'f_args_txt' => '/api/net/net-feature-switch',  'f_method_name' => 'ApiGetNetNetFeatureSwitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNetNetModeList']=array (  'args' => '/api/net/net-mode-list',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Cellulars Bands ?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/net/net-mode-list\'',  'f_args_txt' => '/api/net/net-mode-list',  'f_method_name' => 'ApiGetNetNetModeList',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNetNetMode']=array (  'args' => '/api/net/net-mode',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/net/net-mode\'',  'f_args_txt' => '/api/net/net-mode',  'f_method_name' => 'ApiGetNetNetMode',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNetNetwork']=array (  'args' => '/api/net/network',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/net/network\'',  'f_args_txt' => '/api/net/network',  'f_method_name' => 'ApiGetNetNetwork',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNetRegister']=array (  'args' => '/api/net/register',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/net/register\'',  'f_args_txt' => '/api/net/register',  'f_method_name' => 'ApiGetNetRegister',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNtwkCelllock']=array (  'args' => '/api/ntwk/celllock',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/ntwk/celllock\'',  'f_args_txt' => '/api/ntwk/celllock',  'f_method_name' => 'ApiGetNtwkCelllock',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNtwkDualwaninfo']=array (  'args' => '/api/ntwk/dualwaninfo',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/ntwk/dualwaninfo\'',  'f_args_txt' => '/api/ntwk/dualwaninfo',  'f_method_name' => 'ApiGetNtwkDualwaninfo',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNtwkLanUpnpPortmapping']=array (  'args' => '/api/ntwk/lan_upnp_portmapping',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'UPNP Ports?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/ntwk/lan_upnp_portmapping\'',  'f_args_txt' => '/api/ntwk/lan_upnp_portmapping',  'f_method_name' => 'ApiGetNtwkLanUpnpPortmapping',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNtwkLanWanConfig']=array (  'args' => '/api/ntwk/lan-wan-config',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/ntwk/lan-wan-config\'',  'f_args_txt' => '/api/ntwk/lan-wan-config',  'f_method_name' => 'ApiGetNtwkLanWanConfig',  'f_call' => 'CallApiGet',);
-		$def['ApiGetOnlineUpdateAutoupdateConfig']=array (  'args' => '/api/online-update/autoupdate-config',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Online Auto Update Configuration',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/online-update/autoupdate-config\'',  'f_args_txt' => '/api/online-update/autoupdate-config',  'f_method_name' => 'ApiGetOnlineUpdateAutoupdateConfig',  'f_call' => 'CallApiGet',);
-		$def['ApiGetOnlineUpdateConfiguration']=array (  'args' => '/api/online-update/configuration',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Online Update Configuration',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/online-update/configuration\'',  'f_args_txt' => '/api/online-update/configuration',  'f_method_name' => 'ApiGetOnlineUpdateConfiguration',  'f_call' => 'CallApiGet',);
-		$def['ApiGetOnlineUpdateStatus']=array (  'args' => '/api/online-update/status',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Online Update Status',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/online-update/status\'',  'f_args_txt' => '/api/online-update/status',  'f_method_name' => 'ApiGetOnlineUpdateStatus',  'f_call' => 'CallApiGet',);
-		$def['ApiGetPinSavePin']=array (  'args' => '/api/pin/save-pin',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SIM Pin Save?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/pin/save-pin\'',  'f_args_txt' => '/api/pin/save-pin',  'f_method_name' => 'ApiGetPinSavePin',  'f_call' => 'CallApiGet',);
-		$def['ApiGetPinSimlock']=array (  'args' => '/api/pin/simlock',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SIM Pin Lock Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/pin/simlock\'',  'f_args_txt' => '/api/pin/simlock',  'f_method_name' => 'ApiGetPinSimlock',  'f_call' => 'CallApiGet',);
-		$def['ApiGetPinStatus']=array (  'args' => '/api/pin/status',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SIM Pin Status',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/pin/status\'',  'f_args_txt' => '/api/pin/status',  'f_method_name' => 'ApiGetPinStatus',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSecurityBridgemode']=array (  'args' => '/api/security/bridgemode',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/security/bridgemode\'',  'f_args_txt' => '/api/security/bridgemode',  'f_method_name' => 'ApiGetSecurityBridgemode',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSecurityDmz']=array (  'args' => '/api/security/dmz',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DMZ Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/dmz\'',  'f_args_txt' => '/api/security/dmz',  'f_method_name' => 'ApiGetSecurityDmz',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSecurityFeatureSwitch']=array (  'args' => '/api/security/feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Security Features Switches',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/feature-switch\'',  'f_args_txt' => '/api/security/feature-switch',  'f_method_name' => 'ApiGetSecurityFeatureSwitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSecurityFirewallSwitch']=array (  'args' => '/api/security/firewall-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Firewall Features Switches',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/firewall-switch\'',  'f_args_txt' => '/api/security/firewall-switch',  'f_method_name' => 'ApiGetSecurityFirewallSwitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSecurityLanIpFilter']=array (  'args' => '/api/security/lan-ip-filter',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'LAN Ip Filters?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/security/lan-ip-filter\'',  'f_args_txt' => '/api/security/lan-ip-filter',  'f_method_name' => 'ApiGetSecurityLanIpFilter',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSecurityNat']=array (  'args' => '/api/security/nat',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'NAT Features ?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/security/nat\'',  'f_args_txt' => '/api/security/nat',  'f_method_name' => 'ApiGetSecurityNat',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSecuritySip']=array (  'args' => '/api/security/sip',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SIP Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/sip\'',  'f_args_txt' => '/api/security/sip',  'f_method_name' => 'ApiGetSecuritySip',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSecuritySpecialApplications']=array (  'args' => '/api/security/special-applications',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Ports Information?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/security/special-applications\'',  'f_args_txt' => '/api/security/special-applications',  'f_method_name' => 'ApiGetSecuritySpecialApplications',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSecurityUpnp']=array (  'args' => '/api/security/upnp',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Upnp Status',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/upnp\'',  'f_args_txt' => '/api/security/upnp',  'f_method_name' => 'ApiGetSecurityUpnp',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSecurityUrlFilter']=array (  'args' => '/api/security/url-filter',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Url Filters',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/url-filter\'',  'f_args_txt' => '/api/security/url-filter',  'f_method_name' => 'ApiGetSecurityUrlFilter',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSecurityVirtualServers']=array (  'args' => '/api/security/virtual-servers',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Virtual Servers',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/virtual-servers\'',  'f_args_txt' => '/api/security/virtual-servers',  'f_method_name' => 'ApiGetSecurityVirtualServers',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSecurityWhiteLanIpFilter']=array (  'args' => '/api/security/white-lan-ip-filter',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'White LAN Ip Filter',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/white-lan-ip-filter\'',  'f_args_txt' => '/api/security/white-lan-ip-filter',  'f_method_name' => 'ApiGetSecurityWhiteLanIpFilter',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSecurityWhiteUrlFilter']=array (  'args' => '/api/security/white-url-filter',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'White Url Filter',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/white-url-filter\'',  'f_args_txt' => '/api/security/white-url-filter',  'f_method_name' => 'ApiGetSecurityWhiteUrlFilter',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSmsConfig']=array (  'args' => '/api/sms/config',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SMS Configuration',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sms/config\'',  'f_args_txt' => '/api/sms/config',  'f_method_name' => 'ApiGetSmsConfig',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSmsSmsCountContact']=array (  'args' => '/api/sms/sms-count-contact',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SMS Contacts Count',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sms/sms-count-contact\'',  'f_args_txt' => '/api/sms/sms-count-contact',  'f_method_name' => 'ApiGetSmsSmsCountContact',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSmsSmsCount']=array (  'args' => '/api/sms/sms-count',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SMS Counts',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sms/sms-count\'',  'f_args_txt' => '/api/sms/sms-count',  'f_method_name' => 'ApiGetSmsSmsCount',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSmsSmsFeatureSwitch']=array (  'args' => '/api/sms/sms-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SMS Features',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sms/sms-feature-switch\'',  'f_args_txt' => '/api/sms/sms-feature-switch',  'f_method_name' => 'ApiGetSmsSmsFeatureSwitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSmsSmsList']=array (  'args' => '/api/sms/sms-list',  'state' => '4',  'type' => 'get',  'call_index' => 'xml_p',  'params' =>   array (    'definitions' =>     array (      'PageIndex' => 1,      'ReadCount' => 20,      'BoxType' =>       array (        0 => '1',        1 =>         array (          1 => 'Received',          2 => 'Sent',        ),        2 => 'Direction',      ),      'SortType' =>       array (        0 => '0',        1 =>         array (          0 => 'IndexOrDate?',          1 => 'Unsorted?',          2 => 'IndexOrDate?',        ),        2 => 'Sort By',      ),      'Ascending' =>       array (        0 => '0',        1 =>         array (          0 => 'Descending',          1 => 'Ascending',        ),        2 => 'Sort Type',      ),      'UnreadPreferred' =>       array (        0 => '0',        1 =>         array (          0 => '?',          1 => '?',        ),        2 => '???',      ),    ),    'parameters' => '$params=array(		\'PageIndex\'	=> $PageIndex,		\'ReadCount\'	=> $ReadCount,		\'BoxType\'	=> $BoxType,		\'SortType\'	=> $SortType,		\'Ascending\'	=> $Ascending,		\'UnreadPreferred\'	=> $UnreadPreferred,	);',    'arguments' => '$PageIndex="1", $ReadCount="20", $BoxType="1", $SortType="0", $Ascending="0", $UnreadPreferred="0"',    'call_params' => ', $params',    'doc_desc' => '* @param string $BoxType	Direction*		\'1\'	: Received,*		\'2\'	: Sent,* @param string $SortType	Sort By : either: IndexOrDate? | Unsorted? | IndexOrDate?* @param string $Ascending	Sort Type : either: Descending | Ascending* @param string $UnreadPreferred	??? : either: ? | ?',    'def_value' => '',  ),  'desc' => 'Get SMS List',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/sms/sms-list\'',  'f_args_txt' => '/api/sms/sms-list',  'f_method_name' => 'ApiGetSmsSmsList',  'f_call' => 'CallApiPost',);
-		$def['ApiSetSmsSendSms']=array (  'args' => '/api/sms/send-sms',  'state' => '4',  'type' => 'set',  'call_index' => 'xml_p',  'params' =>   array (    'definitions' =>     array (      'Phones' =>       array (        0 => '!',        1 => 'One of serveral phone number(s), formatted as <Phone>num1</Phone><Phone>num2</Phone>',      ),      'Content' =>       array (        0 => '!',        1 => 'Message',      ),      'Length' =>       array (        0 => '!',        1 => 'Message Length',      ),      'Reserved' =>       array (        0 => '1',        1 =>         array (          0 => '?',          1 => '?',          2 => '?',        ),        2 => 'What is this REQUIRED param ???',      ),      'Date' =>       array (        0 => '!',        1 => 'Date formatted like date(\'Y-m-d H:i:s\')',      ),      'SendType' =>       array (        0 => '0',        1 => '???',      ),      'Index' =>       array (        0 => '-1',        1 => '???',      ),    ),    'parameters' => '$params=array(		\'Phones\'	=> $Phones,		\'Content\'	=> $Content,		\'Length\'	=> $Length,		\'Reserved\'	=> $Reserved,		\'Date\'	=> $Date,		\'SendType\'	=> $SendType,		\'Index\'	=> $Index,	);',    'arguments' => '$Phones, $Content, $Length, $Reserved="1", $Date, $SendType="0", $Index="-1"',    'call_params' => ', $params',    'doc_desc' => '* @param string $Phones	One of serveral phone number(s), formatted as <Phone>num1</Phone><Phone>num2</Phone>* @param string $Content	Message* @param string $Length	Message Length* @param string $Reserved	What is this REQUIRED param ??? : either: ? | ? | ?* @param string $Date	Date formatted like date(\'Y-m-d H:i:s\')* @param string $SendType	???* @param string $Index	???',    'def_value' => '',  ),  'desc' => 'Send a SMS to one or multiple phone number(s)',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/sms/send-sms\'',  'f_args_txt' => '/api/sms/send-sms',  'f_method_name' => 'ApiSetSmsSendSms',  'f_call' => 'CallApiPost',);
-		$def['ApiSetSmsDeleteSms']=array (  'args' => '/api/sms/delete-sms',  'state' => '5',  'type' => 'set',  'call_index' => 'xml_p',  'params' =>   array (    'definitions' =>     array (      'Index' =>       array (        0 => '!',        1 => 'Message\'s Index',      ),    ),    'parameters' => '$params=array(		\'Index\'	=> $Index,	);',    'arguments' => '$Index',    'call_params' => ', $params',    'doc_desc' => '* @param string $Index	Message\'s Index',    'def_value' => '',  ),  'desc' => 'Delete a SMS from the InBox',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sms/delete-sms\'',  'f_args_txt' => '/api/sms/delete-sms',  'f_method_name' => 'ApiSetSmsDeleteSms',  'f_call' => 'CallApiPost',);
-		$def['ApiGetSmsSmsListContact']=array (  'args' => '/api/sms/sms-list-contact',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/sms/sms-list-contact\'',  'f_args_txt' => '/api/sms/sms-list-contact',  'f_method_name' => 'ApiGetSmsSmsListContact',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSmsSplitinfoSms']=array (  'args' => '/api/sms/splitinfo-sms',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SMS Split Info?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/sms/splitinfo-sms\'',  'f_args_txt' => '/api/sms/splitinfo-sms',  'f_method_name' => 'ApiGetSmsSplitinfoSms',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSntpServerinfo']=array (  'args' => '/api/sntp/serverinfo',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SNTP Servers list',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sntp/serverinfo\'',  'f_args_txt' => '/api/sntp/serverinfo',  'f_method_name' => 'ApiGetSntpServerinfo',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSntpSntpswitch']=array (  'args' => '/api/sntp/sntpswitch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SNTP switch',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sntp/sntpswitch\'',  'f_args_txt' => '/api/sntp/sntpswitch',  'f_method_name' => 'ApiGetSntpSntpswitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSntpTimeinfo']=array (  'args' => '/api/sntp/timeinfo',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SNTP Time Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sntp/timeinfo\'',  'f_args_txt' => '/api/sntp/timeinfo',  'f_method_name' => 'ApiGetSntpTimeinfo',  'f_call' => 'CallApiGet',);
-		$def['ApiGetStatisticFeatureRoamStatistic']=array (  'args' => '/api/statistic/feature-roam-statistic',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/statistic/feature-roam-statistic\'',  'f_args_txt' => '/api/statistic/feature-roam-statistic',  'f_method_name' => 'ApiGetStatisticFeatureRoamStatistic',  'f_call' => 'CallApiGet',);
-		$def['ApiGetSystemDeviceinfoex']=array (  'args' => '/api/system/deviceinfoex',  'state' => '4',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device Information (Ex?)',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/system/deviceinfoex\'',  'f_args_txt' => '/api/system/deviceinfoex',  'f_method_name' => 'ApiGetSystemDeviceinfoex',  'f_call' => 'CallApiGetJson',);
-		$def['ApiGetSystemHostInfo']=array (  'args' => '/api/system/HostInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'ARP Hosts Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/system/HostInfo\'',  'f_args_txt' => '/api/system/HostInfo',  'f_method_name' => 'ApiGetSystemHostInfo',  'f_call' => 'CallApiGetJson',);
-		$def['ApiGetSystemOnlinestate']=array (  'args' => '/api/system/onlinestate',  'state' => '5',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device and Sytem Information',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/system/onlinestate\'',  'f_args_txt' => '/api/system/onlinestate',  'f_method_name' => 'ApiGetSystemOnlinestate',  'f_call' => 'CallApiGetJson',);
-		$def['ApiGetSystemOnlineupg']=array (  'args' => '/api/system/onlineupg',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/system/onlineupg\'',  'f_args_txt' => '/api/system/onlineupg',  'f_method_name' => 'ApiGetSystemOnlineupg',  'f_call' => 'CallApiGet',);
-		$def['ApiGetTimeTimeout']=array (  'args' => '/api/time/timeout',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Login Timeout (min)',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/time/timeout\'',  'f_args_txt' => '/api/time/timeout',  'f_method_name' => 'ApiGetTimeTimeout',  'f_call' => 'CallApiGet',);
-		$def['ApiGetTimeruleTimerule']=array (  'args' => '/api/timerule/timerule',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Time Rules',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/timerule/timerule\'',  'f_args_txt' => '/api/timerule/timerule',  'f_method_name' => 'ApiGetTimeruleTimerule',  'f_call' => 'CallApiGet',);
-		$def['ApiGetUserHilinkLogin']=array (  'args' => '/api/user/hilink_login',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Hilink Login',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/user/hilink_login\'',  'f_args_txt' => '/api/user/hilink_login',  'f_method_name' => 'ApiGetUserHilinkLogin',  'f_call' => 'CallApiGet',);
-		$def['ApiGetUserPwd']=array (  'args' => '/api/user/pwd',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'User Pwd ?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/user/pwd\'',  'f_args_txt' => '/api/user/pwd',  'f_method_name' => 'ApiGetUserPwd',  'f_call' => 'CallApiGet',);
-		$def['ApiGetUserRule']=array (  'args' => '/api/user/rule',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'User Rules',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/user/rule\'',  'f_args_txt' => '/api/user/rule',  'f_method_name' => 'ApiGetUserRule',  'f_call' => 'CallApiGet',);
-		$def['ApiGetUserStateLogin']=array (  'args' => '/api/user/state-login',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Login State',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/user/state-login\'',  'f_args_txt' => '/api/user/state-login',  'f_method_name' => 'ApiGetUserStateLogin',  'f_call' => 'CallApiGet',);
-		$def['ApiGetUserWebFeatureSwitch']=array (  'args' => '/api/user/web-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Web Features Switches',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/user/web-feature-switch\'',  'f_args_txt' => '/api/user/web-feature-switch',  'f_method_name' => 'ApiGetUserWebFeatureSwitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetVpnFeatureSwitch']=array (  'args' => '/api/vpn/feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'VPN Features Switches',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/vpn/feature-switch\'',  'f_args_txt' => '/api/vpn/feature-switch',  'f_method_name' => 'ApiGetVpnFeatureSwitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetVpnL2tpSettings']=array (  'args' => '/api/vpn/l2tp_settings',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'VPN L2tp Settings',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/vpn/l2tp_settings\'',  'f_args_txt' => '/api/vpn/l2tp_settings',  'f_method_name' => 'ApiGetVpnL2tpSettings',  'f_call' => 'CallApiGet',);
-		$def['ApiGetVpnPptpSettings']=array (  'args' => '/api/vpn/pptp_settings',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'VPN PPTP Settings',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/vpn/pptp_settings\'',  'f_args_txt' => '/api/vpn/pptp_settings',  'f_method_name' => 'ApiGetVpnPptpSettings',  'f_call' => 'CallApiGet',);
-		$def['ApiGetWebserverToken']=array (  'args' => '/api/webserver/token',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Webserver Token',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/webserver/token\'',  'f_args_txt' => '/api/webserver/token',  'f_method_name' => 'ApiGetWebserverToken',  'f_call' => 'CallApiGet',);
-		$def['ApiGetWlanGuesttimeSetting']=array (  'args' => '/api/wlan/guesttime-setting',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi Guest Time Settings',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/wlan/guesttime-setting\'',  'f_args_txt' => '/api/wlan/guesttime-setting',  'f_method_name' => 'ApiGetWlanGuesttimeSetting',  'f_call' => 'CallApiGet',);
-		$def['ApiGetWlanHostList']=array (  'args' => '/api/wlan/host-list',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi Hosts List',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/wlan/host-list\'',  'f_args_txt' => '/api/wlan/host-list',  'f_method_name' => 'ApiGetWlanHostList',  'f_call' => 'CallApiGet',);
-		$def['ApiGetWlanMultiBasicSettings']=array (  'args' => '/api/wlan/multi-basic-settings',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi Settings',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/wlan/multi-basic-settings\'',  'f_args_txt' => '/api/wlan/multi-basic-settings',  'f_method_name' => 'ApiGetWlanMultiBasicSettings',  'f_call' => 'CallApiGet',);
-		$def['ApiGetWlanMultiMacfilterSettingsEx']=array (  'args' => '/api/wlan/multi-macfilter-settings-ex',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi MAC filter settings (Ex?)',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/wlan/multi-macfilter-settings-ex\'',  'f_args_txt' => '/api/wlan/multi-macfilter-settings-ex',  'f_method_name' => 'ApiGetWlanMultiMacfilterSettingsEx',  'f_call' => 'CallApiGet',);
-		$def['ApiGetWlanStatusSwitchSettings']=array (  'args' => '/api/wlan/status-switch-settings',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi Switch Settings',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/wlan/status-switch-settings\'',  'f_args_txt' => '/api/wlan/status-switch-settings',  'f_method_name' => 'ApiGetWlanStatusSwitchSettings',  'f_call' => 'CallApiGet',);
-		$def['ApiGetWlanWifiFeatureSwitch']=array (  'args' => '/api/wlan/wifi-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi Features Switches',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/wlan/wifi-feature-switch\'',  'f_args_txt' => '/api/wlan/wifi-feature-switch',  'f_method_name' => 'ApiGetWlanWifiFeatureSwitch',  'f_call' => 'CallApiGet',);
-		$def['ApiGetWlanWlandbho']=array (  'args' => '/api/wlan/wlandbho',  'state' => '4',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi dbho?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/wlan/wlandbho\'',  'f_args_txt' => '/api/wlan/wlandbho',  'f_method_name' => 'ApiGetWlanWlandbho',  'f_call' => 'CallApiGetJson',);
-		$def['ApiGetDeviceConfigXml']=array (  'args' => '/config/device/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device Configuration',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/device/config.xml\'',  'f_args_txt' => '/config/device/config.xml',  'f_method_name' => 'ApiGetDeviceConfigXml',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDeviceinformationConfigXml']=array (  'args' => '/config/deviceinformation/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device Information Switches',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/deviceinformation/config.xml\'',  'f_args_txt' => '/config/deviceinformation/config.xml',  'f_method_name' => 'ApiGetDeviceinformationConfigXml',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDialupConfigXml']=array (  'args' => '/config/dialup/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dialup Information Switches',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/dialup/config.xml\'',  'f_args_txt' => '/config/dialup/config.xml',  'f_method_name' => 'ApiGetDialupConfigXml',  'f_call' => 'CallApiGet',);
-		$def['ApiGetDialupConnectmodeXml']=array (  'args' => '/config/dialup/connectmode.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dialup Connect Mode',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/dialup/connectmode.xml\'',  'f_args_txt' => '/config/dialup/connectmode.xml',  'f_method_name' => 'ApiGetDialupConnectmodeXml',  'f_call' => 'CallApiGet',);
-		$def['ApiGetGlobalConfigXml']=array (  'args' => '/config/global/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Global Configuration',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/global/config.xml\'',  'f_args_txt' => '/config/global/config.xml',  'f_method_name' => 'ApiGetGlobalConfigXml',  'f_call' => 'CallApiGet',);
-		$def['ApiGetGlobalLanguagelistXml']=array (  'args' => '/config/global/languagelist.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Languages list',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/global/languagelist.xml\'',  'f_args_txt' => '/config/global/languagelist.xml',  'f_method_name' => 'ApiGetGlobalLanguagelistXml',  'f_call' => 'CallApiGet',);
-		$def['ApiGetGlobalNetTypeXml']=array (  'args' => '/config/global/net-type.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Network Types?',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/global/net-type.xml\'',  'f_args_txt' => '/config/global/net-type.xml',  'f_method_name' => 'ApiGetGlobalNetTypeXml',  'f_call' => 'CallApiGet',);
-		$def['ApiGetLanConfigXml']=array (  'args' => '/config/lan/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'LAN Configuration',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/lan/config.xml\'',  'f_args_txt' => '/config/lan/config.xml',  'f_method_name' => 'ApiGetLanConfigXml',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNetworkNetModeXml']=array (  'args' => '/config/network/net-mode.xml',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Network Net Modes?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/config/network/net-mode.xml\'',  'f_args_txt' => '/config/network/net-mode.xml',  'f_method_name' => 'ApiGetNetworkNetModeXml',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNetworkNetworkbandNullXml']=array (  'args' => '/config/network/networkband_null.xml',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/config/network/networkband_null.xml\'',  'f_args_txt' => '/config/network/networkband_null.xml',  'f_method_name' => 'ApiGetNetworkNetworkbandNullXml',  'f_call' => 'CallApiGet',);
-		$def['ApiGetNetworkNetworkmodeXml']=array (  'args' => '/config/network/networkmode.xml',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Net Modes?',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/config/network/networkmode.xml\'',  'f_args_txt' => '/config/network/networkmode.xml',  'f_method_name' => 'ApiGetNetworkNetworkmodeXml',  'f_call' => 'CallApiGet',);
-		$def['ApiGetPincodeConfigXml']=array (  'args' => '/config/pincode/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'PIN code Configuration',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/pincode/config.xml\'',  'f_args_txt' => '/config/pincode/config.xml',  'f_method_name' => 'ApiGetPincodeConfigXml',  'f_call' => 'CallApiGet',);
-		$def['ApiGetWebuicfgConfigXml']=array (  'args' => '/config/webuicfg/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Web UI Configuration',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/webuicfg/config.xml\'',  'f_args_txt' => '/config/webuicfg/config.xml',  'f_method_name' => 'ApiGetWebuicfgConfigXml',  'f_call' => 'CallApiGet',);
-		$def['ApiSetDeviceControl']=array (  'args' => '/api/device/control',  'state' => '4',  'type' => 'set',  'call_index' => 'xml_p',  'params' =>   array (    'definitions' =>     array (      'Control' =>       array (        0 => '1',        1 =>         array (          1 => 'Reboot',        ),        2 => 'Set to 1 to reboot',      ),    ),    'parameters' => '$params=array(		\'Control\'	=> $Control,	);',    'arguments' => '$Control="1"',    'call_params' => ', $params',    'doc_desc' => '* @param string $Control	Set to 1 to reboot*		\'1\'	: Reboot,',    'def_value' => '',  ),  'desc' => 'Reboot',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/device/control\'',  'f_args_txt' => '/api/device/control',  'f_method_name' => 'ApiSetDeviceControl',  'f_call' => 'CallApiPost',);
+		$def['ApiGetAppPrivacypolicy']=array (  'args' => '/api/app/privacypolicy',  'state' => '5',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Privacy Policy',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/app/privacypolicy\'',  'f_args_txt' => '/api/app/privacypolicy',  'f_method_name' => 'ApiGetAppPrivacypolicy',  'f_call' => 'CallApiGetJson',);
+		$def['ApiGetCradleBasicInfo']=array (  'args' => '/api/cradle/basic-info',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WAN Network Information',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/cradle/basic-info\'',  'f_args_txt' => '/api/cradle/basic-info',  'f_method_name' => 'ApiGetCradleBasicInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetCradleFactoryMac']=array (  'args' => '/api/cradle/factory-mac',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Hardware MAC Address',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/cradle/factory-mac\'',  'f_args_txt' => '/api/cradle/factory-mac',  'f_method_name' => 'ApiGetCradleFactoryMac',  'f_call' => 'CallApiGet',);
+		$def['ApiGetCradleFeatureSwitch']=array (  'args' => '/api/cradle/feature-switch',  'state' => '2',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/cradle/feature-switch\'',  'f_args_txt' => '/api/cradle/feature-switch',  'f_method_name' => 'ApiGetCradleFeatureSwitch',  'f_call' => 'CallApiGetJson',);
+		$def['ApiGetCradleMacInfo']=array (  'args' => '/api/cradle/mac-info',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'MAC Adresses',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/cradle/mac-info\'',  'f_args_txt' => '/api/cradle/mac-info',  'f_method_name' => 'ApiGetCradleMacInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetCradleStatusInfo']=array (  'args' => '/api/cradle/status-info',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WAN Network Information 2',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/cradle/status-info\'',  'f_args_txt' => '/api/cradle/status-info',  'f_method_name' => 'ApiGetCradleStatusInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDdnsDdnsList']=array (  'args' => '/api/ddns/ddns-list',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DynDNS Information',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/ddns/ddns-list\'',  'f_args_txt' => '/api/ddns/ddns-list',  'f_method_name' => 'ApiGetDdnsDdnsList',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDdnsServerlist']=array (  'args' => '/api/ddns/serverlist',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DynDNS Servers',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/ddns/serverlist\'',  'f_args_txt' => '/api/ddns/serverlist',  'f_method_name' => 'ApiGetDdnsServerlist',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDdnsStatus']=array (  'args' => '/api/ddns/status',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DynDNS Status',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/ddns/status\'',  'f_args_txt' => '/api/ddns/status',  'f_method_name' => 'ApiGetDdnsStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDeviceAntennaType']=array (  'args' => '/api/device/antenna_type',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Antennas Types',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/device/antenna_type\'',  'f_args_txt' => '/api/device/antenna_type',  'f_method_name' => 'ApiGetDeviceAntennaType',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDeviceBasicInformation']=array (  'args' => '/api/device/basic_information',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device (Basic) Information',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/device/basic_information\'',  'f_args_txt' => '/api/device/basic_information',  'f_method_name' => 'ApiGetDeviceBasicInformation',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDeviceDeviceFeatureSwitch']=array (  'args' => '/api/device/device-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device Features',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/device/device-feature-switch\'',  'f_args_txt' => '/api/device/device-feature-switch',  'f_method_name' => 'ApiGetDeviceDeviceFeatureSwitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDeviceInformation']=array (  'args' => '/api/device/information',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device (Full) Information',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/device/information\'',  'f_args_txt' => '/api/device/information',  'f_method_name' => 'ApiGetDeviceInformation',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDeviceSignal']=array (  'args' => '/api/device/signal',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Cellular Signal Information',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/device/signal\'',  'f_args_txt' => '/api/device/signal',  'f_method_name' => 'ApiGetDeviceSignal',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDeviceUsbTetheringSwitch']=array (  'args' => '/api/device/usb-tethering-switch',  'state' => '2',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/device/usb-tethering-switch\'',  'f_args_txt' => '/api/device/usb-tethering-switch',  'f_method_name' => 'ApiGetDeviceUsbTetheringSwitch',  'f_call' => 'CallApiGetJson',);
+		$def['ApiGetDeviceVendorname']=array (  'args' => '/api/device/vendorname',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/device/vendorname\'',  'f_args_txt' => '/api/device/vendorname',  'f_method_name' => 'ApiGetDeviceVendorname',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDhcpFeatureSwitch']=array (  'args' => '/api/dhcp/feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DHCP Features',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dhcp/feature-switch\'',  'f_args_txt' => '/api/dhcp/feature-switch',  'f_method_name' => 'ApiGetDhcpFeatureSwitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDhcpSettings']=array (  'args' => '/api/dhcp/settings',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DHCP Settings',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dhcp/settings\'',  'f_args_txt' => '/api/dhcp/settings',  'f_method_name' => 'ApiGetDhcpSettings',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDhcpStaticAddrInfo']=array (  'args' => '/api/dhcp/static-addr-info',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DHCP (Static?) Leases',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/dhcp/static-addr-info\'',  'f_args_txt' => '/api/dhcp/static-addr-info',  'f_method_name' => 'ApiGetDhcpStaticAddrInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosisGetWanServiceName']=array (  'args' => '/api/diagnosis/get-wan-service-name',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WAN Service Name',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/diagnosis/get-wan-service-name\'',  'f_args_txt' => '/api/diagnosis/get-wan-service-name',  'f_method_name' => 'ApiGetDiagnosisGetWanServiceName',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDiagnosisTimeReboot']=array (  'args' => '/api/diagnosis/time_reboot',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'WatchDog ?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/diagnosis/time_reboot\'',  'f_args_txt' => '/api/diagnosis/time_reboot',  'f_method_name' => 'ApiGetDiagnosisTimeReboot',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDialupConnection']=array (  'args' => '/api/dialup/connection',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dialup Connection Information',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dialup/connection\'',  'f_args_txt' => '/api/dialup/connection',  'f_method_name' => 'ApiGetDialupConnection',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDialupDialupFeatureSwitch']=array (  'args' => '/api/dialup/dialup-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dialup Features',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dialup/dialup-feature-switch\'',  'f_args_txt' => '/api/dialup/dialup-feature-switch',  'f_method_name' => 'ApiGetDialupDialupFeatureSwitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDialupMobileDataswitch']=array (  'args' => '/api/dialup/mobile-dataswitch',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Cellular Data Switch',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/dialup/mobile-dataswitch\'',  'f_args_txt' => '/api/dialup/mobile-dataswitch',  'f_method_name' => 'ApiGetDialupMobileDataswitch',  'f_call' => 'CallApiGet',);
+		$def['ApiSetDialupMobileDataswitch']=array (  'args' => '/api/dialup/mobile-dataswitch',  'state' => '5',  'type' => 'set',  'call_index' => 'xml_p',  'params' =>   array (    'definitions' =>     array (      'dataswitch' =>       array (        0 => '!',        1 =>         array (          0 => 'Disconnect',          1 => 'Connect',        ),        2 => '',      ),    ),    'parameters' => '$params=array(		\'dataswitch\'	=> $dataswitch,	);',    'arguments' => '$dataswitch',    'call_params' => ', $params',    'doc_desc' => '* @param string $dataswitch	either: Disconnect | Connect',    'def_value' => '',  ),  'desc' => 'Cellular Connect/Disconnect',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dialup/mobile-dataswitch\'',  'f_args_txt' => '/api/dialup/mobile-dataswitch',  'f_method_name' => 'ApiSetDialupMobileDataswitch',  'f_call' => 'CallApiPost',);
+		$def['ApiGetDialupMultiWanProfiles']=array (  'args' => '/api/dialup/multiWanProfiles',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/dialup/multiWanProfiles\'',  'f_args_txt' => '/api/dialup/multiWanProfiles',  'f_method_name' => 'ApiGetDialupMultiWanProfiles',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDialupProfiles']=array (  'args' => '/api/dialup/profiles',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Cellular Connection Profiles',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/dialup/profiles\'',  'f_args_txt' => '/api/dialup/profiles',  'f_method_name' => 'ApiGetDialupProfiles',  'f_call' => 'CallApiGet',);
+		$def['ApiGetGlobalModuleSwitch']=array (  'args' => '/api/global/module-switch',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Global Modules Switches ?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/global/module-switch\'',  'f_args_txt' => '/api/global/module-switch',  'f_method_name' => 'ApiGetGlobalModuleSwitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetLedAppctrlled']=array (  'args' => '/api/led/appctrlled',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Leds Information ?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/led/appctrlled\'',  'f_args_txt' => '/api/led/appctrlled',  'f_method_name' => 'ApiGetLedAppctrlled',  'f_call' => 'CallApiGet',);
+		$def['ApiGetLogLoginfo']=array (  'args' => '/api/log/loginfo',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Logs',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/log/loginfo\'',  'f_args_txt' => '/api/log/loginfo',  'f_method_name' => 'ApiGetLogLoginfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitoringCheckNotifications']=array (  'args' => '/api/monitoring/check-notifications',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Notifications',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/monitoring/check-notifications\'',  'f_args_txt' => '/api/monitoring/check-notifications',  'f_method_name' => 'ApiGetMonitoringCheckNotifications',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitoringConvergedStatus']=array (  'args' => '/api/monitoring/converged-status',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SIM states & current language',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/monitoring/converged-status\'',  'f_args_txt' => '/api/monitoring/converged-status',  'f_method_name' => 'ApiGetMonitoringConvergedStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitoringDailyDataLimit']=array (  'args' => '/api/monitoring/daily-data-limit',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/monitoring/daily-data-limit\'',  'f_args_txt' => '/api/monitoring/daily-data-limit',  'f_method_name' => 'ApiGetMonitoringDailyDataLimit',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitoringMonthStatistics']=array (  'args' => '/api/monitoring/month_statistics',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Month Statistics',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/monitoring/month_statistics\'',  'f_args_txt' => '/api/monitoring/month_statistics',  'f_method_name' => 'ApiGetMonitoringMonthStatistics',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitoringStartDate']=array (  'args' => '/api/monitoring/start_date',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Start Date ?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/monitoring/start_date\'',  'f_args_txt' => '/api/monitoring/start_date',  'f_method_name' => 'ApiGetMonitoringStartDate',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitoringStatisticFeatureSwitch']=array (  'args' => '/api/monitoring/statistic-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Statistic Features',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/monitoring/statistic-feature-switch\'',  'f_args_txt' => '/api/monitoring/statistic-feature-switch',  'f_method_name' => 'ApiGetMonitoringStatisticFeatureSwitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitoringStatus']=array (  'args' => '/api/monitoring/status',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Gerenal (Wan,Wifi,Cellular) Information',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/monitoring/status\'',  'f_args_txt' => '/api/monitoring/status',  'f_method_name' => 'ApiGetMonitoringStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetMonitoringTrafficStatistics']=array (  'args' => '/api/monitoring/traffic-statistics',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Traffic Statistics',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/monitoring/traffic-statistics\'',  'f_args_txt' => '/api/monitoring/traffic-statistics',  'f_method_name' => 'ApiGetMonitoringTrafficStatistics',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNetCellInfo']=array (  'args' => '/api/net/cell-info',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Cellular Cell Information',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/net/cell-info\'',  'f_args_txt' => '/api/net/cell-info',  'f_method_name' => 'ApiGetNetCellInfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNetCspsState']=array (  'args' => '/api/net/csps_state',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Csps State?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/net/csps_state\'',  'f_args_txt' => '/api/net/csps_state',  'f_method_name' => 'ApiGetNetCspsState',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNetCurrentPlmn']=array (  'args' => '/api/net/current-plmn',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Current Cellular Provider Information',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/net/current-plmn\'',  'f_args_txt' => '/api/net/current-plmn',  'f_method_name' => 'ApiGetNetCurrentPlmn',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNetNetFeatureSwitch']=array (  'args' => '/api/net/net-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Network Features Switches',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/net/net-feature-switch\'',  'f_args_txt' => '/api/net/net-feature-switch',  'f_method_name' => 'ApiGetNetNetFeatureSwitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNetNetModeList']=array (  'args' => '/api/net/net-mode-list',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Cellulars Bands ?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/net/net-mode-list\'',  'f_args_txt' => '/api/net/net-mode-list',  'f_method_name' => 'ApiGetNetNetModeList',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNetNetMode']=array (  'args' => '/api/net/net-mode',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/net/net-mode\'',  'f_args_txt' => '/api/net/net-mode',  'f_method_name' => 'ApiGetNetNetMode',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNetNetwork']=array (  'args' => '/api/net/network',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/net/network\'',  'f_args_txt' => '/api/net/network',  'f_method_name' => 'ApiGetNetNetwork',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNetRegister']=array (  'args' => '/api/net/register',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/net/register\'',  'f_args_txt' => '/api/net/register',  'f_method_name' => 'ApiGetNetRegister',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNtwkCelllock']=array (  'args' => '/api/ntwk/celllock',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/ntwk/celllock\'',  'f_args_txt' => '/api/ntwk/celllock',  'f_method_name' => 'ApiGetNtwkCelllock',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNtwkDualwaninfo']=array (  'args' => '/api/ntwk/dualwaninfo',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/ntwk/dualwaninfo\'',  'f_args_txt' => '/api/ntwk/dualwaninfo',  'f_method_name' => 'ApiGetNtwkDualwaninfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNtwkLanUpnpPortmapping']=array (  'args' => '/api/ntwk/lan_upnp_portmapping',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'UPNP Ports?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/ntwk/lan_upnp_portmapping\'',  'f_args_txt' => '/api/ntwk/lan_upnp_portmapping',  'f_method_name' => 'ApiGetNtwkLanUpnpPortmapping',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNtwkLanWanConfig']=array (  'args' => '/api/ntwk/lan-wan-config',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/ntwk/lan-wan-config\'',  'f_args_txt' => '/api/ntwk/lan-wan-config',  'f_method_name' => 'ApiGetNtwkLanWanConfig',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOnlineUpdateAutoupdateConfig']=array (  'args' => '/api/online-update/autoupdate-config',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Online Auto Update Configuration',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/online-update/autoupdate-config\'',  'f_args_txt' => '/api/online-update/autoupdate-config',  'f_method_name' => 'ApiGetOnlineUpdateAutoupdateConfig',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOnlineUpdateConfiguration']=array (  'args' => '/api/online-update/configuration',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Online Update Configuration',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/online-update/configuration\'',  'f_args_txt' => '/api/online-update/configuration',  'f_method_name' => 'ApiGetOnlineUpdateConfiguration',  'f_call' => 'CallApiGet',);
+		$def['ApiGetOnlineUpdateStatus']=array (  'args' => '/api/online-update/status',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Online Update Status',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/online-update/status\'',  'f_args_txt' => '/api/online-update/status',  'f_method_name' => 'ApiGetOnlineUpdateStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetPinSavePin']=array (  'args' => '/api/pin/save-pin',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SIM Pin Save?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/pin/save-pin\'',  'f_args_txt' => '/api/pin/save-pin',  'f_method_name' => 'ApiGetPinSavePin',  'f_call' => 'CallApiGet',);
+		$def['ApiGetPinSimlock']=array (  'args' => '/api/pin/simlock',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SIM Pin Lock Information',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/pin/simlock\'',  'f_args_txt' => '/api/pin/simlock',  'f_method_name' => 'ApiGetPinSimlock',  'f_call' => 'CallApiGet',);
+		$def['ApiGetPinStatus']=array (  'args' => '/api/pin/status',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SIM Pin Status',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/pin/status\'',  'f_args_txt' => '/api/pin/status',  'f_method_name' => 'ApiGetPinStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSecurityBridgemode']=array (  'args' => '/api/security/bridgemode',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/security/bridgemode\'',  'f_args_txt' => '/api/security/bridgemode',  'f_method_name' => 'ApiGetSecurityBridgemode',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSecurityDmz']=array (  'args' => '/api/security/dmz',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DMZ Information',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/dmz\'',  'f_args_txt' => '/api/security/dmz',  'f_method_name' => 'ApiGetSecurityDmz',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSecurityFeatureSwitch']=array (  'args' => '/api/security/feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Security Features Switches',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/feature-switch\'',  'f_args_txt' => '/api/security/feature-switch',  'f_method_name' => 'ApiGetSecurityFeatureSwitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSecurityFirewallSwitch']=array (  'args' => '/api/security/firewall-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Firewall Features Switches',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/firewall-switch\'',  'f_args_txt' => '/api/security/firewall-switch',  'f_method_name' => 'ApiGetSecurityFirewallSwitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSecurityLanIpFilter']=array (  'args' => '/api/security/lan-ip-filter',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'LAN Ip Filters?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/security/lan-ip-filter\'',  'f_args_txt' => '/api/security/lan-ip-filter',  'f_method_name' => 'ApiGetSecurityLanIpFilter',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSecurityNat']=array (  'args' => '/api/security/nat',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'NAT Features ?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/security/nat\'',  'f_args_txt' => '/api/security/nat',  'f_method_name' => 'ApiGetSecurityNat',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSecuritySip']=array (  'args' => '/api/security/sip',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SIP Information',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/sip\'',  'f_args_txt' => '/api/security/sip',  'f_method_name' => 'ApiGetSecuritySip',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSecuritySpecialApplications']=array (  'args' => '/api/security/special-applications',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Ports Information?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/security/special-applications\'',  'f_args_txt' => '/api/security/special-applications',  'f_method_name' => 'ApiGetSecuritySpecialApplications',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSecurityUpnp']=array (  'args' => '/api/security/upnp',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Upnp Status',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/upnp\'',  'f_args_txt' => '/api/security/upnp',  'f_method_name' => 'ApiGetSecurityUpnp',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSecurityUrlFilter']=array (  'args' => '/api/security/url-filter',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Url Filters',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/url-filter\'',  'f_args_txt' => '/api/security/url-filter',  'f_method_name' => 'ApiGetSecurityUrlFilter',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSecurityVirtualServers']=array (  'args' => '/api/security/virtual-servers',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Virtual Servers',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/virtual-servers\'',  'f_args_txt' => '/api/security/virtual-servers',  'f_method_name' => 'ApiGetSecurityVirtualServers',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSecurityWhiteLanIpFilter']=array (  'args' => '/api/security/white-lan-ip-filter',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'White LAN Ip Filter',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/white-lan-ip-filter\'',  'f_args_txt' => '/api/security/white-lan-ip-filter',  'f_method_name' => 'ApiGetSecurityWhiteLanIpFilter',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSecurityWhiteUrlFilter']=array (  'args' => '/api/security/white-url-filter',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'White Url Filter',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/security/white-url-filter\'',  'f_args_txt' => '/api/security/white-url-filter',  'f_method_name' => 'ApiGetSecurityWhiteUrlFilter',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSmsConfig']=array (  'args' => '/api/sms/config',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SMS Configuration',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sms/config\'',  'f_args_txt' => '/api/sms/config',  'f_method_name' => 'ApiGetSmsConfig',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSmsSmsCountContact']=array (  'args' => '/api/sms/sms-count-contact',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SMS Contacts Count',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sms/sms-count-contact\'',  'f_args_txt' => '/api/sms/sms-count-contact',  'f_method_name' => 'ApiGetSmsSmsCountContact',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSmsSmsCount']=array (  'args' => '/api/sms/sms-count',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SMS Counts',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sms/sms-count\'',  'f_args_txt' => '/api/sms/sms-count',  'f_method_name' => 'ApiGetSmsSmsCount',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSmsSmsFeatureSwitch']=array (  'args' => '/api/sms/sms-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SMS Features',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sms/sms-feature-switch\'',  'f_args_txt' => '/api/sms/sms-feature-switch',  'f_method_name' => 'ApiGetSmsSmsFeatureSwitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSmsSmsList']=array (  'args' => '/api/sms/sms-list',  'state' => '4',  'type' => 'get',  'call_index' => 'xml_p',  'params' =>   array (    'definitions' =>     array (      'PageIndex' => 1,      'ReadCount' => 20,      'BoxType' =>       array (        0 => '1',        1 =>         array (          1 => 'Received',          2 => 'Sent',        ),        2 => 'Direction',      ),      'SortType' =>       array (        0 => '0',        1 =>         array (          0 => 'IndexOrDate?',          1 => 'Unsorted?',          2 => 'IndexOrDate?',        ),        2 => 'Sort By',      ),      'Ascending' =>       array (        0 => '0',        1 =>         array (          0 => 'Descending',          1 => 'Ascending',        ),        2 => 'Sort Type',      ),      'UnreadPreferred' =>       array (        0 => '0',        1 =>         array (          0 => '?',          1 => '?',        ),        2 => '???',      ),    ),    'parameters' => '$params=array(		\'PageIndex\'	=> $PageIndex,		\'ReadCount\'	=> $ReadCount,		\'BoxType\'	=> $BoxType,		\'SortType\'	=> $SortType,		\'Ascending\'	=> $Ascending,		\'UnreadPreferred\'	=> $UnreadPreferred,	);',    'arguments' => '$PageIndex="1", $ReadCount="20", $BoxType="1", $SortType="0", $Ascending="0", $UnreadPreferred="0"',    'call_params' => ', $params',    'doc_desc' => '* @param string $BoxType	Direction*		\'1\'	: Received,*		\'2\'	: Sent,* @param string $SortType	Sort By : either: IndexOrDate? | Unsorted? | IndexOrDate?* @param string $Ascending	Sort Type : either: Descending | Ascending* @param string $UnreadPreferred	??? : either: ? | ?',    'def_value' => '',  ),  'desc' => 'Get SMS List',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/sms/sms-list\'',  'f_args_txt' => '/api/sms/sms-list',  'f_method_name' => 'ApiGetSmsSmsList',  'f_call' => 'CallApiPost',);
+		$def['ApiSetSmsSendSms']=array (  'args' => '/api/sms/send-sms',  'state' => '4',  'type' => 'set',  'call_index' => 'xml_p',  'params' =>   array (    'definitions' =>     array (      'Phones' =>       array (        0 => '!',        1 => 'One of serveral phone number(s), formatted as <Phone>num1</Phone><Phone>num2</Phone>',      ),      'Content' =>       array (        0 => '!',        1 => 'Message',      ),      'Length' =>       array (        0 => '!',        1 => 'Message Length',      ),      'Reserved' =>       array (        0 => '1',        1 =>         array (          0 => '?',          1 => '?',          2 => '?',        ),        2 => 'What is this REQUIRED param ???',      ),      'Date' =>       array (        0 => '!',        1 => 'Date formatted like date(\'Y-m-d H:i:s\')',      ),      'SendType' =>       array (        0 => '0',        1 => '???',      ),      'Index' =>       array (        0 => '-1',        1 => '???',      ),    ),    'parameters' => '$params=array(		\'Phones\'	=> $Phones,		\'Content\'	=> $Content,		\'Length\'	=> $Length,		\'Reserved\'	=> $Reserved,		\'Date\'	=> $Date,		\'SendType\'	=> $SendType,		\'Index\'	=> $Index,	);',    'arguments' => '$Phones, $Content, $Length, $Reserved="1", $Date, $SendType="0", $Index="-1"',    'call_params' => ', $params',    'doc_desc' => '* @param string $Phones	One of serveral phone number(s), formatted as <Phone>num1</Phone><Phone>num2</Phone>* @param string $Content	Message* @param string $Length	Message Length* @param string $Reserved	What is this REQUIRED param ??? : either: ? | ? | ?* @param string $Date	Date formatted like date(\'Y-m-d H:i:s\')* @param string $SendType	???* @param string $Index	???',    'def_value' => '',  ),  'desc' => 'Send a SMS to one or multiple phone number(s)',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/sms/send-sms\'',  'f_args_txt' => '/api/sms/send-sms',  'f_method_name' => 'ApiSetSmsSendSms',  'f_call' => 'CallApiPost',);
+		$def['ApiSetSmsDeleteSms']=array (  'args' => '/api/sms/delete-sms',  'state' => '5',  'type' => 'set',  'call_index' => 'xml_p',  'params' =>   array (    'definitions' =>     array (      'Index' =>       array (        0 => '!',        1 => 'Message\'s Index',      ),    ),    'parameters' => '$params=array(		\'Index\'	=> $Index,	);',    'arguments' => '$Index',    'call_params' => ', $params',    'doc_desc' => '* @param string $Index	Message\'s Index',    'def_value' => '',  ),  'desc' => 'Delete a SMS from the InBox',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sms/delete-sms\'',  'f_args_txt' => '/api/sms/delete-sms',  'f_method_name' => 'ApiSetSmsDeleteSms',  'f_call' => 'CallApiPost',);
+		$def['ApiGetSmsSmsListContact']=array (  'args' => '/api/sms/sms-list-contact',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/sms/sms-list-contact\'',  'f_args_txt' => '/api/sms/sms-list-contact',  'f_method_name' => 'ApiGetSmsSmsListContact',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSmsSplitinfoSms']=array (  'args' => '/api/sms/splitinfo-sms',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SMS Split Info?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/sms/splitinfo-sms\'',  'f_args_txt' => '/api/sms/splitinfo-sms',  'f_method_name' => 'ApiGetSmsSplitinfoSms',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSntpServerinfo']=array (  'args' => '/api/sntp/serverinfo',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SNTP Servers list',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sntp/serverinfo\'',  'f_args_txt' => '/api/sntp/serverinfo',  'f_method_name' => 'ApiGetSntpServerinfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSntpSntpswitch']=array (  'args' => '/api/sntp/sntpswitch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SNTP switch',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sntp/sntpswitch\'',  'f_args_txt' => '/api/sntp/sntpswitch',  'f_method_name' => 'ApiGetSntpSntpswitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSntpTimeinfo']=array (  'args' => '/api/sntp/timeinfo',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'SNTP Time Information',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/sntp/timeinfo\'',  'f_args_txt' => '/api/sntp/timeinfo',  'f_method_name' => 'ApiGetSntpTimeinfo',  'f_call' => 'CallApiGet',);
+		$def['ApiGetStatisticFeatureRoamStatistic']=array (  'args' => '/api/statistic/feature-roam-statistic',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/statistic/feature-roam-statistic\'',  'f_args_txt' => '/api/statistic/feature-roam-statistic',  'f_method_name' => 'ApiGetStatisticFeatureRoamStatistic',  'f_call' => 'CallApiGet',);
+		$def['ApiGetSystemDeviceinfoex']=array (  'args' => '/api/system/deviceinfoex',  'state' => '4',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device Information (Ex?)',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/system/deviceinfoex\'',  'f_args_txt' => '/api/system/deviceinfoex',  'f_method_name' => 'ApiGetSystemDeviceinfoex',  'f_call' => 'CallApiGetJson',);
+		$def['ApiGetSystemHostInfo']=array (  'args' => '/api/system/HostInfo',  'state' => '5',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'ARP Hosts Information',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/system/HostInfo\'',  'f_args_txt' => '/api/system/HostInfo',  'f_method_name' => 'ApiGetSystemHostInfo',  'f_call' => 'CallApiGetJson',);
+		$def['ApiGetSystemOnlinestate']=array (  'args' => '/api/system/onlinestate',  'state' => '5',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device and Sytem Information',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/system/onlinestate\'',  'f_args_txt' => '/api/system/onlinestate',  'f_method_name' => 'ApiGetSystemOnlinestate',  'f_call' => 'CallApiGetJson',);
+		$def['ApiGetSystemOnlineupg']=array (  'args' => '/api/system/onlineupg',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/api/system/onlineupg\'',  'f_args_txt' => '/api/system/onlineupg',  'f_method_name' => 'ApiGetSystemOnlineupg',  'f_call' => 'CallApiGet',);
+		$def['ApiGetTimeTimeout']=array (  'args' => '/api/time/timeout',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Login Timeout (min)',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/time/timeout\'',  'f_args_txt' => '/api/time/timeout',  'f_method_name' => 'ApiGetTimeTimeout',  'f_call' => 'CallApiGet',);
+		$def['ApiGetTimeruleTimerule']=array (  'args' => '/api/timerule/timerule',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Time Rules',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/timerule/timerule\'',  'f_args_txt' => '/api/timerule/timerule',  'f_method_name' => 'ApiGetTimeruleTimerule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUserHilinkLogin']=array (  'args' => '/api/user/hilink_login',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Hilink Login',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/user/hilink_login\'',  'f_args_txt' => '/api/user/hilink_login',  'f_method_name' => 'ApiGetUserHilinkLogin',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUserPwd']=array (  'args' => '/api/user/pwd',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'User Pwd ?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/user/pwd\'',  'f_args_txt' => '/api/user/pwd',  'f_method_name' => 'ApiGetUserPwd',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUserRule']=array (  'args' => '/api/user/rule',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'User Rules',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/user/rule\'',  'f_args_txt' => '/api/user/rule',  'f_method_name' => 'ApiGetUserRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUserStateLogin']=array (  'args' => '/api/user/state-login',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Login State',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/user/state-login\'',  'f_args_txt' => '/api/user/state-login',  'f_method_name' => 'ApiGetUserStateLogin',  'f_call' => 'CallApiGet',);
+		$def['ApiGetUserWebFeatureSwitch']=array (  'args' => '/api/user/web-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Web Features Switches',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/user/web-feature-switch\'',  'f_args_txt' => '/api/user/web-feature-switch',  'f_method_name' => 'ApiGetUserWebFeatureSwitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetVpnFeatureSwitch']=array (  'args' => '/api/vpn/feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'VPN Features Switches',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/vpn/feature-switch\'',  'f_args_txt' => '/api/vpn/feature-switch',  'f_method_name' => 'ApiGetVpnFeatureSwitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetVpnL2tpSettings']=array (  'args' => '/api/vpn/l2tp_settings',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'VPN L2tp Settings',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/vpn/l2tp_settings\'',  'f_args_txt' => '/api/vpn/l2tp_settings',  'f_method_name' => 'ApiGetVpnL2tpSettings',  'f_call' => 'CallApiGet',);
+		$def['ApiGetVpnPptpSettings']=array (  'args' => '/api/vpn/pptp_settings',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'VPN PPTP Settings',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/vpn/pptp_settings\'',  'f_args_txt' => '/api/vpn/pptp_settings',  'f_method_name' => 'ApiGetVpnPptpSettings',  'f_call' => 'CallApiGet',);
+		$def['ApiGetWebserverToken']=array (  'args' => '/api/webserver/token',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Webserver Token',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/webserver/token\'',  'f_args_txt' => '/api/webserver/token',  'f_method_name' => 'ApiGetWebserverToken',  'f_call' => 'CallApiGet',);
+		$def['ApiGetWlanGuesttimeSetting']=array (  'args' => '/api/wlan/guesttime-setting',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi Guest Time Settings',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/wlan/guesttime-setting\'',  'f_args_txt' => '/api/wlan/guesttime-setting',  'f_method_name' => 'ApiGetWlanGuesttimeSetting',  'f_call' => 'CallApiGet',);
+		$def['ApiGetWlanHostList']=array (  'args' => '/api/wlan/host-list',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi Hosts List',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/wlan/host-list\'',  'f_args_txt' => '/api/wlan/host-list',  'f_method_name' => 'ApiGetWlanHostList',  'f_call' => 'CallApiGet',);
+		$def['ApiGetWlanMultiBasicSettings']=array (  'args' => '/api/wlan/multi-basic-settings',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi Settings',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/wlan/multi-basic-settings\'',  'f_args_txt' => '/api/wlan/multi-basic-settings',  'f_method_name' => 'ApiGetWlanMultiBasicSettings',  'f_call' => 'CallApiGet',);
+		$def['ApiGetWlanMultiMacfilterSettingsEx']=array (  'args' => '/api/wlan/multi-macfilter-settings-ex',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi MAC filter settings (Ex?)',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/wlan/multi-macfilter-settings-ex\'',  'f_args_txt' => '/api/wlan/multi-macfilter-settings-ex',  'f_method_name' => 'ApiGetWlanMultiMacfilterSettingsEx',  'f_call' => 'CallApiGet',);
+		$def['ApiGetWlanStatusSwitchSettings']=array (  'args' => '/api/wlan/status-switch-settings',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi Switch Settings',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/wlan/status-switch-settings\'',  'f_args_txt' => '/api/wlan/status-switch-settings',  'f_method_name' => 'ApiGetWlanStatusSwitchSettings',  'f_call' => 'CallApiGet',);
+		$def['ApiGetWlanWifiFeatureSwitch']=array (  'args' => '/api/wlan/wifi-feature-switch',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi Features Switches',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/api/wlan/wifi-feature-switch\'',  'f_args_txt' => '/api/wlan/wifi-feature-switch',  'f_method_name' => 'ApiGetWlanWifiFeatureSwitch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetWlanWlandbho']=array (  'args' => '/api/wlan/wlandbho',  'state' => '4',  'type' => 'get',  'call_index' => 'json',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Wifi dbho?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/wlan/wlandbho\'',  'f_args_txt' => '/api/wlan/wlandbho',  'f_method_name' => 'ApiGetWlanWlandbho',  'f_call' => 'CallApiGetJson',);
+		$def['ApiGetDeviceConfigXml']=array (  'args' => '/config/device/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device Configuration',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/device/config.xml\'',  'f_args_txt' => '/config/device/config.xml',  'f_method_name' => 'ApiGetDeviceConfigXml',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDeviceinformationConfigXml']=array (  'args' => '/config/deviceinformation/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Device Information Switches',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/deviceinformation/config.xml\'',  'f_args_txt' => '/config/deviceinformation/config.xml',  'f_method_name' => 'ApiGetDeviceinformationConfigXml',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDialupConfigXml']=array (  'args' => '/config/dialup/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dialup Information Switches',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/dialup/config.xml\'',  'f_args_txt' => '/config/dialup/config.xml',  'f_method_name' => 'ApiGetDialupConfigXml',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDialupConnectmodeXml']=array (  'args' => '/config/dialup/connectmode.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dialup Connect Mode',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/dialup/connectmode.xml\'',  'f_args_txt' => '/config/dialup/connectmode.xml',  'f_method_name' => 'ApiGetDialupConnectmodeXml',  'f_call' => 'CallApiGet',);
+		$def['ApiGetGlobalConfigXml']=array (  'args' => '/config/global/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Global Configuration',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/global/config.xml\'',  'f_args_txt' => '/config/global/config.xml',  'f_method_name' => 'ApiGetGlobalConfigXml',  'f_call' => 'CallApiGet',);
+		$def['ApiGetGlobalLanguagelistXml']=array (  'args' => '/config/global/languagelist.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Languages list',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/global/languagelist.xml\'',  'f_args_txt' => '/config/global/languagelist.xml',  'f_method_name' => 'ApiGetGlobalLanguagelistXml',  'f_call' => 'CallApiGet',);
+		$def['ApiGetGlobalNetTypeXml']=array (  'args' => '/config/global/net-type.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Network Types?',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/global/net-type.xml\'',  'f_args_txt' => '/config/global/net-type.xml',  'f_method_name' => 'ApiGetGlobalNetTypeXml',  'f_call' => 'CallApiGet',);
+		$def['ApiGetLanConfigXml']=array (  'args' => '/config/lan/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'LAN Configuration',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/lan/config.xml\'',  'f_args_txt' => '/config/lan/config.xml',  'f_method_name' => 'ApiGetLanConfigXml',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNetworkNetModeXml']=array (  'args' => '/config/network/net-mode.xml',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Network Net Modes?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/config/network/net-mode.xml\'',  'f_args_txt' => '/config/network/net-mode.xml',  'f_method_name' => 'ApiGetNetworkNetModeXml',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNetworkNetworkbandNullXml']=array (  'args' => '/config/network/networkband_null.xml',  'state' => '2',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/config/network/networkband_null.xml\'',  'f_args_txt' => '/config/network/networkband_null.xml',  'f_method_name' => 'ApiGetNetworkNetworkbandNullXml',  'f_call' => 'CallApiGet',);
+		$def['ApiGetNetworkNetworkmodeXml']=array (  'args' => '/config/network/networkmode.xml',  'state' => '4',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Net Modes?',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/config/network/networkmode.xml\'',  'f_args_txt' => '/config/network/networkmode.xml',  'f_method_name' => 'ApiGetNetworkNetworkmodeXml',  'f_call' => 'CallApiGet',);
+		$def['ApiGetPincodeConfigXml']=array (  'args' => '/config/pincode/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'PIN code Configuration',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/pincode/config.xml\'',  'f_args_txt' => '/config/pincode/config.xml',  'f_method_name' => 'ApiGetPincodeConfigXml',  'f_call' => 'CallApiGet',);
+		$def['ApiGetWebuicfgConfigXml']=array (  'args' => '/config/webuicfg/config.xml',  'state' => '5',  'type' => 'get',  'call_index' => 'xml',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Web UI Configuration',  'return' => '',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/config/webuicfg/config.xml\'',  'f_args_txt' => '/config/webuicfg/config.xml',  'f_method_name' => 'ApiGetWebuicfgConfigXml',  'f_call' => 'CallApiGet',);
+		$def['ApiSetDeviceControl']=array (  'args' => '/api/device/control',  'state' => '4',  'type' => 'set',  'call_index' => 'xml_p',  'params' =>   array (    'definitions' =>     array (      'Control' =>       array (        0 => '1',        1 =>         array (          1 => 'Reboot',        ),        2 => 'Set to 1 to reboot',      ),    ),    'parameters' => '$params=array(		\'Control\'	=> $Control,	);',    'arguments' => '$Control="1"',    'call_params' => ', $params',    'doc_desc' => '* @param string $Control	Set to 1 to reboot*		\'1\'	: Reboot,',    'def_value' => '',  ),  'desc' => 'Reboot',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/api/device/control\'',  'f_args_txt' => '/api/device/control',  'f_method_name' => 'ApiSetDeviceControl',  'f_call' => 'CallApiPost',);
 	
 		return $def;
 	}
