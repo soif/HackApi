@@ -27,8 +27,8 @@ Please tell us which models you've tested by adding your line in the [template.p
 - **2** standardised methods
 - **56** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
 - **226** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **23** methods with status of **UNDER DEV** (Work in propress)
-- **6** methods with status of **ERROR** (Returns an error)
+- **24** methods with status of **UNDER DEV** (Work in propress)
+- **5** methods with status of **ERROR** (Returns an error)
 - **345** methods with status of **DRAFT** (Not tested)
 
 
@@ -37,8 +37,8 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 - **16** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
 - **224** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **20** methods with status of **UNDER DEV** (Work in propress)
-- **6** methods with status of **ERROR** (Returns an error)
+- **21** methods with status of **UNDER DEV** (Work in propress)
+- **5** methods with status of **ERROR** (Returns an error)
 
 
 ### 390 *Setter* methods (Writing or performing an action)
@@ -168,15 +168,15 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetFirewallCategoryGetItem** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallCategorySearchItem** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallCategorySearchNoCategoryItem** |  | TESTED |
-| **:warning: ApiGetFirewallFilterBaseGet** |  | ERROR |
-| **:warning: ApiGetFirewallFilterGetRule** |  | ERROR |
-| **:warning: ApiGetFirewallFilterSearchRule** |  | ERROR |
+| **:warning: ApiGetFirewallFilterBaseGet** | (400: Controller not found) | ERROR |
+| **:warning: ApiGetFirewallFilterGetRule** | (400: Controller not found) | ERROR |
+| **:warning: ApiGetFirewallFilterSearchRule** | (400: Controller not found) | ERROR |
 | **:white_check_mark: ApiGetFirewallFilterUtilRuleStats** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallGroupGet** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallGroupGetItem** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallGroupSearchItem** |  | TESTED |
-| **:warning: ApiGetFirewallSourceNatGetRule** |  | ERROR |
-| **:warning: ApiGetFirewallSourceNatSearchRule** |  | ERROR |
+| **:warning: ApiGetFirewallSourceNatGetRule** | (400: Controller not found) | ERROR |
+| **:warning: ApiGetFirewallSourceNatSearchRule** | (400: Controller not found) | ERROR |
 | **:wrench: ApiGetIdsServiceGetAlertLogs** |  | UNDER DEV |
 | **:star: ApiGetIdsServiceStatus** | Intrusion Detection Service Status | FINAL |
 | **:white_check_mark: ApiGetIdsSettingsCheckPolicyRule** |  | TESTED |
@@ -208,7 +208,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetInterfacesVxlanSettingsGetItem** |  | TESTED |
 | **:white_check_mark: ApiGetInterfacesVxlanSettingsSearchItem** |  | TESTED |
 | **:white_check_mark: ApiGetIperfInstanceGet** |  | TESTED |
-| **:warning: ApiGetIperfInstanceQuery** |  | ERROR |
+| **:wrench: ApiGetIperfInstanceQuery** |  | UNDER DEV |
 | **:star: ApiGetIperfServiceStatus** | Iperf Service Status | FINAL |
 | **:white_check_mark: ApiGetIpsecConnectionsGet** |  | TESTED |
 | **:white_check_mark: ApiGetIpsecConnectionsGetChild** |  | TESTED |

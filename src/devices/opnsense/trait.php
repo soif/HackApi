@@ -3585,6 +3585,19 @@ trait Hackapi_Opnsense_Trait {
 	
 	// -----------------------------------------------------------------------
 	/**
+	* ApiGetIperfInstanceQuery
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetIperfInstanceQuery(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/iperf/instance/query');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
 	* ApiGetNtopngServiceCheckredis
 	*
 	* @category ApiGet
@@ -3606,6 +3619,8 @@ trait Hackapi_Opnsense_Trait {
 	/**
 	* ApiGetFirewallFilterBaseGet
 	*
+	* (400: Controller not found)
+	*
 	* @category ApiGet
 	* @return Array[] | false (when empty, or when failed)
 	*/
@@ -3618,6 +3633,8 @@ trait Hackapi_Opnsense_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiGetFirewallFilterGetRule
+	*
+	* (400: Controller not found)
 	*
 	* @category ApiGet
 	* @return Array[] | false (when empty, or when failed)
@@ -3635,6 +3652,8 @@ trait Hackapi_Opnsense_Trait {
 	/**
 	* ApiGetFirewallFilterSearchRule
 	*
+	* (400: Controller not found)
+	*
 	* @category ApiGet
 	* @return Array[] | false (when empty, or when failed)
 	*/
@@ -3647,6 +3666,8 @@ trait Hackapi_Opnsense_Trait {
 	// -----------------------------------------------------------------------
 	/**
 	* ApiGetFirewallSourceNatGetRule
+	*
+	* (400: Controller not found)
 	*
 	* @category ApiGet
 	* @return Array[] | false (when empty, or when failed)
@@ -3664,6 +3685,8 @@ trait Hackapi_Opnsense_Trait {
 	/**
 	* ApiGetFirewallSourceNatSearchRule
 	*
+	* (400: Controller not found)
+	*
 	* @category ApiGet
 	* @return Array[] | false (when empty, or when failed)
 	*/
@@ -3671,19 +3694,6 @@ trait Hackapi_Opnsense_Trait {
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(2);
 		return $this->CallApiGet('/firewall/source_nat/searchRule');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIperfInstanceQuery
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIperfInstanceQuery(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/iperf/instance/query');
 	}
 	
 	
@@ -10057,11 +10067,11 @@ trait Hackapi_Opnsense_Trait {
 		$def['ApiSetDyndnsServiceStart']=array (  'args' => '/dyndns/service/start',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DynDNS Service Start',  'return' => 'bool',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/dyndns/service/start\'',  'f_args_txt' => '/dyndns/service/start',  'f_method_name' => 'ApiSetDyndnsServiceStart',  'f_call' => 'CallApiPost',);
 		$def['ApiSetDyndnsServiceStop']=array (  'args' => '/dyndns/service/stop',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'DynDNS Service Stop',  'return' => 'bool',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/dyndns/service/stop\'',  'f_args_txt' => '/dyndns/service/stop',  'f_method_name' => 'ApiSetDyndnsServiceStop',  'f_call' => 'CallApiPost',);
 		$def['ApiSetDyndnsSettingsSet']=array (  'args' => '/dyndns/settings/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dyndns/settings/set\'',  'f_args_txt' => '/dyndns/settings/set',  'f_method_name' => 'ApiSetDyndnsSettingsSet',  'f_call' => 'CallApiPost',);
-		$def['ApiGetFirewallFilterBaseGet']=array (  'args' => '/firewall/filter_base/get',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/filter_base/get\'',  'f_args_txt' => '/firewall/filter_base/get',  'f_method_name' => 'ApiGetFirewallFilterBaseGet',  'f_call' => 'CallApiGet',);
-		$def['ApiGetFirewallFilterGetRule']=array (  'args' => '/firewall/filter/getRule',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/filter/getRule\'',  'f_args_txt' => '/firewall/filter/getRule',  'f_method_name' => 'ApiGetFirewallFilterGetRule',  'f_call' => 'CallApiGet',);
-		$def['ApiGetFirewallFilterSearchRule']=array (  'args' => '/firewall/filter/searchRule',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/filter/searchRule\'',  'f_args_txt' => '/firewall/filter/searchRule',  'f_method_name' => 'ApiGetFirewallFilterSearchRule',  'f_call' => 'CallApiGet',);
-		$def['ApiGetFirewallSourceNatGetRule']=array (  'args' => '/firewall/source_nat/getRule',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/source_nat/getRule\'',  'f_args_txt' => '/firewall/source_nat/getRule',  'f_method_name' => 'ApiGetFirewallSourceNatGetRule',  'f_call' => 'CallApiGet',);
-		$def['ApiGetFirewallSourceNatSearchRule']=array (  'args' => '/firewall/source_nat/searchRule',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/source_nat/searchRule\'',  'f_args_txt' => '/firewall/source_nat/searchRule',  'f_method_name' => 'ApiGetFirewallSourceNatSearchRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallFilterBaseGet']=array (  'args' => '/firewall/filter_base/get',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '(400: Controller not found)',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/filter_base/get\'',  'f_args_txt' => '/firewall/filter_base/get',  'f_method_name' => 'ApiGetFirewallFilterBaseGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallFilterGetRule']=array (  'args' => '/firewall/filter/getRule',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '(400: Controller not found)',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/filter/getRule\'',  'f_args_txt' => '/firewall/filter/getRule',  'f_method_name' => 'ApiGetFirewallFilterGetRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallFilterSearchRule']=array (  'args' => '/firewall/filter/searchRule',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '(400: Controller not found)',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/filter/searchRule\'',  'f_args_txt' => '/firewall/filter/searchRule',  'f_method_name' => 'ApiGetFirewallFilterSearchRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallSourceNatGetRule']=array (  'args' => '/firewall/source_nat/getRule',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '(400: Controller not found)',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/source_nat/getRule\'',  'f_args_txt' => '/firewall/source_nat/getRule',  'f_method_name' => 'ApiGetFirewallSourceNatGetRule',  'f_call' => 'CallApiGet',);
+		$def['ApiGetFirewallSourceNatSearchRule']=array (  'args' => '/firewall/source_nat/searchRule',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '(400: Controller not found)',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/firewall/source_nat/searchRule\'',  'f_args_txt' => '/firewall/source_nat/searchRule',  'f_method_name' => 'ApiGetFirewallSourceNatSearchRule',  'f_call' => 'CallApiGet',);
 		$def['ApiSetFirewallFilterBaseApply']=array (  'args' => '/firewall/filter_base/apply',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'rollback_revision' => 'null',    ),    'parameters' => '$params=array(		\'rollback_revision\'	=> $rollback_revision,	);',    'arguments' => '$rollback_revision="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/filter_base/apply\'',  'f_args_txt' => '/firewall/filter_base/apply',  'f_method_name' => 'ApiSetFirewallFilterBaseApply',  'f_call' => 'CallApiPost',);
 		$def['ApiSetFirewallFilterBaseCancelRollback']=array (  'args' => '/firewall/filter_base/cancelRollback',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'rollback_revision' => '!',    ),    'parameters' => '$params=array(		\'rollback_revision\'	=> $rollback_revision,	);',    'arguments' => '$rollback_revision',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/filter_base/cancelRollback\'',  'f_args_txt' => '/firewall/filter_base/cancelRollback',  'f_method_name' => 'ApiSetFirewallFilterBaseCancelRollback',  'f_call' => 'CallApiPost',);
 		$def['ApiSetFirewallFilterBaseRevert']=array (  'args' => '/firewall/filter_base/revert',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'revision' => '!',    ),    'parameters' => '$params=array(		\'revision\'	=> $revision,	);',    'arguments' => '$revision',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/filter_base/revert\'',  'f_args_txt' => '/firewall/filter_base/revert',  'f_method_name' => 'ApiSetFirewallFilterBaseRevert',  'f_call' => 'CallApiPost',);
@@ -10076,7 +10086,7 @@ trait Hackapi_Opnsense_Trait {
 		$def['ApiSetFirewallSourceNatSetRule']=array (  'args' => '/firewall/source_nat/setRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/source_nat/setRule\'',  'f_args_txt' => '/firewall/source_nat/setRule',  'f_method_name' => 'ApiSetFirewallSourceNatSetRule',  'f_call' => 'CallApiPost',);
 		$def['ApiSetFirewallSourceNatToggleRule']=array (  'args' => '/firewall/source_nat/toggleRule',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' =>     array (      'uuid' => '!',      'enabled' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,		\'enabled\'	=> $enabled,	);',    'arguments' => '$uuid, $enabled="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/firewall/source_nat/toggleRule\'',  'f_args_txt' => '/firewall/source_nat/toggleRule',  'f_method_name' => 'ApiSetFirewallSourceNatToggleRule',  'f_call' => 'CallApiPost',);
 		$def['ApiGetIperfInstanceGet']=array (  'args' => '/iperf/instance/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/iperf/instance/get\'',  'f_args_txt' => '/iperf/instance/get',  'f_method_name' => 'ApiGetIperfInstanceGet',  'f_call' => 'CallApiGet',);
-		$def['ApiGetIperfInstanceQuery']=array (  'args' => '/iperf/instance/query',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/iperf/instance/query\'',  'f_args_txt' => '/iperf/instance/query',  'f_method_name' => 'ApiGetIperfInstanceQuery',  'f_call' => 'CallApiGet',);
+		$def['ApiGetIperfInstanceQuery']=array (  'args' => '/iperf/instance/query',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/iperf/instance/query\'',  'f_args_txt' => '/iperf/instance/query',  'f_method_name' => 'ApiGetIperfInstanceQuery',  'f_call' => 'CallApiGet',);
 		$def['ApiGetIperfServiceStatus']=array (  'args' => '/iperf/service/status',  'state' => '5',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Iperf Service Status',  'return' => 'bool',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/iperf/service/status\'',  'f_args_txt' => '/iperf/service/status',  'f_method_name' => 'ApiGetIperfServiceStatus',  'f_call' => 'CallApiGet',);
 		$def['ApiSetIperfInstanceSet']=array (  'args' => '/iperf/instance/set',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/iperf/instance/set\'',  'f_args_txt' => '/iperf/instance/set',  'f_method_name' => 'ApiSetIperfInstanceSet',  'f_call' => 'CallApiPost',);
 		$def['ApiSetIperfServiceRestart']=array (  'args' => '/iperf/service/restart',  'state' => '5',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Iperf Service Restart',  'return' => 'bool',  'f_state_name' => 'FINAL',  'f_state_desc' => 'Fully tested: Params ordered, desc set',  'f_args_call' => '\'/iperf/service/restart\'',  'f_args_txt' => '/iperf/service/restart',  'f_method_name' => 'ApiSetIperfServiceRestart',  'f_call' => 'CallApiPost',);

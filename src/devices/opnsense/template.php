@@ -738,11 +738,11 @@ $p['definitions']=array(
 
 	// https://docs.opnsense.org/development/api/plugins/firewall.html --------------------------------------
 
-	['/firewall/filter_base/get',			'2',	'get',	'get',		'',		''],
-	['/firewall/filter/getRule',			'2',	'get',	'get',		['uuid'=>'null'],		''],
-	['/firewall/filter/searchRule',			'2',	'get',	'get',		'',		''],
-	['/firewall/source_nat/getRule',		'2',	'get',	'get',		['uuid'=>'null'],		''],
-	['/firewall/source_nat/searchRule',		'2',	'get',	'get',		'',		''],
+	['/firewall/filter_base/get',			'2',	'get',	'get',		'',		'(400: Controller not found)'],
+	['/firewall/filter/getRule',			'2',	'get',	'get',		['uuid'=>'null'],		'(400: Controller not found)'],
+	['/firewall/filter/searchRule',			'2',	'get',	'get',		'',		'(400: Controller not found)'],
+	['/firewall/source_nat/getRule',		'2',	'get',	'get',		['uuid'=>'null'],		'(400: Controller not found)'],
+	['/firewall/source_nat/searchRule',		'2',	'get',	'get',		'',		'(400: Controller not found)'],
 
 	['/firewall/filter_base/apply',			'1',	'set',	'post',		['rollback_revision'=>'null'],		''],
 	['/firewall/filter_base/cancelRollback','1',	'set',	'post',		['rollback_revision'=>'!'],		''],
@@ -762,7 +762,7 @@ $p['definitions']=array(
 	// https://docs.opnsense.org/development/api/plugins/iperf.html --------------------------------------
 
 	['/iperf/instance/get',					'4',	'get',	'get',		'',		''],
-	['/iperf/instance/query',				'2',	'get',	'get',		'',		''],
+	['/iperf/instance/query',				'3',	'get',	'get',		'',		''],
 	['/iperf/service/status',				'5',	'get',	'get',		'',		'Iperf Service Status','bool'],
 
 	['/iperf/instance/set',					'1',	'set',	'post',		'',		''],
