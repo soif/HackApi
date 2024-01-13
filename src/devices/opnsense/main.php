@@ -37,6 +37,7 @@ class Hackapi_OpnSense extends Hackapi{
 		'401'		=> ['AUTHENTICATION_FAILED', 3],
 	);
 
+	//protected $timeout_request =30;	// some methods are very long to answer, ie ApiSetMonitServiceStart
 
 	// ############################################################################################
 	// ## (REQUIRED) OVERRIDEN METHODS ############################################################
@@ -169,12 +170,15 @@ class Hackapi_OpnSense extends Hackapi{
 			foreach($res_keys as $k){
 				if( isset($arr[$k]) and (count($arr)==1 or (count($arr)==2 and isset($arr['widget']) )) ){
 					if(in_array(trim($arr[$k]), $yes_status)){
+						$this->DebugLogInfo("TRUE was guessed from: '$k'=>'{$arr[$k]}' ");
 						return true;
 					}
 					elseif(in_array(trim($arr[$k]), $no_status)){
+						$this->DebugLogInfo("FALSE was guessed from: '$k'=>'{$arr[$k]}' ");
 						return false;
 					}
 					elseif(isset($arr['status'])){
+						//$this->DebugLogError("Can't guess this answer status : ", $arr );
 						$this->SetApiErrorCode($arr['status'],$arr['message'],$arr);
 					}
 				}
