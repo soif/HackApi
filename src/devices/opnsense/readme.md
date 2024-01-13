@@ -25,27 +25,28 @@ Please tell us which models you've tested by adding your line in the [template.p
 ## 658 methods are currently implemented
 
 - **2** standardised methods
-- **12** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
-- **240** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **20** methods with status of **UNDER DEV** (Work in propress)
+- **56** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
+- **226** methods with status of **TESTED** (Params still not ordered or desc not set)
+- **23** methods with status of **UNDER DEV** (Work in propress)
 - **6** methods with status of **ERROR** (Returns an error)
-- **378** methods with status of **DRAFT** (Not tested)
+- **345** methods with status of **DRAFT** (Not tested)
 
 
 
 ### 266 *Getter* methods (ReadOnly)
 
-- **2** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
-- **238** methods with status of **TESTED** (Params still not ordered or desc not set)
+- **16** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
+- **224** methods with status of **TESTED** (Params still not ordered or desc not set)
 - **20** methods with status of **UNDER DEV** (Work in propress)
 - **6** methods with status of **ERROR** (Returns an error)
 
 
 ### 390 *Setter* methods (Writing or performing an action)
 
-- **10** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
+- **40** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
 - **2** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **378** methods with status of **DRAFT** (Not tested)
+- **3** methods with status of **UNDER DEV** (Work in propress)
+- **345** methods with status of **DRAFT** (Not tested)
 
 
 
@@ -97,10 +98,10 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetDhcpLeases4SearchLease** |  | TESTED |
 | **:white_check_mark: ApiGetDhcpServiceStatus** |  | TESTED |
 | **:white_check_mark: ApiGetDhcpv4LeasesSearchLease** |  | TESTED |
-| **:white_check_mark: ApiGetDhcpv4ServiceStatus** |  | TESTED |
+| **:star: ApiGetDhcpv4ServiceStatus** | DHCP v4 Service Status | FINAL |
 | **:white_check_mark: ApiGetDhcpv6LeasesSearchLease** |  | TESTED |
 | **:white_check_mark: ApiGetDhcpv6LeasesSearchPrefix** |  | TESTED |
-| **:white_check_mark: ApiGetDhcpv6ServiceStatus** |  | TESTED |
+| **:star: ApiGetDhcpv6ServiceStatus** | DHCP v6 Service Status | FINAL |
 | **:white_check_mark: ApiGetDiagnosticsActivityGetActivity** |  | TESTED |
 | **:white_check_mark: ApiGetDiagnosticsDnsDiagnosticsGet** |  | TESTED |
 | **:wrench: ApiGetDiagnosticsDnsReverseLookup** |  | UNDER DEV |
@@ -150,7 +151,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetDyndnsAccountsGet** |  | TESTED |
 | **:white_check_mark: ApiGetDyndnsAccountsGetItem** |  | TESTED |
 | **:white_check_mark: ApiGetDyndnsAccountsSearchItem** |  | TESTED |
-| **:white_check_mark: ApiGetDyndnsServiceStatus** |  | TESTED |
+| **:star: ApiGetDyndnsServiceStatus** | DynDNS Service Status | FINAL |
 | **:white_check_mark: ApiGetDyndnsSettingsGet** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallAliasExport** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallAliasGet** |  | TESTED |
@@ -177,7 +178,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:warning: ApiGetFirewallSourceNatGetRule** |  | ERROR |
 | **:warning: ApiGetFirewallSourceNatSearchRule** |  | ERROR |
 | **:wrench: ApiGetIdsServiceGetAlertLogs** |  | UNDER DEV |
-| **:white_check_mark: ApiGetIdsServiceStatus** |  | TESTED |
+| **:star: ApiGetIdsServiceStatus** | Intrusion Detection Service Status | FINAL |
 | **:white_check_mark: ApiGetIdsSettingsCheckPolicyRule** |  | TESTED |
 | **:white_check_mark: ApiGetIdsSettingsGet** |  | TESTED |
 | **:white_check_mark: ApiGetIdsSettingsGetPolicy** |  | TESTED |
@@ -233,7 +234,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetIpsecPreSharedKeysGetItem** |  | TESTED |
 | **:white_check_mark: ApiGetIpsecPreSharedKeysSearchItem** |  | TESTED |
 | **:white_check_mark: ApiGetIpsecSadSearch** |  | TESTED |
-| **:white_check_mark: ApiGetIpsecServiceStatus** |  | TESTED |
+| **:star: ApiGetIpsecServiceStatus** | IPSec Service Status | FINAL |
 | **:white_check_mark: ApiGetIpsecSessionsSearchPhase1** |  | TESTED |
 | **:white_check_mark: ApiGetIpsecSessionsSearchPhase2** |  | TESTED |
 | **:white_check_mark: ApiGetIpsecSpdSearch** |  | TESTED |
@@ -241,7 +242,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetIpsecTunnelSearchPhase2** |  | TESTED |
 | **:white_check_mark: ApiGetIpsecVtiGet** |  | TESTED |
 | **:white_check_mark: ApiGetIpsecVtiSearch** |  | TESTED |
-| **:white_check_mark: ApiGetMonitServiceStatus** |  | TESTED |
+| **:star: ApiGetMonitServiceStatus** | Monit Service Status | FINAL |
 | **:white_check_mark: ApiGetMonitSettingsDirty** |  | TESTED |
 | **:white_check_mark: ApiGetMonitSettingsGet** |  | TESTED |
 | **:white_check_mark: ApiGetMonitSettingsGetAlert** |  | TESTED |
@@ -253,12 +254,12 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetMonitSettingsSearchTest** |  | TESTED |
 | **:white_check_mark: ApiGetMonitStatusGet** |  | TESTED |
 | **:white_check_mark: ApiGetMuninnodeGeneralGet** |  | TESTED |
-| **:white_check_mark: ApiGetMuninnodeServiceStatus** |  | TESTED |
+| **:star: ApiGetMuninnodeServiceStatus** | Munin-node Service Status | FINAL |
 | **:white_check_mark: ApiGetNetdataGeneralGet** |  | TESTED |
-| **:white_check_mark: ApiGetNetdataServiceStatus** |  | TESTED |
+| **:star: ApiGetNetdataServiceStatus** | NetData Service Status | FINAL |
 | **:white_check_mark: ApiGetNtopngGeneralGet** |  | TESTED |
 | **:wrench: ApiGetNtopngServiceCheckredis** |  | UNDER DEV |
-| **:white_check_mark: ApiGetNtopngServiceStatus** |  | TESTED |
+| **:star: ApiGetNtopngServiceStatus** | NtopNg Service Status | FINAL |
 | **:white_check_mark: ApiGetOpenvpnClientOverwritesGet** |  | TESTED |
 | **:white_check_mark: ApiGetOpenvpnClientOverwritesSearch** |  | TESTED |
 | **:white_check_mark: ApiGetOpenvpnExportAccounts** |  | TESTED |
@@ -270,7 +271,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetOpenvpnInstancesSearchStaticKey** |  | TESTED |
 | **:white_check_mark: ApiGetOpenvpnServiceSearchRoutes** |  | TESTED |
 | **:white_check_mark: ApiGetOpenvpnServiceSearchSessions** |  | TESTED |
-| **:white_check_mark: ApiGetProxyServiceStatus** |  | TESTED |
+| **:star: ApiGetProxyServiceStatus** | Proxy Service Status | FINAL |
 | **:white_check_mark: ApiGetProxySettingsGet** |  | TESTED |
 | **:white_check_mark: ApiGetProxySettingsGetPACMatch** |  | TESTED |
 | **:white_check_mark: ApiGetProxySettingsGetPACProxy** |  | TESTED |
@@ -281,14 +282,14 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetProxySettingsSearchPACRule** |  | TESTED |
 | **:white_check_mark: ApiGetProxySettingsSearchRemoteBlacklists** |  | TESTED |
 | **:wrench: ApiGetProxyTemplateGet** |  | UNDER DEV |
-| **:white_check_mark: ApiGetRedisServiceStatus** |  | TESTED |
+| **:star: ApiGetRedisServiceStatus** | Redis Service Status | FINAL |
 | **:white_check_mark: ApiGetRedisSettingsGet** |  | TESTED |
-| **:star: ApiGetRoutesGatewayStatus** | Gateways Status | FINAL |
+| **:star: ApiGetRoutesGatewayStatus** | List Gateways Status | FINAL |
 | **:white_check_mark: ApiGetRoutesRoutesGet** |  | TESTED |
 | **:white_check_mark: ApiGetRoutesRoutesGetroute** |  | TESTED |
 | **:white_check_mark: ApiGetRoutesRoutesSearchroute** |  | TESTED |
 | **:white_check_mark: ApiGetSyslogServiceStats** |  | TESTED |
-| **:white_check_mark: ApiGetSyslogServiceStatus** |  | TESTED |
+| **:star: ApiGetSyslogServiceStatus** | SyslogNg Service Status | FINAL |
 | **:white_check_mark: ApiGetSyslogSettingsGet** |  | TESTED |
 | **:white_check_mark: ApiGetSyslogSettingsGetDestination** |  | TESTED |
 | **:white_check_mark: ApiGetSyslogSettingsSearchDestinations** |  | TESTED |
@@ -311,7 +312,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetUnboundOverviewSearchQueries** |  | TESTED |
 | **:wrench: ApiGetUnboundServiceDnsbl** |  | UNDER DEV |
 | **:wrench: ApiGetUnboundServiceReconfigureGeneral** |  | UNDER DEV |
-| **:white_check_mark: ApiGetUnboundServiceStatus** |  | TESTED |
+| **:star: ApiGetUnboundServiceStatus** | Unbound Service Status | FINAL |
 | **:white_check_mark: ApiGetUnboundSettingsGet** |  | TESTED |
 | **:white_check_mark: ApiGetUnboundSettingsGetAcl** |  | TESTED |
 | **:white_check_mark: ApiGetUnboundSettingsGetDomainOverride** |  | TESTED |
@@ -328,7 +329,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetVnstatServiceDaily** |  | TESTED |
 | **:white_check_mark: ApiGetVnstatServiceHourly** |  | TESTED |
 | **:white_check_mark: ApiGetVnstatServiceMonthly** |  | TESTED |
-| **:white_check_mark: ApiGetVnstatServiceStatus** |  | TESTED |
+| **:star: ApiGetVnstatServiceStatus** | VnStat Service Status | FINAL |
 | **:white_check_mark: ApiGetVnstatServiceYearly** |  | TESTED |
 | **:alien: ApiSetBindAclAddAcl** |  | DRAFT |
 | **:alien: ApiSetBindAclDelAcl** |  | DRAFT |
@@ -430,9 +431,9 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:alien: ApiSetDyndnsAccountsSetItem** |  | DRAFT |
 | **:alien: ApiSetDyndnsAccountsToggleItem** |  | DRAFT |
 | **:alien: ApiSetDyndnsServiceReconfigure** |  | DRAFT |
-| **:alien: ApiSetDyndnsServiceRestart** |  | DRAFT |
-| **:alien: ApiSetDyndnsServiceStart** |  | DRAFT |
-| **:alien: ApiSetDyndnsServiceStop** |  | DRAFT |
+| **:star: ApiSetDyndnsServiceRestart** | DynDNS Service Restart | FINAL |
+| **:star: ApiSetDyndnsServiceStart** | DynDNS Service Start | FINAL |
+| **:star: ApiSetDyndnsServiceStop** | DynDNS Service Stop | FINAL |
 | **:alien: ApiSetDyndnsSettingsSet** |  | DRAFT |
 | **:alien: ApiSetFirewallAliasAddItem** |  | DRAFT |
 | **:alien: ApiSetFirewallAliasDelItem** |  | DRAFT |
@@ -472,9 +473,9 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:alien: ApiSetIdsServiceQueryAlerts** |  | DRAFT |
 | **:alien: ApiSetIdsServiceReconfigure** |  | DRAFT |
 | **:alien: ApiSetIdsServiceReloadRules** |  | DRAFT |
-| **:alien: ApiSetIdsServiceRestart** |  | DRAFT |
-| **:alien: ApiSetIdsServiceStart** |  | DRAFT |
-| **:alien: ApiSetIdsServiceStop** |  | DRAFT |
+| **:star: ApiSetIdsServiceRestart** | Intrusion Detection Service Restart | FINAL |
+| **:star: ApiSetIdsServiceStart** | Intrusion Detection Service Start | FINAL |
+| **:star: ApiSetIdsServiceStop** | Intrusion Detection Service Stop | FINAL |
 | **:alien: ApiSetIdsServiceUpdateRules** |  | DRAFT |
 | **:alien: ApiSetIdsSettingsAddPolicy** |  | DRAFT |
 | **:alien: ApiSetIdsSettingsAddPolicyRule** |  | DRAFT |
@@ -561,9 +562,9 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:alien: ApiSetIpsecPreSharedKeysSetItem** |  | DRAFT |
 | **:alien: ApiSetIpsecSadDelete** |  | DRAFT |
 | **:alien: ApiSetIpsecServiceReconfigure** |  | DRAFT |
-| **:alien: ApiSetIpsecServiceRestart** |  | DRAFT |
-| **:alien: ApiSetIpsecServiceStart** |  | DRAFT |
-| **:alien: ApiSetIpsecServiceStop** |  | DRAFT |
+| **:star: ApiSetIpsecServiceRestart** | IPSec Service Restart | FINAL |
+| **:star: ApiSetIpsecServiceStart** | IPSec Service Start | FINAL |
+| **:star: ApiSetIpsecServiceStop** | IPSec Service Stop | FINAL |
 | **:alien: ApiSetIpsecSessionsConnect** |  | DRAFT |
 | **:alien: ApiSetIpsecSessionsDisconnect** |  | DRAFT |
 | **:alien: ApiSetIpsecSpdDelete** |  | DRAFT |
@@ -578,9 +579,9 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:alien: ApiSetIpsecVtiToggle** |  | DRAFT |
 | **:alien: ApiSetMonitServiceCheck** |  | DRAFT |
 | **:alien: ApiSetMonitServiceReconfigure** |  | DRAFT |
-| **:alien: ApiSetMonitServiceRestart** |  | DRAFT |
-| **:alien: ApiSetMonitServiceStart** |  | DRAFT |
-| **:alien: ApiSetMonitServiceStop** |  | DRAFT |
+| **:star: ApiSetMonitServiceRestart** | Monit Service Restart  (can takes up to 30sec) | FINAL |
+| **:star: ApiSetMonitServiceStart** | Monit Service Start | FINAL |
+| **:star: ApiSetMonitServiceStop** | Monit Service Stop (can takes up to 30sec) | FINAL |
 | **:alien: ApiSetMonitSettingsAddAlert** |  | DRAFT |
 | **:alien: ApiSetMonitSettingsAddService** |  | DRAFT |
 | **:alien: ApiSetMonitSettingsAddTest** |  | DRAFT |
@@ -600,14 +601,14 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:star: ApiSetMuninnodeServiceStop** | Munin-node Service Stop | FINAL |
 | **:alien: ApiSetNetdataGeneralSet** |  | DRAFT |
 | **:alien: ApiSetNetdataServiceReconfigure** |  | DRAFT |
-| **:alien: ApiSetNetdataServiceRestart** |  | DRAFT |
-| **:alien: ApiSetNetdataServiceStart** |  | DRAFT |
-| **:alien: ApiSetNetdataServiceStop** |  | DRAFT |
+| **:star: ApiSetNetdataServiceRestart** | NetData Service Restart | FINAL |
+| **:star: ApiSetNetdataServiceStart** | NetData Service Start | FINAL |
+| **:star: ApiSetNetdataServiceStop** | NetData Service Stop (Always returns false!) | FINAL |
 | **:alien: ApiSetNtopngGeneralSet** |  | DRAFT |
 | **:alien: ApiSetNtopngServiceReconfigure** |  | DRAFT |
-| **:alien: ApiSetNtopngServiceRestart** |  | DRAFT |
-| **:alien: ApiSetNtopngServiceStart** |  | DRAFT |
-| **:alien: ApiSetNtopngServiceStop** |  | DRAFT |
+| **:star: ApiSetNtopngServiceRestart** | NtopNg Service Restart | FINAL |
+| **:star: ApiSetNtopngServiceStart** | NtopNg Service Start | FINAL |
+| **:star: ApiSetNtopngServiceStop** | NtopNg Service Stop (can takes up to 20sec) | FINAL |
 | **:alien: ApiSetOpenvpnClientOverwritesAdd** |  | DRAFT |
 | **:alien: ApiSetOpenvpnClientOverwritesDel** |  | DRAFT |
 | **:alien: ApiSetOpenvpnClientOverwritesSet** |  | DRAFT |
@@ -633,9 +634,9 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:alien: ApiSetProxyServiceReconfigure** |  | DRAFT |
 | **:alien: ApiSetProxyServiceRefreshTemplate** |  | DRAFT |
 | **:alien: ApiSetProxyServiceReset** |  | DRAFT |
-| **:alien: ApiSetProxyServiceRestart** |  | DRAFT |
-| **:alien: ApiSetProxyServiceStart** |  | DRAFT |
-| **:alien: ApiSetProxyServiceStop** |  | DRAFT |
+| **:wrench: ApiSetProxyServiceRestart** | Proxy Service Restart | UNDER DEV |
+| **:wrench: ApiSetProxyServiceStart** | Proxy Service Start | UNDER DEV |
+| **:wrench: ApiSetProxyServiceStop** | Proxy Service Stop | UNDER DEV |
 | **:alien: ApiSetProxySettingsAddPACMatch** |  | DRAFT |
 | **:alien: ApiSetProxySettingsAddPACProxy** |  | DRAFT |
 | **:alien: ApiSetProxySettingsAddPACRule** |  | DRAFT |
@@ -655,9 +656,9 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:alien: ApiSetProxyTemplateReset** |  | DRAFT |
 | **:alien: ApiSetProxyTemplateSet** |  | DRAFT |
 | **:alien: ApiSetRedisServiceReconfigure** |  | DRAFT |
-| **:alien: ApiSetRedisServiceRestart** |  | DRAFT |
-| **:alien: ApiSetRedisServiceStart** |  | DRAFT |
-| **:alien: ApiSetRedisServiceStop** |  | DRAFT |
+| **:star: ApiSetRedisServiceRestart** | Redis Service Restart | FINAL |
+| **:star: ApiSetRedisServiceStart** | Redis Service Start | FINAL |
+| **:star: ApiSetRedisServiceStop** | Redis Service Stop | FINAL |
 | **:alien: ApiSetRedisSettingsSet** |  | DRAFT |
 | **:alien: ApiSetRoutesRoutesAddroute** |  | DRAFT |
 | **:alien: ApiSetRoutesRoutesDelroute** |  | DRAFT |
@@ -666,9 +667,9 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:alien: ApiSetRoutesRoutesSetroute** |  | DRAFT |
 | **:alien: ApiSetRoutesRoutesToggleroute** |  | DRAFT |
 | **:alien: ApiSetSyslogServiceReconfigure** |  | DRAFT |
-| **:alien: ApiSetSyslogServiceRestart** |  | DRAFT |
-| **:alien: ApiSetSyslogServiceStart** |  | DRAFT |
-| **:alien: ApiSetSyslogServiceStop** |  | DRAFT |
+| **:star: ApiSetSyslogServiceRestart** | SyslogNg Service Restart | FINAL |
+| **:star: ApiSetSyslogServiceStart** | SyslogNg Service Start (always returns true!) | FINAL |
+| **:star: ApiSetSyslogServiceStop** | SyslogNg Service Stop  (always returns true!) | FINAL |
 | **:alien: ApiSetSyslogSettingsAddDestination** |  | DRAFT |
 | **:alien: ApiSetSyslogSettingsDelDestination** |  | DRAFT |
 | **:alien: ApiSetSyslogSettingsSet** |  | DRAFT |
@@ -690,9 +691,9 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:alien: ApiSetTrafficshaperSettingsToggleQueue** |  | DRAFT |
 | **:alien: ApiSetTrafficshaperSettingsToggleRule** |  | DRAFT |
 | **:alien: ApiSetUnboundServiceReconfigure** |  | DRAFT |
-| **:alien: ApiSetUnboundServiceRestart** |  | DRAFT |
-| **:alien: ApiSetUnboundServiceStart** |  | DRAFT |
-| **:alien: ApiSetUnboundServiceStop** |  | DRAFT |
+| **:star: ApiSetUnboundServiceRestart** | Unbound Service Restart | FINAL |
+| **:star: ApiSetUnboundServiceStart** | Unbound Service Start (always returns true!) | FINAL |
+| **:star: ApiSetUnboundServiceStop** | Unbound Service Stop (always returns true!) | FINAL |
 | **:alien: ApiSetUnboundSettingsAddAcl** |  | DRAFT |
 | **:alien: ApiSetUnboundSettingsAddDomainOverride** |  | DRAFT |
 | **:alien: ApiSetUnboundSettingsAddForward** |  | DRAFT |
@@ -717,6 +718,6 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:alien: ApiSetUnboundSettingsUpdateBlocklist** |  | DRAFT |
 | **:alien: ApiSetVnstatGeneralSet** |  | DRAFT |
 | **:alien: ApiSetVnstatServiceReconfigure** |  | DRAFT |
-| **:alien: ApiSetVnstatServiceRestart** |  | DRAFT |
-| **:alien: ApiSetVnstatServiceStart** |  | DRAFT |
-| **:alien: ApiSetVnstatServiceStop** |  | DRAFT |
+| **:star: ApiSetVnstatServiceRestart** | VnStat Service Restart | FINAL |
+| **:star: ApiSetVnstatServiceStart** | VnStat Service Start | FINAL |
+| **:star: ApiSetVnstatServiceStop** | VnStat Service Stop | FINAL |

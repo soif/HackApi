@@ -130,7 +130,7 @@ $p['definitions']=array(
 
 
 	['/dhcpv4/leases/searchLease',					'4',	'get',	'get',		'',		''],
-	['/dhcpv4/service/status',						'4',	'get',	'get',		'',		''],
+	['/dhcpv4/service/status',						'5',	'get',	'get',		'',		'DHCP v4 Service Status','bool'],
 
 	['/dhcpv4/leases/delLease',						'1',	'set',	'post',		['ip'=>'!'],		''],
 	['/dhcpv4/service/reconfigure',					'1',	'set',	'post',		'',		''],
@@ -141,7 +141,7 @@ $p['definitions']=array(
 
 	['/dhcpv6/leases/searchLease',					'4',	'get',	'get',		'',		''],
 	['/dhcpv6/leases/searchPrefix',					'4',	'get',	'get',		'',		''],
-	['/dhcpv6/service/status',						'4',	'get',	'get',		'',		''],
+	['/dhcpv6/service/status',						'5',	'get',	'get',		'',		'DHCP v6 Service Status','bool'],
 
 	['/dhcpv6/leases/delLease',						'1',	'set',	'post',		['ip'=>'!'],		''],
 	['/dhcpv6/service/reconfigure',					'1',	'set',	'post',		'',		''],
@@ -279,7 +279,7 @@ $p['definitions']=array(
 	['/ids/service/dropAlertLog',					'1',	'set',	'post',		'',		''],
 //	['/ids/service/getAlertInfo',					'1',	'get',	'get',		['alertId'=>'!', 'fileid'=>''],		''],
 	['/ids/service/getAlertLogs',					'3',	'get',	'get',		'',		''],
-	['/ids/service/status',							'4',	'get',	'get',		'',		''],
+	['/ids/service/status',							'5',	'get',	'get',		'',		'Intrusion Detection Service Status','bool'],
 	['/ids/settings/checkPolicyRule',				'4',	'get',	'get',		'',		''],
 	['/ids/settings/get',							'4',	'get',	'get',		'',		''],
 	['/ids/settings/getPolicy',						'4',	'get',	'get',		['uuid'=>'null'],		''],
@@ -297,9 +297,9 @@ $p['definitions']=array(
 	['/ids/service/queryAlerts',					'1',	'set',	'post',		'',		''],
 	['/ids/service/reconfigure',					'1',	'set',	'post',		'',		''],
 	['/ids/service/reloadRules',					'1',	'set',	'post',		'',		''],
-	['/ids/service/restart',						'1',	'set',	'post',		'',		''],
-	['/ids/service/start',							'1',	'set',	'post',		'',		''],
-	['/ids/service/stop',							'1',	'set',	'post',		'',		''],
+	['/ids/service/restart',						'5',	'set',	'post',		'',		'Intrusion Detection Service Restart','bool'],
+	['/ids/service/start',							'5',	'set',	'post',		'',		'Intrusion Detection Service Start','bool'],
+	['/ids/service/stop',							'5',	'set',	'post',		'',		'Intrusion Detection Service Stop','bool'],
 	['/ids/service/updateRules',					'1',	'set',	'post',		['wait'=>'null'],		''],
 	['/ids/settings/addPolicy',						'1',	'set',	'post',		'',		''],
 	['/ids/settings/addPolicyRule',					'1',	'set',	'post',		'',		''],
@@ -392,7 +392,7 @@ $p['definitions']=array(
 	['/ipsec/pre_shared_keys/getItem',				'4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/ipsec/pre_shared_keys/searchItem',			'4',	'get',	'get',		'',		''],
 	['/ipsec/sad/search',							'4',	'get',	'get',		'',		''],
-	['/ipsec/service/status',						'4',	'get',	'get',		'',		''],
+	['/ipsec/service/status',						'5',	'get',	'get',		'',		'IPSec Service Status','bool'],
 	['/ipsec/sessions/searchPhase1',				'4',	'get',	'get',		'',		''],
 	['/ipsec/sessions/searchPhase2',				'4',	'get',	'get',		'',		''],
 	['/ipsec/spd/search',							'4',	'get',	'get',		'',		''],
@@ -438,9 +438,9 @@ $p['definitions']=array(
 	['/ipsec/pre_shared_keys/setItem',				'1',	'set',	'post',		['uuid'=>'null'],		''],
 	['/ipsec/sad/delete',							'1',	'set',	'post',		['id'=>'!'],		''],
 	['/ipsec/service/reconfigure',					'1',	'set',	'post',		'',		''],
-	['/ipsec/service/restart',						'1',	'set',	'post',		'',		''],
-	['/ipsec/service/start',						'1',	'set',	'post',		'',		''],
-	['/ipsec/service/stop',							'1',	'set',	'post',		'',		''],
+	['/ipsec/service/restart',						'5',	'set',	'post',		'',		'IPSec Service Restart','bool'],
+	['/ipsec/service/start',						'5',	'set',	'post',		'',		'IPSec Service Start','bool'],
+	['/ipsec/service/stop',							'5',	'set',	'post',		'',		'IPSec Service Stop','bool'],
 	['/ipsec/sessions/connect',						'1',	'set',	'post',		['id'=>'!'],		''],
 	['/ipsec/sessions/disconnect',					'1',	'set',	'post',		['id'=>'!'],		''],
 	['/ipsec/spd/delete',							'1',	'set',	'post',		['id'=>'!'],		''],
@@ -455,7 +455,7 @@ $p['definitions']=array(
 	['/ipsec/vti/toggle',							'1',	'set',	'post',		['uuid'=>'!', 'enabled'=>'null'],		''],
 
 
-	['/monit/service/status',						'4',	'get',	'get',		'',		''],
+	['/monit/service/status',						'5',	'get',	'get',		'',		'Monit Service Status','bool'],
 	['/monit/settings/dirty',						'4',	'get',	'get',		'',		''],
 	['/monit/settings/get',							'4',	'get',	'get',		'',		''],
 	['/monit/settings/getAlert',					'4',	'get',	'get',		['uuid'=>'null'],		''],
@@ -469,9 +469,9 @@ $p['definitions']=array(
 
 	['/monit/service/check',						'1',	'set',	'post',		'',		''],
 	['/monit/service/reconfigure',					'1',	'set',	'post',		'',		''],
-	['/monit/service/restart',						'1',	'set',	'post',		'',		''],
-	['/monit/service/start',						'1',	'set',	'post',		'',		''],
-	['/monit/service/stop',							'1',	'set',	'post',		'',		''],
+	['/monit/service/restart',						'5',	'set',	'post',		'',		'Monit Service Restart  (can takes up to 30sec)','bool'],
+	['/monit/service/start',						'5',	'set',	'post',		'',		'Monit Service Start','bool'],
+	['/monit/service/stop',							'5',	'set',	'post',		'',		'Monit Service Stop (can takes up to 30sec)','bool'],
 	['/monit/settings/addAlert',					'1',	'set',	'post',		'',		''],
 	['/monit/settings/addService',					'1',	'set',	'post',		'',		''],
 	['/monit/settings/addTest',						'1',	'set',	'post',		'',		''],
@@ -520,7 +520,7 @@ $p['definitions']=array(
 	['/openvpn/service/stopService',				'1',	'set',	'post',		['id'=>'null'],		''],
 
 
-	['/proxy/service/status',						'4',	'get',	'get',		'',		''],
+	['/proxy/service/status',						'5',	'get',	'get',		'',		'Proxy Service Status','bool'],
 	['/proxy/settings/get',							'4',	'get',	'get',		'',		''],
 	['/proxy/settings/getPACMatch',					'4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/proxy/settings/getPACProxy',					'4',	'get',	'get',		['uuid'=>'null'],		''],
@@ -537,9 +537,9 @@ $p['definitions']=array(
 	['/proxy/service/reconfigure',					'1',	'set',	'post',		'',		''],
 	['/proxy/service/refreshTemplate',				'1',	'set',	'post',		'',		''],
 	['/proxy/service/reset',						'1',	'set',	'post',		'',		''],
-	['/proxy/service/restart',						'1',	'set',	'post',		'',		''],
-	['/proxy/service/start',						'1',	'set',	'post',		'',		''],
-	['/proxy/service/stop',							'1',	'set',	'post',		'',		''],
+	['/proxy/service/restart',						'3',	'set',	'post',		'',		'Proxy Service Restart','bool'],
+	['/proxy/service/start',						'3',	'set',	'post',		'',		'Proxy Service Start','bool'],
+	['/proxy/service/stop',							'3',	'set',	'post',		'',		'Proxy Service Stop','bool'],
 	['/proxy/settings/addPACMatch',					'1',	'set',	'post',		'',		''],
 	['/proxy/settings/addPACProxy',					'1',	'set',	'post',		'',		''],
 	['/proxy/settings/addPACRule',					'1',	'set',	'post',		'',		''],
@@ -560,7 +560,7 @@ $p['definitions']=array(
 	['/proxy/template/set',							'1',	'set',	'post',		'',		''],
 
 
-	['/routes/gateway/status',						'5',	'get',	'get',		'',		'Gateways Status'],
+	['/routes/gateway/status',						'5',	'get',	'get',		'',		'List Gateways Status'],
 	['/routes/routes/get',							'4',	'get',	'get',		'',		''],
 	['/routes/routes/getroute',						'4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/routes/routes/searchroute',					'4',	'get',	'get',		'',		''],
@@ -574,15 +574,15 @@ $p['definitions']=array(
 
 
 	['/syslog/service/stats',						'4',	'get',	'get',		'',		''],
-	['/syslog/service/status',						'4',	'get',	'get',		'',		''],
+	['/syslog/service/status',						'5',	'get',	'get',		'',		'SyslogNg Service Status','bool'],
 	['/syslog/settings/get',						'4',	'get',	'get',		'',		''],
 	['/syslog/settings/getDestination',				'4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/syslog/settings/searchDestinations',			'4',	'get',	'get',		'',		''],
 
 	['/syslog/service/reconfigure',					'1',	'set',	'post',		'',		''],
-	['/syslog/service/restart',						'1',	'set',	'post',		'',		''],
-	['/syslog/service/start',						'1',	'set',	'post',		'',		''],
-	['/syslog/service/stop',						'1',	'set',	'post',		'',		''],
+	['/syslog/service/restart',						'5',	'set',	'post',		'',		'SyslogNg Service Restart','bool'],
+	['/syslog/service/start',						'5',	'set',	'post',		'',		'SyslogNg Service Start (always returns true!)','bool'],
+	['/syslog/service/stop',						'5',	'set',	'post',		'',		'SyslogNg Service Stop  (always returns true!)','bool'],
 	['/syslog/settings/addDestination',				'1',	'set',	'post',		'',		''],
 	['/syslog/settings/delDestination',				'1',	'set',	'post',		['uuid'=>'!'],		''],
 	['/syslog/settings/set',						'1',	'set',	'post',		'',		''],
@@ -629,7 +629,7 @@ $p['definitions']=array(
 //	['/unbound/overview/totals',					'1',	'get',	'get',		['maximum'=>'!'],		''],
 	['/unbound/service/dnsbl',						'3',	'get',	'get',		'',		''],
 	['/unbound/service/reconfigureGeneral',			'3',	'get',	'get',		'',		''],
-	['/unbound/service/status',						'4',	'get',	'get',		'',		''],
+	['/unbound/service/status',						'5',	'get',	'get',		'',		'Unbound Service Status','bool'],
 	['/unbound/settings/get',						'4',	'get',	'get',		'',		''],
 	['/unbound/settings/getAcl',					'4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/unbound/settings/getDomainOverride',			'4',	'get',	'get',		['uuid'=>'null'],		''],
@@ -644,9 +644,9 @@ $p['definitions']=array(
 	['/unbound/settings/searchHostOverride',		'4',	'get',	'get',		'',		''],
 
 	['/unbound/service/reconfigure',				'1',	'set',	'post',		'',		''],
-	['/unbound/service/restart',					'1',	'set',	'post',		'',		''],
-	['/unbound/service/start',						'1',	'set',	'post',		'',		''],
-	['/unbound/service/stop',						'1',	'set',	'post',		'',		''],
+	['/unbound/service/restart',					'5',	'set',	'post',		'',		'Unbound Service Restart','bool'],
+	['/unbound/service/start',						'5',	'set',	'post',		'',		'Unbound Service Start (always returns true!)','bool'],
+	['/unbound/service/stop',						'5',	'set',	'post',		'',		'Unbound Service Stop (always returns true!)','bool'],
 	['/unbound/settings/addAcl',					'1',	'set',	'post',		'',		''],
 	['/unbound/settings/addDomainOverride',			'1',	'set',	'post',		'',		''],
 	['/unbound/settings/addForward',				'1',	'set',	'post',		'',		''],
@@ -711,9 +711,9 @@ $p['definitions']=array(
 	['/bind/record/setRecord',				'1',	'set',	'post',		['uuid'=>'null'],		''],
 	['/bind/record/toggleRecord',			'1',	'set',	'post',		['uuid'=>'!'],		''],
 	['/bind/service/reconfigure',			'1',	'set',	'post',		'',		''],
-	['/bind/service/restart',				'5',	'set',	'post',		'',		'Bind Service Restart'],
-	['/bind/service/start',					'5',	'set',	'post',		'',		'Bind Service Start'],
-	['/bind/service/stop',					'5',	'set',	'post',		'',		'Bind Service Stop'],
+	['/bind/service/restart',				'5',	'set',	'post',		'',		'Bind Service Restart','bool'],
+	['/bind/service/start',					'5',	'set',	'post',		'',		'Bind Service Start','bool'],
+	['/bind/service/stop',					'5',	'set',	'post',		'',		'Bind Service Stop','bool'],
 
 
 	// https://docs.opnsense.org/development/api/plugins/dyndns.html --------------------------------------
@@ -721,7 +721,7 @@ $p['definitions']=array(
 	['/dyndns/accounts/get',				'4',	'get',	'get',		'',		''],
 	['/dyndns/accounts/getItem',			'4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/dyndns/accounts/searchItem',			'4',	'get',	'get',		'',		''],
-	['/dyndns/service/status',				'4',	'get',	'get',		'',		''],
+	['/dyndns/service/status',				'5',	'get',	'get',		'',		'DynDNS Service Status','bool'],
 	['/dyndns/settings/get',				'4',	'get',	'get',		'',		''],
 
 	['/dyndns/accounts/addItem',			'1',	'set',	'post',		'',		''],
@@ -730,9 +730,9 @@ $p['definitions']=array(
 	['/dyndns/accounts/setItem',			'1',	'set',	'post',		['uuid'=>'!'],		''],
 	['/dyndns/accounts/toggleItem',			'1',	'set',	'post',		['uuid'=>'!', 'enabled'=>'null'],		''],
 	['/dyndns/service/reconfigure',			'1',	'set',	'post',		'',		''],
-	['/dyndns/service/restart',				'1',	'set',	'post',		'',		''],
-	['/dyndns/service/start',				'1',	'set',	'post',		'',		''],
-	['/dyndns/service/stop',				'1',	'set',	'post',		'',		''],
+	['/dyndns/service/restart',				'5',	'set',	'post',		'',		'DynDNS Service Restart','bool'],
+	['/dyndns/service/start',				'5',	'set',	'post',		'',		'DynDNS Service Start','bool'],
+	['/dyndns/service/stop',				'5',	'set',	'post',		'',		'DynDNS Service Stop','bool'],
 	['/dyndns/settings/set',				'1',	'set',	'post',		'',		''],
 
 
@@ -763,61 +763,61 @@ $p['definitions']=array(
 
 	['/iperf/instance/get',					'4',	'get',	'get',		'',		''],
 	['/iperf/instance/query',				'2',	'get',	'get',		'',		''],
-	['/iperf/service/status',				'5',	'get',	'get',		'',		'Iperf Service Status'],
+	['/iperf/service/status',				'5',	'get',	'get',		'',		'Iperf Service Status','bool'],
 
 	['/iperf/instance/set',					'1',	'set',	'post',		'',		''],
-	['/iperf/service/restart',				'5',	'set',	'post',		'',		'Iperf Service Restart'],
-	['/iperf/service/start',				'5',	'set',	'post',		'',		'Iperf Service Start'],
-	['/iperf/service/stop',					'5',	'set',	'post',		'',		'Iperf Service Stop'],
+	['/iperf/service/restart',				'5',	'set',	'post',		'',		'Iperf Service Restart','bool'],
+	['/iperf/service/start',				'5',	'set',	'post',		'',		'Iperf Service Start','bool'],
+	['/iperf/service/stop',					'5',	'set',	'post',		'',		'Iperf Service Stop','bool'],
 
 
 	// https://docs.opnsense.org/development/api/plugins/muninnode.html --------------------------------------
 
 	['/muninnode/general/get',				'4',	'get',	'get',		'',		''],
-	['/muninnode/service/status',			'4',	'get',	'get',		'',		''],
+	['/muninnode/service/status',			'5',	'get',	'get',		'',		'Munin-node Service Status','bool'],
 
 	['/muninnode/general/set',				'1',	'set',	'post',		'',		''],
 	['/muninnode/service/reconfigure',		'1',	'set',	'post',		'',		''],
-	['/muninnode/service/restart',			'5',	'set',	'post',		'',		'Munin-node Service Restart'],
-	['/muninnode/service/start',			'5',	'set',	'post',		'',		'Munin-node Service Start'],
-	['/muninnode/service/stop',				'5',	'set',	'post',		'',		'Munin-node Service Stop'],
+	['/muninnode/service/restart',			'5',	'set',	'post',		'',		'Munin-node Service Restart','bool'],
+	['/muninnode/service/start',			'5',	'set',	'post',		'',		'Munin-node Service Start','bool'],
+	['/muninnode/service/stop',				'5',	'set',	'post',		'',		'Munin-node Service Stop','bool'],
 
 
 	// https://docs.opnsense.org/development/api/plugins/netdata.html --------------------------------------
 
 	['/netdata/general/get',					'4',	'get',	'get',		'',		''],
-	['/netdata/service/status',					'4',	'get',	'get',		'',		''],
+	['/netdata/service/status',					'5',	'get',	'get',		'',		'NetData Service Status','bool'],
 
 	['/netdata/general/set',					'1',	'set',	'post',		'',		''],
 	['/netdata/service/reconfigure',			'1',	'set',	'post',		'',		''],
-	['/netdata/service/restart',				'1',	'set',	'post',		'',		''],
-	['/netdata/service/start',					'1',	'set',	'post',		'',		''],
-	['/netdata/service/stop',					'1',	'set',	'post',		'',		''],
+	['/netdata/service/restart',				'5',	'set',	'post',		'',		'NetData Service Restart','bool'],
+	['/netdata/service/start',					'5',	'set',	'post',		'',		'NetData Service Start','bool'],
+	['/netdata/service/stop',					'5',	'set',	'post',		'',		'NetData Service Stop (Always returns false!)','bool'],
 
 
 	// https://docs.opnsense.org/development/api/plugins/ntopng.html --------------------------------------
 
 	['/ntopng/general/get',					'4',	'get',	'get',		'',		''],
 	['/ntopng/service/checkredis',			'3',	'get',	'get',		'',		''],
-	['/ntopng/service/status',				'4',	'get',	'get',		'',		''],
+	['/ntopng/service/status',				'5',	'get',	'get',		'',		'NtopNg Service Status','bool'],
 
 	['/ntopng/general/set',					'1',	'set',	'post',		'',		''],
 	['/ntopng/service/reconfigure',			'1',	'set',	'post',		'',		''],
-	['/ntopng/service/restart',				'1',	'set',	'post',		'',		''],
-	['/ntopng/service/start',				'1',	'set',	'post',		'',		''],
-	['/ntopng/service/stop',				'1',	'set',	'post',		'',		''],
+	['/ntopng/service/restart',				'5',	'set',	'post',		'',		'NtopNg Service Restart','bool'],
+	['/ntopng/service/start',				'5',	'set',	'post',		'',		'NtopNg Service Start','bool'],
+	['/ntopng/service/stop',				'5',	'set',	'post',		'',		'NtopNg Service Stop (can takes up to 20sec)','bool'],
 
 
 	// https://docs.opnsense.org/development/api/plugins/redis.html --------------------------------------
 
 //	['/redis/service/resetdb',				'1',	'get',	'get',		'',		''],
-	['/redis/service/status',				'4',	'get',	'get',		'',		''],
+	['/redis/service/status',				'5',	'get',	'get',		'',		'Redis Service Status','bool'],
 	['/redis/settings/get',					'4',	'get',	'get',		'',		''],
 
 	['/redis/service/reconfigure',			'1',	'set',	'post',		'',		''],
-	['/redis/service/restart',				'1',	'set',	'post',		'',		''],
-	['/redis/service/start',				'1',	'set',	'post',		'',		''],
-	['/redis/service/stop',					'1',	'set',	'post',		'',		''],
+	['/redis/service/restart',				'5',	'set',	'post',		'',		'Redis Service Restart','bool'],
+	['/redis/service/start',				'5',	'set',	'post',		'',		'Redis Service Start','bool'],
+	['/redis/service/stop',					'5',	'set',	'post',		'',		'Redis Service Stop','bool'],
 	['/redis/settings/set',					'1',	'set',	'post',		'',		''],
 
 
@@ -828,14 +828,14 @@ $p['definitions']=array(
 	['/vnstat/service/hourly',					'4',	'get',	'get',		'',		''],
 	['/vnstat/service/monthly',					'4',	'get',	'get',		'',		''],
 //	['/vnstat/service/resetdb',					'1',	'get',	'get',		'',		''],
-	['/vnstat/service/status',					'4',	'get',	'get',		'',		''],
+	['/vnstat/service/status',					'5',	'get',	'get',		'',		'VnStat Service Status','bool'],
 	['/vnstat/service/yearly',					'4',	'get',	'get',		'',		''],
 
 	['/vnstat/general/set',						'1',	'set',	'post',		'',		''],
 	['/vnstat/service/reconfigure',				'1',	'set',	'post',		'',		''],
-	['/vnstat/service/restart',					'1',	'set',	'post',		'',		''],
-	['/vnstat/service/start',					'1',	'set',	'post',		'',		''],
-	['/vnstat/service/stop',					'1',	'set',	'post',		'',		''],
+	['/vnstat/service/restart',					'5',	'set',	'post',		'',		'VnStat Service Restart','bool'],
+	['/vnstat/service/start',					'5',	'set',	'post',		'',		'VnStat Service Start','bool'],
+	['/vnstat/service/stop',					'5',	'set',	'post',		'',		'VnStat Service Stop','bool'],
 
 );
 
