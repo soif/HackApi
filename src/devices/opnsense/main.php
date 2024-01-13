@@ -28,7 +28,7 @@ class Hackapi_OpnSense extends Hackapi{
 	protected $user			="root";			// (default) user name
 	protected $password		="opnsense";		// (default) user password
 
-	protected	$client_version		='0.90';	// API client Version, formated as M.mm
+	protected	$client_version		='0.91';	// API client Version, formated as M.mm
 
 	protected $def_endpoint='/api';
 

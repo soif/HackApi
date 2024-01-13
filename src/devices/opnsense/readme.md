@@ -1,4 +1,4 @@
-# Hackapi_OpnSense v0.90
+# Hackapi_OpnSense v0.91
 
 Writen in php, this API client aims to provide a nice interface with **OPNSENSE**'s Routers.
 
@@ -13,7 +13,7 @@ Here are the models and version currently tested an reported by our fellow users
 
 | Model | Version | Date | Tester | Comment |
 | ----- | ------- | ---- | ------ | ------- |
-| opnsense | 23.7.11 | January 12th, 2024 | @soif | Most Get methods have been tested |
+| opnsense | 23.7.11 | January 13th, 2024 | @soif | Most Get methods have been tested |
 
 
 ### Contribute !

@@ -2243,7 +2243,7 @@ Used to document the list of devices supported by this current API Client
 */
 // [ MODEL, 	SOWFTARE_VERSION,	DATE,			 @NickName|Full_Name, 	URL|email,					COMMENT ],
 $p['tests']=array(
-	['opnsense',	'23.7.11',	'2024-01-12',	'@soif',				'https://github.com/soif/', 'Most Get methods have been tested']
+	['opnsense',	'23.7.11',	'2024-01-13',	'@soif',				'https://github.com/soif/', 'Most Get methods have been tested']
 );
 
 ?>
