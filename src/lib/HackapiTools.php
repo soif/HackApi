@@ -980,14 +980,15 @@ EOF;
 
 EOF;
 
+		if(method_exists($this->odev,'ListMethodsDefinitions')){ //dont exist the first time when trait.php is blank
 				$definitions=$this->odev->ListMethodsDefinitions();
 				ksort($definitions);
 				foreach($definitions as $method => $def){		
 					$icon=$this->states_icons[$def['state']];
 					$def['desc']=str_replace('|',',',$def['desc']); // prevent colum(s) to be created if we have "|" in the description			
 					$out .="| **{$icon} {$def['f_method_name']}** | {$def['desc']} | {$def['f_state_name']} |\n";
+				}
 			}
-		
 		}
 
 		// output --------------------------------------
