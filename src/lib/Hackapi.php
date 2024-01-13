@@ -58,8 +58,8 @@ class Hackapi{
 	private		$cookies_file		="/tmp/cookies_Hackapi"; // file where cookies are stored 
 	private		$base_url			="";		// the base url made of http(s)://host
 
-	private		$timeout_connect	=2;			// CURL's Connection Timeout (sec)
-	private		$timeout_request	=5;			// CURL's Request Timeout (sec)
+	protected	$timeout_connect	=2;			// CURL's Connection Timeout (sec)
+	protected	$timeout_request	=5;			// CURL's Request Timeout (sec)
 
 	private		$_relogin_count		=0;			// used to prevent infinite Loop when using CallEndpointWhenLogged in the ApiLogin method
 	private		$_relogin_max		=3;			// max count to try to relogin (when in an infinite loop condition)
