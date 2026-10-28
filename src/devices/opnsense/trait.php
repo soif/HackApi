@@ -513,6 +513,572 @@ trait Hackapi_Opnsense_Trait {
 	
 	// -----------------------------------------------------------------------
 	/**
+	* ApiGetDnsmasqLeasesSearch
+	*
+	* Dnsmasq leases search
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqLeasesSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/leases/search');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqServiceStatus
+	*
+	* Dnsmasq Service Status
+	*
+	* @category ApiGet
+	* @return boolean
+	*/
+	public function ApiGetDnsmasqServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsGet
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/settings/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsGetBoot
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsGetBoot($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnsmasq/settings/getBoot', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsGetDomain
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsGetDomain($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnsmasq/settings/getDomain', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsGetHost
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsGetHost($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnsmasq/settings/getHost', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsGetOption
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsGetOption($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnsmasq/settings/getOption', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsGetRange
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsGetRange($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnsmasq/settings/getRange', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsGetTag
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsGetTag($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnsmasq/settings/getTag', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsGetTagList
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsGetTagList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/settings/getTagList');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsSearchBoot
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsSearchBoot(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/settings/searchBoot');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsSearchDomain
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsSearchDomain(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/settings/searchDomain');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsSearchHost
+	*
+	* Dnsmasq host reservations search
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsSearchHost(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/settings/searchHost');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsSearchOption
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsSearchOption(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/settings/searchOption');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsSearchRange
+	*
+	* Dnsmasq DHCP ranges search
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsSearchRange(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/settings/searchRange');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetDnsmasqSettingsSearchTag
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsSearchTag(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/settings/searchTag');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaCtrlAgentGet
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaCtrlAgentGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/ctrl_agent/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDdnsGet
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDdnsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/ddns/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv4Get
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv4Get(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/dhcpv4/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv4GetOption
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv4GetOption($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv4/getOption', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv4GetPeer
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv4GetPeer($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv4/getPeer', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv4GetReservation
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv4GetReservation($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv4/getReservation', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv4GetSubnet
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv4GetSubnet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv4/getSubnet', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv4SearchOption
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv4SearchOption(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/dhcpv4/searchOption');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv4SearchPeer
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv4SearchPeer(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/dhcpv4/searchPeer');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv4SearchReservation
+	*
+	* Kea DHCPv4 reservations search
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv4SearchReservation(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/dhcpv4/searchReservation');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv4SearchSubnet
+	*
+	* Kea DHCPv4 subnets search
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv4SearchSubnet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/dhcpv4/searchSubnet');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv6Get
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv6Get(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/dhcpv6/get');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv6GetOption
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv6GetOption($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv6/getOption', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv6GetPdPool
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv6GetPdPool($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv6/getPdPool', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv6GetPeer
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv6GetPeer($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv6/getPeer', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv6GetReservation
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv6GetReservation($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv6/getReservation', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv6GetSubnet
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv6GetSubnet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv6/getSubnet', $params);
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv6SearchOption
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv6SearchOption(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/dhcpv6/searchOption');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv6SearchPdPool
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv6SearchPdPool(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/dhcpv6/searchPdPool');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv6SearchPeer
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv6SearchPeer(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/dhcpv6/searchPeer');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv6SearchReservation
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv6SearchReservation(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/dhcpv6/searchReservation');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv6SearchSubnet
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv6SearchSubnet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/dhcpv6/searchSubnet');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaServiceStatus
+	*
+	* Kea Service Status
+	*
+	* @category ApiGet
+	* @return boolean
+	*/
+	public function ApiGetKeaServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/service/status');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
 	* ApiGetDiagnosticsActivityGetActivity
 	*
 	* @category ApiGet
@@ -3332,6 +3898,45 @@ trait Hackapi_Opnsense_Trait {
 	
 	// -----------------------------------------------------------------------
 	/**
+	* ApiGetDnsmasqSettingsDownloadHosts
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetDnsmasqSettingsDownloadHosts(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/dnsmasq/settings/downloadHosts');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv4DownloadReservations
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv4DownloadReservations(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/kea/dhcpv4/downloadReservations');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaDhcpv6DownloadReservations
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaDhcpv6DownloadReservations(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/kea/dhcpv6/downloadReservations');
+	}
+	
+	// -----------------------------------------------------------------------
+	/**
 	* ApiGetDiagnosticsDnsReverseLookup
 	*
 	* @category ApiGet
@@ -3614,6 +4219,21 @@ trait Hackapi_Opnsense_Trait {
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	// +++ ERROR      Returns an error                         ++++++++++++++++++
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	// -----------------------------------------------------------------------
+	/**
+	* ApiGetKeaLeasesSearch
+	*
+	* Kea leases search (Endpoint not found on this firmware)
+	*
+	* @category ApiGet
+	* @return Array[] | false (when empty, or when failed)
+	*/
+	public function ApiGetKeaLeasesSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/kea/leases/search');
+	}
 	
 	// -----------------------------------------------------------------------
 	/**
@@ -9543,6 +10163,49 @@ trait Hackapi_Opnsense_Trait {
 		$def['ApiSetDhcpv6ServiceRestart']=array (  'args' => '/dhcpv6/service/restart',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcpv6/service/restart\'',  'f_args_txt' => '/dhcpv6/service/restart',  'f_method_name' => 'ApiSetDhcpv6ServiceRestart',  'f_call' => 'CallApiPost',);
 		$def['ApiSetDhcpv6ServiceStart']=array (  'args' => '/dhcpv6/service/start',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcpv6/service/start\'',  'f_args_txt' => '/dhcpv6/service/start',  'f_method_name' => 'ApiSetDhcpv6ServiceStart',  'f_call' => 'CallApiPost',);
 		$def['ApiSetDhcpv6ServiceStop']=array (  'args' => '/dhcpv6/service/stop',  'state' => '1',  'type' => 'set',  'call_index' => 'post',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'DRAFT',  'f_state_desc' => 'Not tested',  'f_args_call' => '\'/dhcpv6/service/stop\'',  'f_args_txt' => '/dhcpv6/service/stop',  'f_method_name' => 'ApiSetDhcpv6ServiceStop',  'f_call' => 'CallApiPost',);
+		$def['ApiGetDnsmasqLeasesSearch']=array (  'args' => '/dnsmasq/leases/search',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dnsmasq leases search',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/leases/search\'',  'f_args_txt' => '/dnsmasq/leases/search',  'f_method_name' => 'ApiGetDnsmasqLeasesSearch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqServiceStatus']=array (  'args' => '/dnsmasq/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dnsmasq Service Status',  'return' => 'bool',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/service/status\'',  'f_args_txt' => '/dnsmasq/service/status',  'f_method_name' => 'ApiGetDnsmasqServiceStatus',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsDownloadHosts']=array (  'args' => '/dnsmasq/settings/downloadHosts',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/dnsmasq/settings/downloadHosts\'',  'f_args_txt' => '/dnsmasq/settings/downloadHosts',  'f_method_name' => 'ApiGetDnsmasqSettingsDownloadHosts',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsGet']=array (  'args' => '/dnsmasq/settings/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/get\'',  'f_args_txt' => '/dnsmasq/settings/get',  'f_method_name' => 'ApiGetDnsmasqSettingsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsGetBoot']=array (  'args' => '/dnsmasq/settings/getBoot',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/getBoot\'',  'f_args_txt' => '/dnsmasq/settings/getBoot',  'f_method_name' => 'ApiGetDnsmasqSettingsGetBoot',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsGetDomain']=array (  'args' => '/dnsmasq/settings/getDomain',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/getDomain\'',  'f_args_txt' => '/dnsmasq/settings/getDomain',  'f_method_name' => 'ApiGetDnsmasqSettingsGetDomain',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsGetHost']=array (  'args' => '/dnsmasq/settings/getHost',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/getHost\'',  'f_args_txt' => '/dnsmasq/settings/getHost',  'f_method_name' => 'ApiGetDnsmasqSettingsGetHost',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsGetOption']=array (  'args' => '/dnsmasq/settings/getOption',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/getOption\'',  'f_args_txt' => '/dnsmasq/settings/getOption',  'f_method_name' => 'ApiGetDnsmasqSettingsGetOption',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsGetRange']=array (  'args' => '/dnsmasq/settings/getRange',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/getRange\'',  'f_args_txt' => '/dnsmasq/settings/getRange',  'f_method_name' => 'ApiGetDnsmasqSettingsGetRange',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsGetTag']=array (  'args' => '/dnsmasq/settings/getTag',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/getTag\'',  'f_args_txt' => '/dnsmasq/settings/getTag',  'f_method_name' => 'ApiGetDnsmasqSettingsGetTag',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsGetTagList']=array (  'args' => '/dnsmasq/settings/getTagList',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/getTagList\'',  'f_args_txt' => '/dnsmasq/settings/getTagList',  'f_method_name' => 'ApiGetDnsmasqSettingsGetTagList',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsSearchBoot']=array (  'args' => '/dnsmasq/settings/searchBoot',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/searchBoot\'',  'f_args_txt' => '/dnsmasq/settings/searchBoot',  'f_method_name' => 'ApiGetDnsmasqSettingsSearchBoot',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsSearchDomain']=array (  'args' => '/dnsmasq/settings/searchDomain',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/searchDomain\'',  'f_args_txt' => '/dnsmasq/settings/searchDomain',  'f_method_name' => 'ApiGetDnsmasqSettingsSearchDomain',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsSearchHost']=array (  'args' => '/dnsmasq/settings/searchHost',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dnsmasq host reservations search',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/searchHost\'',  'f_args_txt' => '/dnsmasq/settings/searchHost',  'f_method_name' => 'ApiGetDnsmasqSettingsSearchHost',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsSearchOption']=array (  'args' => '/dnsmasq/settings/searchOption',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/searchOption\'',  'f_args_txt' => '/dnsmasq/settings/searchOption',  'f_method_name' => 'ApiGetDnsmasqSettingsSearchOption',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsSearchRange']=array (  'args' => '/dnsmasq/settings/searchRange',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Dnsmasq DHCP ranges search',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/searchRange\'',  'f_args_txt' => '/dnsmasq/settings/searchRange',  'f_method_name' => 'ApiGetDnsmasqSettingsSearchRange',  'f_call' => 'CallApiGet',);
+		$def['ApiGetDnsmasqSettingsSearchTag']=array (  'args' => '/dnsmasq/settings/searchTag',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/dnsmasq/settings/searchTag\'',  'f_args_txt' => '/dnsmasq/settings/searchTag',  'f_method_name' => 'ApiGetDnsmasqSettingsSearchTag',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaCtrlAgentGet']=array (  'args' => '/kea/ctrl_agent/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/ctrl_agent/get\'',  'f_args_txt' => '/kea/ctrl_agent/get',  'f_method_name' => 'ApiGetKeaCtrlAgentGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDdnsGet']=array (  'args' => '/kea/ddns/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/ddns/get\'',  'f_args_txt' => '/kea/ddns/get',  'f_method_name' => 'ApiGetKeaDdnsGet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv4DownloadReservations']=array (  'args' => '/kea/dhcpv4/downloadReservations',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/kea/dhcpv4/downloadReservations\'',  'f_args_txt' => '/kea/dhcpv4/downloadReservations',  'f_method_name' => 'ApiGetKeaDhcpv4DownloadReservations',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv4Get']=array (  'args' => '/kea/dhcpv4/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv4/get\'',  'f_args_txt' => '/kea/dhcpv4/get',  'f_method_name' => 'ApiGetKeaDhcpv4Get',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv4GetOption']=array (  'args' => '/kea/dhcpv4/getOption',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv4/getOption\'',  'f_args_txt' => '/kea/dhcpv4/getOption',  'f_method_name' => 'ApiGetKeaDhcpv4GetOption',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv4GetPeer']=array (  'args' => '/kea/dhcpv4/getPeer',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv4/getPeer\'',  'f_args_txt' => '/kea/dhcpv4/getPeer',  'f_method_name' => 'ApiGetKeaDhcpv4GetPeer',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv4GetReservation']=array (  'args' => '/kea/dhcpv4/getReservation',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv4/getReservation\'',  'f_args_txt' => '/kea/dhcpv4/getReservation',  'f_method_name' => 'ApiGetKeaDhcpv4GetReservation',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv4GetSubnet']=array (  'args' => '/kea/dhcpv4/getSubnet',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv4/getSubnet\'',  'f_args_txt' => '/kea/dhcpv4/getSubnet',  'f_method_name' => 'ApiGetKeaDhcpv4GetSubnet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv4SearchOption']=array (  'args' => '/kea/dhcpv4/searchOption',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv4/searchOption\'',  'f_args_txt' => '/kea/dhcpv4/searchOption',  'f_method_name' => 'ApiGetKeaDhcpv4SearchOption',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv4SearchPeer']=array (  'args' => '/kea/dhcpv4/searchPeer',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv4/searchPeer\'',  'f_args_txt' => '/kea/dhcpv4/searchPeer',  'f_method_name' => 'ApiGetKeaDhcpv4SearchPeer',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv4SearchReservation']=array (  'args' => '/kea/dhcpv4/searchReservation',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Kea DHCPv4 reservations search',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv4/searchReservation\'',  'f_args_txt' => '/kea/dhcpv4/searchReservation',  'f_method_name' => 'ApiGetKeaDhcpv4SearchReservation',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv4SearchSubnet']=array (  'args' => '/kea/dhcpv4/searchSubnet',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Kea DHCPv4 subnets search',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv4/searchSubnet\'',  'f_args_txt' => '/kea/dhcpv4/searchSubnet',  'f_method_name' => 'ApiGetKeaDhcpv4SearchSubnet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv6DownloadReservations']=array (  'args' => '/kea/dhcpv6/downloadReservations',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/kea/dhcpv6/downloadReservations\'',  'f_args_txt' => '/kea/dhcpv6/downloadReservations',  'f_method_name' => 'ApiGetKeaDhcpv6DownloadReservations',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv6Get']=array (  'args' => '/kea/dhcpv6/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv6/get\'',  'f_args_txt' => '/kea/dhcpv6/get',  'f_method_name' => 'ApiGetKeaDhcpv6Get',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv6GetOption']=array (  'args' => '/kea/dhcpv6/getOption',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv6/getOption\'',  'f_args_txt' => '/kea/dhcpv6/getOption',  'f_method_name' => 'ApiGetKeaDhcpv6GetOption',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv6GetPdPool']=array (  'args' => '/kea/dhcpv6/getPdPool',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv6/getPdPool\'',  'f_args_txt' => '/kea/dhcpv6/getPdPool',  'f_method_name' => 'ApiGetKeaDhcpv6GetPdPool',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv6GetPeer']=array (  'args' => '/kea/dhcpv6/getPeer',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv6/getPeer\'',  'f_args_txt' => '/kea/dhcpv6/getPeer',  'f_method_name' => 'ApiGetKeaDhcpv6GetPeer',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv6GetReservation']=array (  'args' => '/kea/dhcpv6/getReservation',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv6/getReservation\'',  'f_args_txt' => '/kea/dhcpv6/getReservation',  'f_method_name' => 'ApiGetKeaDhcpv6GetReservation',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv6GetSubnet']=array (  'args' => '/kea/dhcpv6/getSubnet',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' =>     array (      'uuid' => 'null',    ),    'parameters' => '$params=array(		\'uuid\'	=> $uuid,	);',    'arguments' => '$uuid="null"',    'call_params' => ', $params',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv6/getSubnet\'',  'f_args_txt' => '/kea/dhcpv6/getSubnet',  'f_method_name' => 'ApiGetKeaDhcpv6GetSubnet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv6SearchOption']=array (  'args' => '/kea/dhcpv6/searchOption',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv6/searchOption\'',  'f_args_txt' => '/kea/dhcpv6/searchOption',  'f_method_name' => 'ApiGetKeaDhcpv6SearchOption',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv6SearchPdPool']=array (  'args' => '/kea/dhcpv6/searchPdPool',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv6/searchPdPool\'',  'f_args_txt' => '/kea/dhcpv6/searchPdPool',  'f_method_name' => 'ApiGetKeaDhcpv6SearchPdPool',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv6SearchPeer']=array (  'args' => '/kea/dhcpv6/searchPeer',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv6/searchPeer\'',  'f_args_txt' => '/kea/dhcpv6/searchPeer',  'f_method_name' => 'ApiGetKeaDhcpv6SearchPeer',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv6SearchReservation']=array (  'args' => '/kea/dhcpv6/searchReservation',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv6/searchReservation\'',  'f_args_txt' => '/kea/dhcpv6/searchReservation',  'f_method_name' => 'ApiGetKeaDhcpv6SearchReservation',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaDhcpv6SearchSubnet']=array (  'args' => '/kea/dhcpv6/searchSubnet',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/dhcpv6/searchSubnet\'',  'f_args_txt' => '/kea/dhcpv6/searchSubnet',  'f_method_name' => 'ApiGetKeaDhcpv6SearchSubnet',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaLeasesSearch']=array (  'args' => '/kea/leases/search',  'state' => '2',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Kea leases search (Endpoint not found on this firmware)',  'return' => '',  'f_state_name' => 'ERROR',  'f_state_desc' => 'Returns an error',  'f_args_call' => '\'/kea/leases/search\'',  'f_args_txt' => '/kea/leases/search',  'f_method_name' => 'ApiGetKeaLeasesSearch',  'f_call' => 'CallApiGet',);
+		$def['ApiGetKeaServiceStatus']=array (  'args' => '/kea/service/status',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => 'Kea Service Status',  'return' => 'bool',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/kea/service/status\'',  'f_args_txt' => '/kea/service/status',  'f_method_name' => 'ApiGetKeaServiceStatus',  'f_call' => 'CallApiGet',);
 		$def['ApiGetDiagnosticsActivityGetActivity']=array (  'args' => '/diagnostics/activity/getActivity',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/activity/getActivity\'',  'f_args_txt' => '/diagnostics/activity/getActivity',  'f_method_name' => 'ApiGetDiagnosticsActivityGetActivity',  'f_call' => 'CallApiGet',);
 		$def['ApiGetDiagnosticsDnsDiagnosticsGet']=array (  'args' => '/diagnostics/dns_diagnostics/get',  'state' => '4',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'TESTED',  'f_state_desc' => 'Params still not ordered or desc not set',  'f_args_call' => '\'/diagnostics/dns_diagnostics/get\'',  'f_args_txt' => '/diagnostics/dns_diagnostics/get',  'f_method_name' => 'ApiGetDiagnosticsDnsDiagnosticsGet',  'f_call' => 'CallApiGet',);
 		$def['ApiGetDiagnosticsDnsReverseLookup']=array (  'args' => '/diagnostics/dns/reverseLookup',  'state' => '3',  'type' => 'get',  'call_index' => 'get',  'params' =>   array (    'definitions' => '',    'parameters' => '',    'arguments' => '',    'call_params' => '',    'doc_desc' => '',    'def_value' => '',  ),  'desc' => '',  'return' => '',  'f_state_name' => 'UNDER DEV',  'f_state_desc' => 'Work in propress',  'f_args_call' => '\'/diagnostics/dns/reverseLookup\'',  'f_args_txt' => '/diagnostics/dns/reverseLookup',  'f_method_name' => 'ApiGetDiagnosticsDnsReverseLookup',  'f_call' => 'CallApiGet',);

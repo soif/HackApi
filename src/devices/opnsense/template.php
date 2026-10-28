@@ -150,6 +150,59 @@ $p['definitions']=array(
 	['/dhcpv6/service/stop',						'1',	'set',	'post',		'',		''],
 
 
+	// https://docs.opnsense.org/development/api/core/dnsmasq.html --------------------------------------
+	// GET/READ only for now (no POST set/add/del/reconfigure) — LanBuddy detect + Pull prep
+
+	['/dnsmasq/leases/search',						'4',	'get',	'get',		'',		'Dnsmasq leases search'],
+	['/dnsmasq/service/status',						'4',	'get',	'get',		'',		'Dnsmasq Service Status','bool'],
+	['/dnsmasq/settings/downloadHosts',				'3',	'get',	'get',		'',		''],
+	['/dnsmasq/settings/get',						'4',	'get',	'get',		'',		''],
+	['/dnsmasq/settings/getBoot',					'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/dnsmasq/settings/getDomain',					'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/dnsmasq/settings/getHost',					'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/dnsmasq/settings/getOption',					'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/dnsmasq/settings/getRange',					'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/dnsmasq/settings/getTag',					'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/dnsmasq/settings/getTagList',				'4',	'get',	'get',		'',		''],
+	['/dnsmasq/settings/searchBoot',				'4',	'get',	'get',		'',		''],
+	['/dnsmasq/settings/searchDomain',				'4',	'get',	'get',		'',		''],
+	['/dnsmasq/settings/searchHost',				'4',	'get',	'get',		'',		'Dnsmasq host reservations search'],
+	['/dnsmasq/settings/searchOption',				'4',	'get',	'get',		'',		''],
+	['/dnsmasq/settings/searchRange',				'4',	'get',	'get',		'',		'Dnsmasq DHCP ranges search'],
+	['/dnsmasq/settings/searchTag',					'4',	'get',	'get',		'',		''],
+
+
+	// https://docs.opnsense.org/development/api/core/kea.html --------------------------------------
+	// GET/READ only for now (no POST set/add/del/reconfigure) — LanBuddy detect + Pull prep
+
+	['/kea/ctrl_agent/get',							'4',	'get',	'get',		'',		''],
+	['/kea/ddns/get',								'4',	'get',	'get',		'',		''],
+	['/kea/dhcpv4/downloadReservations',			'3',	'get',	'get',		'',		''],
+	['/kea/dhcpv4/get',								'4',	'get',	'get',		'',		''],
+	['/kea/dhcpv4/getOption',						'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/kea/dhcpv4/getPeer',							'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/kea/dhcpv4/getReservation',					'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/kea/dhcpv4/getSubnet',						'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/kea/dhcpv4/searchOption',					'4',	'get',	'get',		'',		''],
+	['/kea/dhcpv4/searchPeer',						'4',	'get',	'get',		'',		''],
+	['/kea/dhcpv4/searchReservation',				'4',	'get',	'get',		'',		'Kea DHCPv4 reservations search'],
+	['/kea/dhcpv4/searchSubnet',					'4',	'get',	'get',		'',		'Kea DHCPv4 subnets search'],
+	['/kea/dhcpv6/downloadReservations',			'3',	'get',	'get',		'',		''],
+	['/kea/dhcpv6/get',								'4',	'get',	'get',		'',		''],
+	['/kea/dhcpv6/getOption',						'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/kea/dhcpv6/getPdPool',						'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/kea/dhcpv6/getPeer',							'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/kea/dhcpv6/getReservation',					'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/kea/dhcpv6/getSubnet',						'4',	'get',	'get',		['uuid'=>'null'],		''],
+	['/kea/dhcpv6/searchOption',					'4',	'get',	'get',		'',		''],
+	['/kea/dhcpv6/searchPdPool',					'4',	'get',	'get',		'',		''],
+	['/kea/dhcpv6/searchPeer',						'4',	'get',	'get',		'',		''],
+	['/kea/dhcpv6/searchReservation',				'4',	'get',	'get',		'',		''],
+	['/kea/dhcpv6/searchSubnet',					'4',	'get',	'get',		'',		''],
+	['/kea/leases/search',							'2',	'get',	'get',		'',		'Kea leases search (Endpoint not found on this firmware)'],
+	['/kea/service/status',							'4',	'get',	'get',		'',		'Kea Service Status','bool'],
+
+
 	['/diagnostics/activity/getActivity',			'4',	'get',	'get',		'',		''],
 	['/diagnostics/dns_diagnostics/get',			'4',	'get',	'get',		'',		''],
 	['/diagnostics/dns/reverseLookup',				'3',	'get',	'get',		'',		''],

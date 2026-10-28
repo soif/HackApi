@@ -15,7 +15,9 @@ https://docs.opnsense.org/development/api/core/cron.html
 https://docs.opnsense.org/development/api/core/dhcp.html
 https://docs.opnsense.org/development/api/core/dhcpv4.html
 https://docs.opnsense.org/development/api/core/dhcpv6.html
+https://docs.opnsense.org/development/api/core/dnsmasq.html
 https://docs.opnsense.org/development/api/core/diagnostics.html
+https://docs.opnsense.org/development/api/core/kea.html
 https://docs.opnsense.org/development/api/core/firewall.html
 https://docs.opnsense.org/development/api/core/firmware.html
 https://docs.opnsense.org/development/api/core/ids.html

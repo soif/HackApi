@@ -1,4 +1,4 @@
-# Hackapi_OpnSense v0.91
+# Hackapi_OpnSense v0.92
 
 Writen in php, this API client aims to provide a nice interface with **OPNSENSE**'s Routers.
 
@@ -22,23 +22,23 @@ Please tell us which models you've tested by adding your line in the [template.p
 *You just have to edit the file directly from github!*
 
 
-## 658 methods are currently implemented
+## 701 methods are currently implemented
 
 - **2** standardised methods
 - **56** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
-- **226** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **24** methods with status of **UNDER DEV** (Work in propress)
-- **5** methods with status of **ERROR** (Returns an error)
+- **265** methods with status of **TESTED** (Params still not ordered or desc not set)
+- **27** methods with status of **UNDER DEV** (Work in propress)
+- **6** methods with status of **ERROR** (Returns an error)
 - **345** methods with status of **DRAFT** (Not tested)
 
 
 
-### 266 *Getter* methods (ReadOnly)
+### 309 *Getter* methods (ReadOnly)
 
 - **16** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
-- **224** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **21** methods with status of **UNDER DEV** (Work in propress)
-- **5** methods with status of **ERROR** (Returns an error)
+- **263** methods with status of **TESTED** (Params still not ordered or desc not set)
+- **24** methods with status of **UNDER DEV** (Work in propress)
+- **6** methods with status of **ERROR** (Returns an error)
 
 
 ### 390 *Setter* methods (Writing or performing an action)
@@ -148,6 +148,23 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetDiagnosticsSystemhealthGetSystemHealth** |  | TESTED |
 | **:white_check_mark: ApiGetDiagnosticsTracerouteGet** |  | TESTED |
 | **:white_check_mark: ApiGetDiagnosticsTrafficInterface** |  | TESTED |
+| **:white_check_mark: ApiGetDnsmasqLeasesSearch** | Dnsmasq leases search | TESTED |
+| **:white_check_mark: ApiGetDnsmasqServiceStatus** | Dnsmasq Service Status | TESTED |
+| **:wrench: ApiGetDnsmasqSettingsDownloadHosts** |  | UNDER DEV |
+| **:white_check_mark: ApiGetDnsmasqSettingsGet** |  | TESTED |
+| **:white_check_mark: ApiGetDnsmasqSettingsGetBoot** |  | TESTED |
+| **:white_check_mark: ApiGetDnsmasqSettingsGetDomain** |  | TESTED |
+| **:white_check_mark: ApiGetDnsmasqSettingsGetHost** |  | TESTED |
+| **:white_check_mark: ApiGetDnsmasqSettingsGetOption** |  | TESTED |
+| **:white_check_mark: ApiGetDnsmasqSettingsGetRange** |  | TESTED |
+| **:white_check_mark: ApiGetDnsmasqSettingsGetTag** |  | TESTED |
+| **:white_check_mark: ApiGetDnsmasqSettingsGetTagList** |  | TESTED |
+| **:white_check_mark: ApiGetDnsmasqSettingsSearchBoot** |  | TESTED |
+| **:white_check_mark: ApiGetDnsmasqSettingsSearchDomain** |  | TESTED |
+| **:white_check_mark: ApiGetDnsmasqSettingsSearchHost** | Dnsmasq host reservations search | TESTED |
+| **:white_check_mark: ApiGetDnsmasqSettingsSearchOption** |  | TESTED |
+| **:white_check_mark: ApiGetDnsmasqSettingsSearchRange** | Dnsmasq DHCP ranges search | TESTED |
+| **:white_check_mark: ApiGetDnsmasqSettingsSearchTag** |  | TESTED |
 | **:white_check_mark: ApiGetDyndnsAccountsGet** |  | TESTED |
 | **:white_check_mark: ApiGetDyndnsAccountsGetItem** |  | TESTED |
 | **:white_check_mark: ApiGetDyndnsAccountsSearchItem** |  | TESTED |
@@ -242,6 +259,32 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetIpsecTunnelSearchPhase2** |  | TESTED |
 | **:white_check_mark: ApiGetIpsecVtiGet** |  | TESTED |
 | **:white_check_mark: ApiGetIpsecVtiSearch** |  | TESTED |
+| **:white_check_mark: ApiGetKeaCtrlAgentGet** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDdnsGet** |  | TESTED |
+| **:wrench: ApiGetKeaDhcpv4DownloadReservations** |  | UNDER DEV |
+| **:white_check_mark: ApiGetKeaDhcpv4Get** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv4GetOption** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv4GetPeer** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv4GetReservation** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv4GetSubnet** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv4SearchOption** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv4SearchPeer** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv4SearchReservation** | Kea DHCPv4 reservations search | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv4SearchSubnet** | Kea DHCPv4 subnets search | TESTED |
+| **:wrench: ApiGetKeaDhcpv6DownloadReservations** |  | UNDER DEV |
+| **:white_check_mark: ApiGetKeaDhcpv6Get** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv6GetOption** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv6GetPdPool** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv6GetPeer** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv6GetReservation** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv6GetSubnet** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv6SearchOption** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv6SearchPdPool** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv6SearchPeer** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv6SearchReservation** |  | TESTED |
+| **:white_check_mark: ApiGetKeaDhcpv6SearchSubnet** |  | TESTED |
+| **:warning: ApiGetKeaLeasesSearch** | Kea leases search (Endpoint not found on this firmware) | ERROR |
+| **:white_check_mark: ApiGetKeaServiceStatus** | Kea Service Status | TESTED |
 | **:star: ApiGetMonitServiceStatus** | Monit Service Status | FINAL |
 | **:white_check_mark: ApiGetMonitSettingsDirty** |  | TESTED |
 | **:white_check_mark: ApiGetMonitSettingsGet** |  | TESTED |
