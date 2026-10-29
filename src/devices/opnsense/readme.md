@@ -3,7 +3,7 @@
 Writen in php, this API client aims to provide a nice interface with **OPNSENSE**'s Routers.
 
 
-This API client exposes all OPNSense API endoints.
+This API client exposes all OPNSense API endpoints.
 
 
 

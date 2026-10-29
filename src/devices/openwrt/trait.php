@@ -592,7 +592,7 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiGetDhcpIpv6leases
 	*
-	* (ACL needed) ipv4 DHCP Leases
+	* (ACL needed) ipv6 DHCP Leases
 	*
 	* @category ApiGet
 	* @return Array[] | false (when empty, or when failed)
@@ -607,7 +607,7 @@ trait Hackapi_Openwrt_Trait {
 	/**
 	* ApiGetDhcpIpv4leases
 	*
-	* (ACL needed) ipv6 DHCP Leases
+	* (ACL needed) ipv4 DHCP Leases
 	*
 	* @category ApiGet
 	* @return Array[] | false (when empty, or when failed)

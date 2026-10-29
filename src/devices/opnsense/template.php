@@ -2511,7 +2511,7 @@ $p['information']=array(
 // (Markdown syntax)
 $p['readme']=<<<EOF
 
-This API client exposes all OPNSense API endoints.
+This API client exposes all OPNSense API endpoints.
 
 EOF;
 

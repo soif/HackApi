@@ -106,8 +106,8 @@ Please tell us which models you've tested by adding your line in the [template.p
 | Method | Description | Dev. State |
 | ------ | ----------- | ----------------- |
 | **:star: ApiGetDhcp** | List DHCP objects | FINAL |
-| **:white_check_mark: ApiGetDhcpIpv4leases** | (ACL needed) ipv6 DHCP Leases | TESTED |
-| **:white_check_mark: ApiGetDhcpIpv6leases** | (ACL needed) ipv4 DHCP Leases | TESTED |
+| **:white_check_mark: ApiGetDhcpIpv4leases** | (ACL needed) ipv4 DHCP Leases | TESTED |
+| **:white_check_mark: ApiGetDhcpIpv6leases** | (ACL needed) ipv6 DHCP Leases | TESTED |
 | **:star: ApiGetDnsmasq** | List DnsMasq objects | FINAL |
 | **:white_check_mark: ApiGetDnsmasqMetrics** | (ACL needed) DnsMasq Metrics | TESTED |
 | **:star: ApiGetFile** | List file objects | FINAL |

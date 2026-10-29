@@ -32,8 +32,8 @@ $p['definitions']=array(
 
 	[ 'dhcp',											'5',	'get',	'list',		'',		'List DHCP objects'],
 	[ ['dhcp',	'add_lease'],							'1',	'set',	'call',		['mac'=>'','leasetime'=>'','name'=>'','hostid'=>'','duid'=>'','ip'=>''],		''],
-	[ ['dhcp',	'ipv6leases'],							'4',	'get',	'call',		'',		'(ACL needed) ipv4 DHCP Leases'],
-	[ ['dhcp',	'ipv4leases'],							'4',	'get',	'call',		'',		'(ACL needed) ipv6 DHCP Leases'],
+	[ ['dhcp',	'ipv6leases'],							'4',	'get',	'call',		'',		'(ACL needed) ipv6 DHCP Leases'],
+	[ ['dhcp',	'ipv4leases'],							'4',	'get',	'call',		'',		'(ACL needed) ipv4 DHCP Leases'],
 
 	[ 'dnsmasq',										'5',	'get',	'list',		'',		'List DnsMasq objects'],
 	[ ['dnsmasq',	'metrics'],							'4',	'get',	'call',		'',		'(ACL needed) DnsMasq Metrics'],
