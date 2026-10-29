@@ -138,6 +138,11 @@ class Hackapi_DEVICE extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	// Non-JSON: implement CallApiGetRaw / CallApiGetCsv like OPNsense (MakeRawResultEnvelope +
+	// ParseCsvBody on the base Hackapi class). Override $csv_delimiter / $csv_eol on this device
+	// when the vendor dialect is not "," / "\n". See _example/readme.md.
+
+	// -------------------------------------------------------------------------
 	public function CallApi($endpoint, $params=array(), $type='GET', $myown_args='xxx'){
 		$this->DebugLogMethod();
 		$headers=array();

@@ -17,6 +17,7 @@ Enter **HackApi**: a straightforward, lightweight solution designed for ease of 
 - Full debug to ease API client development
 - Template based for building API endpoints methods & documentation very quickly
 - CLI commands to build, test, and debug API methods
+- Non-JSON bodies (CSV / image / raw): `CallApiGetRaw` / `CallApiGetCsv` + `ParseCsvBody` — see [`src/devices/_example/readme.md`](src/devices/_example/readme.md)
 
 ## Currently Supported Devices
 

@@ -32,6 +32,9 @@ class Hackapi_OpnSense extends Hackapi{
 
 	protected $def_endpoint='/api';
 
+	// OPNsense CSV downloads use semicolon (European) dialect
+	protected $csv_delimiter=';';
+
 	protected $api_error_codes=array(
 		'400'		=> ['CONTROLLER_NOT_FOUND', 6],
 		'401'		=> ['AUTHENTICATION_FAILED', 3],
@@ -144,20 +147,57 @@ class Hackapi_OpnSense extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/** Non-JSON body (CSV/image/text/binary) — opaque envelope, no json_decode. */
+	public function CallApiGetRaw($endpoint, $params=array()){
+		return $this->CallApiRaw($endpoint, $params, 'GET');
+	}
+
+	// -------------------------------------------------------------------------
+	public function CallApiPostRaw($endpoint, $params=array()){
+		return $this->CallApiRaw($endpoint, $params, 'POST');
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * GET raw then ParseCsvBody with device $csv_delimiter / $csv_eol.
+	 * @return array Raw envelope + 'rows' (list of field lists), or false on transport fail
+	 */
+	public function CallApiGetCsv($endpoint, $params=array()){
+		$env=$this->CallApiGetRaw($endpoint, $params);
+		if(!is_array($env) || empty($env['ok'])){
+			return false;
+		}
+		$env['rows']=$this->ParseCsvBody(isset($env['body']) ? $env['body'] : '');
+		return $env;
+	}
+
+	// -------------------------------------------------------------------------
 	public function CallApi($endpoint, $params=array(), $type='GET'){
 		$this->DebugLogMethod();
 
-		$endpoint=$this->def_endpoint.$endpoint;
-		if(is_array($params and count($params))){
-			$endpoint.='/'.implode('/',$params);
-		}
-
-		$this->SetAuthorizationHeader($this->user, $this->password);
-		$result=$this->CallEndpoint($endpoint, $type);
+		$result=$this->_CallApiTransport($endpoint, $params, $type);
 		$arr=json_decode($result,true); // object
 		
 		$arr=$this->ErrorFreeResult($arr);
 		return $arr;
+	}
+
+	// -------------------------------------------------------------------------
+	public function CallApiRaw($endpoint, $params=array(), $type='GET'){
+		$this->DebugLogMethod();
+		$result=$this->_CallApiTransport($endpoint, $params, $type);
+		return $this->MakeRawResultEnvelope($result);
+	}
+
+	// -------------------------------------------------------------------------
+	private function _CallApiTransport($endpoint, $params=array(), $type='GET'){
+		$endpoint=$this->def_endpoint.$endpoint;
+		if(is_array($params) && count($params)){
+			$endpoint.='/'.implode('/',$params);
+		}
+
+		$this->SetAuthorizationHeader($this->user, $this->password);
+		return $this->CallEndpoint($endpoint, $type);
 	}
 
 	// -------------------------------------------------------------------------

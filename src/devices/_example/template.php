@@ -39,9 +39,12 @@ $p['definitions']=array(
 // 'calls' #################################################################################################
 // List all 'METHOD_I' defined above to point to the Method name
 // METHOD_INDEX => [METHOD_CALLED]
+// get = JSON CallApiGet; for CSV/image bodies add get_csv / get_raw (see _example/readme.md)
 $p['calls']=array(
 	'get'	=> ['CallApiGet'],
 	'post'	=> ['CallApiPost'],
+	//'get_raw'	=> ['CallApiGetRaw'],
+	//'get_csv'	=> ['CallApiGetCsv'],
 );
 
 

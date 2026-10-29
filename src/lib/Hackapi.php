@@ -61,6 +61,11 @@ class Hackapi{
 	protected	$timeout_connect	=2;			// CURL's Connection Timeout (sec)
 	protected	$timeout_request	=5;			// CURL's Request Timeout (sec)
 
+	// CSV parse defaults (device subclasses override dialect; no auto-detect) ---
+	protected	$csv_delimiter		=',';		// field separator for ParseCsvBody
+	protected	$csv_eol			="\n";		// preferred line ending (ParseCsvBody also tolerates \r\n/\r)
+	protected	$csv_enclosure		='"';		// field enclosure for ParseCsvBody
+
 	private		$_relogin_count		=0;			// used to prevent infinite Loop when using CallEndpointWhenLogged in the ApiLogin method
 	private		$_relogin_max		=3;			// max count to try to relogin (when in an infinite loop condition)
 
@@ -909,6 +914,93 @@ class Hackapi{
 		$txt=preg_replace('#^\s*\)\s*\n#m',		"",$txt);
 		//$txt=preg_replace('#^\s{2}#m',		'',$txt);
 		return $txt;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Classify a non-JSON body from Content-Type (hint only — not a parser).
+	 * @param string $content_type
+	 * @param string|false|null $body unused today; reserved for light sniff Later
+	 * @return string csv|image|text|binary|unknown
+	 */
+	protected function ClassifyBodyEncoding($content_type, $body=null){
+		$ct=strtolower(trim((string)$content_type));
+		if($ct===''){
+			return 'unknown';
+		}
+		if(($p=strpos($ct,';'))!==false){
+			$ct=trim(substr($ct,0,$p));
+		}
+		if($ct==='text/csv' || $ct==='application/csv'){
+			return 'csv';
+		}
+		if(strpos($ct,'image/')===0){
+			return 'image';
+		}
+		if(strpos($ct,'text/')===0){
+			return 'text';
+		}
+		if($ct==='application/octet-stream'){
+			return 'binary';
+		}
+		return 'unknown';
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Build a Raw envelope from the last CallEndpoint result (no json_decode).
+	 * @param string|false $body
+	 * @return array{ok:bool,http_code:int,content_type:string,encoding:string,body:?string}
+	 */
+	protected function MakeRawResultEnvelope($body){
+		$http=0;
+		if(isset($this->last_call['http_code'])){
+			$http=(int)$this->last_call['http_code'];
+		}
+		$ct='';
+		if(isset($this->last_call['curl_info']['content_type']) && $this->last_call['curl_info']['content_type']){
+			$ct=$this->last_call['curl_info']['content_type'];
+		}
+		$ok=($body!==false && $http>=200 && $http<300);
+		return array(
+			'ok'			=> $ok,
+			'http_code'		=> $http,
+			'content_type'	=> $ct,
+			'encoding'		=> $this->ClassifyBodyEncoding($ct, $body),
+			'body'			=> ($body===false) ? null : $body,
+		);
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Parse a CSV string into rows of fields. Uses $csv_delimiter / $csv_eol / $csv_enclosure
+	 * unless overridden by args. Does not sniff delimiters.
+	 * @param string $string
+	 * @param string|null $delimiter
+	 * @param string|null $eol preferred EOL (body is still normalized for split)
+	 * @param string|null $enclosure
+	 * @return array list of rows (each row = list of string fields)
+	 */
+	public function ParseCsvBody($string, $delimiter=null, $eol=null, $enclosure=null){
+		if($string===null || $string===false || $string===''){
+			return array();
+		}
+		$delimiter=($delimiter!==null) ? $delimiter : $this->csv_delimiter;
+		$enclosure=($enclosure!==null) ? $enclosure : $this->csv_enclosure;
+		// $eol kept for device override / API symmetry; split uses normalized newlines
+		$eol=($eol!==null) ? $eol : $this->csv_eol;
+		unset($eol);
+
+		$normalized=str_replace(array("\r\n","\r"), "\n", (string)$string);
+		$lines=explode("\n", $normalized);
+		$rows=array();
+		foreach($lines as $line){
+			if($line===''){
+				continue;
+			}
+			$rows[]=str_getcsv($line, $delimiter, $enclosure);
+		}
+		return $rows;
 	}
 
 	// -------------------------------------------------------------------------
