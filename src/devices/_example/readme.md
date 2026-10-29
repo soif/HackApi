@@ -45,6 +45,17 @@ You may now use `/src/tools/build_api_methods.php` to automatically build all yo
 
 You can use various command-line tools in the `/src/tools/` folder to debug and test your newly created methods.
 
+### Breaking (v1.30) — method catalog
+
+Device traits no longer include `ListMethodsDefinitions()`. Metadata SoT is `template.php`. To list definitions from Tools:
+
+```php
+require 'src/lib/HackapiTools.php';
+$tools = new HackapiTools();
+$tools->SetDevice('your_device');
+$defs = $tools->ListMethodsDefinitions();
+```
+
 
 ## Submit a PR
 

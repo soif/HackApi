@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License along with thi
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 class Hackapi{
-	private		$version			='1.23'; 	// HackApi Version
+	private		$version			='1.30'; 	// HackApi Version
 
 	// host and credentials ----------- 
 	protected	$host				="";		// (default) ip address or hostname
