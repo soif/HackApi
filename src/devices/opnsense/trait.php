@@ -10552,6 +10552,12 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiGet('/auth/priv/search');
 	}
 	
+	public function ApiGetAuthUserDownload(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/auth/user/download');
+	}
+	
 	public function ApiGetAuthUserGet($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
@@ -10577,6 +10583,12 @@ trait Hackapi_Opnsense_Trait {
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
 		return $this->CallApiGet('/core/dashboard/get_dashboard');
+	}
+	
+	public function ApiGetCoreDashboardPicture(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetRaw('/core/dashboard/picture');
 	}
 	
 	public function ApiGetCoreDashboardProductInfoFeed(){
@@ -10967,6 +10979,12 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiGet('/dnsmasq/service/status');
 	}
 	
+	public function ApiGetDnsmasqSettingsDownloadHosts(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/dnsmasq/settings/download_hosts');
+	}
+	
 	public function ApiGetDnsmasqSettingsGet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
@@ -11090,6 +11108,12 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiGet('/firewall/alias_util/aliases');
 	}
 	
+	public function ApiGetFirewallCategoryDownload(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/firewall/category/download');
+	}
+	
 	public function ApiGetFirewallCategoryGet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
@@ -11105,6 +11129,12 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiGet('/firewall/category/get_item', $params);
 	}
 	
+	public function ApiGetFirewallDNatDownloadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/firewall/d_nat/download_rules');
+	}
+	
 	public function ApiGetFirewallDNatGetRule($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
@@ -11118,6 +11148,12 @@ trait Hackapi_Opnsense_Trait {
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
 		return $this->CallApiGet('/firewall/d_nat/search_rule');
+	}
+	
+	public function ApiGetFirewallFilterDownloadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/firewall/filter/download_rules');
 	}
 	
 	public function ApiGetFirewallFilterGetInterfaceList(){
@@ -11174,6 +11210,24 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiGet('/firewall/migration/count_rules');
 	}
 	
+	public function ApiGetFirewallMigrationDownloadOutbound(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/firewall/migration/download_outbound');
+	}
+	
+	public function ApiGetFirewallMigrationDownloadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/firewall/migration/download_rules');
+	}
+	
+	public function ApiGetFirewallNptDownloadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/firewall/npt/download_rules');
+	}
+	
 	public function ApiGetFirewallNptGetRule($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
@@ -11183,6 +11237,12 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiGet('/firewall/npt/get_rule', $params);
 	}
 	
+	public function ApiGetFirewallOneToOneDownloadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/firewall/one_to_one/download_rules');
+	}
+	
 	public function ApiGetFirewallOneToOneGetRule($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
@@ -11190,6 +11250,12 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 		);
 		return $this->CallApiGet('/firewall/one_to_one/get_rule', $params);
+	}
+	
+	public function ApiGetFirewallSourceNatDownloadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/firewall/source_nat/download_rules');
 	}
 	
 	public function ApiGetFirewallSourceNatGet(){
@@ -11723,6 +11789,12 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiGet('/kea/ddns/get');
 	}
 	
+	public function ApiGetKeaDhcpv4DownloadReservations(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/kea/dhcpv4/download_reservations');
+	}
+	
 	public function ApiGetKeaDhcpv4Get(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
@@ -11763,6 +11835,12 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 		);
 		return $this->CallApiGet('/kea/dhcpv4/get_subnet', $params);
+	}
+	
+	public function ApiGetKeaDhcpv6DownloadReservations(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/kea/dhcpv6/download_reservations');
 	}
 	
 	public function ApiGetKeaDhcpv6Get(){
@@ -12033,6 +12111,18 @@ trait Hackapi_Opnsense_Trait {
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
 		return $this->CallApiGet('/trafficshaper/service/statistics');
+	}
+	
+	public function ApiGetTrafficshaperSettingsDownloadPipes(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/trafficshaper/settings/download_pipes');
+	}
+	
+	public function ApiGetTrafficshaperSettingsDownloadQueues(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGetCsv('/trafficshaper/settings/download_queues');
 	}
 	
 	public function ApiGetTrafficshaperSettingsGet(){
@@ -12422,12 +12512,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiGet('/diagnostics/interface/get_ndp');
 	}
 	
-	public function ApiGetDnsmasqSettingsDownloadHosts(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/dnsmasq/settings/download_hosts');
-	}
-	
 	public function ApiGetOpenvpnExportProviders(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(3);
@@ -12485,18 +12569,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiGet('/auth/priv/get_item', $params);
 	}
 	
-	public function ApiGetAuthUserDownload(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/auth/user/download');
-	}
-	
-	public function ApiGetCoreDashboardPicture(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/core/dashboard/picture');
-	}
-	
 	public function ApiGetCoreHasyncStatusRemoteService($action, $service, $service_id){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(2);
@@ -12506,18 +12578,6 @@ trait Hackapi_Opnsense_Trait {
 			'service_id'	=> $service_id,
 		);
 		return $this->CallApiGet('/core/hasync_status/remote_service', $params);
-	}
-	
-	public function ApiGetFirewallCategoryDownload(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/firewall/category/download');
-	}
-	
-	public function ApiGetFirewallDNatDownloadRules(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/firewall/d_nat/download_rules');
 	}
 	
 	public function ApiGetFirewallFilterBaseGet(){
@@ -12542,54 +12602,6 @@ trait Hackapi_Opnsense_Trait {
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(2);
 		return $this->CallApiGet('/firewall/filter_base/list_port_select_options');
-	}
-	
-	public function ApiGetFirewallFilterDownloadRules(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/firewall/filter/download_rules');
-	}
-	
-	public function ApiGetFirewallMigrationDownloadOutbound(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/firewall/migration/download_outbound');
-	}
-	
-	public function ApiGetFirewallMigrationDownloadRules(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/firewall/migration/download_rules');
-	}
-	
-	public function ApiGetFirewallNptDownloadRules(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/firewall/npt/download_rules');
-	}
-	
-	public function ApiGetFirewallOneToOneDownloadRules(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/firewall/one_to_one/download_rules');
-	}
-	
-	public function ApiGetFirewallSourceNatDownloadRules(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/firewall/source_nat/download_rules');
-	}
-	
-	public function ApiGetKeaDhcpv4DownloadReservations(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/kea/dhcpv4/download_reservations');
-	}
-	
-	public function ApiGetKeaDhcpv6DownloadReservations(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/kea/dhcpv6/download_reservations');
 	}
 	
 	public function ApiGetKeaLeasesSearch(){
@@ -12977,18 +12989,6 @@ trait Hackapi_Opnsense_Trait {
 			'type'	=> $type,
 		);
 		return $this->CallApiGet('/openvpn/instances/gen_key', $params);
-	}
-	
-	public function ApiGetTrafficshaperSettingsDownloadPipes(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiGet('/trafficshaper/settings/download_pipes');
-	}
-	
-	public function ApiGetTrafficshaperSettingsDownloadQueues(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiGet('/trafficshaper/settings/download_queues');
 	}
 	
 	public function ApiGetTrustCaCaInfo($caref){

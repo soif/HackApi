@@ -43,7 +43,7 @@ $p['definitions']=array(
 	['/auth/user/add_api_key'                            , '1',	'set',	'post',		['username'=>'!'],		''],
 	['/auth/user/del'                                    , '1',	'set',	'post',		['uuid'=>'!'],		''],
 	['/auth/user/del_api_key'                            , '1',	'set',	'post',		['id'=>'!'],		''],
-	['/auth/user/download'                               , '2',	'get',	'get',		'',		'Returns false (likely non-JSON/CSV download; HackApi client gets no parseable payload)'],
+	['/auth/user/download'                               , '4',	'get',	'get_csv',		'',	''],
 	['/auth/user/get'                                    , '4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/auth/user/new_otp_seed'                           , '1',	'get',	'get',		'',		''],
 	['/auth/user/search_api_key'                         , '4',	'get',	'get',		'',		''],
@@ -69,7 +69,7 @@ $p['definitions']=array(
 	['/core/backup/providers'                            , '4',	'get',	'get',		'',		''],
 	['/core/backup/revert_backup'                        , '1',	'set',	'post',		['backup'=>'!'],		''],
 	['/core/dashboard/get_dashboard'                     , '4',	'get',	'get',		'',		''],
-	['/core/dashboard/picture'                           , '2',	'get',	'get',		'',		'Returns false (likely image/binary; HackApi client gets no parseable payload)'],
+	['/core/dashboard/picture'                           , '4',	'get',	'get_raw',		'',	''],
 	['/core/dashboard/product_info_feed'                 , '4',	'get',	'get',		'',		''],
 	['/core/dashboard/restore_defaults'                  , '1',	'set',	'post',		'',		''],
 	['/core/dashboard/save_widgets'                      , '1',	'set',	'post',		'',		''],
@@ -254,7 +254,7 @@ $p['definitions']=array(
 	['/dnsmasq/settings/del_option'                      , '1',	'set',	'post',		['uuid'=>'!'],		''],
 	['/dnsmasq/settings/del_range'                       , '1',	'set',	'post',		['uuid'=>'!'],		''],
 	['/dnsmasq/settings/del_tag'                         , '1',	'set',	'post',		['uuid'=>'!'],		''],
-	['/dnsmasq/settings/download_hosts'                  , '3',	'get',	'get',		'',		''],
+	['/dnsmasq/settings/download_hosts'                  , '4',	'get',	'get_csv',		'',		''],
 	['/dnsmasq/settings/get'                             , '4',	'get',	'get',		'',		''],
 	['/dnsmasq/settings/get_boot'                        , '4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/dnsmasq/settings/get_domain'                      , '4',	'get',	'get',		['uuid'=>'null'],		''],
@@ -296,7 +296,7 @@ $p['definitions']=array(
 	['/firewall/alias_util/flush'                        , '1',	'set',	'post',		['alias'=>'!'],		''],
 	['/firewall/category/add_item'                       , '1',	'set',	'post',		'',		''],
 	['/firewall/category/del_item'                       , '1',	'set',	'post',		['uuid'=>'!'],		''],
-	['/firewall/category/download'                       , '2',	'get',	'get',		'',		'Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array)'],
+	['/firewall/category/download'                       , '4',	'get',	'get_csv',		'',	''],
 	['/firewall/category/get'                            , '4',	'get',	'get',		'',		''],
 	['/firewall/category/get_item'                       , '4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/firewall/category/set'                            , '1',	'set',	'post',		'',		''],
@@ -304,7 +304,7 @@ $p['definitions']=array(
 	['/firewall/category/upload'                         , '1',	'set',	'post',		'',		''],
 	['/firewall/d_nat/add_rule'                          , '1',	'set',	'post',		'',		''],
 	['/firewall/d_nat/del_rule'                          , '1',	'set',	'post',		['uuid'=>'!'],		''],
-	['/firewall/d_nat/download_rules'                    , '2',	'get',	'get',		'',		'Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array)'],
+	['/firewall/d_nat/download_rules'                    , '4',	'get',	'get_csv',		'',	''],
 	['/firewall/d_nat/get_rule'                          , '4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/firewall/d_nat/move_rule_before'                  , '1',	'get',	'get',		['selected_uuid'=>'!', 'target_uuid'=>'!'],		''],
 	['/firewall/d_nat/search_rule'                       , '4',	'get',	'get',		'',		''],
@@ -320,7 +320,7 @@ $p['definitions']=array(
 	['/firewall/filter_base/set'                         , '2',	'set',	'post',		'',		'Abstract FilterBaseController (non-callable in docs); Endpoint not found — use firewall/filter/*'],
 	['/firewall/filter/add_rule'                         , '1',	'set',	'post',		'',		''],
 	['/firewall/filter/del_rule'                         , '1',	'set',	'post',		['uuid'=>'!'],		''],
-	['/firewall/filter/download_rules'                   , '2',	'get',	'get',		'',		'Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array)'],
+	['/firewall/filter/download_rules'                   , '4',	'get',	'get_csv',		'',	''],
 	['/firewall/filter/flush_inspect_cache'              , '1',	'set',	'post',		'',		''],
 	['/firewall/filter/get_interface_list'               , '4',	'get',	'get',		'',		''],
 	['/firewall/filter/get_rule'                         , '4',	'get',	'get',		['uuid'=>'null'],		''],
@@ -340,13 +340,13 @@ $p['definitions']=array(
 	['/firewall/group/set_item'                          , '1',	'set',	'post',		['uuid'=>'!'],		''],
 	['/firewall/migration/count_outbound'                , '4',	'get',	'get',		'',		''],
 	['/firewall/migration/count_rules'                   , '4',	'get',	'get',		'',		''],
-	['/firewall/migration/download_outbound'             , '2',	'get',	'get',		'',		'Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array)'],
-	['/firewall/migration/download_rules'                , '2',	'get',	'get',		'',		'Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array)'],
+	['/firewall/migration/download_outbound'             , '4',	'get',	'get_csv',		'',	''],
+	['/firewall/migration/download_rules'                , '4',	'get',	'get_csv',		'',	''],
 	['/firewall/migration/flush'                         , '1',	'set',	'post',		'',		''],
 	['/firewall/migration/flush_outbound'                , '1',	'set',	'post',		'',		''],
 	['/firewall/npt/add_rule'                            , '1',	'set',	'post',		'',		''],
 	['/firewall/npt/del_rule'                            , '1',	'set',	'post',		['uuid'=>'!'],		''],
-	['/firewall/npt/download_rules'                      , '2',	'get',	'get',		'',		'Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array)'],
+	['/firewall/npt/download_rules'                      , '4',	'get',	'get_csv',		'',	''],
 	['/firewall/npt/get_rule'                            , '4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/firewall/npt/move_rule_before'                    , '1',	'get',	'get',		['selected_uuid'=>'!', 'target_uuid'=>'!'],		''],
 	['/firewall/npt/set_rule'                            , '1',	'set',	'post',		['uuid'=>'!'],		''],
@@ -355,7 +355,7 @@ $p['definitions']=array(
 	['/firewall/npt/upload_rules'                        , '1',	'get',	'get',		'',		''],
 	['/firewall/one_to_one/add_rule'                     , '1',	'set',	'post',		'',		''],
 	['/firewall/one_to_one/del_rule'                     , '1',	'set',	'post',		['uuid'=>'!'],		''],
-	['/firewall/one_to_one/download_rules'               , '2',	'get',	'get',		'',		'Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array)'],
+	['/firewall/one_to_one/download_rules'               , '4',	'get',	'get_csv',		'',	''],
 	['/firewall/one_to_one/get_rule'                     , '4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/firewall/one_to_one/move_rule_before'             , '1',	'get',	'get',		['selected_uuid'=>'!', 'target_uuid'=>'!'],		''],
 	['/firewall/one_to_one/set_rule'                     , '1',	'set',	'post',		['uuid'=>'!'],		''],
@@ -364,7 +364,7 @@ $p['definitions']=array(
 	['/firewall/one_to_one/upload_rules'                 , '1',	'get',	'get',		'',		''],
 	['/firewall/source_nat/add_rule'                     , '1',	'set',	'post',		'',		''],
 	['/firewall/source_nat/del_rule'                     , '1',	'set',	'post',		['uuid'=>'!'],		''],
-	['/firewall/source_nat/download_rules'               , '2',	'get',	'get',		'',		'Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array)'],
+	['/firewall/source_nat/download_rules'               , '4',	'get',	'get_csv',		'',	''],
 	['/firewall/source_nat/get'                          , '4',	'get',	'get',		'',		''],
 	['/firewall/source_nat/get_rule'                     , '4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/firewall/source_nat/move_rule_before'             , '1',	'get',	'get',		['selected_uuid'=>'!', 'target_uuid'=>'!'],		''],
@@ -636,7 +636,7 @@ $p['definitions']=array(
 	['/kea/dhcpv4/del_peer'                              , '1',	'set',	'post',		['uuid'=>'!'],		''],
 	['/kea/dhcpv4/del_reservation'                       , '1',	'set',	'post',		['uuid'=>'!'],		''],
 	['/kea/dhcpv4/del_subnet'                            , '1',	'set',	'post',		['uuid'=>'!'],		''],
-	['/kea/dhcpv4/download_reservations'                 , '2',	'get',	'get',		'',	'Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array)'],
+	['/kea/dhcpv4/download_reservations'                 , '4',	'get',	'get_csv',		'',	''],
 	['/kea/dhcpv4/get'                                   , '4',	'get',	'get',		'',		''],
 	['/kea/dhcpv4/get_option'                            , '4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/kea/dhcpv4/get_peer'                              , '4',	'get',	'get',		['uuid'=>'null'],		''],
@@ -658,7 +658,7 @@ $p['definitions']=array(
 	['/kea/dhcpv6/del_peer'                              , '1',	'set',	'post',		['uuid'=>'!'],		''],
 	['/kea/dhcpv6/del_reservation'                       , '1',	'set',	'post',		['uuid'=>'!'],		''],
 	['/kea/dhcpv6/del_subnet'                            , '1',	'set',	'post',		['uuid'=>'!'],		''],
-	['/kea/dhcpv6/download_reservations'                 , '2',	'get',	'get',		'',	'Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array)'],
+	['/kea/dhcpv6/download_reservations'                 , '4',	'get',	'get_csv',		'',	''],
 	['/kea/dhcpv6/get'                                   , '4',	'get',	'get',		'',		''],
 	['/kea/dhcpv6/get_option'                            , '4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/kea/dhcpv6/get_pd_pool'                           , '4',	'get',	'get',		['uuid'=>'null'],		''],
@@ -811,8 +811,8 @@ $p['definitions']=array(
 	['/trafficshaper/settings/del_pipe'                  , '1',	'set',	'post',		['uuid'=>'!'],		''],
 	['/trafficshaper/settings/del_queue'                 , '1',	'set',	'post',		['uuid'=>'!'],		''],
 	['/trafficshaper/settings/del_rule'                  , '1',	'set',	'post',		['uuid'=>'!'],		''],
-	['/trafficshaper/settings/download_pipes'            , '1',	'get',	'get',		'',		''],
-	['/trafficshaper/settings/download_queues'           , '1',	'get',	'get',		'',		''],
+	['/trafficshaper/settings/download_pipes'            , '4',	'get',	'get_csv',		'',		''],
+	['/trafficshaper/settings/download_queues'           , '4',	'get',	'get_csv',		'',		''],
 	['/trafficshaper/settings/get'                       , '4',	'get',	'get',		'',		''],
 	['/trafficshaper/settings/get_pipe'                  , '4',	'get',	'get',		['uuid'=>'null'],		''],
 	['/trafficshaper/settings/get_queue'                 , '4',	'get',	'get',		['uuid'=>'null'],		''],
@@ -2471,9 +2471,12 @@ $p['definitions']=array(
 // 'calls' #################################################################################################
 // List all 'METHOD_I' defined above to point to the Method name
 // METHOD_INDEX => [METHOD_CALLED]
+// get = JSON; get_raw = opaque body envelope; get_csv = raw + ParseCsvBody (OPNsense uses ;)
 $p['calls']=array(
-	'get'	=> ['CallApiGet'],
-	'post'	=> ['CallApiPost'],
+	'get'		=> ['CallApiGet'],
+	'get_raw'	=> ['CallApiGetRaw'],
+	'get_csv'	=> ['CallApiGetCsv'],
+	'post'		=> ['CallApiPost'],
 );
 
 
@@ -2520,7 +2523,7 @@ Used to document the list of devices supported by this current API Client
 */
 // [ MODEL, 	SOWFTARE_VERSION,	DATE,			 @NickName|Full_Name, 	URL|email,					COMMENT ],
 $p['tests']=array(
-	['opnsense',	'23.7.11',	'2026-10-29',	'@soif',				'https://github.com/soif/', 'Most Get methods have been tested']
+	['opnsense',	'23.7.11',	'2026-10-29',	'@soif',				'https://github.com/soif/', 'Most main Get methods have been tested']
 );
 
 ?>

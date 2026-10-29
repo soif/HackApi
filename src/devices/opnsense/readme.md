@@ -13,7 +13,7 @@ Here are the models and version currently tested an reported by our fellow users
 
 | Model | Version | Date | Tester | Comment |
 | ----- | ------- | ---- | ------ | ------- |
-| opnsense | 23.7.11 | January 13th, 2024 | @soif | Most Get methods have been tested |
+| opnsense | 23.7.11 | October 29th, 2026 | @soif | Most main Get methods have been tested |
 
 
 ### Contribute !
@@ -26,20 +26,20 @@ Please tell us which models you've tested by adding your line in the [template.p
 
 - **2** standardised methods
 - **52** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
-- **266** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **16** methods with status of **UNDER DEV** (Work in propress)
-- **27** methods with status of **ERROR** (Returns an error)
-- **1882** methods with status of **DRAFT** (Not tested)
+- **281** methods with status of **TESTED** (Params still not ordered or desc not set)
+- **15** methods with status of **UNDER DEV** (Work in propress)
+- **15** methods with status of **ERROR** (Returns an error)
+- **1880** methods with status of **DRAFT** (Not tested)
 
 
 
 ### 839 *Getter* methods (ReadOnly)
 
 - **15** methods with status of **FINAL** (Fully tested: Params ordered, desc set)
-- **265** methods with status of **TESTED** (Params still not ordered or desc not set)
-- **13** methods with status of **UNDER DEV** (Work in propress)
-- **24** methods with status of **ERROR** (Returns an error)
-- **522** methods with status of **DRAFT** (Not tested)
+- **280** methods with status of **TESTED** (Params still not ordered or desc not set)
+- **12** methods with status of **UNDER DEV** (Work in propress)
+- **12** methods with status of **ERROR** (Returns an error)
+- **520** methods with status of **DRAFT** (Not tested)
 
 
 ### 1404 *Setter* methods (Writing or performing an action)
@@ -92,7 +92,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetAuthPrivGet** |  | TESTED |
 | **:warning: ApiGetAuthPrivGetItem** | Endpoint not found (even with valid id from priv/search; listed in docs) | ERROR |
 | **:white_check_mark: ApiGetAuthPrivSearch** |  | TESTED |
-| **:warning: ApiGetAuthUserDownload** | Returns false (likely non-JSON/CSV download; HackApi client gets no parseable payload) | ERROR |
+| **:white_check_mark: ApiGetAuthUserDownload** |  | TESTED |
 | **:white_check_mark: ApiGetAuthUserGet** |  | TESTED |
 | **:alien: ApiGetAuthUserNewOtpSeed** |  | DRAFT |
 | **:white_check_mark: ApiGetAuthUserSearchApiKey** |  | TESTED |
@@ -153,7 +153,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:alien: ApiGetCollectdServiceStatus** |  | DRAFT |
 | **:white_check_mark: ApiGetCoreBackupProviders** |  | TESTED |
 | **:white_check_mark: ApiGetCoreDashboardGetDashboard** |  | TESTED |
-| **:warning: ApiGetCoreDashboardPicture** | Returns false (likely image/binary; HackApi client gets no parseable payload) | ERROR |
+| **:white_check_mark: ApiGetCoreDashboardPicture** |  | TESTED |
 | **:white_check_mark: ApiGetCoreDashboardProductInfoFeed** |  | TESTED |
 | **:white_check_mark: ApiGetCoreDefaultsGet** |  | TESTED |
 | **:white_check_mark: ApiGetCoreDefaultsGetInstalledSections** |  | TESTED |
@@ -280,7 +280,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:alien: ApiGetDnscryptproxyWhitelistGetWhitelist** |  | DRAFT |
 | **:white_check_mark: ApiGetDnsmasqLeasesSearch** | Dnsmasq leases search | TESTED |
 | **:white_check_mark: ApiGetDnsmasqServiceStatus** | Dnsmasq Service Status | TESTED |
-| **:wrench: ApiGetDnsmasqSettingsDownloadHosts** |  | UNDER DEV |
+| **:white_check_mark: ApiGetDnsmasqSettingsDownloadHosts** |  | TESTED |
 | **:white_check_mark: ApiGetDnsmasqSettingsGet** |  | TESTED |
 | **:white_check_mark: ApiGetDnsmasqSettingsGetBoot** |  | TESTED |
 | **:white_check_mark: ApiGetDnsmasqSettingsGetDomain** |  | TESTED |
@@ -302,10 +302,10 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetFirewallAliasListNetworkAliases** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallAliasListUserGroups** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallAliasUtilAliases** |  | TESTED |
-| **:warning: ApiGetFirewallCategoryDownload** | Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array) | ERROR |
+| **:white_check_mark: ApiGetFirewallCategoryDownload** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallCategoryGet** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallCategoryGetItem** |  | TESTED |
-| **:warning: ApiGetFirewallDNatDownloadRules** | Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array) | ERROR |
+| **:white_check_mark: ApiGetFirewallDNatDownloadRules** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallDNatGetRule** |  | TESTED |
 | **:alien: ApiGetFirewallDNatMoveRuleBefore** |  | DRAFT |
 | **:white_check_mark: ApiGetFirewallDNatSearchRule** |  | TESTED |
@@ -315,7 +315,7 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:warning: ApiGetFirewallFilterBaseListCategories** | Abstract FilterBaseController (non-callable in docs); Endpoint not found — use firewall/filter/* | ERROR |
 | **:warning: ApiGetFirewallFilterBaseListNetworkSelectOptions** | Abstract FilterBaseController (non-callable in docs); Endpoint not found — use firewall/filter/* | ERROR |
 | **:warning: ApiGetFirewallFilterBaseListPortSelectOptions** | Abstract FilterBaseController (non-callable in docs); Endpoint not found — use firewall/filter/* | ERROR |
-| **:warning: ApiGetFirewallFilterDownloadRules** | Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array) | ERROR |
+| **:white_check_mark: ApiGetFirewallFilterDownloadRules** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallFilterGetInterfaceList** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallFilterGetRule** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallFilterSearchRule** |  | TESTED |
@@ -326,19 +326,19 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetFirewallGroupGetItem** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallMigrationCountOutbound** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallMigrationCountRules** |  | TESTED |
-| **:warning: ApiGetFirewallMigrationDownloadOutbound** | Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array) | ERROR |
-| **:warning: ApiGetFirewallMigrationDownloadRules** | Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array) | ERROR |
-| **:warning: ApiGetFirewallNptDownloadRules** | Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array) | ERROR |
+| **:white_check_mark: ApiGetFirewallMigrationDownloadOutbound** |  | TESTED |
+| **:white_check_mark: ApiGetFirewallMigrationDownloadRules** |  | TESTED |
+| **:white_check_mark: ApiGetFirewallNptDownloadRules** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallNptGetRule** |  | TESTED |
 | **:alien: ApiGetFirewallNptMoveRuleBefore** |  | DRAFT |
 | **:alien: ApiGetFirewallNptToggleRuleLog** |  | DRAFT |
 | **:alien: ApiGetFirewallNptUploadRules** |  | DRAFT |
-| **:warning: ApiGetFirewallOneToOneDownloadRules** | Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array) | ERROR |
+| **:white_check_mark: ApiGetFirewallOneToOneDownloadRules** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallOneToOneGetRule** |  | TESTED |
 | **:alien: ApiGetFirewallOneToOneMoveRuleBefore** |  | DRAFT |
 | **:alien: ApiGetFirewallOneToOneToggleRuleLog** |  | DRAFT |
 | **:alien: ApiGetFirewallOneToOneUploadRules** |  | DRAFT |
-| **:warning: ApiGetFirewallSourceNatDownloadRules** | Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array) | ERROR |
+| **:white_check_mark: ApiGetFirewallSourceNatDownloadRules** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallSourceNatGet** |  | TESTED |
 | **:white_check_mark: ApiGetFirewallSourceNatGetRule** |  | TESTED |
 | **:alien: ApiGetFirewallSourceNatMoveRuleBefore** |  | DRAFT |
@@ -510,13 +510,13 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiGetIpsecVtiGet** |  | TESTED |
 | **:white_check_mark: ApiGetKeaCtrlAgentGet** |  | TESTED |
 | **:white_check_mark: ApiGetKeaDdnsGet** |  | TESTED |
-| **:warning: ApiGetKeaDhcpv4DownloadReservations** | Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array) | ERROR |
+| **:white_check_mark: ApiGetKeaDhcpv4DownloadReservations** |  | TESTED |
 | **:white_check_mark: ApiGetKeaDhcpv4Get** |  | TESTED |
 | **:white_check_mark: ApiGetKeaDhcpv4GetOption** |  | TESTED |
 | **:white_check_mark: ApiGetKeaDhcpv4GetPeer** |  | TESTED |
 | **:white_check_mark: ApiGetKeaDhcpv4GetReservation** |  | TESTED |
 | **:white_check_mark: ApiGetKeaDhcpv4GetSubnet** |  | TESTED |
-| **:warning: ApiGetKeaDhcpv6DownloadReservations** | Returns false (HTTP 200 text/csv download; HackApi client gets no parseable JSON array) | ERROR |
+| **:white_check_mark: ApiGetKeaDhcpv6DownloadReservations** |  | TESTED |
 | **:white_check_mark: ApiGetKeaDhcpv6Get** |  | TESTED |
 | **:white_check_mark: ApiGetKeaDhcpv6GetOption** |  | TESTED |
 | **:white_check_mark: ApiGetKeaDhcpv6GetPdPool** |  | TESTED |
@@ -819,8 +819,8 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:alien: ApiGetTorSocksaclGet** |  | DRAFT |
 | **:alien: ApiGetTorSocksaclGetacl** |  | DRAFT |
 | **:white_check_mark: ApiGetTrafficshaperServiceStatistics** |  | TESTED |
-| **:alien: ApiGetTrafficshaperSettingsDownloadPipes** |  | DRAFT |
-| **:alien: ApiGetTrafficshaperSettingsDownloadQueues** |  | DRAFT |
+| **:white_check_mark: ApiGetTrafficshaperSettingsDownloadPipes** |  | TESTED |
+| **:white_check_mark: ApiGetTrafficshaperSettingsDownloadQueues** |  | TESTED |
 | **:white_check_mark: ApiGetTrafficshaperSettingsGet** |  | TESTED |
 | **:white_check_mark: ApiGetTrafficshaperSettingsGetPipe** |  | TESTED |
 | **:white_check_mark: ApiGetTrafficshaperSettingsGetQueue** |  | TESTED |
