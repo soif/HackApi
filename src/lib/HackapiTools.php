@@ -302,11 +302,38 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
-	private function _ListMethodsDefinitionsBy($type='get', $col='state', $value=0){
-		if(!method_exists($this->odev,'ListMethodsDefinitions')){
+	/**
+	 * Method metadata from template.php (state, path, params, …).
+	 * Not on device traits — maintainer / debug use via HackapiTools only.
+	 *
+	 * @return array|false  method name => formatted def, or false if no template
+	 */
+	public function ListMethodsDefinitions(){
+		if(!$this->RequireTemplate()){
 			return false;
 		}
-		$list=$this->odev->ListMethodsDefinitions();
+		$pref= & $this->template_prefs;
+		if(!isset($pref['definitions']) or !is_array($pref['definitions'])){
+			return false;
+		}
+		$out=array();
+		foreach($pref['definitions'] as $ep){
+			$def=$this->_FormatDefinition($ep,$pref);
+			// first-wins (same as BuildMethods)
+			if(isset($out[$def['f_method_name']])){
+				continue;
+			}
+			$out[$def['f_method_name']]=$def;
+		}
+		return $out;
+	}
+
+	// -------------------------------------------------------------------------
+	private function _ListMethodsDefinitionsBy($type='get', $col='state', $value=0){
+		$list=$this->ListMethodsDefinitions();
+		if(!$list){
+			return false;
+		}
 		$out=false;
 		foreach($list as $method => $def){
 			if($type and $def['type'] != $type ){
@@ -799,25 +826,7 @@ public function {method}({arguments}){
 			}
 		}
 
-		// output --------------------------------------
-		$out .='
-
-
-
-// ################################################################################################
-// List All methods Definitions ###################################################################
-// ################################################################################################
-
-public function ListMethodsDefinitions(){
-	$def=array();
-';
-		foreach($this->_methods_created as $met => $arr){
-			$out.= "	\$def['{$met}']=".str_replace("\n",'', var_export($arr,true)).";\n";
-		}
-		$out .='
-	return $def;
-}
-';
+		// Catalog lives in template.php — use HackapiTools::ListMethodsDefinitions()
 		$out=$this->_enTab($out);
 
 
@@ -980,8 +989,7 @@ EOF;
 
 EOF;
 
-		if(method_exists($this->odev,'ListMethodsDefinitions')){ //dont exist the first time when trait.php is blank
-				$definitions=$this->odev->ListMethodsDefinitions();
+		if($definitions=$this->ListMethodsDefinitions()){
 				ksort($definitions);
 				foreach($definitions as $method => $def){		
 					$icon=$this->states_icons[$def['state']];
