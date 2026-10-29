@@ -45,6 +45,7 @@ class HackapiTools{
 
 
 
+	/** Verbose method body (devices with fewer than COMPACT_METHODS_MIN methods). */
 	private $def_template='
 // -----------------------------------------------------------------------
 /**
@@ -62,6 +63,19 @@ public function {method}({arguments}){
 	return $this->{call}({call_args}{call_params});
 }
 ';
+
+	/** Compact method body when method count >= COMPACT_METHODS_MIN (no separators / phpdoc). */
+	private $def_template_compact='
+public function {method}({arguments}){
+	$this->DebugLogMethod();
+	$this->HandleApiMethodStateAllowed({state});
+	{parameters}
+	return $this->{call}({call_args}{call_params});
+}
+';
+
+	const COMPACT_METHODS_MIN = 500;
+
 
 
 
@@ -744,28 +758,39 @@ public function {method}({arguments}){
 		$this->_methods_created=array();
 		$built=array();
 
-		// TODO: firt sort endpoints by names
-		foreach($pref['definitions'] as $def){
-				$def=$this->_FormatDefinition($def,$pref);
-
-				// ensure to not recreate the same method fom same endpoint
+		// Pass 1: collect unique methods (first-wins)
+		foreach($pref['definitions'] as $raw){
+				$def=$this->_FormatDefinition($raw,$pref);
 				if(isset($this->_methods_created[$def['f_method_name']])){
 					$this->_methods_duplicated[$def['f_method_name']][]=$def['f_args_txt'];
 					continue;
 				}
 				$this->_methods_created[$def['f_method_name']]=$def;
+		}
 
-				// makes category Tag ---------
+		$method_count=count($this->_methods_created);
+		if(isset($pref['template'])){
+			$template=$pref['template'];
+			$tpl_mode='device_override';
+		}
+		elseif($method_count >= self::COMPACT_METHODS_MIN){
+			$template=$this->def_template_compact;
+			$tpl_mode='compact';
+		}
+		else{
+			$template=$this->def_template;
+			$tpl_mode='verbose';
+		}
+		if($output_mode){
+			$this->PrintLine("Trait template mode: $tpl_mode ($method_count methods, compact min=".self::COMPACT_METHODS_MIN.")");
+		}
+
+		// Pass 2: emit method bodies
+		foreach($this->_methods_created as $def){
 				$category="Api".ucfirst($def['type']);
-
-				//makes desc ---------------
 				$ep_desc='';
 				$ep_desc	=$def['desc'] and $ep_desc="* {$def['desc']}\n*";
 
-				// makes arguments & params -------
-
-				// makes template ---------------
-				isset($pref['template']) ? $template=$pref['template'] : $template=$this->def_template;
 				$block=$template;
 				$block=$this->_replaceVar('method',			$def['f_method_name'],			$block);
 				$block=$this->_replaceVar('description',	$ep_desc,						$block, true);
