@@ -7,4319 +7,6 @@ trait Hackapi_Opnsense_Trait {
 	
 	
 	// ##################################################################################
-	// ## 	'GET' API Methods ###########################################################
-	// ##################################################################################
-	
-	
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	// +++ FINAL      Fully tested: Params ordered, desc set   ++++++++++++++++++
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDhcpv4ServiceStatus
-	*
-	* DHCP v4 Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetDhcpv4ServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/dhcpv4/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDhcpv6ServiceStatus
-	*
-	* DHCP v6 Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetDhcpv6ServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/dhcpv6/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsServiceStatus
-	*
-	* Intrusion Detection Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetIdsServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/ids/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecServiceStatus
-	*
-	* IPSec Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetIpsecServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/ipsec/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetMonitServiceStatus
-	*
-	* Monit Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetMonitServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/monit/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetProxyServiceStatus
-	*
-	* Proxy Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetProxyServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/proxy/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetRoutesGatewayStatus
-	*
-	* List Gateways Status
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetRoutesGatewayStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/routes/gateway/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetSyslogServiceStatus
-	*
-	* SyslogNg Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetSyslogServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/syslog/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundServiceStatus
-	*
-	* Unbound Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetUnboundServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/unbound/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDyndnsServiceStatus
-	*
-	* DynDNS Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetDyndnsServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/dyndns/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIperfServiceStatus
-	*
-	* Iperf Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetIperfServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/iperf/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetMuninnodeServiceStatus
-	*
-	* Munin-node Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetMuninnodeServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/muninnode/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetNetdataServiceStatus
-	*
-	* NetData Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetNetdataServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/netdata/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetNtopngServiceStatus
-	*
-	* NtopNg Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetNtopngServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/ntopng/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetRedisServiceStatus
-	*
-	* Redis Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetRedisServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/redis/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetVnstatServiceStatus
-	*
-	* VnStat Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetVnstatServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('/vnstat/service/status');
-	}
-	
-	
-	
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	// +++ TESTED     Params still not ordered or desc not set ++++++++++++++++++
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCoreBackupProviders
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCoreBackupProviders(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/core/backup/providers');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCoreMenuTree
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCoreMenuTree(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/core/menu/tree');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCoreMenuSearch
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCoreMenuSearch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/core/menu/search');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCoreFirmwareGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCoreFirmwareGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/core/firmware/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCoreFirmwareGetOptions
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCoreFirmwareGetOptions(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/core/firmware/getOptions');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCoreFirmwareHealth
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCoreFirmwareHealth(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiPost('/core/firmware/health');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCoreFirmwareInfo
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCoreFirmwareInfo(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/core/firmware/info');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCoreFirmwareRunning
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCoreFirmwareRunning(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/core/firmware/running');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCoreFirmwareUpgradestatus
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCoreFirmwareUpgradestatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/core/firmware/upgradestatus');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCoreServiceSearch
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCoreServiceSearch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/core/service/search');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCoreSystemStatus
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCoreSystemStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/core/system/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCronSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCronSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/cron/settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCronSettingsGetJob
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCronSettingsGetJob($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/cron/settings/getJob', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetCronSettingsSearchJobs
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetCronSettingsSearchJobs(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/cron/settings/searchJobs');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDhcpLeases4SearchLease
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDhcpLeases4SearchLease(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dhcp/leases4/searchLease');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDhcpServiceStatus
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDhcpServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dhcp/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDhcpv4LeasesSearchLease
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDhcpv4LeasesSearchLease(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dhcpv4/leases/searchLease');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDhcpv6LeasesSearchLease
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDhcpv6LeasesSearchLease(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dhcpv6/leases/searchLease');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDhcpv6LeasesSearchPrefix
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDhcpv6LeasesSearchPrefix(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dhcpv6/leases/searchPrefix');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqLeasesSearch
-	*
-	* Dnsmasq leases search
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqLeasesSearch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dnsmasq/leases/search');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqServiceStatus
-	*
-	* Dnsmasq Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetDnsmasqServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dnsmasq/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dnsmasq/settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsGetBoot
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsGetBoot($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/dnsmasq/settings/getBoot', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsGetDomain
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsGetDomain($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/dnsmasq/settings/getDomain', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsGetHost
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsGetHost($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/dnsmasq/settings/getHost', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsGetOption
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsGetOption($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/dnsmasq/settings/getOption', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsGetRange
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsGetRange($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/dnsmasq/settings/getRange', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsGetTag
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsGetTag($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/dnsmasq/settings/getTag', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsGetTagList
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsGetTagList(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dnsmasq/settings/getTagList');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsSearchBoot
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsSearchBoot(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dnsmasq/settings/searchBoot');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsSearchDomain
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsSearchDomain(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dnsmasq/settings/searchDomain');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsSearchHost
-	*
-	* Dnsmasq host reservations search
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsSearchHost(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dnsmasq/settings/searchHost');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsSearchOption
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsSearchOption(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dnsmasq/settings/searchOption');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsSearchRange
-	*
-	* Dnsmasq DHCP ranges search
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsSearchRange(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dnsmasq/settings/searchRange');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsSearchTag
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsSearchTag(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dnsmasq/settings/searchTag');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaCtrlAgentGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaCtrlAgentGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/ctrl_agent/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDdnsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDdnsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/ddns/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv4Get
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv4Get(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/dhcpv4/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv4GetOption
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv4GetOption($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/kea/dhcpv4/getOption', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv4GetPeer
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv4GetPeer($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/kea/dhcpv4/getPeer', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv4GetReservation
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv4GetReservation($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/kea/dhcpv4/getReservation', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv4GetSubnet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv4GetSubnet($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/kea/dhcpv4/getSubnet', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv4SearchOption
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv4SearchOption(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/dhcpv4/searchOption');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv4SearchPeer
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv4SearchPeer(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/dhcpv4/searchPeer');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv4SearchReservation
-	*
-	* Kea DHCPv4 reservations search
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv4SearchReservation(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/dhcpv4/searchReservation');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv4SearchSubnet
-	*
-	* Kea DHCPv4 subnets search
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv4SearchSubnet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/dhcpv4/searchSubnet');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv6Get
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv6Get(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/dhcpv6/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv6GetOption
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv6GetOption($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/kea/dhcpv6/getOption', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv6GetPdPool
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv6GetPdPool($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/kea/dhcpv6/getPdPool', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv6GetPeer
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv6GetPeer($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/kea/dhcpv6/getPeer', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv6GetReservation
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv6GetReservation($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/kea/dhcpv6/getReservation', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv6GetSubnet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv6GetSubnet($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/kea/dhcpv6/getSubnet', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv6SearchOption
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv6SearchOption(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/dhcpv6/searchOption');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv6SearchPdPool
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv6SearchPdPool(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/dhcpv6/searchPdPool');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv6SearchPeer
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv6SearchPeer(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/dhcpv6/searchPeer');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv6SearchReservation
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv6SearchReservation(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/dhcpv6/searchReservation');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv6SearchSubnet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv6SearchSubnet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/dhcpv6/searchSubnet');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaServiceStatus
-	*
-	* Kea Service Status
-	*
-	* @category ApiGet
-	* @return boolean
-	*/
-	public function ApiGetKeaServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/kea/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsActivityGetActivity
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsActivityGetActivity(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/activity/getActivity');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsDnsDiagnosticsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsDnsDiagnosticsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/dns_diagnostics/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsFirewallListRuleIds
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsFirewallListRuleIds(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/firewall/listRuleIds');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsFirewallLogFilters
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsFirewallLogFilters(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/firewall/logFilters');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceGetArp
-	*
-	* ARP table
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceGetArp(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/getArp');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceGetBpfStatistics
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceGetBpfStatistics(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/getBpfStatistics');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceGetInterfaceConfig
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceGetInterfaceConfig(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/getInterfaceConfig');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceGetInterfaceNames
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceGetInterfaceNames(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/getInterfaceNames');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceGetInterfaceStatistics
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceGetInterfaceStatistics(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/getInterfaceStatistics');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceGetMemoryStatistics
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceGetMemoryStatistics(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/getMemoryStatistics');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceGetNetisrStatistics
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceGetNetisrStatistics(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/getNetisrStatistics');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceGetPfSyncNodes
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceGetPfSyncNodes(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/getPfSyncNodes');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceGetProtocolStatistics
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceGetProtocolStatistics(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/getProtocolStatistics');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceGetRoutes
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceGetRoutes(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/getRoutes');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceGetSocketStatistics
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceGetSocketStatistics(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/getSocketStatistics');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceGetVipStatus
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceGetVipStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/getVipStatus');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceSearchArp
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceSearchArp(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/searchArp');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceSearchNdp
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceSearchNdp(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/interface/searchNdp');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsLvtemplateGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsLvtemplateGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/lvtemplate/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsLvtemplateGetItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsLvtemplateGetItem($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/diagnostics/lvtemplate/getItem', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsLvtemplateSearchItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsLvtemplateSearchItem(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/lvtemplate/searchItem');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsNetflowCacheStats
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsNetflowCacheStats(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/netflow/cacheStats');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsNetflowGetconfig
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsNetflowGetconfig(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/netflow/getconfig');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsNetflowIsEnabled
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsNetflowIsEnabled(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/netflow/isEnabled');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsNetflowStatus
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsNetflowStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/netflow/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsNetworkinsightGetInterfaces
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsNetworkinsightGetInterfaces(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/networkinsight/getInterfaces');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsNetworkinsightGetMetadata
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsNetworkinsightGetMetadata(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/networkinsight/getMetadata');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsNetworkinsightGetProtocols
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsNetworkinsightGetProtocols(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/networkinsight/getProtocols');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsNetworkinsightGetServices
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsNetworkinsightGetServices(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/networkinsight/getServices');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsPacketCaptureGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsPacketCaptureGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/packet_capture/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsPacketCaptureSearchJobs
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsPacketCaptureSearchJobs(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/packet_capture/searchJobs');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsPingGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsPingGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/ping/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsPingSearchJobs
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsPingSearchJobs(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/ping/searchJobs');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsPortprobeGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsPortprobeGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/portprobe/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsSystemMemory
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsSystemMemory(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/system/memory');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsSystemhealthGetInterfaces
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsSystemhealthGetInterfaces(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/systemhealth/getInterfaces');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsSystemhealthGetRRDlist
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsSystemhealthGetRRDlist(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/systemhealth/getRRDlist');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsSystemhealthGetSystemHealth
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsSystemhealthGetSystemHealth($rrd="", $inverse="0", $detail="-1"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'rrd'	=> $rrd,
-			'inverse'	=> $inverse,
-			'detail'	=> $detail,
-		);
-		return $this->CallApiGet('/diagnostics/systemhealth/getSystemHealth', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsTracerouteGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsTracerouteGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/traceroute/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsTrafficInterface
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsTrafficInterface(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/diagnostics/traffic/Interface');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallAliasExport
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallAliasExport(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/alias/export');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallAliasGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallAliasGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/alias/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallAliasGetGeoIP
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallAliasGetGeoIP(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/alias/getGeoIP');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallAliasGetItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallAliasGetItem($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/firewall/alias/getItem', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallAliasGetTableSize
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallAliasGetTableSize(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/alias/getTableSize');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallAliasListCategories
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallAliasListCategories(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/alias/listCategories');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallAliasListCountries
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallAliasListCountries(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/alias/listCountries');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallAliasListNetworkAliases
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallAliasListNetworkAliases(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/alias/listNetworkAliases');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallAliasListUserGroups
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallAliasListUserGroups(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/alias/listUserGroups');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallAliasSearchItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallAliasSearchItem(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/alias/searchItem');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallAliasUtilAliases
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallAliasUtilAliases(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/alias_util/aliases');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallCategoryGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallCategoryGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/category/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallCategoryGetItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallCategoryGetItem($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/firewall/category/getItem', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallCategorySearchItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallCategorySearchItem(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/category/searchItem');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallCategorySearchNoCategoryItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallCategorySearchNoCategoryItem(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/category/searchNoCategoryItem');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallFilterUtilRuleStats
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallFilterUtilRuleStats(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/filter_util/ruleStats');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallGroupGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallGroupGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/group/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallGroupGetItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallGroupGetItem($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/firewall/group/getItem', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallGroupSearchItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallGroupSearchItem(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/firewall/group/searchItem');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsSettingsCheckPolicyRule
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIdsSettingsCheckPolicyRule(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ids/settings/checkPolicyRule');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIdsSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ids/settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsSettingsGetPolicy
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIdsSettingsGetPolicy($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/ids/settings/getPolicy', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsSettingsGetPolicyRule
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIdsSettingsGetPolicyRule($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/ids/settings/getPolicyRule', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsSettingsGetRulesetproperties
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIdsSettingsGetRulesetproperties(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ids/settings/getRulesetproperties');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsSettingsGetUserRule
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIdsSettingsGetUserRule($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/ids/settings/getUserRule', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsSettingsListRulesets
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIdsSettingsListRulesets(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ids/settings/listRulesets');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsSettingsSearchPolicy
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIdsSettingsSearchPolicy(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ids/settings/searchPolicy');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsSettingsSearchPolicyRule
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIdsSettingsSearchPolicyRule(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ids/settings/searchPolicyRule');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsSettingsSearchUserRule
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIdsSettingsSearchUserRule(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ids/settings/searchUserRule');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesLaggSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesLaggSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/interfaces/lagg_settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesLaggSettingsGetItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesLaggSettingsGetItem($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/interfaces/lagg_settings/getItem', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesLaggSettingsSearchItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesLaggSettingsSearchItem(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/interfaces/lagg_settings/searchItem');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesLoopbackSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesLoopbackSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/interfaces/loopback_settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesLoopbackSettingsGetItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesLoopbackSettingsGetItem($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/interfaces/loopback_settings/getItem', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesLoopbackSettingsSearchItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesLoopbackSettingsSearchItem(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/interfaces/loopback_settings/searchItem');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesVipSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesVipSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/interfaces/vip_settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesVipSettingsGetItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesVipSettingsGetItem($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/interfaces/vip_settings/getItem', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesVipSettingsGetUnusedVhid
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesVipSettingsGetUnusedVhid(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/interfaces/vip_settings/getUnusedVhid');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesVipSettingsSearchItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesVipSettingsSearchItem(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/interfaces/vip_settings/searchItem');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesVlanSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesVlanSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/interfaces/vlan_settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesVlanSettingsGetItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesVlanSettingsGetItem($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/interfaces/vlan_settings/getItem', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesVlanSettingsSearchItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesVlanSettingsSearchItem(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/interfaces/vlan_settings/searchItem');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesVxlanSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesVxlanSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/interfaces/vxlan_settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesVxlanSettingsGetItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesVxlanSettingsGetItem($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/interfaces/vxlan_settings/getItem', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetInterfacesVxlanSettingsSearchItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetInterfacesVxlanSettingsSearchItem(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/interfaces/vxlan_settings/searchItem');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecConnectionsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecConnectionsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/connections/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecConnectionsGetChild
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecConnectionsGetChild($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/ipsec/connections/getChild', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecConnectionsGetConnection
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecConnectionsGetConnection($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/ipsec/connections/getConnection', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecConnectionsGetLocal
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecConnectionsGetLocal($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/ipsec/connections/getLocal', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecConnectionsGetRemote
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecConnectionsGetRemote($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/ipsec/connections/getRemote', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecConnectionsIsEnabled
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecConnectionsIsEnabled(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/connections/isEnabled');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecConnectionsSearchChild
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecConnectionsSearchChild(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/connections/searchChild');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecConnectionsSearchConnection
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecConnectionsSearchConnection(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/connections/searchConnection');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecConnectionsSearchLocal
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecConnectionsSearchLocal(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/connections/searchLocal');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecConnectionsSearchRemote
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecConnectionsSearchRemote(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/connections/searchRemote');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecKeyPairsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecKeyPairsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/key_pairs/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecKeyPairsGetItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecKeyPairsGetItem($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/ipsec/key_pairs/getItem', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecKeyPairsSearchItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecKeyPairsSearchItem(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/key_pairs/searchItem');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecLeasesPools
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecLeasesPools(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/leases/pools');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecLeasesSearch
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecLeasesSearch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/leases/search');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecLegacySubsystemStatus
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecLegacySubsystemStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/legacy_subsystem/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecManualSpdGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecManualSpdGet($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/ipsec/manual_spd/get', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecManualSpdSearch
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecManualSpdSearch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/manual_spd/search');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecPoolsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecPoolsGet($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/ipsec/pools/get', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecPoolsSearch
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecPoolsSearch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/pools/search');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecPreSharedKeysGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecPreSharedKeysGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/pre_shared_keys/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecPreSharedKeysGetItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecPreSharedKeysGetItem($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/ipsec/pre_shared_keys/getItem', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecPreSharedKeysSearchItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecPreSharedKeysSearchItem(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/pre_shared_keys/searchItem');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecSadSearch
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecSadSearch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/sad/search');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecSessionsSearchPhase1
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecSessionsSearchPhase1(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/sessions/searchPhase1');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecSessionsSearchPhase2
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecSessionsSearchPhase2(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/sessions/searchPhase2');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecSpdSearch
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecSpdSearch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/spd/search');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecTunnelSearchPhase1
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecTunnelSearchPhase1(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/tunnel/searchPhase1');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecTunnelSearchPhase2
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecTunnelSearchPhase2(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/tunnel/searchPhase2');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecVtiGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecVtiGet($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/ipsec/vti/get', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIpsecVtiSearch
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIpsecVtiSearch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ipsec/vti/search');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetMonitSettingsDirty
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetMonitSettingsDirty(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/monit/settings/dirty');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetMonitSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetMonitSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/monit/settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetMonitSettingsGetAlert
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetMonitSettingsGetAlert($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/monit/settings/getAlert', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetMonitSettingsGetGeneral
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetMonitSettingsGetGeneral(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/monit/settings/getGeneral');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetMonitSettingsGetService
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetMonitSettingsGetService($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/monit/settings/getService', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetMonitSettingsGetTest
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetMonitSettingsGetTest($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/monit/settings/getTest', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetMonitSettingsSearchAlert
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetMonitSettingsSearchAlert(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/monit/settings/searchAlert');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetMonitSettingsSearchService
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetMonitSettingsSearchService(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/monit/settings/searchService');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetMonitSettingsSearchTest
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetMonitSettingsSearchTest(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/monit/settings/searchTest');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetMonitStatusGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetMonitStatusGet($format="xml"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'format'	=> $format,
-		);
-		return $this->CallApiGet('/monit/status/get', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetOpenvpnClientOverwritesGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetOpenvpnClientOverwritesGet($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/openvpn/client_overwrites/get', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetOpenvpnClientOverwritesSearch
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetOpenvpnClientOverwritesSearch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/openvpn/client_overwrites/search');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetOpenvpnExportAccounts
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetOpenvpnExportAccounts($vpnid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'vpnid'	=> $vpnid,
-		);
-		return $this->CallApiGet('/openvpn/export/accounts', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetOpenvpnExportTemplates
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetOpenvpnExportTemplates(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/openvpn/export/templates');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetOpenvpnInstancesGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetOpenvpnInstancesGet($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/openvpn/instances/get', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetOpenvpnInstancesGetStaticKey
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetOpenvpnInstancesGetStaticKey($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/openvpn/instances/getStaticKey', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetOpenvpnInstancesSearch
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetOpenvpnInstancesSearch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/openvpn/instances/search');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetOpenvpnInstancesSearchStaticKey
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetOpenvpnInstancesSearchStaticKey(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/openvpn/instances/searchStaticKey');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetOpenvpnServiceSearchRoutes
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetOpenvpnServiceSearchRoutes(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/openvpn/service/searchRoutes');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetOpenvpnServiceSearchSessions
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetOpenvpnServiceSearchSessions(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/openvpn/service/searchSessions');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetProxySettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetProxySettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/proxy/settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetProxySettingsGetPACMatch
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetProxySettingsGetPACMatch($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/proxy/settings/getPACMatch', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetProxySettingsGetPACProxy
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetProxySettingsGetPACProxy($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/proxy/settings/getPACProxy', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetProxySettingsGetPACRule
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetProxySettingsGetPACRule($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/proxy/settings/getPACRule', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetProxySettingsGetRemoteBlacklist
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetProxySettingsGetRemoteBlacklist($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/proxy/settings/getRemoteBlacklist', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetProxySettingsSearchPACMatch
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetProxySettingsSearchPACMatch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/proxy/settings/searchPACMatch');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetProxySettingsSearchPACProxy
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetProxySettingsSearchPACProxy(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/proxy/settings/searchPACProxy');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetProxySettingsSearchPACRule
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetProxySettingsSearchPACRule(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/proxy/settings/searchPACRule');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetProxySettingsSearchRemoteBlacklists
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetProxySettingsSearchRemoteBlacklists(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/proxy/settings/searchRemoteBlacklists');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetRoutesRoutesGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetRoutesRoutesGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/routes/routes/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetRoutesRoutesGetroute
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetRoutesRoutesGetroute($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/routes/routes/getroute', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetRoutesRoutesSearchroute
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetRoutesRoutesSearchroute(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/routes/routes/searchroute');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetSyslogServiceStats
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetSyslogServiceStats(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/syslog/service/stats');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetSyslogSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetSyslogSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/syslog/settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetSyslogSettingsGetDestination
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetSyslogSettingsGetDestination($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/syslog/settings/getDestination', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetSyslogSettingsSearchDestinations
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetSyslogSettingsSearchDestinations(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/syslog/settings/searchDestinations');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetTrafficshaperServiceStatistics
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetTrafficshaperServiceStatistics(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/trafficshaper/service/statistics');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetTrafficshaperSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetTrafficshaperSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/trafficshaper/settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetTrafficshaperSettingsGetPipe
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetTrafficshaperSettingsGetPipe($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/trafficshaper/settings/getPipe', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetTrafficshaperSettingsGetQueue
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetTrafficshaperSettingsGetQueue($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/trafficshaper/settings/getQueue', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetTrafficshaperSettingsGetRule
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetTrafficshaperSettingsGetRule($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/trafficshaper/settings/getRule', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetTrafficshaperSettingsSearchPipes
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetTrafficshaperSettingsSearchPipes(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/trafficshaper/settings/searchPipes');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetTrafficshaperSettingsSearchQueues
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetTrafficshaperSettingsSearchQueues(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/trafficshaper/settings/searchQueues');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetTrafficshaperSettingsSearchRules
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetTrafficshaperSettingsSearchRules(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/trafficshaper/settings/searchRules');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundOverviewIsBlockListEnabled
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundOverviewIsBlockListEnabled(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/unbound/overview/isBlockListEnabled');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundOverviewIsEnabled
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundOverviewIsEnabled(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/unbound/overview/isEnabled');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundOverviewSearchQueries
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundOverviewSearchQueries(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/unbound/overview/searchQueries');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/unbound/settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundSettingsGetAcl
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundSettingsGetAcl($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/unbound/settings/getAcl', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundSettingsGetDomainOverride
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundSettingsGetDomainOverride($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/unbound/settings/getDomainOverride', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundSettingsGetForward
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundSettingsGetForward($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/unbound/settings/getForward', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundSettingsGetHostAlias
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundSettingsGetHostAlias($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/unbound/settings/getHostAlias', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundSettingsGetHostOverride
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundSettingsGetHostOverride($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/unbound/settings/getHostOverride', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundSettingsGetNameservers
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundSettingsGetNameservers(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/unbound/settings/getNameservers');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundSettingsSearchAcl
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundSettingsSearchAcl(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/unbound/settings/searchAcl');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundSettingsSearchDomainOverride
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundSettingsSearchDomainOverride(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/unbound/settings/searchDomainOverride');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundSettingsSearchForward
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundSettingsSearchForward(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/unbound/settings/searchForward');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundSettingsSearchHostAlias
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundSettingsSearchHostAlias(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/unbound/settings/searchHostAlias');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundSettingsSearchHostOverride
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundSettingsSearchHostOverride(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/unbound/settings/searchHostOverride');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindAclGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindAclGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/bind/acl/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindAclGetAcl
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindAclGetAcl($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/bind/acl/getAcl', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindAclSearchAcl
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindAclSearchAcl(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/bind/acl/searchAcl');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindDnsblGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindDnsblGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/bind/dnsbl/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindDomainGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindDomainGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/bind/domain/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindDomainGetDomain
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindDomainGetDomain($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/bind/domain/getDomain', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindDomainSearchMasterDomain
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindDomainSearchMasterDomain(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/bind/domain/searchMasterDomain');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindDomainSearchPrimaryDomain
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindDomainSearchPrimaryDomain(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/bind/domain/searchPrimaryDomain');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindDomainSearchSecondaryDomain
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindDomainSearchSecondaryDomain(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/bind/domain/searchSecondaryDomain');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindDomainSearchSlaveDomain
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindDomainSearchSlaveDomain(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/bind/domain/searchSlaveDomain');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindGeneralGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindGeneralGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/bind/general/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindRecordGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindRecordGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/bind/record/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindRecordGetRecord
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindRecordGetRecord($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/bind/record/getRecord', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindRecordSearchRecord
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindRecordSearchRecord(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/bind/record/searchRecord');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindServiceDnsbl
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindServiceDnsbl(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/bind/service/dnsbl');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetBindServiceStatus
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetBindServiceStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/bind/service/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDyndnsAccountsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDyndnsAccountsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dyndns/accounts/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDyndnsAccountsGetItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDyndnsAccountsGetItem($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/dyndns/accounts/getItem', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDyndnsAccountsSearchItem
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDyndnsAccountsSearchItem(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dyndns/accounts/searchItem');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDyndnsSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDyndnsSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/dyndns/settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIperfInstanceGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIperfInstanceGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/iperf/instance/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetMuninnodeGeneralGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetMuninnodeGeneralGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/muninnode/general/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetNetdataGeneralGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetNetdataGeneralGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/netdata/general/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetNtopngGeneralGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetNtopngGeneralGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/ntopng/general/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetRedisSettingsGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetRedisSettingsGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/redis/settings/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetVnstatGeneralGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetVnstatGeneralGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/vnstat/general/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetVnstatServiceDaily
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetVnstatServiceDaily(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/vnstat/service/daily');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetVnstatServiceHourly
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetVnstatServiceHourly(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/vnstat/service/hourly');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetVnstatServiceMonthly
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetVnstatServiceMonthly(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/vnstat/service/monthly');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetVnstatServiceYearly
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetVnstatServiceYearly(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('/vnstat/service/yearly');
-	}
-	
-	
-	
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	// +++ UNDER DEV  Work in propress                         ++++++++++++++++++
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDnsmasqSettingsDownloadHosts
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDnsmasqSettingsDownloadHosts(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/dnsmasq/settings/downloadHosts');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv4DownloadReservations
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv4DownloadReservations(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/kea/dhcpv4/downloadReservations');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaDhcpv6DownloadReservations
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaDhcpv6DownloadReservations(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/kea/dhcpv6/downloadReservations');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsDnsReverseLookup
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsDnsReverseLookup(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/diagnostics/dns/reverseLookup');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsFirewallLog
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsFirewallLog(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/diagnostics/firewall/log');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsFirewallPfStatistics
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsFirewallPfStatistics($section="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		$params=array(
-			'section'	=> $section,
-		);
-		return $this->CallApiGet('/diagnostics/firewall/pfStatistics', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsFirewallStats
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsFirewallStats(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/diagnostics/firewall/stats');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsInterfaceGetNdp
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsInterfaceGetNdp(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/diagnostics/interface/getNdp');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetDiagnosticsPacketCaptureSet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetDiagnosticsPacketCaptureSet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/diagnostics/packet_capture/set');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsServiceGetAlertLogs
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIdsServiceGetAlertLogs(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/ids/service/getAlertLogs');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsSettingsGetRuleInfo
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIdsSettingsGetRuleInfo($sid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		$params=array(
-			'sid'	=> $sid,
-		);
-		return $this->CallApiGet('/ids/settings/getRuleInfo', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIdsSettingsListRuleMetadata
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIdsSettingsListRuleMetadata(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/ids/settings/listRuleMetadata');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetOpenvpnExportProviders
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetOpenvpnExportProviders(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/openvpn/export/providers');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetProxyTemplateGet
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetProxyTemplateGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/proxy/template/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundDiagnosticsDumpcache
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundDiagnosticsDumpcache(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/unbound/diagnostics/dumpcache');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundDiagnosticsDumpinfra
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundDiagnosticsDumpinfra(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/unbound/diagnostics/dumpinfra');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundDiagnosticsListinsecure
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundDiagnosticsListinsecure(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/unbound/diagnostics/listinsecure');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundDiagnosticsListlocaldata
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundDiagnosticsListlocaldata(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/unbound/diagnostics/listlocaldata');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundDiagnosticsListlocalzones
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundDiagnosticsListlocalzones(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/unbound/diagnostics/listlocalzones');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundDiagnosticsStats
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundDiagnosticsStats(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/unbound/diagnostics/stats');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundServiceDnsbl
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundServiceDnsbl(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/unbound/service/dnsbl');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetUnboundServiceReconfigureGeneral
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetUnboundServiceReconfigureGeneral(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/unbound/service/reconfigureGeneral');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetIperfInstanceQuery
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetIperfInstanceQuery(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/iperf/instance/query');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetNtopngServiceCheckredis
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetNtopngServiceCheckredis(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGet('/ntopng/service/checkredis');
-	}
-	
-	
-	
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	// +++ ERROR      Returns an error                         ++++++++++++++++++
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetKeaLeasesSearch
-	*
-	* Kea leases search (Endpoint not found on this firmware)
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetKeaLeasesSearch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/kea/leases/search');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallFilterBaseGet
-	*
-	* (400: Controller not found)
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallFilterBaseGet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/firewall/filter_base/get');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallFilterGetRule
-	*
-	* (400: Controller not found)
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallFilterGetRule($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/firewall/filter/getRule', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallFilterSearchRule
-	*
-	* (400: Controller not found)
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallFilterSearchRule(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/firewall/filter/searchRule');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallSourceNatGetRule
-	*
-	* (400: Controller not found)
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallSourceNatGetRule($uuid="null"){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiGet('/firewall/source_nat/getRule', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiGetFirewallSourceNatSearchRule
-	*
-	* (400: Controller not found)
-	*
-	* @category ApiGet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiGetFirewallSourceNatSearchRule(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(2);
-		return $this->CallApiGet('/firewall/source_nat/searchRule');
-	}
-	
-	
-	
-	
-	// ##################################################################################
 	// ## 	'SET' API Methods ###########################################################
 	// ##################################################################################
 	
@@ -4328,600 +15,222 @@ trait Hackapi_Opnsense_Trait {
 	// +++ FINAL      Fully tested: Params ordered, desc set   ++++++++++++++++++
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreSystemReboot
-	*
-	* Reboot
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetCoreSystemReboot(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/core/system/reboot');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsServiceRestart
-	*
-	* Intrusion Detection Service Restart
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetIdsServiceRestart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/ids/service/restart');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsServiceStart
-	*
-	* Intrusion Detection Service Start
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetIdsServiceStart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/ids/service/start');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsServiceStop
-	*
-	* Intrusion Detection Service Stop
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetIdsServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/ids/service/stop');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecServiceRestart
-	*
-	* IPSec Service Restart
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetIpsecServiceRestart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/ipsec/service/restart');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecServiceStart
-	*
-	* IPSec Service Start
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetIpsecServiceStart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/ipsec/service/start');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecServiceStop
-	*
-	* IPSec Service Stop
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetIpsecServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/ipsec/service/stop');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitServiceRestart
-	*
-	* Monit Service Restart  (can takes up to 30sec)
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetMonitServiceRestart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/monit/service/restart');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitServiceStart
-	*
-	* Monit Service Start
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetMonitServiceStart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/monit/service/start');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitServiceStop
-	*
-	* Monit Service Stop (can takes up to 30sec)
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetMonitServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/monit/service/stop');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetSyslogServiceRestart
-	*
-	* SyslogNg Service Restart
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetSyslogServiceRestart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/syslog/service/restart');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetSyslogServiceStart
-	*
-	* SyslogNg Service Start (always returns true!)
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetSyslogServiceStart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/syslog/service/start');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetSyslogServiceStop
-	*
-	* SyslogNg Service Stop  (always returns true!)
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetSyslogServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/syslog/service/stop');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundServiceRestart
-	*
-	* Unbound Service Restart
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetUnboundServiceRestart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/unbound/service/restart');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundServiceStart
-	*
-	* Unbound Service Start (always returns true!)
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetUnboundServiceStart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/unbound/service/start');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundServiceStop
-	*
-	* Unbound Service Stop (always returns true!)
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetUnboundServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/unbound/service/stop');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindServiceRestart
-	*
-	* Bind Service Restart
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetBindServiceRestart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/bind/service/restart');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindServiceStart
-	*
-	* Bind Service Start
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetBindServiceStart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/bind/service/start');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindServiceStop
-	*
-	* Bind Service Stop
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetBindServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/bind/service/stop');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDyndnsServiceRestart
-	*
-	* DynDNS Service Restart
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetDyndnsServiceRestart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/dyndns/service/restart');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDyndnsServiceStart
-	*
-	* DynDNS Service Start
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetDyndnsServiceStart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/dyndns/service/start');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDyndnsServiceStop
-	*
-	* DynDNS Service Stop
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetDyndnsServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/dyndns/service/stop');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIperfServiceRestart
-	*
-	* Iperf Service Restart
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
-	public function ApiSetIperfServiceRestart(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiPost('/iperf/service/restart');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIperfServiceStart
-	*
-	* Iperf Service Start
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
-	public function ApiSetIperfServiceStart(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiPost('/iperf/service/start');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIperfServiceStop
-	*
-	* Iperf Service Stop
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
-	public function ApiSetIperfServiceStop(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiPost('/iperf/service/stop');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMuninnodeServiceRestart
-	*
-	* Munin-node Service Restart
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetMuninnodeServiceRestart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/muninnode/service/restart');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMuninnodeServiceStart
-	*
-	* Munin-node Service Start
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetMuninnodeServiceStart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/muninnode/service/start');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMuninnodeServiceStop
-	*
-	* Munin-node Service Stop
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetMuninnodeServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/muninnode/service/stop');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetNetdataServiceRestart
-	*
-	* NetData Service Restart
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetNetdataServiceRestart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/netdata/service/restart');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetNetdataServiceStart
-	*
-	* NetData Service Start
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetNetdataServiceStart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/netdata/service/start');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetNetdataServiceStop
-	*
-	* NetData Service Stop (Always returns false!)
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetNetdataServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/netdata/service/stop');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetNtopngServiceRestart
-	*
-	* NtopNg Service Restart
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetNtopngServiceRestart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/ntopng/service/restart');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetNtopngServiceStart
-	*
-	* NtopNg Service Start
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetNtopngServiceStart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/ntopng/service/start');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetNtopngServiceStop
-	*
-	* NtopNg Service Stop (can takes up to 20sec)
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetNtopngServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/ntopng/service/stop');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetRedisServiceRestart
-	*
-	* Redis Service Restart
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetRedisServiceRestart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/redis/service/restart');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetRedisServiceStart
-	*
-	* Redis Service Start
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetRedisServiceStart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/redis/service/start');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetRedisServiceStop
-	*
-	* Redis Service Stop
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetRedisServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/redis/service/stop');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetVnstatServiceRestart
-	*
-	* VnStat Service Restart
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetVnstatServiceRestart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/vnstat/service/restart');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetVnstatServiceStart
-	*
-	* VnStat Service Start
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetVnstatServiceStart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
 		return $this->CallApiPost('/vnstat/service/start');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetVnstatServiceStop
-	*
-	* VnStat Service Stop
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetVnstatServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
@@ -4934,30 +243,10 @@ trait Hackapi_Opnsense_Trait {
 	// +++ TESTED     Params still not ordered or desc not set ++++++++++++++++++
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallAliasUtilUpdateBogons
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallAliasUtilUpdateBogons(){
+	public function ApiSetCoreFirmwareHealth(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiPost('/firewall/alias_util/updateBogons');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnInstancesGenKey
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetOpenvpnInstancesGenKey(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiPost('/openvpn/instances/genKey');
+		return $this->CallApiPost('/core/firmware/health');
 	}
 	
 	
@@ -4966,45 +255,18 @@ trait Hackapi_Opnsense_Trait {
 	// +++ UNDER DEV  Work in propress                         ++++++++++++++++++
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxyServiceRestart
-	*
-	* Proxy Service Restart
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
-	public function ApiSetProxyServiceRestart(){
+	public function ApiSetDiagnosticsPacketCaptureSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiPost('/proxy/service/restart');
+		return $this->CallApiPost('/diagnostics/packet_capture/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxyServiceStart
-	*
-	* Proxy Service Start
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
-	public function ApiSetProxyServiceStart(){
+	public function ApiSetUnboundServiceDnsbl(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiPost('/proxy/service/start');
+		return $this->CallApiPost('/unbound/service/dnsbl');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxyServiceStop
-	*
-	* Proxy Service Stop
-	*
-	* @category ApiSet
-	* @return boolean
-	*/
 	public function ApiSetProxyServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(3);
@@ -5014,303 +276,283 @@ trait Hackapi_Opnsense_Trait {
 	
 	
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	// +++ ERROR      Returns an error                         ++++++++++++++++++
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	public function ApiSetFirewallFilterBaseApply(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiPost('/firewall/filter_base/apply');
+	}
+	
+	public function ApiSetFirewallFilterBaseSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiPost('/firewall/filter_base/set');
+	}
+	
+	public function ApiSetKeaLeasesDelLease($ips="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		$params=array(
+			'ips'	=> $ips,
+		);
+		return $this->CallApiPost('/kea/leases/del_lease', $params);
+	}
+	
+	
+	
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	// +++ DRAFT      Not tested                               ++++++++++++++++++
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareAudit
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareAudit(){
+	public function ApiSetAuthGroupAdd(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/core/firmware/audit');
+		return $this->CallApiPost('/auth/group/add');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareChangelog
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareChangelog($version){
+	public function ApiSetAuthGroupDel($uuids){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'version'	=> $version,
+			'uuids'	=> $uuids,
 		);
-		return $this->CallApiPost('/core/firmware/changelog', $params);
+		return $this->CallApiPost('/auth/group/del', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareCheck
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareCheck(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/core/firmware/check');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareConnection
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareConnection(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/core/firmware/connection');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareLog
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareLog($clear){
+	public function ApiSetAuthGroupSet($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'clear'	=> $clear,
+			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/core/firmware/log', $params);
+		return $this->CallApiPost('/auth/group/set', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwarePoweroff
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwarePoweroff(){
+	public function ApiSetAuthPrivSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/core/firmware/poweroff');
+		return $this->CallApiPost('/auth/priv/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareReboot
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareReboot(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/core/firmware/reboot');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareResyncPlugins
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareResyncPlugins(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/core/firmware/resyncPlugins');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareSet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/core/firmware/set');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareStatus
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareStatus(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/core/firmware/status');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareSyncPlugins
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareSyncPlugins(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/core/firmware/syncPlugins');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareUpdate
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareUpdate(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/core/firmware/update');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareUpgrade
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareUpgrade(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/core/firmware/upgrade');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareDetails
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareDetails($pkg_name){
+	public function ApiSetAuthPrivSetItem($id){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'pkg_name'	=> $pkg_name,
+			'id'	=> $id,
 		);
-		return $this->CallApiPost('/core/firmware/details', $params);
+		return $this->CallApiPost('/auth/priv/set_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareInstall
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareInstall($pkg_name){
+	public function ApiSetAuthUserAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/auth/user/add');
+	}
+	
+	public function ApiSetAuthUserAddApiKey($username){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'pkg_name'	=> $pkg_name,
+			'username'	=> $username,
 		);
-		return $this->CallApiPost('/core/firmware/install', $params);
+		return $this->CallApiPost('/auth/user/add_api_key', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareLicense
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareLicense($pkg_name){
+	public function ApiSetAuthUserDel($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'pkg_name'	=> $pkg_name,
+			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/core/firmware/license', $params);
+		return $this->CallApiPost('/auth/user/del', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareLock
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareLock($pkg_name){
+	public function ApiSetAuthUserDelApiKey($id){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'pkg_name'	=> $pkg_name,
+			'id'	=> $id,
 		);
-		return $this->CallApiPost('/core/firmware/lock', $params);
+		return $this->CallApiPost('/auth/user/del_api_key', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareRemove
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareRemove($pkg_name){
+	public function ApiSetAuthUserSet($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'pkg_name'	=> $pkg_name,
+			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/core/firmware/remove', $params);
+		return $this->CallApiPost('/auth/user/set', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareReinstall
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareReinstall($pkg_name){
+	public function ApiSetAuthUserUpload(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/auth/user/upload');
+	}
+	
+	public function ApiSetCaptiveportalAccessLogoff($zoneid="0"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'pkg_name'	=> $pkg_name,
+			'zoneid'	=> $zoneid,
 		);
-		return $this->CallApiPost('/core/firmware/reinstall', $params);
+		return $this->CallApiPost('/captiveportal/access/logoff', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreFirmwareUnlock
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetCoreFirmwareUnlock($pkg_name){
+	public function ApiSetCaptiveportalServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/captiveportal/service/restart');
+	}
+	
+	public function ApiSetCaptiveportalServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/captiveportal/service/start');
+	}
+	
+	public function ApiSetCaptiveportalServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/captiveportal/service/stop');
+	}
+	
+	public function ApiSetCaptiveportalTemplateDelTemplate($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'pkg_name'	=> $pkg_name,
+			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/core/firmware/unlock', $params);
+		return $this->CallApiPost('/captiveportal/template/del_template', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreServiceRestart
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetCaptiveportalTemplateSaveTemplate(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/captiveportal/template/save_template');
+	}
+	
+	public function ApiSetCaptiveportalTemplateSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/captiveportal/template/set');
+	}
+	
+	public function ApiSetCoreBackupDeleteBackup($backup){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'backup'	=> $backup,
+		);
+		return $this->CallApiPost('/core/backup/delete_backup', $params);
+	}
+	
+	public function ApiSetCoreBackupRevertBackup($backup){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'backup'	=> $backup,
+		);
+		return $this->CallApiPost('/core/backup/revert_backup', $params);
+	}
+	
+	public function ApiSetCoreDashboardRestoreDefaults(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/dashboard/restore_defaults');
+	}
+	
+	public function ApiSetCoreDashboardSaveWidgets(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/dashboard/save_widgets');
+	}
+	
+	public function ApiSetCoreDefaultsFactoryDefaults(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/defaults/factory_defaults');
+	}
+	
+	public function ApiSetCoreDefaultsReset(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/defaults/reset');
+	}
+	
+	public function ApiSetCoreHasyncReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/hasync/reconfigure');
+	}
+	
+	public function ApiSetCoreHasyncSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/hasync/set');
+	}
+	
+	public function ApiSetCoreHasyncStatusRestart($service="null", $service_id="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'service'	=> $service,
+			'service_id'	=> $service_id,
+		);
+		return $this->CallApiPost('/core/hasync_status/restart', $params);
+	}
+	
+	public function ApiSetCoreHasyncStatusRestartAll($service="null", $service_id="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'service'	=> $service,
+			'service_id'	=> $service_id,
+		);
+		return $this->CallApiPost('/core/hasync_status/restart_all', $params);
+	}
+	
+	public function ApiSetCoreHasyncStatusStart($service="null", $service_id="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'service'	=> $service,
+			'service_id'	=> $service_id,
+		);
+		return $this->CallApiPost('/core/hasync_status/start', $params);
+	}
+	
+	public function ApiSetCoreHasyncStatusStop($service="null", $service_id="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'service'	=> $service,
+			'service_id'	=> $service_id,
+		);
+		return $this->CallApiPost('/core/hasync_status/stop', $params);
+	}
+	
+	public function ApiSetCoreInitialSetupAbort(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/initial_setup/abort');
+	}
+	
+	public function ApiSetCoreInitialSetupSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/initial_setup/set');
+	}
+	
+	public function ApiSetCoreMenuSetFavorite(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/menu/set_favorite');
+	}
+	
 	public function ApiSetCoreServiceRestart($name, $id=""){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -5321,13 +563,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/core/service/restart', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreServiceStart
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetCoreServiceStart($name, $id=""){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -5338,13 +573,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/core/service/start', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreServiceStop
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetCoreServiceStop($name, $id=""){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -5355,110 +583,129 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/core/service/stop', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreSystemDismissStatus
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetCoreSnapshotsActivate($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/core/snapshots/activate', $params);
+	}
+	
+	public function ApiSetCoreSnapshotsAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/snapshots/add');
+	}
+	
+	public function ApiSetCoreSnapshotsDel($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/core/snapshots/del', $params);
+	}
+	
+	public function ApiSetCoreSnapshotsSet($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/core/snapshots/set', $params);
+	}
+	
 	public function ApiSetCoreSystemDismissStatus(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/core/system/dismissStatus');
+		return $this->CallApiPost('/core/system/dismiss_status');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCoreSystemHalt
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetCoreSystemHalt(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/core/system/halt');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCronServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetCoreTunablesAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/tunables/add_item');
+	}
+	
+	public function ApiSetCoreTunablesDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/core/tunables/del_item', $params);
+	}
+	
+	public function ApiSetCoreTunablesReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/tunables/reconfigure');
+	}
+	
+	public function ApiSetCoreTunablesReset(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/tunables/reset');
+	}
+	
+	public function ApiSetCoreTunablesSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/tunables/set');
+	}
+	
+	public function ApiSetCoreTunablesSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/core/tunables/set_item', $params);
+	}
+	
 	public function ApiSetCronServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/cron/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCronSettingsAddJob
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetCronSettingsAddJob(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/cron/settings/addJob');
+		return $this->CallApiPost('/cron/settings/add_job');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCronSettingsDelJob
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetCronSettingsDelJob($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/cron/settings/delJob', $params);
+		return $this->CallApiPost('/cron/settings/del_job', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCronSettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetCronSettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/cron/settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCronSettingsSetJob
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetCronSettingsSetJob($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/cron/settings/setJob', $params);
+		return $this->CallApiPost('/cron/settings/set_job', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetCronSettingsToggleJob
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetCronSettingsToggleJob($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -5466,220 +713,85 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/cron/settings/toggleJob', $params);
+		return $this->CallApiPost('/cron/settings/toggle_job', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpLeases4DelLease
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpLeases4DelLease($ip){
+	public function ApiSetDhcrelayServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcrelay/service/reconfigure');
+	}
+	
+	public function ApiSetDhcrelaySettingsAddDest(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcrelay/settings/add_dest');
+	}
+	
+	public function ApiSetDhcrelaySettingsAddRelay(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcrelay/settings/add_relay');
+	}
+	
+	public function ApiSetDhcrelaySettingsDelDest($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'ip'	=> $ip,
+			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/dhcp/leases4/delLease', $params);
+		return $this->CallApiPost('/dhcrelay/settings/del_dest', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpServiceRestart
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpServiceRestart(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/dhcp/service/restart');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpServiceStart
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpServiceStart(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/dhcp/service/start');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpServiceStop
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpServiceStop(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/dhcp/service/stop');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpv4LeasesDelLease
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpv4LeasesDelLease($ip){
+	public function ApiSetDhcrelaySettingsDelRelay($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'ip'	=> $ip,
+			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/dhcpv4/leases/delLease', $params);
+		return $this->CallApiPost('/dhcrelay/settings/del_relay', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpv4ServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpv4ServiceReconfigure(){
+	public function ApiSetDhcrelaySettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/dhcpv4/service/reconfigure');
+		return $this->CallApiPost('/dhcrelay/settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpv4ServiceRestart
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpv4ServiceRestart(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/dhcpv4/service/restart');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpv4ServiceStart
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpv4ServiceStart(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/dhcpv4/service/start');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpv4ServiceStop
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpv4ServiceStop(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/dhcpv4/service/stop');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpv6LeasesDelLease
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpv6LeasesDelLease($ip){
+	public function ApiSetDhcrelaySettingsSetDest($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'ip'	=> $ip,
+			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/dhcpv6/leases/delLease', $params);
+		return $this->CallApiPost('/dhcrelay/settings/set_dest', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpv6ServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpv6ServiceReconfigure(){
+	public function ApiSetDhcrelaySettingsSetRelay($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/dhcpv6/service/reconfigure');
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dhcrelay/settings/set_relay', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpv6ServiceRestart
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpv6ServiceRestart(){
+	public function ApiSetDhcrelaySettingsToggleRelay($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/dhcpv6/service/restart');
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/dhcrelay/settings/toggle_relay', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpv6ServiceStart
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpv6ServiceStart(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/dhcpv6/service/start');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDhcpv6ServiceStop
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDhcpv6ServiceStop(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/dhcpv6/service/stop');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsDnsDiagnosticsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsDnsDiagnosticsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/diagnostics/dns_diagnostics/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsFirewallDelState
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsFirewallDelState($stateid, $creatorid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -5687,207 +799,102 @@ trait Hackapi_Opnsense_Trait {
 			'stateid'	=> $stateid,
 			'creatorid'	=> $creatorid,
 		);
-		return $this->CallApiPost('/diagnostics/firewall/delState', $params);
+		return $this->CallApiPost('/diagnostics/firewall/del_state', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsFirewallFlushSources
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsFirewallFlushSources(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/diagnostics/firewall/flushSources');
+		return $this->CallApiPost('/diagnostics/firewall/flush_sources');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsFirewallFlushStates
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsFirewallFlushStates(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/diagnostics/firewall/flushStates');
+		return $this->CallApiPost('/diagnostics/firewall/flush_states');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsFirewallKillStates
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsFirewallKillStates(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/diagnostics/firewall/killStates');
+		return $this->CallApiPost('/diagnostics/firewall/kill_states');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsFirewallQueryPfTop
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsFirewallQueryPfTop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/diagnostics/firewall/queryPfTop');
+		return $this->CallApiPost('/diagnostics/firewall/query_pf_top');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsFirewallQueryStates
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsFirewallQueryStates(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/diagnostics/firewall/queryStates');
+		return $this->CallApiPost('/diagnostics/firewall/query_states');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsInterfaceCarpStatus
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsInterfaceCarpStatus($status){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'status'	=> $status,
 		);
-		return $this->CallApiPost('/diagnostics/interface/CarpStatus', $params);
+		return $this->CallApiPost('/diagnostics/interface/carp_status', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsInterfaceDelRoute
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsInterfaceDelRoute(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/diagnostics/interface/delRoute');
+		return $this->CallApiPost('/diagnostics/interface/del_route');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsInterfaceFlushArp
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsInterfaceFlushArp(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/diagnostics/interface/flushArp');
+		return $this->CallApiPost('/diagnostics/interface/flush_arp');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsLvtemplateAddItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsLvtemplateAddItem(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/diagnostics/lvtemplate/addItem');
+		return $this->CallApiPost('/diagnostics/lvtemplate/add_item');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsLvtemplateDelItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsLvtemplateDelItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/diagnostics/lvtemplate/delItem', $params);
+		return $this->CallApiPost('/diagnostics/lvtemplate/del_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsLvtemplateSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsLvtemplateSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/diagnostics/lvtemplate/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsLvtemplateSetItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsLvtemplateSetItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/diagnostics/lvtemplate/setItem', $params);
+		return $this->CallApiPost('/diagnostics/lvtemplate/set_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsNetflowReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsNetflowReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/diagnostics/netflow/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsNetflowSetconfig
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDiagnosticsNetflowSetconfig(){
+	public function ApiSetDiagnosticsNetflowReset(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/diagnostics/netflow/setconfig');
+		return $this->CallApiPost('/diagnostics/netflow/reset');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsPacketCaptureRemove
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsPacketCaptureRemove($jobid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -5897,26 +904,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/diagnostics/packet_capture/remove', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsPacketCaptureSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetDiagnosticsPacketCaptureSet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/diagnostics/packet_capture/set');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsPacketCaptureStart
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsPacketCaptureStart($jobid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -5926,13 +913,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/diagnostics/packet_capture/start', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsPacketCaptureStop
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsPacketCaptureStop($jobid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -5942,13 +922,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/diagnostics/packet_capture/stop', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsPingRemove
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsPingRemove($jobid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -5958,26 +931,12 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/diagnostics/ping/remove', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsPingSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsPingSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/diagnostics/ping/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsPingStart
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsPingStart($jobid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -5987,13 +946,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/diagnostics/ping/start', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsPingStop
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsPingStop($jobid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -6003,123 +955,261 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/diagnostics/ping/stop', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsPortprobeSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDiagnosticsPortprobeSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/diagnostics/portprobe/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDiagnosticsTracerouteSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetDiagnosticsSystemhealthDelRRD($report="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'report'	=> $report,
+		);
+		return $this->CallApiPost('/diagnostics/systemhealth/del_r_r_d', $params);
+	}
+	
+	public function ApiSetDiagnosticsSystemhealthReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/systemhealth/reconfigure');
+	}
+	
+	public function ApiSetDiagnosticsSystemhealthSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/diagnostics/systemhealth/set');
+	}
+	
 	public function ApiSetDiagnosticsTracerouteSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/diagnostics/traceroute/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallAliasAddItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallAliasAddItem(){
+	public function ApiSetDnsmasqServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/firewall/alias/addItem');
+		return $this->CallApiPost('/dnsmasq/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallAliasDelItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallAliasDelItem($uuid){
+	public function ApiSetDnsmasqServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnsmasq/service/restart');
+	}
+	
+	public function ApiSetDnsmasqServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnsmasq/service/start');
+	}
+	
+	public function ApiSetDnsmasqServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnsmasq/service/stop');
+	}
+	
+	public function ApiSetDnsmasqSettingsAddBoot(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnsmasq/settings/add_boot');
+	}
+	
+	public function ApiSetDnsmasqSettingsAddDomain(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnsmasq/settings/add_domain');
+	}
+	
+	public function ApiSetDnsmasqSettingsAddHost(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnsmasq/settings/add_host');
+	}
+	
+	public function ApiSetDnsmasqSettingsAddOption(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnsmasq/settings/add_option');
+	}
+	
+	public function ApiSetDnsmasqSettingsAddRange(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnsmasq/settings/add_range');
+	}
+	
+	public function ApiSetDnsmasqSettingsAddTag(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnsmasq/settings/add_tag');
+	}
+	
+	public function ApiSetDnsmasqSettingsDelBoot($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/firewall/alias/delItem', $params);
+		return $this->CallApiPost('/dnsmasq/settings/del_boot', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallAliasImport
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetDnsmasqSettingsDelDomain($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnsmasq/settings/del_domain', $params);
+	}
+	
+	public function ApiSetDnsmasqSettingsDelHost($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnsmasq/settings/del_host', $params);
+	}
+	
+	public function ApiSetDnsmasqSettingsDelOption($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnsmasq/settings/del_option', $params);
+	}
+	
+	public function ApiSetDnsmasqSettingsDelRange($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnsmasq/settings/del_range', $params);
+	}
+	
+	public function ApiSetDnsmasqSettingsDelTag($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnsmasq/settings/del_tag', $params);
+	}
+	
+	public function ApiSetDnsmasqSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnsmasq/settings/set');
+	}
+	
+	public function ApiSetDnsmasqSettingsSetBoot($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnsmasq/settings/set_boot', $params);
+	}
+	
+	public function ApiSetDnsmasqSettingsSetDomain($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnsmasq/settings/set_domain', $params);
+	}
+	
+	public function ApiSetDnsmasqSettingsSetHost($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnsmasq/settings/set_host', $params);
+	}
+	
+	public function ApiSetDnsmasqSettingsSetOption($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnsmasq/settings/set_option', $params);
+	}
+	
+	public function ApiSetDnsmasqSettingsSetRange($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnsmasq/settings/set_range', $params);
+	}
+	
+	public function ApiSetDnsmasqSettingsSetTag($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnsmasq/settings/set_tag', $params);
+	}
+	
+	public function ApiSetDnsmasqSettingsUploadHosts(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnsmasq/settings/upload_hosts');
+	}
+	
+	public function ApiSetFirewallAliasAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/alias/add_item');
+	}
+	
+	public function ApiSetFirewallAliasDelItem($uuids){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuids'	=> $uuids,
+		);
+		return $this->CallApiPost('/firewall/alias/del_item', $params);
+	}
+	
 	public function ApiSetFirewallAliasImport(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/firewall/alias/import');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallAliasReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallAliasReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/firewall/alias/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallAliasSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallAliasSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/firewall/alias/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallAliasSetItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallAliasSetItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/firewall/alias/setItem', $params);
+		return $this->CallApiPost('/firewall/alias/set_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallAliasToggleItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallAliasToggleItem($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -6127,16 +1217,18 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/firewall/alias/toggleItem', $params);
+		return $this->CallApiPost('/firewall/alias/toggle_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallAliasUtilAdd
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetFirewallAliasUpdate($action="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'action'	=> $action,
+		);
+		return $this->CallApiPost('/firewall/alias/update', $params);
+	}
+	
 	public function ApiSetFirewallAliasUtilAdd($alias){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -6146,13 +1238,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/firewall/alias_util/add', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallAliasUtilDelete
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallAliasUtilDelete($alias){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -6162,26 +1247,12 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/firewall/alias_util/delete', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallAliasUtilFindReferences
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallAliasUtilFindReferences(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/firewall/alias_util/findReferences');
+		return $this->CallApiPost('/firewall/alias_util/find_references');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallAliasUtilFlush
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallAliasUtilFlush($alias){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -6191,416 +1262,600 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/firewall/alias_util/flush', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallCategoryAddItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallCategoryAddItem(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/firewall/category/addItem');
+		return $this->CallApiPost('/firewall/category/add_item');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallCategoryDelItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallCategoryDelItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/firewall/category/delItem', $params);
+		return $this->CallApiPost('/firewall/category/del_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallCategorySet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallCategorySet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/firewall/category/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallCategorySetItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallCategorySetItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/firewall/category/setItem', $params);
+		return $this->CallApiPost('/firewall/category/set_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallGroupAddItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetFirewallCategoryUpload(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/category/upload');
+	}
+	
+	public function ApiSetFirewallDNatAddRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/d_nat/add_rule');
+	}
+	
+	public function ApiSetFirewallDNatDelRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/d_nat/del_rule', $params);
+	}
+	
+	public function ApiSetFirewallDNatSetRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/d_nat/set_rule', $params);
+	}
+	
+	public function ApiSetFirewallDNatToggleRule($uuid, $disabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'disabled'	=> $disabled,
+		);
+		return $this->CallApiPost('/firewall/d_nat/toggle_rule', $params);
+	}
+	
+	public function ApiSetFirewallFilterAddRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/filter/add_rule');
+	}
+	
+	public function ApiSetFirewallFilterDelRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/filter/del_rule', $params);
+	}
+	
+	public function ApiSetFirewallFilterFlushInspectCache(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/filter/flush_inspect_cache');
+	}
+	
+	public function ApiSetFirewallFilterMoveRuleBefore($selected_uuid, $target_uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'selected_uuid'	=> $selected_uuid,
+			'target_uuid'	=> $target_uuid,
+		);
+		return $this->CallApiPost('/firewall/filter/move_rule_before', $params);
+	}
+	
+	public function ApiSetFirewallFilterSetRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/filter/set_rule', $params);
+	}
+	
+	public function ApiSetFirewallFilterToggleRule($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/firewall/filter/toggle_rule', $params);
+	}
+	
 	public function ApiSetFirewallGroupAddItem(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/firewall/group/addItem');
+		return $this->CallApiPost('/firewall/group/add_item');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallGroupDelItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallGroupDelItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/firewall/group/delItem', $params);
+		return $this->CallApiPost('/firewall/group/del_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallGroupReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallGroupReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/firewall/group/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallGroupSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallGroupSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/firewall/group/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallGroupSetItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetFirewallGroupSetItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/firewall/group/setItem', $params);
+		return $this->CallApiPost('/firewall/group/set_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsServiceDropAlertLog
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetFirewallMigrationFlush(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/migration/flush');
+	}
+	
+	public function ApiSetFirewallMigrationFlushOutbound(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/migration/flush_outbound');
+	}
+	
+	public function ApiSetFirewallNptAddRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/npt/add_rule');
+	}
+	
+	public function ApiSetFirewallNptDelRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/npt/del_rule', $params);
+	}
+	
+	public function ApiSetFirewallNptSetRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/npt/set_rule', $params);
+	}
+	
+	public function ApiSetFirewallNptToggleRule($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/firewall/npt/toggle_rule', $params);
+	}
+	
+	public function ApiSetFirewallOneToOneAddRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/one_to_one/add_rule');
+	}
+	
+	public function ApiSetFirewallOneToOneDelRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/one_to_one/del_rule', $params);
+	}
+	
+	public function ApiSetFirewallOneToOneSetRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/one_to_one/set_rule', $params);
+	}
+	
+	public function ApiSetFirewallOneToOneToggleRule($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/firewall/one_to_one/toggle_rule', $params);
+	}
+	
+	public function ApiSetFirewallSourceNatAddRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/source_nat/add_rule');
+	}
+	
+	public function ApiSetFirewallSourceNatDelRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/source_nat/del_rule', $params);
+	}
+	
+	public function ApiSetFirewallSourceNatSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/firewall/source_nat/set');
+	}
+	
+	public function ApiSetFirewallSourceNatSetRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/firewall/source_nat/set_rule', $params);
+	}
+	
+	public function ApiSetFirewallSourceNatToggleRule($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/firewall/source_nat/toggle_rule', $params);
+	}
+	
+	public function ApiSetCoreFirmwareAudit(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/audit');
+	}
+	
+	public function ApiSetCoreFirmwareChangelog($version){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'version'	=> $version,
+		);
+		return $this->CallApiPost('/core/firmware/changelog', $params);
+	}
+	
+	public function ApiSetCoreFirmwareCheck(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/check');
+	}
+	
+	public function ApiSetCoreFirmwareConnection(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/connection');
+	}
+	
+	public function ApiSetCoreFirmwareLog($clear){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'clear'	=> $clear,
+		);
+		return $this->CallApiPost('/core/firmware/log', $params);
+	}
+	
+	public function ApiSetCoreFirmwarePoweroff(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/poweroff');
+	}
+	
+	public function ApiSetCoreFirmwareReboot(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/reboot');
+	}
+	
+	public function ApiSetCoreFirmwareResyncPlugins(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/resyncPlugins');
+	}
+	
+	public function ApiSetCoreFirmwareSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/set');
+	}
+	
+	public function ApiSetCoreFirmwareStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/status');
+	}
+	
+	public function ApiSetCoreFirmwareSyncPlugins(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/syncPlugins');
+	}
+	
+	public function ApiSetCoreFirmwareUpdate(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/update');
+	}
+	
+	public function ApiSetCoreFirmwareUpgrade(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/core/firmware/upgrade');
+	}
+	
+	public function ApiSetCoreFirmwareDetails($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/details', $params);
+	}
+	
+	public function ApiSetCoreFirmwareInstall($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/install', $params);
+	}
+	
+	public function ApiSetCoreFirmwareLicense($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/license', $params);
+	}
+	
+	public function ApiSetCoreFirmwareLock($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/lock', $params);
+	}
+	
+	public function ApiSetCoreFirmwareRemove($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/remove', $params);
+	}
+	
+	public function ApiSetCoreFirmwareReinstall($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/reinstall', $params);
+	}
+	
+	public function ApiSetCoreFirmwareUnlock($pkg_name){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'pkg_name'	=> $pkg_name,
+		);
+		return $this->CallApiPost('/core/firmware/unlock', $params);
+	}
+	
+	public function ApiSetHostdiscoveryServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/hostdiscovery/service/reconfigure');
+	}
+	
+	public function ApiSetHostdiscoveryServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/hostdiscovery/service/restart');
+	}
+	
+	public function ApiSetHostdiscoveryServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/hostdiscovery/service/start');
+	}
+	
+	public function ApiSetHostdiscoveryServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/hostdiscovery/service/stop');
+	}
+	
+	public function ApiSetHostdiscoverySettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/hostdiscovery/settings/set');
+	}
+	
 	public function ApiSetIdsServiceDropAlertLog(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ids/service/dropAlertLog');
+		return $this->CallApiPost('/ids/service/drop_alert_log');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsServiceQueryAlerts
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsServiceQueryAlerts(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ids/service/queryAlerts');
+		return $this->CallApiPost('/ids/service/query_alerts');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/ids/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsServiceReloadRules
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsServiceReloadRules(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ids/service/reloadRules');
+		return $this->CallApiPost('/ids/service/reload_rules');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsServiceUpdateRules
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsServiceUpdateRules($wait="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'wait'	=> $wait,
 		);
-		return $this->CallApiPost('/ids/service/updateRules', $params);
+		return $this->CallApiPost('/ids/service/update_rules', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsAddPolicy
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsAddPolicy(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ids/settings/addPolicy');
+		return $this->CallApiPost('/ids/settings/add_policy');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsAddPolicyRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsAddPolicyRule(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ids/settings/addPolicyRule');
+		return $this->CallApiPost('/ids/settings/add_policy_rule');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsAddUserRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsAddUserRule(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ids/settings/addUserRule');
+		return $this->CallApiPost('/ids/settings/add_user_rule');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsDelPolicy
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsDelPolicy($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ids/settings/delPolicy', $params);
+		return $this->CallApiPost('/ids/settings/del_policy', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsDelPolicyRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsDelPolicyRule($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ids/settings/delPolicyRule', $params);
+		return $this->CallApiPost('/ids/settings/del_policy_rule', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsDelUserRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsDelUserRule($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ids/settings/delUserRule', $params);
+		return $this->CallApiPost('/ids/settings/del_user_rule', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsSearchInstalledRules
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsSearchInstalledRules(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ids/settings/searchInstalledRules');
+		return $this->CallApiPost('/ids/settings/search_installed_rules');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/ids/settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsSetPolicy
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsSetPolicy($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ids/settings/setPolicy', $params);
+		return $this->CallApiPost('/ids/settings/set_policy', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsSetPolicyRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsSetPolicyRule($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ids/settings/setPolicyRule', $params);
+		return $this->CallApiPost('/ids/settings/set_policy_rule', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsSetRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsSetRule($sid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'sid'	=> $sid,
 		);
-		return $this->CallApiPost('/ids/settings/setRule', $params);
+		return $this->CallApiPost('/ids/settings/set_rule', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsSetRuleset
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsSetRuleset($filename){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'filename'	=> $filename,
 		);
-		return $this->CallApiPost('/ids/settings/setRuleset', $params);
+		return $this->CallApiPost('/ids/settings/set_ruleset', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsSetRulesetproperties
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsSetRulesetproperties(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ids/settings/setRulesetproperties');
+		return $this->CallApiPost('/ids/settings/set_rulesetproperties');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsSetUserRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsSetUserRule($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ids/settings/setUserRule', $params);
+		return $this->CallApiPost('/ids/settings/set_user_rule', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsTogglePolicy
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsTogglePolicy($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -6608,16 +1863,9 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/ids/settings/togglePolicy', $params);
+		return $this->CallApiPost('/ids/settings/toggle_policy', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsTogglePolicyRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsTogglePolicyRule($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -6625,16 +1873,9 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/ids/settings/togglePolicyRule', $params);
+		return $this->CallApiPost('/ids/settings/toggle_policy_rule', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsToggleRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsToggleRule($sids, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -6642,16 +1883,9 @@ trait Hackapi_Opnsense_Trait {
 			'sids'	=> $sids,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/ids/settings/toggleRule', $params);
+		return $this->CallApiPost('/ids/settings/toggle_rule', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsToggleRuleset
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsToggleRuleset($filenames, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -6659,16 +1893,9 @@ trait Hackapi_Opnsense_Trait {
 			'filenames'	=> $filenames,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/ids/settings/toggleRuleset', $params);
+		return $this->CallApiPost('/ids/settings/toggle_ruleset', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIdsSettingsToggleUserRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIdsSettingsToggleUserRule($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -6676,564 +1903,528 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/ids/settings/toggleUserRule', $params);
+		return $this->CallApiPost('/ids/settings/toggle_user_rule', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesLaggSettingsAddItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetInterfacesLaggSettingsAddItem(){
+	public function ApiSetInterfacesAssignmentAddItem(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/interfaces/lagg_settings/addItem');
+		return $this->CallApiPost('/interfaces/assignment/add_item');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesLaggSettingsDelItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetInterfacesLaggSettingsDelItem($uuid){
+	public function ApiSetInterfacesAssignmentDelItem($ifnames){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ifnames'	=> $ifnames,
+		);
+		return $this->CallApiPost('/interfaces/assignment/del_item', $params);
+	}
+	
+	public function ApiSetInterfacesAssignmentReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/assignment/reconfigure');
+	}
+	
+	public function ApiSetInterfacesAssignmentSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/assignment/set');
+	}
+	
+	public function ApiSetInterfacesAssignmentSetItem($ifname){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ifname'	=> $ifname,
+		);
+		return $this->CallApiPost('/interfaces/assignment/set_item', $params);
+	}
+	
+	public function ApiSetInterfacesBridgeSettingsAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/bridge_settings/add_item');
+	}
+	
+	public function ApiSetInterfacesBridgeSettingsDelItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/interfaces/lagg_settings/delItem', $params);
+		return $this->CallApiPost('/interfaces/bridge_settings/del_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesLaggSettingsReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetInterfacesBridgeSettingsReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/bridge_settings/reconfigure');
+	}
+	
+	public function ApiSetInterfacesBridgeSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/bridge_settings/set');
+	}
+	
+	public function ApiSetInterfacesBridgeSettingsSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/interfaces/bridge_settings/set_item', $params);
+	}
+	
+	public function ApiSetInterfacesGifSettingsAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/gif_settings/add_item');
+	}
+	
+	public function ApiSetInterfacesGifSettingsDelItem($uuids){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuids'	=> $uuids,
+		);
+		return $this->CallApiPost('/interfaces/gif_settings/del_item', $params);
+	}
+	
+	public function ApiSetInterfacesGifSettingsReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/gif_settings/reconfigure');
+	}
+	
+	public function ApiSetInterfacesGifSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/gif_settings/set');
+	}
+	
+	public function ApiSetInterfacesGifSettingsSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/interfaces/gif_settings/set_item', $params);
+	}
+	
+	public function ApiSetInterfacesGreSettingsAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/gre_settings/add_item');
+	}
+	
+	public function ApiSetInterfacesGreSettingsDelItem($uuids){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuids'	=> $uuids,
+		);
+		return $this->CallApiPost('/interfaces/gre_settings/del_item', $params);
+	}
+	
+	public function ApiSetInterfacesGreSettingsReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/gre_settings/reconfigure');
+	}
+	
+	public function ApiSetInterfacesGreSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/gre_settings/set');
+	}
+	
+	public function ApiSetInterfacesGreSettingsSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/interfaces/gre_settings/set_item', $params);
+	}
+	
+	public function ApiSetInterfacesLaggSettingsAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/lagg_settings/add_item');
+	}
+	
+	public function ApiSetInterfacesLaggSettingsDelItem($uuids){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuids'	=> $uuids,
+		);
+		return $this->CallApiPost('/interfaces/lagg_settings/del_item', $params);
+	}
+	
 	public function ApiSetInterfacesLaggSettingsReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/interfaces/lagg_settings/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesLaggSettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesLaggSettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/interfaces/lagg_settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesLaggSettingsSetItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesLaggSettingsSetItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/interfaces/lagg_settings/setItem', $params);
+		return $this->CallApiPost('/interfaces/lagg_settings/set_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesLoopbackSettingsAddItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesLoopbackSettingsAddItem(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/interfaces/loopback_settings/addItem');
+		return $this->CallApiPost('/interfaces/loopback_settings/add_item');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesLoopbackSettingsDelItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesLoopbackSettingsDelItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/interfaces/loopback_settings/delItem', $params);
+		return $this->CallApiPost('/interfaces/loopback_settings/del_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesLoopbackSettingsReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesLoopbackSettingsReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/interfaces/loopback_settings/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesLoopbackSettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesLoopbackSettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/interfaces/loopback_settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesLoopbackSettingsSetItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesLoopbackSettingsSetItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/interfaces/loopback_settings/setItem', $params);
+		return $this->CallApiPost('/interfaces/loopback_settings/set_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVipSettingsAddItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetInterfacesVipSettingsAddItem(){
+	public function ApiSetInterfacesNeighborSettingsAddItem(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/interfaces/vip_settings/addItem');
+		return $this->CallApiPost('/interfaces/neighbor_settings/add_item');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVipSettingsDelItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetInterfacesVipSettingsDelItem($uuid){
+	public function ApiSetInterfacesNeighborSettingsDelItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/interfaces/vip_settings/delItem', $params);
+		return $this->CallApiPost('/interfaces/neighbor_settings/del_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVipSettingsReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetInterfacesNeighborSettingsReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/neighbor_settings/reconfigure');
+	}
+	
+	public function ApiSetInterfacesNeighborSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/neighbor_settings/set');
+	}
+	
+	public function ApiSetInterfacesNeighborSettingsSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/interfaces/neighbor_settings/set_item', $params);
+	}
+	
+	public function ApiSetInterfacesOverviewReloadInterface($identifier="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'identifier'	=> $identifier,
+		);
+		return $this->CallApiPost('/interfaces/overview/reload_interface', $params);
+	}
+	
+	public function ApiSetInterfacesSettingsReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/settings/reconfigure');
+	}
+	
+	public function ApiSetInterfacesSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/settings/set');
+	}
+	
+	public function ApiSetInterfacesVipSettingsAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/vip_settings/add_item');
+	}
+	
+	public function ApiSetInterfacesVipSettingsDelItem($uuids){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuids'	=> $uuids,
+		);
+		return $this->CallApiPost('/interfaces/vip_settings/del_item', $params);
+	}
+	
 	public function ApiSetInterfacesVipSettingsReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/interfaces/vip_settings/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVipSettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesVipSettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/interfaces/vip_settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVipSettingsSetItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesVipSettingsSetItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/interfaces/vip_settings/setItem', $params);
+		return $this->CallApiPost('/interfaces/vip_settings/set_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVlanSettingsAddItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesVlanSettingsAddItem(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/interfaces/vlan_settings/addItem');
+		return $this->CallApiPost('/interfaces/vlan_settings/add_item');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVlanSettingsDelItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetInterfacesVlanSettingsDelItem($uuid){
+	public function ApiSetInterfacesVlanSettingsDelItem($uuids){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'uuid'	=> $uuid,
+			'uuids'	=> $uuids,
 		);
-		return $this->CallApiPost('/interfaces/vlan_settings/delItem', $params);
+		return $this->CallApiPost('/interfaces/vlan_settings/del_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVlanSettingsReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesVlanSettingsReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/interfaces/vlan_settings/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVlanSettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesVlanSettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/interfaces/vlan_settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVlanSettingsSetItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesVlanSettingsSetItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/interfaces/vlan_settings/setItem', $params);
+		return $this->CallApiPost('/interfaces/vlan_settings/set_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVxlanSettingsAddItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesVxlanSettingsAddItem(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/interfaces/vxlan_settings/addItem');
+		return $this->CallApiPost('/interfaces/vxlan_settings/add_item');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVxlanSettingsDelItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesVxlanSettingsDelItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/interfaces/vxlan_settings/delItem', $params);
+		return $this->CallApiPost('/interfaces/vxlan_settings/del_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVxlanSettingsReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesVxlanSettingsReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/interfaces/vxlan_settings/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVxlanSettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesVxlanSettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/interfaces/vxlan_settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetInterfacesVxlanSettingsSetItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetInterfacesVxlanSettingsSetItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/interfaces/vxlan_settings/setItem', $params);
+		return $this->CallApiPost('/interfaces/vxlan_settings/set_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsAddChild
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetInterfacesWirelessSettingsAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/wireless_settings/add_item');
+	}
+	
+	public function ApiSetInterfacesWirelessSettingsDelItem($uuids){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuids'	=> $uuids,
+		);
+		return $this->CallApiPost('/interfaces/wireless_settings/del_item', $params);
+	}
+	
+	public function ApiSetInterfacesWirelessSettingsReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/wireless_settings/reconfigure');
+	}
+	
+	public function ApiSetInterfacesWirelessSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/interfaces/wireless_settings/set');
+	}
+	
+	public function ApiSetInterfacesWirelessSettingsSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/interfaces/wireless_settings/set_item', $params);
+	}
+	
 	public function ApiSetIpsecConnectionsAddChild(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ipsec/connections/addChild');
+		return $this->CallApiPost('/ipsec/connections/add_child');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsAddConnection
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsAddConnection(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ipsec/connections/addConnection');
+		return $this->CallApiPost('/ipsec/connections/add_connection');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsAddLocal
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsAddLocal(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ipsec/connections/addLocal');
+		return $this->CallApiPost('/ipsec/connections/add_local');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsAddRemote
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsAddRemote(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ipsec/connections/addRemote');
+		return $this->CallApiPost('/ipsec/connections/add_remote');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsDelChild
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsDelChild($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ipsec/connections/delChild', $params);
+		return $this->CallApiPost('/ipsec/connections/del_child', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsDelConnection
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsDelConnection($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ipsec/connections/delConnection', $params);
+		return $this->CallApiPost('/ipsec/connections/del_connection', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsDelLocal
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsDelLocal($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ipsec/connections/delLocal', $params);
+		return $this->CallApiPost('/ipsec/connections/del_local', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsDelRemote
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsDelRemote($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ipsec/connections/delRemote', $params);
+		return $this->CallApiPost('/ipsec/connections/del_remote', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/ipsec/connections/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsSetChild
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsSetChild($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ipsec/connections/setChild', $params);
+		return $this->CallApiPost('/ipsec/connections/set_child', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsSetConnection
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsSetConnection($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ipsec/connections/setConnection', $params);
+		return $this->CallApiPost('/ipsec/connections/set_connection', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsSetLocal
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsSetLocal($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ipsec/connections/setLocal', $params);
+		return $this->CallApiPost('/ipsec/connections/set_local', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsSetRemote
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsSetRemote($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ipsec/connections/setRemote', $params);
+		return $this->CallApiPost('/ipsec/connections/set_remote', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsToggle
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsToggle($enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7243,13 +2434,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/connections/toggle', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsToggleChild
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsToggleChild($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7257,16 +2441,9 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/ipsec/connections/toggleChild', $params);
+		return $this->CallApiPost('/ipsec/connections/toggle_child', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsToggleConnection
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsToggleConnection($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7274,16 +2451,9 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/ipsec/connections/toggleConnection', $params);
+		return $this->CallApiPost('/ipsec/connections/toggle_connection', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsToggleLocal
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsToggleLocal($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7291,16 +2461,9 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/ipsec/connections/toggleLocal', $params);
+		return $this->CallApiPost('/ipsec/connections/toggle_local', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecConnectionsToggleRemote
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecConnectionsToggleRemote($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7308,100 +2471,51 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/ipsec/connections/toggleRemote', $params);
+		return $this->CallApiPost('/ipsec/connections/toggle_remote', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecKeyPairsAddItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecKeyPairsAddItem(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ipsec/key_pairs/addItem');
+		return $this->CallApiPost('/ipsec/key_pairs/add_item');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecKeyPairsDelItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecKeyPairsDelItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ipsec/key_pairs/delItem', $params);
+		return $this->CallApiPost('/ipsec/key_pairs/del_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecKeyPairsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecKeyPairsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/ipsec/key_pairs/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecKeyPairsSetItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecKeyPairsSetItem($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ipsec/key_pairs/setItem', $params);
+		return $this->CallApiPost('/ipsec/key_pairs/set_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecLegacySubsystemApplyConfig
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecLegacySubsystemApplyConfig(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ipsec/legacy_subsystem/applyConfig');
+		return $this->CallApiPost('/ipsec/legacy_subsystem/apply_config');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecManualSpdAdd
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecManualSpdAdd(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/ipsec/manual_spd/add');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecManualSpdDel
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecManualSpdDel($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7411,13 +2525,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/manual_spd/del', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecManualSpdSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecManualSpdSet($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7427,13 +2534,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/manual_spd/set', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecManualSpdToggle
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecManualSpdToggle($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7444,26 +2544,12 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/manual_spd/toggle', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecPoolsAdd
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecPoolsAdd(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/ipsec/pools/add');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecPoolsDel
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecPoolsDel($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7473,13 +2559,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/pools/del', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecPoolsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecPoolsSet($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7489,13 +2568,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/pools/set', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecPoolsToggle
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecPoolsToggle($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7506,71 +2578,36 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/pools/toggle', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecPreSharedKeysAddItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecPreSharedKeysAddItem(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/ipsec/pre_shared_keys/addItem');
+		return $this->CallApiPost('/ipsec/pre_shared_keys/add_item');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecPreSharedKeysDelItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecPreSharedKeysDelItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ipsec/pre_shared_keys/delItem', $params);
+		return $this->CallApiPost('/ipsec/pre_shared_keys/del_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecPreSharedKeysSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecPreSharedKeysSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/ipsec/pre_shared_keys/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecPreSharedKeysSetItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecPreSharedKeysSetItem($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/ipsec/pre_shared_keys/setItem', $params);
+		return $this->CallApiPost('/ipsec/pre_shared_keys/set_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecSadDelete
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecSadDelete($id){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7580,26 +2617,12 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/sad/delete', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/ipsec/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecSessionsConnect
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecSessionsConnect($id){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7609,13 +2632,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/sessions/connect', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecSessionsDisconnect
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecSessionsDisconnect($id){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7625,13 +2641,12 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/sessions/disconnect', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecSpdDelete
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetIpsecSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ipsec/settings/set');
+	}
+	
 	public function ApiSetIpsecSpdDelete($id){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7641,45 +2656,24 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/spd/delete', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecTunnelDelPhase1
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecTunnelDelPhase1($ikeid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'ikeid'	=> $ikeid,
 		);
-		return $this->CallApiPost('/ipsec/tunnel/delPhase1', $params);
+		return $this->CallApiPost('/ipsec/tunnel/del_phase1', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecTunnelDelPhase2
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecTunnelDelPhase2($seqid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'seqid'	=> $seqid,
 		);
-		return $this->CallApiPost('/ipsec/tunnel/delPhase2', $params);
+		return $this->CallApiPost('/ipsec/tunnel/del_phase2', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecTunnelToggle
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecTunnelToggle($enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7689,13 +2683,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/tunnel/toggle', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecTunnelTogglePhase1
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecTunnelTogglePhase1($ikeid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7703,16 +2690,9 @@ trait Hackapi_Opnsense_Trait {
 			'ikeid'	=> $ikeid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/ipsec/tunnel/togglePhase1', $params);
+		return $this->CallApiPost('/ipsec/tunnel/toggle_phase1', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecTunnelTogglePhase2
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecTunnelTogglePhase2($seqid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7720,29 +2700,15 @@ trait Hackapi_Opnsense_Trait {
 			'seqid'	=> $seqid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/ipsec/tunnel/togglePhase2', $params);
+		return $this->CallApiPost('/ipsec/tunnel/toggle_phase2', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecVtiAdd
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecVtiAdd(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/ipsec/vti/add');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecVtiDel
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecVtiDel($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7752,13 +2718,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/vti/del', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecVtiSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecVtiSet($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7768,13 +2727,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/vti/set', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIpsecVtiToggle
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetIpsecVtiToggle($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7785,187 +2737,384 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/ipsec/vti/toggle', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitServiceCheck
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetMonitServiceCheck(){
+	public function ApiSetKeaCtrlAgentSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/monit/service/check');
+		return $this->CallApiPost('/kea/ctrl_agent/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetKeaDdnsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/ddns/set');
+	}
+	
+	public function ApiSetKeaDhcpv4AddOption(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/dhcpv4/add_option');
+	}
+	
+	public function ApiSetKeaDhcpv4AddPeer(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/dhcpv4/add_peer');
+	}
+	
+	public function ApiSetKeaDhcpv4AddReservation(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/dhcpv4/add_reservation');
+	}
+	
+	public function ApiSetKeaDhcpv4AddSubnet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/dhcpv4/add_subnet');
+	}
+	
+	public function ApiSetKeaDhcpv4DelOption($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv4/del_option', $params);
+	}
+	
+	public function ApiSetKeaDhcpv4DelPeer($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv4/del_peer', $params);
+	}
+	
+	public function ApiSetKeaDhcpv4DelReservation($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv4/del_reservation', $params);
+	}
+	
+	public function ApiSetKeaDhcpv4DelSubnet($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv4/del_subnet', $params);
+	}
+	
+	public function ApiSetKeaDhcpv4Set(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/dhcpv4/set');
+	}
+	
+	public function ApiSetKeaDhcpv4SetOption($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv4/set_option', $params);
+	}
+	
+	public function ApiSetKeaDhcpv4SetPeer($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv4/set_peer', $params);
+	}
+	
+	public function ApiSetKeaDhcpv4SetReservation($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv4/set_reservation', $params);
+	}
+	
+	public function ApiSetKeaDhcpv4SetSubnet($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv4/set_subnet', $params);
+	}
+	
+	public function ApiSetKeaDhcpv4UploadReservations(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/dhcpv4/upload_reservations');
+	}
+	
+	public function ApiSetKeaDhcpv6AddOption(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/dhcpv6/add_option');
+	}
+	
+	public function ApiSetKeaDhcpv6AddPdPool(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/dhcpv6/add_pd_pool');
+	}
+	
+	public function ApiSetKeaDhcpv6AddPeer(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/dhcpv6/add_peer');
+	}
+	
+	public function ApiSetKeaDhcpv6AddReservation(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/dhcpv6/add_reservation');
+	}
+	
+	public function ApiSetKeaDhcpv6AddSubnet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/dhcpv6/add_subnet');
+	}
+	
+	public function ApiSetKeaDhcpv6DelOption($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv6/del_option', $params);
+	}
+	
+	public function ApiSetKeaDhcpv6DelPdPool($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv6/del_pd_pool', $params);
+	}
+	
+	public function ApiSetKeaDhcpv6DelPeer($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv6/del_peer', $params);
+	}
+	
+	public function ApiSetKeaDhcpv6DelReservation($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv6/del_reservation', $params);
+	}
+	
+	public function ApiSetKeaDhcpv6DelSubnet($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv6/del_subnet', $params);
+	}
+	
+	public function ApiSetKeaDhcpv6Set(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/dhcpv6/set');
+	}
+	
+	public function ApiSetKeaDhcpv6SetOption($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv6/set_option', $params);
+	}
+	
+	public function ApiSetKeaDhcpv6SetPdPool($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv6/set_pd_pool', $params);
+	}
+	
+	public function ApiSetKeaDhcpv6SetPeer($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv6/set_peer', $params);
+	}
+	
+	public function ApiSetKeaDhcpv6SetReservation($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv6/set_reservation', $params);
+	}
+	
+	public function ApiSetKeaDhcpv6SetSubnet($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/kea/dhcpv6/set_subnet', $params);
+	}
+	
+	public function ApiSetKeaDhcpv6UploadReservations(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/dhcpv6/upload_reservations');
+	}
+	
+	public function ApiSetKeaLeases4DelLease($ips="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ips'	=> $ips,
+		);
+		return $this->CallApiPost('/kea/leases4/del_lease', $params);
+	}
+	
+	public function ApiSetKeaLeases6DelLease($ips="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ips'	=> $ips,
+		);
+		return $this->CallApiPost('/kea/leases6/del_lease', $params);
+	}
+	
+	public function ApiSetKeaServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/service/reconfigure');
+	}
+	
+	public function ApiSetKeaServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/service/restart');
+	}
+	
+	public function ApiSetKeaServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/service/start');
+	}
+	
+	public function ApiSetKeaServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/kea/service/stop');
+	}
+	
 	public function ApiSetMonitServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/monit/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitSettingsAddAlert
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetMonitSettingsAddAlert(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/monit/settings/addAlert');
+		return $this->CallApiPost('/monit/settings/add_alert');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitSettingsAddService
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetMonitSettingsAddService(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/monit/settings/addService');
+		return $this->CallApiPost('/monit/settings/add_service');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitSettingsAddTest
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetMonitSettingsAddTest(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/monit/settings/addTest');
+		return $this->CallApiPost('/monit/settings/add_test');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitSettingsDelAlert
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetMonitSettingsDelAlert($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/monit/settings/delAlert', $params);
+		return $this->CallApiPost('/monit/settings/del_alert', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitSettingsDelService
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetMonitSettingsDelService($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/monit/settings/delService', $params);
+		return $this->CallApiPost('/monit/settings/del_service', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitSettingsDelTest
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetMonitSettingsDelTest($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/monit/settings/delTest', $params);
+		return $this->CallApiPost('/monit/settings/del_test', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitSettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetMonitSettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/monit/settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitSettingsSetAlert
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetMonitSettingsSetAlert($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/monit/settings/setAlert', $params);
+		return $this->CallApiPost('/monit/settings/set_alert', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitSettingsSetService
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetMonitSettingsSetService($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/monit/settings/setService', $params);
+		return $this->CallApiPost('/monit/settings/set_service', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitSettingsSetTest
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetMonitSettingsSetTest($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/monit/settings/setTest', $params);
+		return $this->CallApiPost('/monit/settings/set_test', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitSettingsToggleAlert
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetMonitSettingsToggleAlert($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7973,16 +3122,9 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/monit/settings/toggleAlert', $params);
+		return $this->CallApiPost('/monit/settings/toggle_alert', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMonitSettingsToggleService
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetMonitSettingsToggleService($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -7990,29 +3132,15 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/monit/settings/toggleService', $params);
+		return $this->CallApiPost('/monit/settings/toggle_service', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnClientOverwritesAdd
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnClientOverwritesAdd(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/openvpn/client_overwrites/add');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnClientOverwritesDel
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnClientOverwritesDel($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -8022,13 +3150,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/openvpn/client_overwrites/del', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnClientOverwritesSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnClientOverwritesSet($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -8038,13 +3159,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/openvpn/client_overwrites/set', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnClientOverwritesToggle
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnClientOverwritesToggle($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -8055,13 +3169,6 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/openvpn/client_overwrites/toggle', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnExportDownload
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnExportDownload($vpnid, $certref="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -8072,71 +3179,36 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/openvpn/export/download', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnExportStorePresets
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnExportStorePresets($vpnid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'vpnid'	=> $vpnid,
 		);
-		return $this->CallApiPost('/openvpn/export/storePresets', $params);
+		return $this->CallApiPost('/openvpn/export/store_presets', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnExportValidatePresets
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnExportValidatePresets($vpnid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'vpnid'	=> $vpnid,
 		);
-		return $this->CallApiPost('/openvpn/export/validatePresets', $params);
+		return $this->CallApiPost('/openvpn/export/validate_presets', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnInstancesAdd
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnInstancesAdd(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/openvpn/instances/add');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnInstancesAddStaticKey
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnInstancesAddStaticKey(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/openvpn/instances/addStaticKey');
+		return $this->CallApiPost('/openvpn/instances/add_static_key');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnInstancesDel
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnInstancesDel($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -8146,29 +3218,15 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/openvpn/instances/del', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnInstancesDelStaticKey
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnInstancesDelStaticKey($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/openvpn/instances/delStaticKey', $params);
+		return $this->CallApiPost('/openvpn/instances/del_static_key', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnInstancesSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnInstancesSet($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -8178,29 +3236,15 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/openvpn/instances/set', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnInstancesSetStaticKey
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnInstancesSetStaticKey($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/openvpn/instances/setStaticKey', $params);
+		return $this->CallApiPost('/openvpn/instances/set_static_key', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnInstancesToggle
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnInstancesToggle($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -8211,429 +3255,115 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/openvpn/instances/toggle', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnServiceKillSession
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnServiceKillSession(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/openvpn/service/killSession');
+		return $this->CallApiPost('/openvpn/service/kill_session');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/openvpn/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnServiceRestartService
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnServiceRestartService($id="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'id'	=> $id,
 		);
-		return $this->CallApiPost('/openvpn/service/restartService', $params);
+		return $this->CallApiPost('/openvpn/service/restart_service', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnServiceStartService
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnServiceStartService($id="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'id'	=> $id,
 		);
-		return $this->CallApiPost('/openvpn/service/startService', $params);
+		return $this->CallApiPost('/openvpn/service/start_service', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetOpenvpnServiceStopService
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetOpenvpnServiceStopService($id="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'id'	=> $id,
 		);
-		return $this->CallApiPost('/openvpn/service/stopService', $params);
+		return $this->CallApiPost('/openvpn/service/stop_service', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxyServiceDownloadacls
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxyServiceDownloadacls(){
+	public function ApiSetRadvdServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/proxy/service/downloadacls');
+		return $this->CallApiPost('/radvd/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxyServiceFetchacls
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxyServiceFetchacls(){
+	public function ApiSetRadvdServiceRestart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/proxy/service/fetchacls');
+		return $this->CallApiPost('/radvd/service/restart');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxyServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxyServiceReconfigure(){
+	public function ApiSetRadvdServiceStart(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/proxy/service/reconfigure');
+		return $this->CallApiPost('/radvd/service/start');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxyServiceRefreshTemplate
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxyServiceRefreshTemplate(){
+	public function ApiSetRadvdServiceStop(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/proxy/service/refreshTemplate');
+		return $this->CallApiPost('/radvd/service/stop');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxyServiceReset
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxyServiceReset(){
+	public function ApiSetRadvdSettingsAddEntry(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/proxy/service/reset');
+		return $this->CallApiPost('/radvd/settings/add_entry');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsAddPACMatch
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsAddPACMatch(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/proxy/settings/addPACMatch');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsAddPACProxy
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsAddPACProxy(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/proxy/settings/addPACProxy');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsAddPACRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsAddPACRule(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/proxy/settings/addPACRule');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsAddRemoteBlacklist
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsAddRemoteBlacklist(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/proxy/settings/addRemoteBlacklist');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsDelPACMatch
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsDelPACMatch($uuid){
+	public function ApiSetRadvdSettingsDelEntry($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/proxy/settings/delPACMatch', $params);
+		return $this->CallApiPost('/radvd/settings/del_entry', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsDelPACProxy
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsDelPACProxy($uuid){
+	public function ApiSetRadvdSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radvd/settings/set');
+	}
+	
+	public function ApiSetRadvdSettingsSetEntry($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/proxy/settings/delPACProxy', $params);
+		return $this->CallApiPost('/radvd/settings/set_entry', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsDelPACRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsDelPACRule($uuid){
+	public function ApiSetRadvdSettingsToggleEntry($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/proxy/settings/delPACRule', $params);
+		return $this->CallApiPost('/radvd/settings/toggle_entry', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsDelRemoteBlacklist
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsDelRemoteBlacklist($uuid){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiPost('/proxy/settings/delRemoteBlacklist', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsFetchRBCron
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsFetchRBCron(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/proxy/settings/fetchRBCron');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsSet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/proxy/settings/set');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsSetPACMatch
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsSetPACMatch($uuid){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiPost('/proxy/settings/setPACMatch', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsSetPACProxy
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsSetPACProxy($uuid){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiPost('/proxy/settings/setPACProxy', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsSetPACRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsSetPACRule($uuid){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiPost('/proxy/settings/setPACRule', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsSetRemoteBlacklist
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsSetRemoteBlacklist($uuid){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiPost('/proxy/settings/setRemoteBlacklist', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsTogglePACRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsTogglePACRule($uuid){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiPost('/proxy/settings/togglePACRule', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxySettingsToggleRemoteBlacklist
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxySettingsToggleRemoteBlacklist($uuid){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		$params=array(
-			'uuid'	=> $uuid,
-		);
-		return $this->CallApiPost('/proxy/settings/toggleRemoteBlacklist', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxyTemplateReset
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxyTemplateReset(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/proxy/template/reset');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetProxyTemplateSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetProxyTemplateSet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/proxy/template/set');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetRoutesRoutesAddroute
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetRoutesRoutesAddroute(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/routes/routes/addroute');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetRoutesRoutesDelroute
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetRoutesRoutesDelroute($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -8643,39 +3373,18 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/routes/routes/delroute', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetRoutesRoutesReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetRoutesRoutesReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/routes/routes/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetRoutesRoutesSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetRoutesRoutesSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/routes/routes/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetRoutesRoutesSetroute
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetRoutesRoutesSetroute($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -8685,101 +3394,134 @@ trait Hackapi_Opnsense_Trait {
 		return $this->CallApiPost('/routes/routes/setroute', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetRoutesRoutesToggleroute
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetRoutesRoutesToggleroute($uuid, $disabled="null"){
+	public function ApiSetRoutesRoutesToggleroute($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
-			'disabled'	=> $disabled,
+			'enabled'	=> $enabled,
 		);
 		return $this->CallApiPost('/routes/routes/toggleroute', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetSyslogServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetRoutingGroupSettingsAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/routing/group_settings/add');
+	}
+	
+	public function ApiSetRoutingGroupSettingsDel($uuids){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuids'	=> $uuids,
+		);
+		return $this->CallApiPost('/routing/group_settings/del', $params);
+	}
+	
+	public function ApiSetRoutingGroupSettingsReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/routing/group_settings/reconfigure');
+	}
+	
+	public function ApiSetRoutingGroupSettingsSet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/routing/group_settings/set', $params);
+	}
+	
+	public function ApiSetRoutingSettingsAddGateway(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/routing/settings/add_gateway');
+	}
+	
+	public function ApiSetRoutingSettingsDelGateway($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/routing/settings/del_gateway', $params);
+	}
+	
+	public function ApiSetRoutingSettingsReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/routing/settings/reconfigure');
+	}
+	
+	public function ApiSetRoutingSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/routing/settings/set');
+	}
+	
+	public function ApiSetRoutingSettingsSetGateway($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/routing/settings/set_gateway', $params);
+	}
+	
+	public function ApiSetRoutingSettingsToggleGateway($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/routing/settings/toggle_gateway', $params);
+	}
+	
 	public function ApiSetSyslogServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/syslog/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetSyslogSettingsAddDestination
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetSyslogServiceReset(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/syslog/service/reset');
+	}
+	
 	public function ApiSetSyslogSettingsAddDestination(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/syslog/settings/addDestination');
+		return $this->CallApiPost('/syslog/settings/add_destination');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetSyslogSettingsDelDestination
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetSyslogSettingsDelDestination($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/syslog/settings/delDestination', $params);
+		return $this->CallApiPost('/syslog/settings/del_destination', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetSyslogSettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetSyslogSettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/syslog/settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetSyslogSettingsSetDestination
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetSyslogSettingsSetDestination($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/syslog/settings/setDestination', $params);
+		return $this->CallApiPost('/syslog/settings/set_destination', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetSyslogSettingsToggleDestination
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetSyslogSettingsToggleDestination($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -8787,190 +3529,99 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/syslog/settings/toggleDestination', $params);
+		return $this->CallApiPost('/syslog/settings/toggle_destination', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperServiceFlushreload
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperServiceFlushreload(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/trafficshaper/service/flushreload');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/trafficshaper/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperSettingsAddPipe
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperSettingsAddPipe(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/trafficshaper/settings/addPipe');
+		return $this->CallApiPost('/trafficshaper/settings/add_pipe');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperSettingsAddQueue
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperSettingsAddQueue(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/trafficshaper/settings/addQueue');
+		return $this->CallApiPost('/trafficshaper/settings/add_queue');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperSettingsAddRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperSettingsAddRule(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/trafficshaper/settings/addRule');
+		return $this->CallApiPost('/trafficshaper/settings/add_rule');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperSettingsDelPipe
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperSettingsDelPipe($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/trafficshaper/settings/delPipe', $params);
+		return $this->CallApiPost('/trafficshaper/settings/del_pipe', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperSettingsDelQueue
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperSettingsDelQueue($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/trafficshaper/settings/delQueue', $params);
+		return $this->CallApiPost('/trafficshaper/settings/del_queue', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperSettingsDelRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperSettingsDelRule($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/trafficshaper/settings/delRule', $params);
+		return $this->CallApiPost('/trafficshaper/settings/del_rule', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperSettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperSettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/trafficshaper/settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperSettingsSetPipe
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperSettingsSetPipe($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/trafficshaper/settings/setPipe', $params);
+		return $this->CallApiPost('/trafficshaper/settings/set_pipe', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperSettingsSetQueue
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperSettingsSetQueue($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/trafficshaper/settings/setQueue', $params);
+		return $this->CallApiPost('/trafficshaper/settings/set_queue', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperSettingsSetRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperSettingsSetRule($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/trafficshaper/settings/setRule', $params);
+		return $this->CallApiPost('/trafficshaper/settings/set_rule', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperSettingsTogglePipe
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperSettingsTogglePipe($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -8978,16 +3629,9 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/trafficshaper/settings/togglePipe', $params);
+		return $this->CallApiPost('/trafficshaper/settings/toggle_pipe', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperSettingsToggleQueue
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperSettingsToggleQueue($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -8995,16 +3639,9 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/trafficshaper/settings/toggleQueue', $params);
+		return $this->CallApiPost('/trafficshaper/settings/toggle_queue', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetTrafficshaperSettingsToggleRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetTrafficshaperSettingsToggleRule($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -9012,267 +3649,269 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/trafficshaper/settings/toggleRule', $params);
+		return $this->CallApiPost('/trafficshaper/settings/toggle_rule', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetTrafficshaperSettingsUploadPipes(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/trafficshaper/settings/upload_pipes');
+	}
+	
+	public function ApiSetTrafficshaperSettingsUploadQueues(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/trafficshaper/settings/upload_queues');
+	}
+	
+	public function ApiSetTrustCaAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/trust/ca/add');
+	}
+	
+	public function ApiSetTrustCaDel($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/trust/ca/del', $params);
+	}
+	
+	public function ApiSetTrustCaGenerateFile($uuid="null", $type="crt"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'type'	=> $type,
+		);
+		return $this->CallApiPost('/trust/ca/generate_file', $params);
+	}
+	
+	public function ApiSetTrustCaSet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/trust/ca/set', $params);
+	}
+	
+	public function ApiSetTrustCertAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/trust/cert/add');
+	}
+	
+	public function ApiSetTrustCertDel($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/trust/cert/del', $params);
+	}
+	
+	public function ApiSetTrustCertGenerateFile($uuid="null", $type="crt"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'type'	=> $type,
+		);
+		return $this->CallApiPost('/trust/cert/generate_file', $params);
+	}
+	
+	public function ApiSetTrustCertSet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/trust/cert/set', $params);
+	}
+	
+	public function ApiSetTrustCrlDel($caref){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'caref'	=> $caref,
+		);
+		return $this->CallApiPost('/trust/crl/del', $params);
+	}
+	
+	public function ApiSetTrustCrlSet($caref){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'caref'	=> $caref,
+		);
+		return $this->CallApiPost('/trust/crl/set', $params);
+	}
+	
+	public function ApiSetTrustSettingsReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/trust/settings/reconfigure');
+	}
+	
+	public function ApiSetTrustSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/trust/settings/set');
+	}
+	
+	public function ApiSetUnboundDiagnosticsTestBlocklist(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/diagnostics/test_blocklist');
+	}
+	
+	public function ApiSetUnboundOverviewReset(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/overview/reset');
+	}
+	
 	public function ApiSetUnboundServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/unbound/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsAddAcl
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetUnboundServiceReconfigureGeneral(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/unbound/service/reconfigure_general');
+	}
+	
 	public function ApiSetUnboundSettingsAddAcl(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/unbound/settings/addAcl');
+		return $this->CallApiPost('/unbound/settings/add_acl');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsAddDomainOverride
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetUnboundSettingsAddDomainOverride(){
+	public function ApiSetUnboundSettingsAddDnsbl(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/unbound/settings/addDomainOverride');
+		return $this->CallApiPost('/unbound/settings/add_dnsbl');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsAddForward
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsAddForward(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/unbound/settings/addForward');
+		return $this->CallApiPost('/unbound/settings/add_forward');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsAddHostAlias
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsAddHostAlias(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/unbound/settings/addHostAlias');
+		return $this->CallApiPost('/unbound/settings/add_host_alias');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsAddHostOverride
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsAddHostOverride(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/unbound/settings/addHostOverride');
+		return $this->CallApiPost('/unbound/settings/add_host_override');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsDelAcl
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsDelAcl($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/unbound/settings/delAcl', $params);
+		return $this->CallApiPost('/unbound/settings/del_acl', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsDelDomainOverride
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetUnboundSettingsDelDomainOverride($uuid){
+	public function ApiSetUnboundSettingsDelDnsbl($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/unbound/settings/delDomainOverride', $params);
+		return $this->CallApiPost('/unbound/settings/del_dnsbl', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsDelForward
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsDelForward($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/unbound/settings/delForward', $params);
+		return $this->CallApiPost('/unbound/settings/del_forward', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsDelHostAlias
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsDelHostAlias($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/unbound/settings/delHostAlias', $params);
+		return $this->CallApiPost('/unbound/settings/del_host_alias', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsDelHostOverride
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsDelHostOverride($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/unbound/settings/delHostOverride', $params);
+		return $this->CallApiPost('/unbound/settings/del_host_override', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/unbound/settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsSetAcl
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsSetAcl($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/unbound/settings/setAcl', $params);
+		return $this->CallApiPost('/unbound/settings/set_acl', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsSetDomainOverride
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetUnboundSettingsSetDomainOverride($uuid){
+	public function ApiSetUnboundSettingsSetDnsbl($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/unbound/settings/setDomainOverride', $params);
+		return $this->CallApiPost('/unbound/settings/set_dnsbl', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsSetForward
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsSetForward($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/unbound/settings/setForward', $params);
+		return $this->CallApiPost('/unbound/settings/set_forward', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsSetHostAlias
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsSetHostAlias($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/unbound/settings/setHostAlias', $params);
+		return $this->CallApiPost('/unbound/settings/set_host_alias', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsSetHostOverride
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsSetHostOverride($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/unbound/settings/setHostOverride', $params);
+		return $this->CallApiPost('/unbound/settings/set_host_override', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsToggleAcl
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsToggleAcl($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -9280,33 +3919,19 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/unbound/settings/toggleAcl', $params);
+		return $this->CallApiPost('/unbound/settings/toggle_acl', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsToggleDomainOverride
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetUnboundSettingsToggleDomainOverride($uuid, $enabled="null"){
+	public function ApiSetUnboundSettingsToggleDnsbl($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/unbound/settings/toggleDomainOverride', $params);
+		return $this->CallApiPost('/unbound/settings/toggle_dnsbl', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsToggleForward
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsToggleForward($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -9314,16 +3939,9 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/unbound/settings/toggleForward', $params);
+		return $this->CallApiPost('/unbound/settings/toggle_forward', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsToggleHostAlias
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsToggleHostAlias($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -9331,16 +3949,9 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/unbound/settings/toggleHostAlias', $params);
+		return $this->CallApiPost('/unbound/settings/toggle_host_alias', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsToggleHostOverride
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsToggleHostOverride($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -9348,367 +3959,1386 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/unbound/settings/toggleHostOverride', $params);
+		return $this->CallApiPost('/unbound/settings/toggle_host_override', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetUnboundSettingsUpdateBlocklist
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetUnboundSettingsUpdateBlocklist(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/unbound/settings/updateBlocklist');
+		return $this->CallApiPost('/unbound/settings/update_blocklist');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindAclAddAcl
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetWireguardClientAddClientBuilder(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wireguard/client/add_client_builder');
+	}
+	
+	public function ApiSetWireguardClientDelClient($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/wireguard/client/del_client', $params);
+	}
+	
+	public function ApiSetWireguardClientSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wireguard/client/set');
+	}
+	
+	public function ApiSetWireguardClientSetClient($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/wireguard/client/set_client', $params);
+	}
+	
+	public function ApiSetWireguardClientToggleClient($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/wireguard/client/toggle_client', $params);
+	}
+	
+	public function ApiSetWireguardGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wireguard/general/set');
+	}
+	
+	public function ApiSetWireguardServerAddServer($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/wireguard/server/add_server', $params);
+	}
+	
+	public function ApiSetWireguardServerDelServer($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/wireguard/server/del_server', $params);
+	}
+	
+	public function ApiSetWireguardServerSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wireguard/server/set');
+	}
+	
+	public function ApiSetWireguardServerSetServer($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/wireguard/server/set_server', $params);
+	}
+	
+	public function ApiSetWireguardServerToggleServer($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/wireguard/server/toggle_server', $params);
+	}
+	
+	public function ApiSetWireguardServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wireguard/service/reconfigure');
+	}
+	
+	public function ApiSetWireguardServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wireguard/service/restart');
+	}
+	
+	public function ApiSetWireguardServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wireguard/service/start');
+	}
+	
+	public function ApiSetWireguardServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wireguard/service/stop');
+	}
+	
+	public function ApiSetAcmeclientAccountsAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/accounts/add');
+	}
+	
+	public function ApiSetAcmeclientAccountsDel($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/acmeclient/accounts/del', $params);
+	}
+	
+	public function ApiSetAcmeclientAccountsRegister($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/acmeclient/accounts/register', $params);
+	}
+	
+	public function ApiSetAcmeclientAccountsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/accounts/set');
+	}
+	
+	public function ApiSetAcmeclientAccountsToggle($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/acmeclient/accounts/toggle', $params);
+	}
+	
+	public function ApiSetAcmeclientAccountsUpdate($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/acmeclient/accounts/update', $params);
+	}
+	
+	public function ApiSetAcmeclientActionsAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/actions/add');
+	}
+	
+	public function ApiSetAcmeclientActionsDel($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/acmeclient/actions/del', $params);
+	}
+	
+	public function ApiSetAcmeclientActionsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/actions/set');
+	}
+	
+	public function ApiSetAcmeclientActionsToggle($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/acmeclient/actions/toggle', $params);
+	}
+	
+	public function ApiSetAcmeclientActionsUpdate($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/acmeclient/actions/update', $params);
+	}
+	
+	public function ApiSetAcmeclientCertificatesAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/certificates/add');
+	}
+	
+	public function ApiSetAcmeclientCertificatesDel($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/acmeclient/certificates/del', $params);
+	}
+	
+	public function ApiSetAcmeclientCertificatesRevoke($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/acmeclient/certificates/revoke', $params);
+	}
+	
+	public function ApiSetAcmeclientCertificatesSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/certificates/set');
+	}
+	
+	public function ApiSetAcmeclientCertificatesSign($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/acmeclient/certificates/sign', $params);
+	}
+	
+	public function ApiSetAcmeclientCertificatesToggle($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/acmeclient/certificates/toggle', $params);
+	}
+	
+	public function ApiSetAcmeclientCertificatesUpdate($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/acmeclient/certificates/update', $params);
+	}
+	
+	public function ApiSetAcmeclientServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/service/reconfigure');
+	}
+	
+	public function ApiSetAcmeclientServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/service/restart');
+	}
+	
+	public function ApiSetAcmeclientServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/service/start');
+	}
+	
+	public function ApiSetAcmeclientServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/service/stop');
+	}
+	
+	public function ApiSetAcmeclientSettingsFetchCronIntegration(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/settings/fetch_cron_integration');
+	}
+	
+	public function ApiSetAcmeclientSettingsFetchHAProxyIntegration(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/settings/fetch_h_a_proxy_integration');
+	}
+	
+	public function ApiSetAcmeclientSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/settings/set');
+	}
+	
+	public function ApiSetAcmeclientValidationsAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/validations/add');
+	}
+	
+	public function ApiSetAcmeclientValidationsDel($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/acmeclient/validations/del', $params);
+	}
+	
+	public function ApiSetAcmeclientValidationsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/acmeclient/validations/set');
+	}
+	
+	public function ApiSetAcmeclientValidationsToggle($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/acmeclient/validations/toggle', $params);
+	}
+	
+	public function ApiSetAcmeclientValidationsUpdate($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/acmeclient/validations/update', $params);
+	}
+	
+	public function ApiSetApcupsdServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/apcupsd/service/reconfigure');
+	}
+	
+	public function ApiSetApcupsdServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/apcupsd/service/restart');
+	}
+	
+	public function ApiSetApcupsdServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/apcupsd/service/start');
+	}
+	
+	public function ApiSetApcupsdServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/apcupsd/service/stop');
+	}
+	
+	public function ApiSetApcupsdSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/apcupsd/settings/set');
+	}
+	
+	public function ApiSetBeatsServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/beats/service/reconfigure');
+	}
+	
+	public function ApiSetBeatsServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/beats/service/restart');
+	}
+	
+	public function ApiSetBeatsServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/beats/service/start');
+	}
+	
+	public function ApiSetBeatsServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/beats/service/stop');
+	}
+	
+	public function ApiSetBeatsSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/beats/settings/set');
+	}
+	
 	public function ApiSetBindAclAddAcl(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/bind/acl/addAcl');
+		return $this->CallApiPost('/bind/acl/add_acl');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindAclDelAcl
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindAclDelAcl($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/bind/acl/delAcl', $params);
+		return $this->CallApiPost('/bind/acl/del_acl', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindAclSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindAclSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/bind/acl/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindAclSetAcl
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindAclSetAcl($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/bind/acl/setAcl', $params);
+		return $this->CallApiPost('/bind/acl/set_acl', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindAclToggleAcl
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindAclToggleAcl($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/bind/acl/toggleAcl', $params);
+		return $this->CallApiPost('/bind/acl/toggle_acl', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindDnsblSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindDnsblSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/bind/dnsbl/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindDomainAddPrimaryDomain
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetBindDomainAddForwardDomain($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/bind/domain/add_forward_domain', $params);
+	}
+	
 	public function ApiSetBindDomainAddPrimaryDomain($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/bind/domain/addPrimaryDomain', $params);
+		return $this->CallApiPost('/bind/domain/add_primary_domain', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindDomainAddSecondaryDomain
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindDomainAddSecondaryDomain($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/bind/domain/addSecondaryDomain', $params);
+		return $this->CallApiPost('/bind/domain/add_secondary_domain', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindDomainDelDomain
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindDomainDelDomain($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/bind/domain/delDomain', $params);
+		return $this->CallApiPost('/bind/domain/del_domain', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindDomainSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindDomainSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/bind/domain/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindDomainSetDomain
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindDomainSetDomain($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/bind/domain/setDomain', $params);
+		return $this->CallApiPost('/bind/domain/set_domain', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindDomainToggleDomain
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindDomainToggleDomain($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/bind/domain/toggleDomain', $params);
+		return $this->CallApiPost('/bind/domain/toggle_domain', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindGeneralSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindGeneralSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/bind/general/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindRecordAddRecord
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindRecordAddRecord(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/bind/record/addRecord');
+		return $this->CallApiPost('/bind/record/add_record');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindRecordDelRecord
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindRecordDelRecord($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/bind/record/delRecord', $params);
+		return $this->CallApiPost('/bind/record/del_record', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindRecordSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindRecordSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/bind/record/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindRecordSetRecord
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindRecordSetRecord($uuid="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/bind/record/setRecord', $params);
+		return $this->CallApiPost('/bind/record/set_record', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindRecordToggleRecord
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindRecordToggleRecord($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/bind/record/toggleRecord', $params);
+		return $this->CallApiPost('/bind/record/toggle_record', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetBindServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetBindServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/bind/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDyndnsAccountsAddItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetCaddyDiagnosticsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/diagnostics/set');
+	}
+	
+	public function ApiSetCaddyGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/general/set');
+	}
+	
+	public function ApiSetCaddyReverseProxyAddAccessList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/reverse_proxy/add_access_list');
+	}
+	
+	public function ApiSetCaddyReverseProxyAddBasicAuth(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/reverse_proxy/add_basic_auth');
+	}
+	
+	public function ApiSetCaddyReverseProxyAddHandle(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/reverse_proxy/add_handle');
+	}
+	
+	public function ApiSetCaddyReverseProxyAddHeader(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/reverse_proxy/add_header');
+	}
+	
+	public function ApiSetCaddyReverseProxyAddLayer4(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/reverse_proxy/add_layer4');
+	}
+	
+	public function ApiSetCaddyReverseProxyAddLayer4Openvpn(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/reverse_proxy/add_layer4_openvpn');
+	}
+	
+	public function ApiSetCaddyReverseProxyAddReverseProxy(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/reverse_proxy/add_reverse_proxy');
+	}
+	
+	public function ApiSetCaddyReverseProxyAddSubdomain(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/reverse_proxy/add_subdomain');
+	}
+	
+	public function ApiSetCaddyReverseProxyDelAccessList($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/del_access_list', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxyDelBasicAuth($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/del_basic_auth', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxyDelHandle($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/del_handle', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxyDelHeader($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/del_header', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxyDelLayer4($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/del_layer4', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxyDelLayer4Openvpn($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/del_layer4_openvpn', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxyDelReverseProxy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/del_reverse_proxy', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxyDelSubdomain($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/del_subdomain', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxySet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/reverse_proxy/set');
+	}
+	
+	public function ApiSetCaddyReverseProxySetAccessList($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/set_access_list', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxySetBasicAuth($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/set_basic_auth', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxySetHandle($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/set_handle', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxySetHeader($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/set_header', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxySetLayer4($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/set_layer4', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxySetLayer4Openvpn($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/set_layer4_openvpn', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxySetReverseProxy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/set_reverse_proxy', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxySetSubdomain($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/set_subdomain', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxyToggleHandle($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/toggle_handle', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxyToggleLayer4($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/toggle_layer4', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxyToggleLayer4Openvpn($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/toggle_layer4_openvpn', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxyToggleReverseProxy($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/toggle_reverse_proxy', $params);
+	}
+	
+	public function ApiSetCaddyReverseProxyToggleSubdomain($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/caddy/reverse_proxy/toggle_subdomain', $params);
+	}
+	
+	public function ApiSetCaddyServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/service/reconfigure');
+	}
+	
+	public function ApiSetCaddyServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/service/restart');
+	}
+	
+	public function ApiSetCaddyServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/service/start');
+	}
+	
+	public function ApiSetCaddyServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/caddy/service/stop');
+	}
+	
+	public function ApiSetChronyGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/chrony/general/set');
+	}
+	
+	public function ApiSetChronyServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/chrony/service/reconfigure');
+	}
+	
+	public function ApiSetChronyServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/chrony/service/restart');
+	}
+	
+	public function ApiSetChronyServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/chrony/service/start');
+	}
+	
+	public function ApiSetChronyServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/chrony/service/stop');
+	}
+	
+	public function ApiSetCicapAntivirusSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cicap/antivirus/set');
+	}
+	
+	public function ApiSetCicapGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cicap/general/set');
+	}
+	
+	public function ApiSetCicapServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cicap/service/reconfigure');
+	}
+	
+	public function ApiSetCicapServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cicap/service/restart');
+	}
+	
+	public function ApiSetCicapServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cicap/service/start');
+	}
+	
+	public function ApiSetCicapServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cicap/service/stop');
+	}
+	
+	public function ApiSetClamavGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/clamav/general/set');
+	}
+	
+	public function ApiSetClamavServiceFreshclam(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/clamav/service/freshclam');
+	}
+	
+	public function ApiSetClamavServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/clamav/service/reconfigure');
+	}
+	
+	public function ApiSetClamavServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/clamav/service/restart');
+	}
+	
+	public function ApiSetClamavServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/clamav/service/start');
+	}
+	
+	public function ApiSetClamavServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/clamav/service/stop');
+	}
+	
+	public function ApiSetClamavUrlAddUrl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/clamav/url/add_url');
+	}
+	
+	public function ApiSetClamavUrlDelUrl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/clamav/url/del_url', $params);
+	}
+	
+	public function ApiSetClamavUrlSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/clamav/url/set');
+	}
+	
+	public function ApiSetClamavUrlSetUrl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/clamav/url/set_url', $params);
+	}
+	
+	public function ApiSetClamavUrlToggleUrl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/clamav/url/toggle_url', $params);
+	}
+	
+	public function ApiSetCloudflaredServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cloudflared/service/reconfigure');
+	}
+	
+	public function ApiSetCloudflaredServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cloudflared/service/restart');
+	}
+	
+	public function ApiSetCloudflaredServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cloudflared/service/start');
+	}
+	
+	public function ApiSetCloudflaredServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cloudflared/service/stop');
+	}
+	
+	public function ApiSetCloudflaredSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/cloudflared/settings/set');
+	}
+	
+	public function ApiSetCollectdGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/collectd/general/set');
+	}
+	
+	public function ApiSetCollectdServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/collectd/service/reconfigure');
+	}
+	
+	public function ApiSetCollectdServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/collectd/service/restart');
+	}
+	
+	public function ApiSetCollectdServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/collectd/service/start');
+	}
+	
+	public function ApiSetCollectdServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/collectd/service/stop');
+	}
+	
+	public function ApiSetCrowdsecDecisionsDel($decision_id){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'decision_id'	=> $decision_id,
+		);
+		return $this->CallApiPost('/crowdsec/decisions/del', $params);
+	}
+	
+	public function ApiSetCrowdsecGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/crowdsec/general/set');
+	}
+	
+	public function ApiSetCrowdsecServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/crowdsec/service/restart');
+	}
+	
+	public function ApiSetCrowdsecServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/crowdsec/service/start');
+	}
+	
+	public function ApiSetCrowdsecServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/crowdsec/service/stop');
+	}
+	
+	public function ApiSetDhcpv4LeasesDelLease($ip){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ip'	=> $ip,
+		);
+		return $this->CallApiPost('/dhcpv4/leases/del_lease', $params);
+	}
+	
+	public function ApiSetDhcpv4ServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv4/service/reconfigure');
+	}
+	
+	public function ApiSetDhcpv4ServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv4/service/restart');
+	}
+	
+	public function ApiSetDhcpv4ServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv4/service/start');
+	}
+	
+	public function ApiSetDhcpv4ServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv4/service/stop');
+	}
+	
+	public function ApiSetDhcpv6LeasesDelLease($ip){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'ip'	=> $ip,
+		);
+		return $this->CallApiPost('/dhcpv6/leases/del_lease', $params);
+	}
+	
+	public function ApiSetDhcpv6ServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv6/service/reconfigure');
+	}
+	
+	public function ApiSetDhcpv6ServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv6/service/restart');
+	}
+	
+	public function ApiSetDhcpv6ServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv6/service/start');
+	}
+	
+	public function ApiSetDhcpv6ServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dhcpv6/service/stop');
+	}
+	
+	public function ApiSetDnscryptproxyCloakAddCloak(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/cloak/add_cloak');
+	}
+	
+	public function ApiSetDnscryptproxyCloakDelCloak($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnscryptproxy/cloak/del_cloak', $params);
+	}
+	
+	public function ApiSetDnscryptproxyCloakSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/cloak/set');
+	}
+	
+	public function ApiSetDnscryptproxyCloakSetCloak($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnscryptproxy/cloak/set_cloak', $params);
+	}
+	
+	public function ApiSetDnscryptproxyCloakToggleCloak($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnscryptproxy/cloak/toggle_cloak', $params);
+	}
+	
+	public function ApiSetDnscryptproxyDnsblSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/dnsbl/set');
+	}
+	
+	public function ApiSetDnscryptproxyForwardAddForward(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/forward/add_forward');
+	}
+	
+	public function ApiSetDnscryptproxyForwardDelForward($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnscryptproxy/forward/del_forward', $params);
+	}
+	
+	public function ApiSetDnscryptproxyForwardSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/forward/set');
+	}
+	
+	public function ApiSetDnscryptproxyForwardSetForward($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnscryptproxy/forward/set_forward', $params);
+	}
+	
+	public function ApiSetDnscryptproxyForwardToggleForward($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnscryptproxy/forward/toggle_forward', $params);
+	}
+	
+	public function ApiSetDnscryptproxyGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/general/set');
+	}
+	
+	public function ApiSetDnscryptproxyServerAddServer(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/server/add_server');
+	}
+	
+	public function ApiSetDnscryptproxyServerDelServer($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnscryptproxy/server/del_server', $params);
+	}
+	
+	public function ApiSetDnscryptproxyServerSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/server/set');
+	}
+	
+	public function ApiSetDnscryptproxyServerSetServer($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnscryptproxy/server/set_server', $params);
+	}
+	
+	public function ApiSetDnscryptproxyServerToggleServer($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnscryptproxy/server/toggle_server', $params);
+	}
+	
+	public function ApiSetDnscryptproxyServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/service/reconfigure');
+	}
+	
+	public function ApiSetDnscryptproxyServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/service/restart');
+	}
+	
+	public function ApiSetDnscryptproxyServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/service/start');
+	}
+	
+	public function ApiSetDnscryptproxyServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/service/stop');
+	}
+	
+	public function ApiSetDnscryptproxyWhitelistAddWhitelist(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/whitelist/add_whitelist');
+	}
+	
+	public function ApiSetDnscryptproxyWhitelistDelWhitelist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnscryptproxy/whitelist/del_whitelist', $params);
+	}
+	
+	public function ApiSetDnscryptproxyWhitelistSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/dnscryptproxy/whitelist/set');
+	}
+	
+	public function ApiSetDnscryptproxyWhitelistSetWhitelist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnscryptproxy/whitelist/set_whitelist', $params);
+	}
+	
+	public function ApiSetDnscryptproxyWhitelistToggleWhitelist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/dnscryptproxy/whitelist/toggle_whitelist', $params);
+	}
+	
 	public function ApiSetDyndnsAccountsAddItem(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/dyndns/accounts/addItem');
+		return $this->CallApiPost('/dyndns/accounts/add_item');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDyndnsAccountsDelItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDyndnsAccountsDelItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/dyndns/accounts/delItem', $params);
+		return $this->CallApiPost('/dyndns/accounts/del_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDyndnsAccountsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetDyndnsAccountsForceRefresh($uuids="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuids'	=> $uuids,
+		);
+		return $this->CallApiPost('/dyndns/accounts/force_refresh', $params);
+	}
+	
 	public function ApiSetDyndnsAccountsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/dyndns/accounts/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDyndnsAccountsSetItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDyndnsAccountsSetItem($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/dyndns/accounts/setItem', $params);
+		return $this->CallApiPost('/dyndns/accounts/set_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDyndnsAccountsToggleItem
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDyndnsAccountsToggleItem($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
@@ -9716,374 +5346,11033 @@ trait Hackapi_Opnsense_Trait {
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/dyndns/accounts/toggleItem', $params);
+		return $this->CallApiPost('/dyndns/accounts/toggle_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDyndnsServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDyndnsServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/dyndns/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetDyndnsSettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetDyndnsSettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/dyndns/settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallFilterBaseApply
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallFilterBaseApply($rollback_revision="null"){
+	public function ApiSetFreeradiusAvpairAddAvpair(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		$params=array(
-			'rollback_revision'	=> $rollback_revision,
-		);
-		return $this->CallApiPost('/firewall/filter_base/apply', $params);
+		return $this->CallApiPost('/freeradius/avpair/add_avpair');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallFilterBaseCancelRollback
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallFilterBaseCancelRollback($rollback_revision){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		$params=array(
-			'rollback_revision'	=> $rollback_revision,
-		);
-		return $this->CallApiPost('/firewall/filter_base/cancelRollback', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallFilterBaseRevert
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallFilterBaseRevert($revision){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		$params=array(
-			'revision'	=> $revision,
-		);
-		return $this->CallApiPost('/firewall/filter_base/revert', $params);
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallFilterBaseSavepoint
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallFilterBaseSavepoint(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/firewall/filter_base/savepoint');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallFilterBaseSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallFilterBaseSet(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/firewall/filter_base/set');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallFilterAddRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallFilterAddRule(){
-		$this->DebugLogMethod();
-		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/firewall/filter/addRule');
-	}
-	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallFilterDelRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallFilterDelRule($uuid){
+	public function ApiSetFreeradiusAvpairDelAvpair($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/firewall/filter/delRule', $params);
+		return $this->CallApiPost('/freeradius/avpair/del_avpair', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallFilterSetRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallFilterSetRule($uuid){
+	public function ApiSetFreeradiusAvpairSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/avpair/set');
+	}
+	
+	public function ApiSetFreeradiusAvpairSetAvpair($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/firewall/filter/setRule', $params);
+		return $this->CallApiPost('/freeradius/avpair/set_avpair', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallFilterToggleRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallFilterToggleRule($uuid, $enabled="null"){
+	public function ApiSetFreeradiusAvpairToggleAvpair($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/avpair/toggle_avpair', $params);
+	}
+	
+	public function ApiSetFreeradiusClientAddClient(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/client/add_client');
+	}
+	
+	public function ApiSetFreeradiusClientDelClient($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/client/del_client', $params);
+	}
+	
+	public function ApiSetFreeradiusClientSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/client/set');
+	}
+	
+	public function ApiSetFreeradiusClientSetClient($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/client/set_client', $params);
+	}
+	
+	public function ApiSetFreeradiusDhcpAddDhcp(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/dhcp/add_dhcp');
+	}
+	
+	public function ApiSetFreeradiusDhcpDelDhcp($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/dhcp/del_dhcp', $params);
+	}
+	
+	public function ApiSetFreeradiusDhcpSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/dhcp/set');
+	}
+	
+	public function ApiSetFreeradiusDhcpSetDhcp($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/dhcp/set_dhcp', $params);
+	}
+	
+	public function ApiSetFreeradiusDhcpToggleDhcp($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/dhcp/toggle_dhcp', $params);
+	}
+	
+	public function ApiSetFreeradiusEapSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/eap/set');
+	}
+	
+	public function ApiSetFreeradiusGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/general/set');
+	}
+	
+	public function ApiSetFreeradiusLdapSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/ldap/set');
+	}
+	
+	public function ApiSetFreeradiusLdapgroupAddLdapgroup(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/ldapgroup/add_ldapgroup');
+	}
+	
+	public function ApiSetFreeradiusLdapgroupDelLdapgroup($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/ldapgroup/del_ldapgroup', $params);
+	}
+	
+	public function ApiSetFreeradiusLdapgroupSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/ldapgroup/set');
+	}
+	
+	public function ApiSetFreeradiusLdapgroupSetLdapgroup($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/ldapgroup/set_ldapgroup', $params);
+	}
+	
+	public function ApiSetFreeradiusLeaseAddLease(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/lease/add_lease');
+	}
+	
+	public function ApiSetFreeradiusLeaseDelLease($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/lease/del_lease', $params);
+	}
+	
+	public function ApiSetFreeradiusLeaseSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/lease/set');
+	}
+	
+	public function ApiSetFreeradiusLeaseSetLease($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/lease/set_lease', $params);
+	}
+	
+	public function ApiSetFreeradiusLeaseToggleLease($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/lease/toggle_lease', $params);
+	}
+	
+	public function ApiSetFreeradiusProxyAddHomeserver(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/proxy/add_homeserver');
+	}
+	
+	public function ApiSetFreeradiusProxyAddHomeserverpool(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/proxy/add_homeserverpool');
+	}
+	
+	public function ApiSetFreeradiusProxyAddRealm(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/proxy/add_realm');
+	}
+	
+	public function ApiSetFreeradiusProxyDelHomeserver($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/proxy/del_homeserver', $params);
+	}
+	
+	public function ApiSetFreeradiusProxyDelHomeserverpool($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/proxy/del_homeserverpool', $params);
+	}
+	
+	public function ApiSetFreeradiusProxyDelRealm($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/proxy/del_realm', $params);
+	}
+	
+	public function ApiSetFreeradiusProxySet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/proxy/set');
+	}
+	
+	public function ApiSetFreeradiusProxySetHomeserver($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/proxy/set_homeserver', $params);
+	}
+	
+	public function ApiSetFreeradiusProxySetHomeserverpool($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/proxy/set_homeserverpool', $params);
+	}
+	
+	public function ApiSetFreeradiusProxySetRealm($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/proxy/set_realm', $params);
+	}
+	
+	public function ApiSetFreeradiusServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/service/reconfigure');
+	}
+	
+	public function ApiSetFreeradiusServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/service/restart');
+	}
+	
+	public function ApiSetFreeradiusServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/service/start');
+	}
+	
+	public function ApiSetFreeradiusServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/service/stop');
+	}
+	
+	public function ApiSetFreeradiusUserAddUser(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/user/add_user');
+	}
+	
+	public function ApiSetFreeradiusUserDelUser($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/user/del_user', $params);
+	}
+	
+	public function ApiSetFreeradiusUserSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/freeradius/user/set');
+	}
+	
+	public function ApiSetFreeradiusUserSetUser($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/freeradius/user/set_user', $params);
+	}
+	
+	public function ApiSetFtpproxySettingsAddProxy(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ftpproxy/settings/add_proxy');
+	}
+	
+	public function ApiSetFtpproxySettingsDelProxy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ftpproxy/settings/del_proxy', $params);
+	}
+	
+	public function ApiSetFtpproxySettingsSetProxy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ftpproxy/settings/set_proxy', $params);
+	}
+	
+	public function ApiSetFtpproxySettingsToggleProxy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ftpproxy/settings/toggle_proxy', $params);
+	}
+	
+	public function ApiSetGridexampleSettingsAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/gridexample/settings/add_item');
+	}
+	
+	public function ApiSetGridexampleSettingsDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/gridexample/settings/del_item', $params);
+	}
+	
+	public function ApiSetGridexampleSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/gridexample/settings/set');
+	}
+	
+	public function ApiSetGridexampleSettingsSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/gridexample/settings/set_item', $params);
+	}
+	
+	public function ApiSetGridexampleSettingsToggleItem($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/firewall/filter/toggleRule', $params);
+		return $this->CallApiPost('/gridexample/settings/toggle_item', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallSourceNatAddRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallSourceNatAddRule(){
+	public function ApiSetHaproxyMaintenanceFetchCronIntegration(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
-		return $this->CallApiPost('/firewall/source_nat/addRule');
+		return $this->CallApiPost('/haproxy/maintenance/fetch_cron_integration');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallSourceNatDelRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallSourceNatDelRule($uuid){
+	public function ApiSetHaproxyMaintenanceSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/maintenance/set');
+	}
+	
+	public function ApiSetHaproxyServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/service/reconfigure');
+	}
+	
+	public function ApiSetHaproxyServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/service/restart');
+	}
+	
+	public function ApiSetHaproxyServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/service/start');
+	}
+	
+	public function ApiSetHaproxyServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/service/stop');
+	}
+	
+	public function ApiSetHaproxySettingsAddAcl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/add_acl');
+	}
+	
+	public function ApiSetHaproxySettingsAddAction(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/add_action');
+	}
+	
+	public function ApiSetHaproxySettingsAddBackend(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/add_backend');
+	}
+	
+	public function ApiSetHaproxySettingsAddCpu(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/add_cpu');
+	}
+	
+	public function ApiSetHaproxySettingsAddErrorfile(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/add_errorfile');
+	}
+	
+	public function ApiSetHaproxySettingsAddFcgi(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/add_fcgi');
+	}
+	
+	public function ApiSetHaproxySettingsAddFrontend(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/add_frontend');
+	}
+	
+	public function ApiSetHaproxySettingsAddGroup(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/add_group');
+	}
+	
+	public function ApiSetHaproxySettingsAddHealthcheck(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/add_healthcheck');
+	}
+	
+	public function ApiSetHaproxySettingsAddLua(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/add_lua');
+	}
+	
+	public function ApiSetHaproxySettingsAddMapfile(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/add_mapfile');
+	}
+	
+	public function ApiSetHaproxySettingsAddServer(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/add_server');
+	}
+	
+	public function ApiSetHaproxySettingsAddUser(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/add_user');
+	}
+	
+	public function ApiSetHaproxySettingsAddmailer(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/addmailer');
+	}
+	
+	public function ApiSetHaproxySettingsAddresolver(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/addresolver');
+	}
+	
+	public function ApiSetHaproxySettingsDelAcl($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/firewall/source_nat/delRule', $params);
+		return $this->CallApiPost('/haproxy/settings/del_acl', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallSourceNatSetRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallSourceNatSetRule($uuid){
+	public function ApiSetHaproxySettingsDelAction($uuid){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 		);
-		return $this->CallApiPost('/firewall/source_nat/setRule', $params);
+		return $this->CallApiPost('/haproxy/settings/del_action', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetFirewallSourceNatToggleRule
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
-	public function ApiSetFirewallSourceNatToggleRule($uuid, $enabled="null"){
+	public function ApiSetHaproxySettingsDelBackend($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/del_backend', $params);
+	}
+	
+	public function ApiSetHaproxySettingsDelCpu($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/del_cpu', $params);
+	}
+	
+	public function ApiSetHaproxySettingsDelErrorfile($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/del_errorfile', $params);
+	}
+	
+	public function ApiSetHaproxySettingsDelFcgi($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/del_fcgi', $params);
+	}
+	
+	public function ApiSetHaproxySettingsDelFrontend($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/del_frontend', $params);
+	}
+	
+	public function ApiSetHaproxySettingsDelGroup($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/del_group', $params);
+	}
+	
+	public function ApiSetHaproxySettingsDelHealthcheck($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/del_healthcheck', $params);
+	}
+	
+	public function ApiSetHaproxySettingsDelLua($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/del_lua', $params);
+	}
+	
+	public function ApiSetHaproxySettingsDelMapfile($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/del_mapfile', $params);
+	}
+	
+	public function ApiSetHaproxySettingsDelServer($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/del_server', $params);
+	}
+	
+	public function ApiSetHaproxySettingsDelUser($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/del_user', $params);
+	}
+	
+	public function ApiSetHaproxySettingsDelmailer($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/delmailer', $params);
+	}
+	
+	public function ApiSetHaproxySettingsDelresolver($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/delresolver', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/haproxy/settings/set');
+	}
+	
+	public function ApiSetHaproxySettingsSetAcl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/set_acl', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetAction($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/set_action', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetBackend($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/set_backend', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetCpu($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/set_cpu', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetErrorfile($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/set_errorfile', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetFcgi($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/set_fcgi', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetFrontend($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/set_frontend', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetGroup($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/set_group', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetHealthcheck($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/set_healthcheck', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetLua($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/set_lua', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetMapfile($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/set_mapfile', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetServer($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/set_server', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetUser($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/set_user', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetmailer($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/setmailer', $params);
+	}
+	
+	public function ApiSetHaproxySettingsSetresolver($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/setresolver', $params);
+	}
+	
+	public function ApiSetHaproxySettingsToggleAction($uuid, $enabled="null"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
 			'uuid'	=> $uuid,
 			'enabled'	=> $enabled,
 		);
-		return $this->CallApiPost('/firewall/source_nat/toggleRule', $params);
+		return $this->CallApiPost('/haproxy/settings/toggle_action', $params);
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetIperfInstanceSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetHaproxySettingsToggleBackend($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/haproxy/settings/toggle_backend', $params);
+	}
+	
+	public function ApiSetHaproxySettingsToggleCpu($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/haproxy/settings/toggle_cpu', $params);
+	}
+	
+	public function ApiSetHaproxySettingsToggleFrontend($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/haproxy/settings/toggle_frontend', $params);
+	}
+	
+	public function ApiSetHaproxySettingsToggleGroup($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/haproxy/settings/toggle_group', $params);
+	}
+	
+	public function ApiSetHaproxySettingsToggleLua($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/haproxy/settings/toggle_lua', $params);
+	}
+	
+	public function ApiSetHaproxySettingsToggleServer($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/haproxy/settings/toggle_server', $params);
+	}
+	
+	public function ApiSetHaproxySettingsToggleUser($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/haproxy/settings/toggle_user', $params);
+	}
+	
+	public function ApiSetHaproxySettingsTogglemailer($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/haproxy/settings/togglemailer', $params);
+	}
+	
+	public function ApiSetHaproxySettingsToggleresolver($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/haproxy/settings/toggleresolver', $params);
+	}
+	
+	public function ApiSetHelloworldServiceReload(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/helloworld/service/reload');
+	}
+	
+	public function ApiSetHelloworldServiceTest(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/helloworld/service/test');
+	}
+	
+	public function ApiSetHelloworldSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/helloworld/settings/set');
+	}
+	
+	public function ApiSetHwprobeGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/hwprobe/general/set');
+	}
+	
+	public function ApiSetHwprobeServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/hwprobe/service/reconfigure');
+	}
+	
+	public function ApiSetHwprobeServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/hwprobe/service/restart');
+	}
+	
+	public function ApiSetHwprobeServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/hwprobe/service/start');
+	}
+	
+	public function ApiSetHwprobeServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/hwprobe/service/stop');
+	}
+	
+	public function ApiSetIperfClientRunJob($jobid, $action){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobid'	=> $jobid,
+			'action'	=> $action,
+		);
+		return $this->CallApiPost('/iperf/client/run_job', $params);
+	}
+	
+	public function ApiSetIperfClientSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/iperf/client/set');
+	}
+	
+	public function ApiSetIperfInstanceRunJob($jobId, $action){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobId'	=> $jobId,
+			'action'	=> $action,
+		);
+		return $this->CallApiPost('/iperf/instance/run_job', $params);
+	}
+	
 	public function ApiSetIperfInstanceSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/iperf/instance/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMuninnodeGeneralSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetLldpdGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/lldpd/general/set');
+	}
+	
+	public function ApiSetLldpdServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/lldpd/service/reconfigure');
+	}
+	
+	public function ApiSetLldpdServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/lldpd/service/restart');
+	}
+	
+	public function ApiSetLldpdServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/lldpd/service/start');
+	}
+	
+	public function ApiSetLldpdServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/lldpd/service/stop');
+	}
+	
+	public function ApiSetMaltrailGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/maltrail/general/set');
+	}
+	
+	public function ApiSetMaltrailSensorSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/maltrail/sensor/set');
+	}
+	
+	public function ApiSetMaltrailServerSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/maltrail/server/set');
+	}
+	
+	public function ApiSetMaltrailServerserviceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/maltrail/serverservice/reconfigure');
+	}
+	
+	public function ApiSetMaltrailServerserviceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/maltrail/serverservice/restart');
+	}
+	
+	public function ApiSetMaltrailServerserviceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/maltrail/serverservice/start');
+	}
+	
+	public function ApiSetMaltrailServerserviceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/maltrail/serverservice/stop');
+	}
+	
+	public function ApiSetMaltrailServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/maltrail/service/reconfigure');
+	}
+	
+	public function ApiSetMaltrailServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/maltrail/service/restart');
+	}
+	
+	public function ApiSetMaltrailServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/maltrail/service/start');
+	}
+	
+	public function ApiSetMaltrailServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/maltrail/service/stop');
+	}
+	
+	public function ApiSetMdnsrepeaterServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/mdnsrepeater/service/reconfigure');
+	}
+	
+	public function ApiSetMdnsrepeaterServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/mdnsrepeater/service/restart');
+	}
+	
+	public function ApiSetMdnsrepeaterServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/mdnsrepeater/service/start');
+	}
+	
+	public function ApiSetMdnsrepeaterServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/mdnsrepeater/service/stop');
+	}
+	
+	public function ApiSetMdnsrepeaterSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/mdnsrepeater/settings/set');
+	}
+	
 	public function ApiSetMuninnodeGeneralSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/muninnode/general/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetMuninnodeServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetMuninnodeServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/muninnode/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetNetdataGeneralSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetNdpproxyGeneralAddAlias(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ndpproxy/general/add_alias');
+	}
+	
+	public function ApiSetNdpproxyGeneralDelAlias($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ndpproxy/general/del_alias', $params);
+	}
+	
+	public function ApiSetNdpproxyGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ndpproxy/general/set');
+	}
+	
+	public function ApiSetNdpproxyGeneralSetAlias($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/ndpproxy/general/set_alias', $params);
+	}
+	
+	public function ApiSetNdpproxyServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ndpproxy/service/reconfigure');
+	}
+	
+	public function ApiSetNdpproxyServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ndpproxy/service/restart');
+	}
+	
+	public function ApiSetNdpproxyServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ndpproxy/service/start');
+	}
+	
+	public function ApiSetNdpproxyServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ndpproxy/service/stop');
+	}
+	
+	public function ApiSetNdproxyGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ndproxy/general/set');
+	}
+	
+	public function ApiSetNdproxyServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ndproxy/service/reconfigure');
+	}
+	
+	public function ApiSetNdproxyServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ndproxy/service/restart');
+	}
+	
+	public function ApiSetNdproxyServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ndproxy/service/start');
+	}
+	
+	public function ApiSetNdproxyServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/ndproxy/service/stop');
+	}
+	
+	public function ApiSetNetbirdAuthenticationSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netbird/authentication/set');
+	}
+	
+	public function ApiSetNetbirdServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netbird/service/reconfigure');
+	}
+	
+	public function ApiSetNetbirdServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netbird/service/restart');
+	}
+	
+	public function ApiSetNetbirdServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netbird/service/start');
+	}
+	
+	public function ApiSetNetbirdServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netbird/service/stop');
+	}
+	
+	public function ApiSetNetbirdSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netbird/settings/set');
+	}
+	
+	public function ApiSetNetbirdStatusSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netbird/status/set');
+	}
+	
 	public function ApiSetNetdataGeneralSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/netdata/general/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetNetdataServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetNetdataServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/netdata/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetNtopngGeneralSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetNetflectorServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netflector/service/reconfigure');
+	}
+	
+	public function ApiSetNetflectorServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netflector/service/restart');
+	}
+	
+	public function ApiSetNetflectorServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netflector/service/start');
+	}
+	
+	public function ApiSetNetflectorServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netflector/service/stop');
+	}
+	
+	public function ApiSetNetflectorSettingsAddReflector(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netflector/settings/add_reflector');
+	}
+	
+	public function ApiSetNetflectorSettingsDelReflector($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/netflector/settings/del_reflector', $params);
+	}
+	
+	public function ApiSetNetflectorSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netflector/settings/set');
+	}
+	
+	public function ApiSetNetflectorSettingsSetReflector($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/netflector/settings/set_reflector', $params);
+	}
+	
+	public function ApiSetNetflectorSettingsToggleReflector($uuids, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuids'	=> $uuids,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/netflector/settings/toggle_reflector', $params);
+	}
+	
+	public function ApiSetNetsnmpGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netsnmp/general/set');
+	}
+	
+	public function ApiSetNetsnmpServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netsnmp/service/reconfigure');
+	}
+	
+	public function ApiSetNetsnmpServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netsnmp/service/restart');
+	}
+	
+	public function ApiSetNetsnmpServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netsnmp/service/start');
+	}
+	
+	public function ApiSetNetsnmpServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netsnmp/service/stop');
+	}
+	
+	public function ApiSetNetsnmpUserAddUser(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netsnmp/user/add_user');
+	}
+	
+	public function ApiSetNetsnmpUserDelUser($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/netsnmp/user/del_user', $params);
+	}
+	
+	public function ApiSetNetsnmpUserSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/netsnmp/user/set');
+	}
+	
+	public function ApiSetNetsnmpUserSetUser($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/netsnmp/user/set_user', $params);
+	}
+	
+	public function ApiSetNetsnmpUserToggleUser($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/netsnmp/user/toggle_user', $params);
+	}
+	
+	public function ApiSetNginxBansDelban($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/bans/delban', $params);
+	}
+	
+	public function ApiSetNginxBansSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/bans/set');
+	}
+	
+	public function ApiSetNginxServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/service/reconfigure');
+	}
+	
+	public function ApiSetNginxServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/service/restart');
+	}
+	
+	public function ApiSetNginxServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/service/start');
+	}
+	
+	public function ApiSetNginxSettingsAddcachePath(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addcache_path');
+	}
+	
+	public function ApiSetNginxSettingsAddcredential(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addcredential');
+	}
+	
+	public function ApiSetNginxSettingsAddcustompolicy(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addcustompolicy');
+	}
+	
+	public function ApiSetNginxSettingsAdderrorpage(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/adderrorpage');
+	}
+	
+	public function ApiSetNginxSettingsAddhttprewrite(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addhttprewrite');
+	}
+	
+	public function ApiSetNginxSettingsAddhttpserver(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addhttpserver');
+	}
+	
+	public function ApiSetNginxSettingsAddipacl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addipacl');
+	}
+	
+	public function ApiSetNginxSettingsAddlimitRequestConnection(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addlimit_request_connection');
+	}
+	
+	public function ApiSetNginxSettingsAddlimitZone(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addlimit_zone');
+	}
+	
+	public function ApiSetNginxSettingsAddlocation(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addlocation');
+	}
+	
+	public function ApiSetNginxSettingsAddnaxsirule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addnaxsirule');
+	}
+	
+	public function ApiSetNginxSettingsAddproxyCacheValid(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addproxy_cache_valid');
+	}
+	
+	public function ApiSetNginxSettingsAddresolver(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addresolver');
+	}
+	
+	public function ApiSetNginxSettingsAddsecurityHeader(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addsecurity_header');
+	}
+	
+	public function ApiSetNginxSettingsAddsnifwd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addsnifwd');
+	}
+	
+	public function ApiSetNginxSettingsAddstreamserver(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addstreamserver');
+	}
+	
+	public function ApiSetNginxSettingsAddsyslogTarget(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addsyslog_target');
+	}
+	
+	public function ApiSetNginxSettingsAddtlsFingerprint(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addtls_fingerprint');
+	}
+	
+	public function ApiSetNginxSettingsAddupstream(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addupstream');
+	}
+	
+	public function ApiSetNginxSettingsAddupstreamserver(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/addupstreamserver');
+	}
+	
+	public function ApiSetNginxSettingsAdduserlist(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/adduserlist');
+	}
+	
+	public function ApiSetNginxSettingsDelcachePath($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delcache_path', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelcredential($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delcredential', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelcustompolicy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delcustompolicy', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelerrorpage($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delerrorpage', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelhttprewrite($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delhttprewrite', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelhttpserver($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delhttpserver', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelipacl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delipacl', $params);
+	}
+	
+	public function ApiSetNginxSettingsDellimitRequestConnection($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/dellimit_request_connection', $params);
+	}
+	
+	public function ApiSetNginxSettingsDellimitZone($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/dellimit_zone', $params);
+	}
+	
+	public function ApiSetNginxSettingsDellocation($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/dellocation', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelnaxsirule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delnaxsirule', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelproxyCacheValid($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delproxy_cache_valid', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelresolver($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delresolver', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelsecurityHeader($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delsecurity_header', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelsnifwd($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delsnifwd', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelstreamserver($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delstreamserver', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelsyslogTarget($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delsyslog_target', $params);
+	}
+	
+	public function ApiSetNginxSettingsDeltlsFingerprint($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/deltls_fingerprint', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelupstream($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delupstream', $params);
+	}
+	
+	public function ApiSetNginxSettingsDelupstreamserver($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/delupstreamserver', $params);
+	}
+	
+	public function ApiSetNginxSettingsDeluserlist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/deluserlist', $params);
+	}
+	
+	public function ApiSetNginxSettingsDownloadrules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/downloadrules');
+	}
+	
+	public function ApiSetNginxSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nginx/settings/set');
+	}
+	
+	public function ApiSetNginxSettingsSetcachePath($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setcache_path', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetcredential($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setcredential', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetcustompolicy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setcustompolicy', $params);
+	}
+	
+	public function ApiSetNginxSettingsSeterrorpage($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/seterrorpage', $params);
+	}
+	
+	public function ApiSetNginxSettingsSethttprewrite($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/sethttprewrite', $params);
+	}
+	
+	public function ApiSetNginxSettingsSethttpserver($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/sethttpserver', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetipacl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setipacl', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetlimitRequestConnection($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setlimit_request_connection', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetlimitZone($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setlimit_zone', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetlocation($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setlocation', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetnaxsirule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setnaxsirule', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetproxyCacheValid($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setproxy_cache_valid', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetresolver($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setresolver', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetsecurityHeader($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setsecurity_header', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetsnifwd($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setsnifwd', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetstreamserver($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setstreamserver', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetsyslogTarget($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setsyslog_target', $params);
+	}
+	
+	public function ApiSetNginxSettingsSettlsFingerprint($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/settls_fingerprint', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetupstream($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setupstream', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetupstreamserver($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setupstreamserver', $params);
+	}
+	
+	public function ApiSetNginxSettingsSetuserlist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nginx/settings/setuserlist', $params);
+	}
+	
+	public function ApiSetNodeexporterGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nodeexporter/general/set');
+	}
+	
+	public function ApiSetNodeexporterServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nodeexporter/service/reconfigure');
+	}
+	
+	public function ApiSetNodeexporterServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nodeexporter/service/restart');
+	}
+	
+	public function ApiSetNodeexporterServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nodeexporter/service/start');
+	}
+	
+	public function ApiSetNodeexporterServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nodeexporter/service/stop');
+	}
+	
+	public function ApiSetNrpeCommandAddCommand(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nrpe/command/add_command');
+	}
+	
+	public function ApiSetNrpeCommandDelCommand($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nrpe/command/del_command', $params);
+	}
+	
+	public function ApiSetNrpeCommandSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nrpe/command/set');
+	}
+	
+	public function ApiSetNrpeCommandSetCommand($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nrpe/command/set_command', $params);
+	}
+	
+	public function ApiSetNrpeCommandToggleCommand($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/nrpe/command/toggle_command', $params);
+	}
+	
+	public function ApiSetNrpeGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nrpe/general/set');
+	}
+	
+	public function ApiSetNrpeServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nrpe/service/reconfigure');
+	}
+	
+	public function ApiSetNrpeServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nrpe/service/restart');
+	}
+	
+	public function ApiSetNrpeServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nrpe/service/start');
+	}
+	
+	public function ApiSetNrpeServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nrpe/service/stop');
+	}
+	
 	public function ApiSetNtopngGeneralSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/ntopng/general/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetNtopngServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetNtopngServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/ntopng/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetRedisServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetNutServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nut/service/reconfigure');
+	}
+	
+	public function ApiSetNutServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nut/service/restart');
+	}
+	
+	public function ApiSetNutServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nut/service/start');
+	}
+	
+	public function ApiSetNutServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nut/service/stop');
+	}
+	
+	public function ApiSetNutSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/nut/settings/set');
+	}
+	
+	public function ApiSetOpenconnectGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/openconnect/general/set');
+	}
+	
+	public function ApiSetOpenconnectServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/openconnect/service/reconfigure');
+	}
+	
+	public function ApiSetOpenconnectServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/openconnect/service/restart');
+	}
+	
+	public function ApiSetOpenconnectServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/openconnect/service/start');
+	}
+	
+	public function ApiSetOpenconnectServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/openconnect/service/stop');
+	}
+	
+	public function ApiSetPostfixAddressAddAddress(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/address/add_address');
+	}
+	
+	public function ApiSetPostfixAddressDelAddress($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/address/del_address', $params);
+	}
+	
+	public function ApiSetPostfixAddressSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/address/set');
+	}
+	
+	public function ApiSetPostfixAddressSetAddress($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/address/set_address', $params);
+	}
+	
+	public function ApiSetPostfixAddressToggleAddress($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/address/toggle_address', $params);
+	}
+	
+	public function ApiSetPostfixAntispamSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/antispam/set');
+	}
+	
+	public function ApiSetPostfixDomainAddDomain(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/domain/add_domain');
+	}
+	
+	public function ApiSetPostfixDomainDelDomain($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/domain/del_domain', $params);
+	}
+	
+	public function ApiSetPostfixDomainSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/domain/set');
+	}
+	
+	public function ApiSetPostfixDomainSetDomain($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/domain/set_domain', $params);
+	}
+	
+	public function ApiSetPostfixDomainToggleDomain($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/domain/toggle_domain', $params);
+	}
+	
+	public function ApiSetPostfixGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/general/set');
+	}
+	
+	public function ApiSetPostfixHeaderchecksAddHeadercheck(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/headerchecks/add_headercheck');
+	}
+	
+	public function ApiSetPostfixHeaderchecksDelHeadercheck($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/headerchecks/del_headercheck', $params);
+	}
+	
+	public function ApiSetPostfixHeaderchecksSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/headerchecks/set');
+	}
+	
+	public function ApiSetPostfixHeaderchecksSetHeadercheck($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/headerchecks/set_headercheck', $params);
+	}
+	
+	public function ApiSetPostfixHeaderchecksToggleHeadercheck($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/headerchecks/toggle_headercheck', $params);
+	}
+	
+	public function ApiSetPostfixRecipientAddRecipient(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/recipient/add_recipient');
+	}
+	
+	public function ApiSetPostfixRecipientDelRecipient($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/recipient/del_recipient', $params);
+	}
+	
+	public function ApiSetPostfixRecipientSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/recipient/set');
+	}
+	
+	public function ApiSetPostfixRecipientSetRecipient($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/recipient/set_recipient', $params);
+	}
+	
+	public function ApiSetPostfixRecipientToggleRecipient($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/recipient/toggle_recipient', $params);
+	}
+	
+	public function ApiSetPostfixRecipientbccAddRecipientbcc(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/recipientbcc/add_recipientbcc');
+	}
+	
+	public function ApiSetPostfixRecipientbccDelRecipientbcc($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/recipientbcc/del_recipientbcc', $params);
+	}
+	
+	public function ApiSetPostfixRecipientbccSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/recipientbcc/set');
+	}
+	
+	public function ApiSetPostfixRecipientbccSetRecipientbcc($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/recipientbcc/set_recipientbcc', $params);
+	}
+	
+	public function ApiSetPostfixRecipientbccToggleRecipientbcc($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/recipientbcc/toggle_recipientbcc', $params);
+	}
+	
+	public function ApiSetPostfixSenderAddSender(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/sender/add_sender');
+	}
+	
+	public function ApiSetPostfixSenderDelSender($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/sender/del_sender', $params);
+	}
+	
+	public function ApiSetPostfixSenderSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/sender/set');
+	}
+	
+	public function ApiSetPostfixSenderSetSender($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/sender/set_sender', $params);
+	}
+	
+	public function ApiSetPostfixSenderToggleSender($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/sender/toggle_sender', $params);
+	}
+	
+	public function ApiSetPostfixSenderbccAddSenderbcc(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/senderbcc/add_senderbcc');
+	}
+	
+	public function ApiSetPostfixSenderbccDelSenderbcc($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/senderbcc/del_senderbcc', $params);
+	}
+	
+	public function ApiSetPostfixSenderbccSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/senderbcc/set');
+	}
+	
+	public function ApiSetPostfixSenderbccSetSenderbcc($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/senderbcc/set_senderbcc', $params);
+	}
+	
+	public function ApiSetPostfixSenderbccToggleSenderbcc($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/senderbcc/toggle_senderbcc', $params);
+	}
+	
+	public function ApiSetPostfixSendercanonicalAddSendercanonical(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/sendercanonical/add_sendercanonical');
+	}
+	
+	public function ApiSetPostfixSendercanonicalDelSendercanonical($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/sendercanonical/del_sendercanonical', $params);
+	}
+	
+	public function ApiSetPostfixSendercanonicalSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/sendercanonical/set');
+	}
+	
+	public function ApiSetPostfixSendercanonicalSetSendercanonical($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/sendercanonical/set_sendercanonical', $params);
+	}
+	
+	public function ApiSetPostfixSendercanonicalToggleSendercanonical($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/postfix/sendercanonical/toggle_sendercanonical', $params);
+	}
+	
+	public function ApiSetPostfixServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/service/reconfigure');
+	}
+	
+	public function ApiSetPostfixServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/service/restart');
+	}
+	
+	public function ApiSetPostfixServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/service/start');
+	}
+	
+	public function ApiSetPostfixServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/postfix/service/stop');
+	}
+	
+	public function ApiSetProxyServiceDownloadacls(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/service/downloadacls');
+	}
+	
+	public function ApiSetProxyServiceFetchacls(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/service/fetchacls');
+	}
+	
+	public function ApiSetProxyServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/service/reconfigure');
+	}
+	
+	public function ApiSetProxyServiceRefreshTemplate(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/service/refresh_template');
+	}
+	
+	public function ApiSetProxyServiceReset(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/service/reset');
+	}
+	
+	public function ApiSetProxySettingsAddPACRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/settings/add_p_a_c_rule');
+	}
+	
+	public function ApiSetProxySettingsAddPacMatch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/settings/add_pac_match');
+	}
+	
+	public function ApiSetProxySettingsAddPacProxy(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/settings/add_pac_proxy');
+	}
+	
+	public function ApiSetProxySettingsAddRemoteBlacklist(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/settings/add_remote_blacklist');
+	}
+	
+	public function ApiSetProxySettingsDelPacMatch($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/del_pac_match', $params);
+	}
+	
+	public function ApiSetProxySettingsDelPacProxy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/del_pac_proxy', $params);
+	}
+	
+	public function ApiSetProxySettingsDelPacRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/del_pac_rule', $params);
+	}
+	
+	public function ApiSetProxySettingsDelRemoteBlacklist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/del_remote_blacklist', $params);
+	}
+	
+	public function ApiSetProxySettingsFetchRbCron(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/settings/fetch_rb_cron');
+	}
+	
+	public function ApiSetProxySettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/settings/set');
+	}
+	
+	public function ApiSetProxySettingsSetPacMatch($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/set_pac_match', $params);
+	}
+	
+	public function ApiSetProxySettingsSetPacProxy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/set_pac_proxy', $params);
+	}
+	
+	public function ApiSetProxySettingsSetPacRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/set_pac_rule', $params);
+	}
+	
+	public function ApiSetProxySettingsSetRemoteBlacklist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/set_remote_blacklist', $params);
+	}
+	
+	public function ApiSetProxySettingsTogglePacRule($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/toggle_pac_rule', $params);
+	}
+	
+	public function ApiSetProxySettingsToggleRemoteBlacklist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/settings/toggle_remote_blacklist', $params);
+	}
+	
+	public function ApiSetProxyTemplateReset(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/template/reset');
+	}
+	
+	public function ApiSetProxyTemplateSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/template/set');
+	}
+	
+	public function ApiSetProxyAclAddCustomPolicy(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/acl/add_custom_policy');
+	}
+	
+	public function ApiSetProxyAclAddPolicy(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/acl/add_policy');
+	}
+	
+	public function ApiSetProxyAclApply(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/acl/apply');
+	}
+	
+	public function ApiSetProxyAclDelCustomPolicy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/acl/del_custom_policy', $params);
+	}
+	
+	public function ApiSetProxyAclDelPolicy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/acl/del_policy', $params);
+	}
+	
+	public function ApiSetProxyAclSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/acl/set');
+	}
+	
+	public function ApiSetProxyAclSetCustomPolicy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/acl/set_custom_policy', $params);
+	}
+	
+	public function ApiSetProxyAclSetPolicy($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/proxy/acl/set_policy', $params);
+	}
+	
+	public function ApiSetProxyAclTest(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxy/acl/test');
+	}
+	
+	public function ApiSetProxyAclToggleCustomPolicy($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/proxy/acl/toggle_custom_policy', $params);
+	}
+	
+	public function ApiSetProxyAclTogglePolicy($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/proxy/acl/toggle_policy', $params);
+	}
+	
+	public function ApiSetProxyssoServiceCreatekeytab(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxysso/service/createkeytab');
+	}
+	
+	public function ApiSetProxyssoServiceTestkerblogin(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxysso/service/testkerblogin');
+	}
+	
+	public function ApiSetProxyssoSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/proxysso/settings/set');
+	}
+	
+	public function ApiSetPuppetagentServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/puppetagent/service/reconfigure');
+	}
+	
+	public function ApiSetPuppetagentServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/puppetagent/service/restart');
+	}
+	
+	public function ApiSetPuppetagentServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/puppetagent/service/start');
+	}
+	
+	public function ApiSetPuppetagentServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/puppetagent/service/stop');
+	}
+	
+	public function ApiSetPuppetagentSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/puppetagent/settings/set');
+	}
+	
+	public function ApiSetQemuguestagentServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/qemuguestagent/service/reconfigure');
+	}
+	
+	public function ApiSetQemuguestagentServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/qemuguestagent/service/restart');
+	}
+	
+	public function ApiSetQemuguestagentServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/qemuguestagent/service/start');
+	}
+	
+	public function ApiSetQemuguestagentServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/qemuguestagent/service/stop');
+	}
+	
+	public function ApiSetQemuguestagentSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/qemuguestagent/settings/set');
+	}
+	
+	public function ApiSetQfeedsSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/qfeeds/settings/set');
+	}
+	
+	public function ApiSetQuaggaBfdAddNeighbor(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/bfd/add_neighbor');
+	}
+	
+	public function ApiSetQuaggaBfdDelNeighbor($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bfd/del_neighbor', $params);
+	}
+	
+	public function ApiSetQuaggaBfdSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/bfd/set');
+	}
+	
+	public function ApiSetQuaggaBfdSetNeighbor($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bfd/set_neighbor', $params);
+	}
+	
+	public function ApiSetQuaggaBfdToggleNeighbor($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bfd/toggle_neighbor', $params);
+	}
+	
+	public function ApiSetQuaggaBgpAddAspath(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/bgp/add_aspath');
+	}
+	
+	public function ApiSetQuaggaBgpAddCommunitylist(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/bgp/add_communitylist');
+	}
+	
+	public function ApiSetQuaggaBgpAddNeighbor(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/bgp/add_neighbor');
+	}
+	
+	public function ApiSetQuaggaBgpAddPeergroup(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/bgp/add_peergroup');
+	}
+	
+	public function ApiSetQuaggaBgpAddPrefixlist(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/bgp/add_prefixlist');
+	}
+	
+	public function ApiSetQuaggaBgpAddRedistribution(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/bgp/add_redistribution');
+	}
+	
+	public function ApiSetQuaggaBgpAddRoutemap(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/bgp/add_routemap');
+	}
+	
+	public function ApiSetQuaggaBgpDelAspath($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/del_aspath', $params);
+	}
+	
+	public function ApiSetQuaggaBgpDelCommunitylist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/del_communitylist', $params);
+	}
+	
+	public function ApiSetQuaggaBgpDelNeighbor($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/del_neighbor', $params);
+	}
+	
+	public function ApiSetQuaggaBgpDelPeergroup($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/del_peergroup', $params);
+	}
+	
+	public function ApiSetQuaggaBgpDelPrefixlist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/del_prefixlist', $params);
+	}
+	
+	public function ApiSetQuaggaBgpDelRedistribution($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/del_redistribution', $params);
+	}
+	
+	public function ApiSetQuaggaBgpDelRoutemap($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/del_routemap', $params);
+	}
+	
+	public function ApiSetQuaggaBgpSetAspath($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/set_aspath', $params);
+	}
+	
+	public function ApiSetQuaggaBgpSetCommunitylist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/set_communitylist', $params);
+	}
+	
+	public function ApiSetQuaggaBgpSetNeighbor($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/set_neighbor', $params);
+	}
+	
+	public function ApiSetQuaggaBgpSetPeergroup($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/set_peergroup', $params);
+	}
+	
+	public function ApiSetQuaggaBgpSetPrefixlist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/set_prefixlist', $params);
+	}
+	
+	public function ApiSetQuaggaBgpSetRedistribution($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/set_redistribution', $params);
+	}
+	
+	public function ApiSetQuaggaBgpSetRoutemap($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/set_routemap', $params);
+	}
+	
+	public function ApiSetQuaggaBgpToggleAspath($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/toggle_aspath', $params);
+	}
+	
+	public function ApiSetQuaggaBgpToggleCommunitylist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/toggle_communitylist', $params);
+	}
+	
+	public function ApiSetQuaggaBgpToggleNeighbor($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/toggle_neighbor', $params);
+	}
+	
+	public function ApiSetQuaggaBgpTogglePeergroup($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/toggle_peergroup', $params);
+	}
+	
+	public function ApiSetQuaggaBgpTogglePrefixlist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/toggle_prefixlist', $params);
+	}
+	
+	public function ApiSetQuaggaBgpToggleRedistribution($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/toggle_redistribution', $params);
+	}
+	
+	public function ApiSetQuaggaBgpToggleRoutemap($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/bgp/toggle_routemap', $params);
+	}
+	
+	public function ApiSetQuaggaGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/general/set');
+	}
+	
+	public function ApiSetQuaggaOspf6settingsAddArea(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/ospf6settings/add_area');
+	}
+	
+	public function ApiSetQuaggaOspf6settingsAddInterface(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/ospf6settings/add_interface');
+	}
+	
+	public function ApiSetQuaggaOspf6settingsAddPrefixlist(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/ospf6settings/add_prefixlist');
+	}
+	
+	public function ApiSetQuaggaOspf6settingsAddRedistribution(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/ospf6settings/add_redistribution');
+	}
+	
+	public function ApiSetQuaggaOspf6settingsAddRoutemap(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/ospf6settings/add_routemap');
+	}
+	
+	public function ApiSetQuaggaOspf6settingsDelArea($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/del_area', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsDelInterface($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/del_interface', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsDelPrefixlist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/del_prefixlist', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsDelRedistribution($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/del_redistribution', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsDelRoutemap($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/del_routemap', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsSetArea($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/set_area', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsSetInterface($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/set_interface', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsSetPrefixlist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/set_prefixlist', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsSetRedistribution($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/set_redistribution', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsSetRoutemap($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/set_routemap', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsToggleArea($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/toggle_area', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsToggleInterface($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/toggle_interface', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsTogglePrefixlist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/toggle_prefixlist', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsToggleRedistribution($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/toggle_redistribution', $params);
+	}
+	
+	public function ApiSetQuaggaOspf6settingsToggleRoutemap($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospf6settings/toggle_routemap', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsAddArea(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/ospfsettings/add_area');
+	}
+	
+	public function ApiSetQuaggaOspfsettingsAddInterface(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/ospfsettings/add_interface');
+	}
+	
+	public function ApiSetQuaggaOspfsettingsAddNeighbor(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/ospfsettings/add_neighbor');
+	}
+	
+	public function ApiSetQuaggaOspfsettingsAddNetwork(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/ospfsettings/add_network');
+	}
+	
+	public function ApiSetQuaggaOspfsettingsAddPrefixlist(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/ospfsettings/add_prefixlist');
+	}
+	
+	public function ApiSetQuaggaOspfsettingsAddRedistribution(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/ospfsettings/add_redistribution');
+	}
+	
+	public function ApiSetQuaggaOspfsettingsAddRoutemap(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/ospfsettings/add_routemap');
+	}
+	
+	public function ApiSetQuaggaOspfsettingsDelArea($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/del_area', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsDelInterface($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/del_interface', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsDelNeighbor($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/del_neighbor', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsDelNetwork($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/del_network', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsDelPrefixlist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/del_prefixlist', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsDelRedistribution($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/del_redistribution', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsDelRoutemap($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/del_routemap', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsSetArea($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/set_area', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsSetInterface($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/set_interface', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsSetNeighbor($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/set_neighbor', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsSetNetwork($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/set_network', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsSetPrefixlist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/set_prefixlist', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsSetRedistribution($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/set_redistribution', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsSetRoutemap($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/set_routemap', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsToggleArea($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/toggle_area', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsToggleInterface($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/toggle_interface', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsToggleNeighbor($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/toggle_neighbor', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsToggleNetwork($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/toggle_network', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsTogglePrefixlist($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/toggle_prefixlist', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsToggleRedistribution($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/toggle_redistribution', $params);
+	}
+	
+	public function ApiSetQuaggaOspfsettingsToggleRoutemap($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/ospfsettings/toggle_routemap', $params);
+	}
+	
+	public function ApiSetQuaggaRipSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/rip/set');
+	}
+	
+	public function ApiSetQuaggaServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/service/reconfigure');
+	}
+	
+	public function ApiSetQuaggaServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/service/restart');
+	}
+	
+	public function ApiSetQuaggaServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/service/start');
+	}
+	
+	public function ApiSetQuaggaServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/service/stop');
+	}
+	
+	public function ApiSetQuaggaStaticAddRoute(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/static/add_route');
+	}
+	
+	public function ApiSetQuaggaStaticDelRoute($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/static/del_route', $params);
+	}
+	
+	public function ApiSetQuaggaStaticSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/quagga/static/set');
+	}
+	
+	public function ApiSetQuaggaStaticSetRoute($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/static/set_route', $params);
+	}
+	
+	public function ApiSetQuaggaStaticToggleRoute($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/quagga/static/toggle_route', $params);
+	}
+	
+	public function ApiSetRadsecproxyClientsAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/clients/add_item');
+	}
+	
+	public function ApiSetRadsecproxyClientsDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/radsecproxy/clients/del_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyClientsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/clients/set');
+	}
+	
+	public function ApiSetRadsecproxyClientsSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/radsecproxy/clients/set_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyClientsToggleItem($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/radsecproxy/clients/toggle_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/general/set');
+	}
+	
+	public function ApiSetRadsecproxyRealmsAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/realms/add_item');
+	}
+	
+	public function ApiSetRadsecproxyRealmsDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/radsecproxy/realms/del_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyRealmsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/realms/set');
+	}
+	
+	public function ApiSetRadsecproxyRealmsSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/radsecproxy/realms/set_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyRealmsToggleItem($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/radsecproxy/realms/toggle_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyRewritesAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/rewrites/add_item');
+	}
+	
+	public function ApiSetRadsecproxyRewritesDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/radsecproxy/rewrites/del_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyRewritesSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/rewrites/set');
+	}
+	
+	public function ApiSetRadsecproxyRewritesSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/radsecproxy/rewrites/set_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyRewritesToggleItem($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/radsecproxy/rewrites/toggle_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyServersAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/servers/add_item');
+	}
+	
+	public function ApiSetRadsecproxyServersDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/radsecproxy/servers/del_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyServersSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/servers/set');
+	}
+	
+	public function ApiSetRadsecproxyServersSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/radsecproxy/servers/set_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyServersToggleItem($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/radsecproxy/servers/toggle_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/service/reconfigure');
+	}
+	
+	public function ApiSetRadsecproxyServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/service/restart');
+	}
+	
+	public function ApiSetRadsecproxyServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/service/start');
+	}
+	
+	public function ApiSetRadsecproxyServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/service/stop');
+	}
+	
+	public function ApiSetRadsecproxyTlsAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/tls/add_item');
+	}
+	
+	public function ApiSetRadsecproxyTlsDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/radsecproxy/tls/del_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyTlsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/radsecproxy/tls/set');
+	}
+	
+	public function ApiSetRadsecproxyTlsSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/radsecproxy/tls/set_item', $params);
+	}
+	
+	public function ApiSetRadsecproxyTlsToggleItem($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/radsecproxy/tls/toggle_item', $params);
+	}
+	
 	public function ApiSetRedisServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/redis/service/reconfigure');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetRedisSettingsSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetRedisSettingsSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/redis/settings/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetVnstatGeneralSet
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
+	public function ApiSetRelaydServiceConfigtest(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/relayd/service/configtest');
+	}
+	
+	public function ApiSetRelaydServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/relayd/service/reconfigure');
+	}
+	
+	public function ApiSetRelaydServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/relayd/service/restart');
+	}
+	
+	public function ApiSetRelaydServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/relayd/service/start');
+	}
+	
+	public function ApiSetRelaydServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/relayd/service/stop');
+	}
+	
+	public function ApiSetRelaydSettingsSearch($nodeType="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'nodeType'	=> $nodeType,
+		);
+		return $this->CallApiPost('/relayd/settings/search', $params);
+	}
+	
+	public function ApiSetRelaydSettingsSet($nodeType="null", $uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'nodeType'	=> $nodeType,
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/relayd/settings/set', $params);
+	}
+	
+	public function ApiSetRelaydSettingsToggle($nodeType, $uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'nodeType'	=> $nodeType,
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/relayd/settings/toggle', $params);
+	}
+	
+	public function ApiSetRelaydStatusToggle($nodeType="null", $id="null", $action="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'nodeType'	=> $nodeType,
+			'id'	=> $id,
+			'action'	=> $action,
+		);
+		return $this->CallApiPost('/relayd/status/toggle', $params);
+	}
+	
+	public function ApiSetRspamdServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/rspamd/service/reconfigure');
+	}
+	
+	public function ApiSetRspamdServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/rspamd/service/restart');
+	}
+	
+	public function ApiSetRspamdServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/rspamd/service/start');
+	}
+	
+	public function ApiSetRspamdServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/rspamd/service/stop');
+	}
+	
+	public function ApiSetRspamdSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/rspamd/settings/set');
+	}
+	
+	public function ApiSetShadowsocksGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/shadowsocks/general/set');
+	}
+	
+	public function ApiSetShadowsocksLocalSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/shadowsocks/local/set');
+	}
+	
+	public function ApiSetShadowsocksLocalserviceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/shadowsocks/localservice/reconfigure');
+	}
+	
+	public function ApiSetShadowsocksLocalserviceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/shadowsocks/localservice/restart');
+	}
+	
+	public function ApiSetShadowsocksLocalserviceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/shadowsocks/localservice/start');
+	}
+	
+	public function ApiSetShadowsocksLocalserviceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/shadowsocks/localservice/stop');
+	}
+	
+	public function ApiSetShadowsocksServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/shadowsocks/service/reconfigure');
+	}
+	
+	public function ApiSetShadowsocksServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/shadowsocks/service/restart');
+	}
+	
+	public function ApiSetShadowsocksServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/shadowsocks/service/start');
+	}
+	
+	public function ApiSetShadowsocksServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/shadowsocks/service/stop');
+	}
+	
+	public function ApiSetSiproxdDomainAddDomain(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/siproxd/domain/add_domain');
+	}
+	
+	public function ApiSetSiproxdDomainDelDomain($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/siproxd/domain/del_domain', $params);
+	}
+	
+	public function ApiSetSiproxdDomainSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/siproxd/domain/set');
+	}
+	
+	public function ApiSetSiproxdDomainSetDomain($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/siproxd/domain/set_domain', $params);
+	}
+	
+	public function ApiSetSiproxdGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/siproxd/general/set');
+	}
+	
+	public function ApiSetSiproxdServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/siproxd/service/reconfigure');
+	}
+	
+	public function ApiSetSiproxdServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/siproxd/service/restart');
+	}
+	
+	public function ApiSetSiproxdServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/siproxd/service/start');
+	}
+	
+	public function ApiSetSiproxdServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/siproxd/service/stop');
+	}
+	
+	public function ApiSetSiproxdUserAddUser(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/siproxd/user/add_user');
+	}
+	
+	public function ApiSetSiproxdUserDelUser($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/siproxd/user/del_user', $params);
+	}
+	
+	public function ApiSetSiproxdUserSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/siproxd/user/set');
+	}
+	
+	public function ApiSetSiproxdUserSetUser($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/siproxd/user/set_user', $params);
+	}
+	
+	public function ApiSetSmartServiceAbort(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/smart/service/abort');
+	}
+	
+	public function ApiSetSmartServiceInfo(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/smart/service/info');
+	}
+	
+	public function ApiSetSmartServiceList($details="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'details'	=> $details,
+		);
+		return $this->CallApiPost('/smart/service/list', $params);
+	}
+	
+	public function ApiSetSmartServiceLogs(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/smart/service/logs');
+	}
+	
+	public function ApiSetSmartServiceTest(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/smart/service/test');
+	}
+	
+	public function ApiSetSoftetherGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/softether/general/set');
+	}
+	
+	public function ApiSetSoftetherServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/softether/service/reconfigure');
+	}
+	
+	public function ApiSetSoftetherServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/softether/service/restart');
+	}
+	
+	public function ApiSetSoftetherServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/softether/service/start');
+	}
+	
+	public function ApiSetSoftetherServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/softether/service/stop');
+	}
+	
+	public function ApiSetSslhServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/sslh/service/reconfigure');
+	}
+	
+	public function ApiSetSslhServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/sslh/service/restart');
+	}
+	
+	public function ApiSetSslhServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/sslh/service/start');
+	}
+	
+	public function ApiSetSslhServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/sslh/service/stop');
+	}
+	
+	public function ApiSetSslhSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/sslh/settings/set');
+	}
+	
+	public function ApiSetStunnelServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/stunnel/service/reconfigure');
+	}
+	
+	public function ApiSetStunnelServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/stunnel/service/restart');
+	}
+	
+	public function ApiSetStunnelServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/stunnel/service/start');
+	}
+	
+	public function ApiSetStunnelServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/stunnel/service/stop');
+	}
+	
+	public function ApiSetStunnelServicesAddItem(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/stunnel/services/add_item');
+	}
+	
+	public function ApiSetStunnelServicesDelItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/stunnel/services/del_item', $params);
+	}
+	
+	public function ApiSetStunnelServicesSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/stunnel/services/set');
+	}
+	
+	public function ApiSetStunnelServicesSetItem($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/stunnel/services/set_item', $params);
+	}
+	
+	public function ApiSetStunnelServicesToggleItem($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/stunnel/services/toggle_item', $params);
+	}
+	
+	public function ApiSetTailscaleAuthenticationSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tailscale/authentication/set');
+	}
+	
+	public function ApiSetTailscaleServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tailscale/service/reconfigure');
+	}
+	
+	public function ApiSetTailscaleServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tailscale/service/restart');
+	}
+	
+	public function ApiSetTailscaleServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tailscale/service/start');
+	}
+	
+	public function ApiSetTailscaleServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tailscale/service/stop');
+	}
+	
+	public function ApiSetTailscaleSettingsAddSubnet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tailscale/settings/add_subnet');
+	}
+	
+	public function ApiSetTailscaleSettingsDelSubnet($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tailscale/settings/del_subnet', $params);
+	}
+	
+	public function ApiSetTailscaleSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tailscale/settings/set');
+	}
+	
+	public function ApiSetTailscaleSettingsSetSubnet($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tailscale/settings/set_subnet', $params);
+	}
+	
+	public function ApiSetTailscaleStatusSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tailscale/status/set');
+	}
+	
+	public function ApiSetTaygaGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tayga/general/set');
+	}
+	
+	public function ApiSetTaygaMappingAddStaticmapping(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tayga/mapping/add_staticmapping');
+	}
+	
+	public function ApiSetTaygaMappingDelStaticmapping($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tayga/mapping/del_staticmapping', $params);
+	}
+	
+	public function ApiSetTaygaMappingSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tayga/mapping/set');
+	}
+	
+	public function ApiSetTaygaMappingSetStaticmapping($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tayga/mapping/set_staticmapping', $params);
+	}
+	
+	public function ApiSetTaygaMappingToggleStaticmapping($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tayga/mapping/toggle_staticmapping', $params);
+	}
+	
+	public function ApiSetTaygaServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tayga/service/reconfigure');
+	}
+	
+	public function ApiSetTaygaServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tayga/service/restart');
+	}
+	
+	public function ApiSetTaygaServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tayga/service/start');
+	}
+	
+	public function ApiSetTaygaServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tayga/service/stop');
+	}
+	
+	public function ApiSetTelegrafGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/telegraf/general/set');
+	}
+	
+	public function ApiSetTelegrafInputSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/telegraf/input/set');
+	}
+	
+	public function ApiSetTelegrafKeyAddKey(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/telegraf/key/add_key');
+	}
+	
+	public function ApiSetTelegrafKeyDelKey($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/telegraf/key/del_key', $params);
+	}
+	
+	public function ApiSetTelegrafKeySet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/telegraf/key/set');
+	}
+	
+	public function ApiSetTelegrafKeySetKey($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/telegraf/key/set_key', $params);
+	}
+	
+	public function ApiSetTelegrafKeyToggleKey($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/telegraf/key/toggle_key', $params);
+	}
+	
+	public function ApiSetTelegrafOutputSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/telegraf/output/set');
+	}
+	
+	public function ApiSetTelegrafServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/telegraf/service/reconfigure');
+	}
+	
+	public function ApiSetTelegrafServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/telegraf/service/restart');
+	}
+	
+	public function ApiSetTelegrafServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/telegraf/service/start');
+	}
+	
+	public function ApiSetTelegrafServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/telegraf/service/stop');
+	}
+	
+	public function ApiSetTftpGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tftp/general/set');
+	}
+	
+	public function ApiSetTftpServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tftp/service/reconfigure');
+	}
+	
+	public function ApiSetTftpServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tftp/service/restart');
+	}
+	
+	public function ApiSetTftpServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tftp/service/start');
+	}
+	
+	public function ApiSetTftpServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tftp/service/stop');
+	}
+	
+	public function ApiSetTincServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tinc/service/reconfigure');
+	}
+	
+	public function ApiSetTincServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tinc/service/restart');
+	}
+	
+	public function ApiSetTincServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tinc/service/start');
+	}
+	
+	public function ApiSetTincServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tinc/service/stop');
+	}
+	
+	public function ApiSetTincSettingsDelHost($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tinc/settings/del_host', $params);
+	}
+	
+	public function ApiSetTincSettingsDelNetwork($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tinc/settings/del_network', $params);
+	}
+	
+	public function ApiSetTincSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tinc/settings/set');
+	}
+	
+	public function ApiSetTincSettingsSetHost($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tinc/settings/set_host', $params);
+	}
+	
+	public function ApiSetTincSettingsSetNetwork($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tinc/settings/set_network', $params);
+	}
+	
+	public function ApiSetTincSettingsToggleHost($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/tinc/settings/toggle_host', $params);
+	}
+	
+	public function ApiSetTincSettingsToggleNetwork($uuid, $enabled="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'enabled'	=> $enabled,
+		);
+		return $this->CallApiPost('/tinc/settings/toggle_network', $params);
+	}
+	
+	public function ApiSetTorExitaclAddacl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/exitacl/addacl');
+	}
+	
+	public function ApiSetTorExitaclDelacl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/exitacl/delacl', $params);
+	}
+	
+	public function ApiSetTorExitaclSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/exitacl/set');
+	}
+	
+	public function ApiSetTorExitaclSetacl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/exitacl/setacl', $params);
+	}
+	
+	public function ApiSetTorExitaclToggleacl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/exitacl/toggleacl', $params);
+	}
+	
+	public function ApiSetTorGeneralAddhidservauth(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/general/addhidservauth');
+	}
+	
+	public function ApiSetTorGeneralDelhidservauth($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/general/delhidservauth', $params);
+	}
+	
+	public function ApiSetTorGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/general/set');
+	}
+	
+	public function ApiSetTorGeneralSethidservauth($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/general/sethidservauth', $params);
+	}
+	
+	public function ApiSetTorGeneralTogglehidservauth($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/general/togglehidservauth', $params);
+	}
+	
+	public function ApiSetTorHiddenserviceAddservice(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/hiddenservice/addservice');
+	}
+	
+	public function ApiSetTorHiddenserviceDelservice($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/hiddenservice/delservice', $params);
+	}
+	
+	public function ApiSetTorHiddenserviceSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/hiddenservice/set');
+	}
+	
+	public function ApiSetTorHiddenserviceSetservice($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/hiddenservice/setservice', $params);
+	}
+	
+	public function ApiSetTorHiddenserviceToggleservice($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/hiddenservice/toggleservice', $params);
+	}
+	
+	public function ApiSetTorHiddenserviceaclAddacl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/hiddenserviceacl/addacl');
+	}
+	
+	public function ApiSetTorHiddenserviceaclDelacl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/hiddenserviceacl/delacl', $params);
+	}
+	
+	public function ApiSetTorHiddenserviceaclSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/hiddenserviceacl/set');
+	}
+	
+	public function ApiSetTorHiddenserviceaclSetacl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/hiddenserviceacl/setacl', $params);
+	}
+	
+	public function ApiSetTorHiddenserviceaclToggleacl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/hiddenserviceacl/toggleacl', $params);
+	}
+	
+	public function ApiSetTorRelaySet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/relay/set');
+	}
+	
+	public function ApiSetTorServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/service/reconfigure');
+	}
+	
+	public function ApiSetTorServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/service/restart');
+	}
+	
+	public function ApiSetTorServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/service/start');
+	}
+	
+	public function ApiSetTorServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/service/stop');
+	}
+	
+	public function ApiSetTorSocksaclAddacl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/socksacl/addacl');
+	}
+	
+	public function ApiSetTorSocksaclDelacl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/socksacl/delacl', $params);
+	}
+	
+	public function ApiSetTorSocksaclSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/tor/socksacl/set');
+	}
+	
+	public function ApiSetTorSocksaclSetacl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/socksacl/setacl', $params);
+	}
+	
+	public function ApiSetTorSocksaclToggleacl($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/tor/socksacl/toggleacl', $params);
+	}
+	
+	public function ApiSetTurnserverServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/turnserver/service/reconfigure');
+	}
+	
+	public function ApiSetTurnserverServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/turnserver/service/restart');
+	}
+	
+	public function ApiSetTurnserverServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/turnserver/service/start');
+	}
+	
+	public function ApiSetTurnserverServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/turnserver/service/stop');
+	}
+	
+	public function ApiSetTurnserverSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/turnserver/settings/set');
+	}
+	
+	public function ApiSetUdpbroadcastrelayServiceSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/udpbroadcastrelay/service/set');
+	}
+	
+	public function ApiSetUdpbroadcastrelaySettingsAddRelay(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/udpbroadcastrelay/settings/add_relay');
+	}
+	
+	public function ApiSetUdpbroadcastrelaySettingsDelRelay($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/udpbroadcastrelay/settings/del_relay', $params);
+	}
+	
+	public function ApiSetUdpbroadcastrelaySettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/udpbroadcastrelay/settings/set');
+	}
+	
+	public function ApiSetUdpbroadcastrelaySettingsSetRelay($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/udpbroadcastrelay/settings/set_relay', $params);
+	}
+	
+	public function ApiSetUdpbroadcastrelaySettingsToggleRelay($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/udpbroadcastrelay/settings/toggle_relay', $params);
+	}
+	
 	public function ApiSetVnstatGeneralSet(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/vnstat/general/set');
 	}
 	
-	// -----------------------------------------------------------------------
-	/**
-	* ApiSetVnstatServiceReconfigure
-	*
-	* @category ApiSet
-	* @return Array[] | false (when empty, or when failed)
-	*/
 	public function ApiSetVnstatServiceReconfigure(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		return $this->CallApiPost('/vnstat/service/reconfigure');
+	}
+	
+	public function ApiSetWazuhagentServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wazuhagent/service/reconfigure');
+	}
+	
+	public function ApiSetWazuhagentServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wazuhagent/service/restart');
+	}
+	
+	public function ApiSetWazuhagentServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wazuhagent/service/start');
+	}
+	
+	public function ApiSetWazuhagentServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wazuhagent/service/stop');
+	}
+	
+	public function ApiSetWazuhagentSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wazuhagent/settings/set');
+	}
+	
+	public function ApiSetWolWolAddHost(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wol/wol/add_host');
+	}
+	
+	public function ApiSetWolWolDelHost($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/wol/wol/del_host', $params);
+	}
+	
+	public function ApiSetWolWolSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wol/wol/set');
+	}
+	
+	public function ApiSetWolWolSetHost($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/wol/wol/set_host', $params);
+	}
+	
+	public function ApiSetWolWolWakeall(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/wol/wol/wakeall');
+	}
+	
+	public function ApiSetZabbixagentServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zabbixagent/service/reconfigure');
+	}
+	
+	public function ApiSetZabbixagentServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zabbixagent/service/restart');
+	}
+	
+	public function ApiSetZabbixagentServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zabbixagent/service/start');
+	}
+	
+	public function ApiSetZabbixagentServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zabbixagent/service/stop');
+	}
+	
+	public function ApiSetZabbixagentSettingsAddAlias(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zabbixagent/settings/add_alias');
+	}
+	
+	public function ApiSetZabbixagentSettingsAddUserparameter(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zabbixagent/settings/add_userparameter');
+	}
+	
+	public function ApiSetZabbixagentSettingsDelAlias($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/zabbixagent/settings/del_alias', $params);
+	}
+	
+	public function ApiSetZabbixagentSettingsDelUserparameter($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/zabbixagent/settings/del_userparameter', $params);
+	}
+	
+	public function ApiSetZabbixagentSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zabbixagent/settings/set');
+	}
+	
+	public function ApiSetZabbixagentSettingsSetAlias($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/zabbixagent/settings/set_alias', $params);
+	}
+	
+	public function ApiSetZabbixagentSettingsSetUserparameter($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/zabbixagent/settings/set_userparameter', $params);
+	}
+	
+	public function ApiSetZabbixagentSettingsToggleAlias($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/zabbixagent/settings/toggle_alias', $params);
+	}
+	
+	public function ApiSetZabbixagentSettingsToggleUserparameter($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/zabbixagent/settings/toggle_userparameter', $params);
+	}
+	
+	public function ApiSetZabbixproxyGeneralSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zabbixproxy/general/set');
+	}
+	
+	public function ApiSetZabbixproxyServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zabbixproxy/service/reconfigure');
+	}
+	
+	public function ApiSetZabbixproxyServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zabbixproxy/service/restart');
+	}
+	
+	public function ApiSetZabbixproxyServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zabbixproxy/service/start');
+	}
+	
+	public function ApiSetZabbixproxyServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zabbixproxy/service/stop');
+	}
+	
+	public function ApiSetZerotierNetworkAdd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zerotier/network/add');
+	}
+	
+	public function ApiSetZerotierNetworkDel($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/zerotier/network/del', $params);
+	}
+	
+	public function ApiSetZerotierNetworkSet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/zerotier/network/set', $params);
+	}
+	
+	public function ApiSetZerotierNetworkToggle($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiPost('/zerotier/network/toggle', $params);
+	}
+	
+	public function ApiSetZerotierSettingsSet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiPost('/zerotier/settings/set');
+	}
+	
+	
+	
+	
+	// ##################################################################################
+	// ## 	'GET' API Methods ###########################################################
+	// ##################################################################################
+	
+	
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	// +++ FINAL      Fully tested: Params ordered, desc set   ++++++++++++++++++
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	public function ApiGetIdsServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/ids/service/status');
+	}
+	
+	public function ApiGetIpsecServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/ipsec/service/status');
+	}
+	
+	public function ApiGetMonitServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/monit/service/status');
+	}
+	
+	public function ApiGetRoutesGatewayStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/routes/gateway/status');
+	}
+	
+	public function ApiGetSyslogServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/syslog/service/status');
+	}
+	
+	public function ApiGetUnboundServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/unbound/service/status');
+	}
+	
+	public function ApiGetDhcpv4ServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/dhcpv4/service/status');
+	}
+	
+	public function ApiGetDhcpv6ServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/dhcpv6/service/status');
+	}
+	
+	public function ApiGetDyndnsServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/dyndns/service/status');
+	}
+	
+	public function ApiGetMuninnodeServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/muninnode/service/status');
+	}
+	
+	public function ApiGetNetdataServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/netdata/service/status');
+	}
+	
+	public function ApiGetNtopngServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/ntopng/service/status');
+	}
+	
+	public function ApiGetProxyServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/proxy/service/status');
+	}
+	
+	public function ApiGetRedisServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/redis/service/status');
+	}
+	
+	public function ApiGetVnstatServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(5);
+		return $this->CallApiGet('/vnstat/service/status');
+	}
+	
+	
+	
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	// +++ TESTED     Params still not ordered or desc not set ++++++++++++++++++
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	public function ApiGetAuthGroupGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/auth/group/get', $params);
+	}
+	
+	public function ApiGetAuthPrivGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/auth/priv/get');
+	}
+	
+	public function ApiGetAuthPrivSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/auth/priv/search');
+	}
+	
+	public function ApiGetAuthUserGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/auth/user/get', $params);
+	}
+	
+	public function ApiGetAuthUserSearchApiKey(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/auth/user/search_api_key');
+	}
+	
+	public function ApiGetCoreBackupProviders(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/backup/providers');
+	}
+	
+	public function ApiGetCoreDashboardGetDashboard(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/dashboard/get_dashboard');
+	}
+	
+	public function ApiGetCoreDashboardProductInfoFeed(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/dashboard/product_info_feed');
+	}
+	
+	public function ApiGetCoreDefaultsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/defaults/get');
+	}
+	
+	public function ApiGetCoreDefaultsGetInstalledSections(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/defaults/get_installed_sections');
+	}
+	
+	public function ApiGetCoreHasyncGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/hasync/get');
+	}
+	
+	public function ApiGetCoreHasyncStatusServices(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/hasync_status/services');
+	}
+	
+	public function ApiGetCoreHasyncStatusVersion(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/hasync_status/version');
+	}
+	
+	public function ApiGetCoreMenuSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/menu/search');
+	}
+	
+	public function ApiGetCoreMenuTree(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/menu/tree');
+	}
+	
+	public function ApiGetCoreServiceSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/service/search');
+	}
+	
+	public function ApiGetCoreSnapshotsGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/core/snapshots/get', $params);
+	}
+	
+	public function ApiGetCoreSnapshotsIsSupported(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/snapshots/is_supported');
+	}
+	
+	public function ApiGetCoreSnapshotsSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/snapshots/search');
+	}
+	
+	public function ApiGetCoreSystemStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/system/status');
+	}
+	
+	public function ApiGetCoreTunablesGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/tunables/get');
+	}
+	
+	public function ApiGetCoreTunablesGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/core/tunables/get_item', $params);
+	}
+	
+	public function ApiGetCronSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/cron/settings/get');
+	}
+	
+	public function ApiGetCronSettingsGetJob($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/cron/settings/get_job', $params);
+	}
+	
+	public function ApiGetDhcrelaySettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dhcrelay/settings/get');
+	}
+	
+	public function ApiGetDhcrelaySettingsGetDest($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dhcrelay/settings/get_dest', $params);
+	}
+	
+	public function ApiGetDhcrelaySettingsGetRelay($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dhcrelay/settings/get_relay', $params);
+	}
+	
+	public function ApiGetDiagnosticsActivityGetActivity(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/activity/get_activity');
+	}
+	
+	public function ApiGetDiagnosticsDnsDiagnosticsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/dns_diagnostics/get');
+	}
+	
+	public function ApiGetDiagnosticsFirewallListRuleIds(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/firewall/list_rule_ids');
+	}
+	
+	public function ApiGetDiagnosticsFirewallLogFilters(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/firewall/log_filters');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceGetArp(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/get_arp');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceGetBpfStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/get_bpf_statistics');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceGetInterfaceConfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/get_interface_config');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceGetInterfaceNames(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/get_interface_names');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceGetInterfaceStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/get_interface_statistics');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceGetMemoryStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/get_memory_statistics');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceGetNetisrStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/get_netisr_statistics');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceGetPfsyncNodes(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/get_pfsync_nodes');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceGetProtocolStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/get_protocol_statistics');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceGetRoutes(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/get_routes');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceGetSocketStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/get_socket_statistics');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceGetVipStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/get_vip_status');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceSearchArp(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/search_arp');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceSearchNdp(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/interface/search_ndp');
+	}
+	
+	public function ApiGetDiagnosticsLvtemplateGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/lvtemplate/get');
+	}
+	
+	public function ApiGetDiagnosticsLvtemplateGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/diagnostics/lvtemplate/get_item', $params);
+	}
+	
+	public function ApiGetDiagnosticsNetflowCacheStats(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/netflow/cache_stats');
+	}
+	
+	public function ApiGetDiagnosticsNetflowGetconfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/netflow/getconfig');
+	}
+	
+	public function ApiGetDiagnosticsNetflowIsEnabled(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/netflow/is_enabled');
+	}
+	
+	public function ApiGetDiagnosticsNetflowStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/netflow/status');
+	}
+	
+	public function ApiGetDiagnosticsNetworkinsightGetInterfaces(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/networkinsight/get_interfaces');
+	}
+	
+	public function ApiGetDiagnosticsNetworkinsightGetMetadata(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/networkinsight/get_metadata');
+	}
+	
+	public function ApiGetDiagnosticsNetworkinsightGetProtocols(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/networkinsight/get_protocols');
+	}
+	
+	public function ApiGetDiagnosticsNetworkinsightGetServices(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/networkinsight/get_services');
+	}
+	
+	public function ApiGetDiagnosticsPacketCaptureGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/packet_capture/get');
+	}
+	
+	public function ApiGetDiagnosticsPacketCaptureSearchJobs(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/packet_capture/search_jobs');
+	}
+	
+	public function ApiGetDiagnosticsPingGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/ping/get');
+	}
+	
+	public function ApiGetDiagnosticsPingSearchJobs(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/ping/search_jobs');
+	}
+	
+	public function ApiGetDiagnosticsPortprobeGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/portprobe/get');
+	}
+	
+	public function ApiGetDiagnosticsSystemMemory(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/system/memory');
+	}
+	
+	public function ApiGetDiagnosticsSystemhealthGetInterfaces(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/systemhealth/get_interfaces');
+	}
+	
+	public function ApiGetDiagnosticsSystemhealthGetRrdList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/systemhealth/get_rrd_list');
+	}
+	
+	public function ApiGetDiagnosticsSystemhealthGetSystemHealth($rrd="", $detail="-1"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'rrd'	=> $rrd,
+			'detail'	=> $detail,
+		);
+		return $this->CallApiGet('/diagnostics/systemhealth/get_system_health', $params);
+	}
+	
+	public function ApiGetDiagnosticsTracerouteGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/traceroute/get');
+	}
+	
+	public function ApiGetDiagnosticsTrafficInterface(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/diagnostics/traffic/_interface');
+	}
+	
+	public function ApiGetDnsmasqLeasesSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/leases/search');
+	}
+	
+	public function ApiGetDnsmasqServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/service/status');
+	}
+	
+	public function ApiGetDnsmasqSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/settings/get');
+	}
+	
+	public function ApiGetDnsmasqSettingsGetBoot($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnsmasq/settings/get_boot', $params);
+	}
+	
+	public function ApiGetDnsmasqSettingsGetDomain($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnsmasq/settings/get_domain', $params);
+	}
+	
+	public function ApiGetDnsmasqSettingsGetHost($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnsmasq/settings/get_host', $params);
+	}
+	
+	public function ApiGetDnsmasqSettingsGetOption($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnsmasq/settings/get_option', $params);
+	}
+	
+	public function ApiGetDnsmasqSettingsGetRange($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnsmasq/settings/get_range', $params);
+	}
+	
+	public function ApiGetDnsmasqSettingsGetTag($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnsmasq/settings/get_tag', $params);
+	}
+	
+	public function ApiGetDnsmasqSettingsGetTagList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dnsmasq/settings/get_tag_list');
+	}
+	
+	public function ApiGetFirewallAliasGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/get');
+	}
+	
+	public function ApiGetFirewallAliasGetGeoIP(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/get_geo_i_p');
+	}
+	
+	public function ApiGetFirewallAliasGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/firewall/alias/get_item', $params);
+	}
+	
+	public function ApiGetFirewallAliasGetTableSize(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/get_table_size');
+	}
+	
+	public function ApiGetFirewallAliasListCategories(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/list_categories');
+	}
+	
+	public function ApiGetFirewallAliasListCountries(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/list_countries');
+	}
+	
+	public function ApiGetFirewallAliasListNetworkAliases(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/list_network_aliases');
+	}
+	
+	public function ApiGetFirewallAliasListUserGroups(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias/list_user_groups');
+	}
+	
+	public function ApiGetFirewallAliasUtilAliases(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/alias_util/aliases');
+	}
+	
+	public function ApiGetFirewallCategoryGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/category/get');
+	}
+	
+	public function ApiGetFirewallCategoryGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/firewall/category/get_item', $params);
+	}
+	
+	public function ApiGetFirewallDNatGetRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/firewall/d_nat/get_rule', $params);
+	}
+	
+	public function ApiGetFirewallDNatSearchRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/d_nat/search_rule');
+	}
+	
+	public function ApiGetFirewallFilterGetInterfaceList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/filter/get_interface_list');
+	}
+	
+	public function ApiGetFirewallFilterGetRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/firewall/filter/get_rule', $params);
+	}
+	
+	public function ApiGetFirewallFilterSearchRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/filter/search_rule');
+	}
+	
+	public function ApiGetFirewallFilterUtilRuleStats(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/filter_util/rule_stats');
+	}
+	
+	public function ApiGetFirewallGroupGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/group/get');
+	}
+	
+	public function ApiGetFirewallGroupGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/firewall/group/get_item', $params);
+	}
+	
+	public function ApiGetFirewallMigrationCountOutbound(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/migration/count_outbound');
+	}
+	
+	public function ApiGetFirewallMigrationCountRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/migration/count_rules');
+	}
+	
+	public function ApiGetFirewallNptGetRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/firewall/npt/get_rule', $params);
+	}
+	
+	public function ApiGetFirewallOneToOneGetRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/firewall/one_to_one/get_rule', $params);
+	}
+	
+	public function ApiGetFirewallSourceNatGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/source_nat/get');
+	}
+	
+	public function ApiGetFirewallSourceNatGetRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/firewall/source_nat/get_rule', $params);
+	}
+	
+	public function ApiGetFirewallSourceNatSearchRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/firewall/source_nat/search_rule');
+	}
+	
+	public function ApiGetCoreFirmwareGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/firmware/get');
+	}
+	
+	public function ApiGetCoreFirmwareGetOptions(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/firmware/getOptions');
+	}
+	
+	public function ApiGetCoreFirmwareInfo(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/firmware/info');
+	}
+	
+	public function ApiGetCoreFirmwareRunning(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/firmware/running');
+	}
+	
+	public function ApiGetCoreFirmwareUpgradestatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/core/firmware/upgradestatus');
+	}
+	
+	public function ApiGetHostdiscoveryServiceSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/hostdiscovery/service/search');
+	}
+	
+	public function ApiGetHostdiscoveryServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/hostdiscovery/service/status');
+	}
+	
+	public function ApiGetHostdiscoverySettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/hostdiscovery/settings/get');
+	}
+	
+	public function ApiGetIdsServiceGetAlertLogs(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ids/service/get_alert_logs');
+	}
+	
+	public function ApiGetIdsSettingsCheckPolicyRule(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ids/settings/check_policy_rule');
+	}
+	
+	public function ApiGetIdsSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ids/settings/get');
+	}
+	
+	public function ApiGetIdsSettingsGetPolicy($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ids/settings/get_policy', $params);
+	}
+	
+	public function ApiGetIdsSettingsGetPolicyRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ids/settings/get_policy_rule', $params);
+	}
+	
+	public function ApiGetIdsSettingsGetRuleInfo($sid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'sid'	=> $sid,
+		);
+		return $this->CallApiGet('/ids/settings/get_rule_info', $params);
+	}
+	
+	public function ApiGetIdsSettingsGetRulesetproperties(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ids/settings/get_rulesetproperties');
+	}
+	
+	public function ApiGetIdsSettingsGetUserRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ids/settings/get_user_rule', $params);
+	}
+	
+	public function ApiGetIdsSettingsListRuleMetadata(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ids/settings/list_rule_metadata');
+	}
+	
+	public function ApiGetIdsSettingsListRulesets(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ids/settings/list_rulesets');
+	}
+	
+	public function ApiGetInterfacesAssignmentGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/assignment/get');
+	}
+	
+	public function ApiGetInterfacesAssignmentGetItem($ifname="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'ifname'	=> $ifname,
+		);
+		return $this->CallApiGet('/interfaces/assignment/get_item', $params);
+	}
+	
+	public function ApiGetInterfacesAssignmentPending(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/assignment/pending');
+	}
+	
+	public function ApiGetInterfacesBridgeSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/bridge_settings/get');
+	}
+	
+	public function ApiGetInterfacesBridgeSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/bridge_settings/get_item', $params);
+	}
+	
+	public function ApiGetInterfacesGifSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/gif_settings/get');
+	}
+	
+	public function ApiGetInterfacesGifSettingsGetIfOptions(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/gif_settings/get_if_options');
+	}
+	
+	public function ApiGetInterfacesGifSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/gif_settings/get_item', $params);
+	}
+	
+	public function ApiGetInterfacesGreSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/gre_settings/get');
+	}
+	
+	public function ApiGetInterfacesGreSettingsGetIfOptions(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/gre_settings/get_if_options');
+	}
+	
+	public function ApiGetInterfacesGreSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/gre_settings/get_item', $params);
+	}
+	
+	public function ApiGetInterfacesLaggSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/lagg_settings/get');
+	}
+	
+	public function ApiGetInterfacesLaggSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/lagg_settings/get_item', $params);
+	}
+	
+	public function ApiGetInterfacesLoopbackSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/loopback_settings/get');
+	}
+	
+	public function ApiGetInterfacesLoopbackSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/loopback_settings/get_item', $params);
+	}
+	
+	public function ApiGetInterfacesNeighborSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/neighbor_settings/get');
+	}
+	
+	public function ApiGetInterfacesNeighborSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/neighbor_settings/get_item', $params);
+	}
+	
+	public function ApiGetInterfacesOverviewGetInterface($if="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'if'	=> $if,
+		);
+		return $this->CallApiGet('/interfaces/overview/get_interface', $params);
+	}
+	
+	public function ApiGetInterfacesOverviewInterfacesInfo($details="false"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'details'	=> $details,
+		);
+		return $this->CallApiGet('/interfaces/overview/interfaces_info', $params);
+	}
+	
+	public function ApiGetInterfacesSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/settings/get');
+	}
+	
+	public function ApiGetInterfacesVipSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/vip_settings/get');
+	}
+	
+	public function ApiGetInterfacesVipSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/vip_settings/get_item', $params);
+	}
+	
+	public function ApiGetInterfacesVipSettingsGetUnusedVhid(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/vip_settings/get_unused_vhid');
+	}
+	
+	public function ApiGetInterfacesVlanSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/vlan_settings/get');
+	}
+	
+	public function ApiGetInterfacesVlanSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/vlan_settings/get_item', $params);
+	}
+	
+	public function ApiGetInterfacesVxlanSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/vxlan_settings/get');
+	}
+	
+	public function ApiGetInterfacesVxlanSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/vxlan_settings/get_item', $params);
+	}
+	
+	public function ApiGetInterfacesWirelessSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/interfaces/wireless_settings/get');
+	}
+	
+	public function ApiGetInterfacesWirelessSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/interfaces/wireless_settings/get_item', $params);
+	}
+	
+	public function ApiGetIpsecConnectionsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/connections/get');
+	}
+	
+	public function ApiGetIpsecConnectionsGetChild($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/connections/get_child', $params);
+	}
+	
+	public function ApiGetIpsecConnectionsGetConnection($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/connections/get_connection', $params);
+	}
+	
+	public function ApiGetIpsecConnectionsGetLocal($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/connections/get_local', $params);
+	}
+	
+	public function ApiGetIpsecConnectionsGetRemote($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/connections/get_remote', $params);
+	}
+	
+	public function ApiGetIpsecConnectionsIsEnabled(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/connections/is_enabled');
+	}
+	
+	public function ApiGetIpsecKeyPairsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/key_pairs/get');
+	}
+	
+	public function ApiGetIpsecKeyPairsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/key_pairs/get_item', $params);
+	}
+	
+	public function ApiGetIpsecLeasesPools(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/leases/pools');
+	}
+	
+	public function ApiGetIpsecLeasesSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/leases/search');
+	}
+	
+	public function ApiGetIpsecLegacySubsystemStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/legacy_subsystem/status');
+	}
+	
+	public function ApiGetIpsecManualSpdGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/manual_spd/get', $params);
+	}
+	
+	public function ApiGetIpsecPoolsGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/pools/get', $params);
+	}
+	
+	public function ApiGetIpsecPreSharedKeysGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/pre_shared_keys/get');
+	}
+	
+	public function ApiGetIpsecPreSharedKeysGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/pre_shared_keys/get_item', $params);
+	}
+	
+	public function ApiGetIpsecSadSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/sad/search');
+	}
+	
+	public function ApiGetIpsecSessionsSearchPhase1(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/sessions/search_phase1');
+	}
+	
+	public function ApiGetIpsecSessionsSearchPhase2(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/sessions/search_phase2');
+	}
+	
+	public function ApiGetIpsecSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/settings/get');
+	}
+	
+	public function ApiGetIpsecSpdSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/spd/search');
+	}
+	
+	public function ApiGetIpsecTunnelSearchPhase1(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/tunnel/search_phase1');
+	}
+	
+	public function ApiGetIpsecTunnelSearchPhase2(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ipsec/tunnel/search_phase2');
+	}
+	
+	public function ApiGetIpsecVtiGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ipsec/vti/get', $params);
+	}
+	
+	public function ApiGetKeaCtrlAgentGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/ctrl_agent/get');
+	}
+	
+	public function ApiGetKeaDdnsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/ddns/get');
+	}
+	
+	public function ApiGetKeaDhcpv4Get(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/dhcpv4/get');
+	}
+	
+	public function ApiGetKeaDhcpv4GetOption($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv4/get_option', $params);
+	}
+	
+	public function ApiGetKeaDhcpv4GetPeer($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv4/get_peer', $params);
+	}
+	
+	public function ApiGetKeaDhcpv4GetReservation($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv4/get_reservation', $params);
+	}
+	
+	public function ApiGetKeaDhcpv4GetSubnet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv4/get_subnet', $params);
+	}
+	
+	public function ApiGetKeaDhcpv6Get(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/dhcpv6/get');
+	}
+	
+	public function ApiGetKeaDhcpv6GetOption($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv6/get_option', $params);
+	}
+	
+	public function ApiGetKeaDhcpv6GetPdPool($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv6/get_pd_pool', $params);
+	}
+	
+	public function ApiGetKeaDhcpv6GetPeer($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv6/get_peer', $params);
+	}
+	
+	public function ApiGetKeaDhcpv6GetReservation($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv6/get_reservation', $params);
+	}
+	
+	public function ApiGetKeaDhcpv6GetSubnet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/kea/dhcpv6/get_subnet', $params);
+	}
+	
+	public function ApiGetKeaLeases4Search(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/leases4/search');
+	}
+	
+	public function ApiGetKeaLeases6Search(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/leases6/search');
+	}
+	
+	public function ApiGetKeaServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/kea/service/status');
+	}
+	
+	public function ApiGetMonitSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/monit/settings/get');
+	}
+	
+	public function ApiGetMonitSettingsGetAlert($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/monit/settings/get_alert', $params);
+	}
+	
+	public function ApiGetMonitSettingsGetGeneral(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/monit/settings/get_general');
+	}
+	
+	public function ApiGetMonitSettingsGetService($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/monit/settings/get_service', $params);
+	}
+	
+	public function ApiGetMonitSettingsGetTest($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/monit/settings/get_test', $params);
+	}
+	
+	public function ApiGetMonitStatusGet($format="xml"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'format'	=> $format,
+		);
+		return $this->CallApiGet('/monit/status/get', $params);
+	}
+	
+	public function ApiGetNtpdServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ntpd/service/status');
+	}
+	
+	public function ApiGetOpenvpnClientOverwritesGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/openvpn/client_overwrites/get', $params);
+	}
+	
+	public function ApiGetOpenvpnExportAccounts($vpnid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'vpnid'	=> $vpnid,
+		);
+		return $this->CallApiGet('/openvpn/export/accounts', $params);
+	}
+	
+	public function ApiGetOpenvpnExportTemplates(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/openvpn/export/templates');
+	}
+	
+	public function ApiGetOpenvpnInstancesGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/openvpn/instances/get', $params);
+	}
+	
+	public function ApiGetOpenvpnInstancesGetStaticKey($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/openvpn/instances/get_static_key', $params);
+	}
+	
+	public function ApiGetOpenvpnServiceSearchRoutes(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/openvpn/service/search_routes');
+	}
+	
+	public function ApiGetOpenvpnServiceSearchSessions(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/openvpn/service/search_sessions');
+	}
+	
+	public function ApiGetRadvdServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/radvd/service/status');
+	}
+	
+	public function ApiGetRadvdSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/radvd/settings/get');
+	}
+	
+	public function ApiGetRadvdSettingsGetEntry($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/radvd/settings/get_entry', $params);
+	}
+	
+	public function ApiGetRoutesRoutesGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/routes/routes/get');
+	}
+	
+	public function ApiGetRoutesRoutesGetroute($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/routes/routes/getroute', $params);
+	}
+	
+	public function ApiGetRoutingGroupSettingsGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/routing/group_settings/get', $params);
+	}
+	
+	public function ApiGetRoutingSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/routing/settings/get');
+	}
+	
+	public function ApiGetRoutingSettingsGetGateway($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/routing/settings/get_gateway', $params);
+	}
+	
+	public function ApiGetRoutingSettingsSearchGateway(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/routing/settings/search_gateway');
+	}
+	
+	public function ApiGetSyslogServiceStats(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/syslog/service/stats');
+	}
+	
+	public function ApiGetSyslogSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/syslog/settings/get');
+	}
+	
+	public function ApiGetSyslogSettingsGetDestination($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/syslog/settings/get_destination', $params);
+	}
+	
+	public function ApiGetTrafficshaperServiceStatistics(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/trafficshaper/service/statistics');
+	}
+	
+	public function ApiGetTrafficshaperSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/trafficshaper/settings/get');
+	}
+	
+	public function ApiGetTrafficshaperSettingsGetPipe($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/trafficshaper/settings/get_pipe', $params);
+	}
+	
+	public function ApiGetTrafficshaperSettingsGetQueue($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/trafficshaper/settings/get_queue', $params);
+	}
+	
+	public function ApiGetTrafficshaperSettingsGetRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/trafficshaper/settings/get_rule', $params);
+	}
+	
+	public function ApiGetUnboundOverviewGetPolicies(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/overview/get_policies');
+	}
+	
+	public function ApiGetUnboundOverviewIsBlockListEnabled(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/overview/is_block_list_enabled');
+	}
+	
+	public function ApiGetUnboundOverviewIsEnabled(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/overview/is_enabled');
+	}
+	
+	public function ApiGetUnboundOverviewSearchQueries(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/overview/search_queries');
+	}
+	
+	public function ApiGetUnboundSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/settings/get');
+	}
+	
+	public function ApiGetUnboundSettingsGetAcl($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/unbound/settings/get_acl', $params);
+	}
+	
+	public function ApiGetUnboundSettingsGetDnsbl($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/unbound/settings/get_dnsbl', $params);
+	}
+	
+	public function ApiGetUnboundSettingsGetForward($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/unbound/settings/get_forward', $params);
+	}
+	
+	public function ApiGetUnboundSettingsGetHostAlias($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/unbound/settings/get_host_alias', $params);
+	}
+	
+	public function ApiGetUnboundSettingsGetHostOverride($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/unbound/settings/get_host_override', $params);
+	}
+	
+	public function ApiGetUnboundSettingsGetNameservers(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/unbound/settings/get_nameservers');
+	}
+	
+	public function ApiGetBindAclGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/acl/get');
+	}
+	
+	public function ApiGetBindAclGetAcl($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/bind/acl/get_acl', $params);
+	}
+	
+	public function ApiGetBindDnsblGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/dnsbl/get');
+	}
+	
+	public function ApiGetBindDomainGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/domain/get');
+	}
+	
+	public function ApiGetBindDomainGetDomain($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/bind/domain/get_domain', $params);
+	}
+	
+	public function ApiGetBindDomainSearchMasterDomain(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/domain/search_master_domain');
+	}
+	
+	public function ApiGetBindDomainSearchSlaveDomain(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/domain/search_slave_domain');
+	}
+	
+	public function ApiGetBindGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/general/get');
+	}
+	
+	public function ApiGetBindRecordGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/record/get');
+	}
+	
+	public function ApiGetBindRecordGetRecord($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/bind/record/get_record', $params);
+	}
+	
+	public function ApiGetBindServiceDnsbl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/service/dnsbl');
+	}
+	
+	public function ApiGetBindServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/bind/service/status');
+	}
+	
+	public function ApiGetDhcpv4LeasesSearchLease(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dhcpv4/leases/search_lease');
+	}
+	
+	public function ApiGetDhcpv6LeasesSearchLease(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dhcpv6/leases/search_lease');
+	}
+	
+	public function ApiGetDhcpv6LeasesSearchPrefix(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dhcpv6/leases/search_prefix');
+	}
+	
+	public function ApiGetDyndnsAccountsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dyndns/accounts/get');
+	}
+	
+	public function ApiGetDyndnsAccountsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dyndns/accounts/get_item', $params);
+	}
+	
+	public function ApiGetDyndnsSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/dyndns/settings/get');
+	}
+	
+	public function ApiGetIperfInstanceGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/iperf/instance/get');
+	}
+	
+	public function ApiGetMuninnodeGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/muninnode/general/get');
+	}
+	
+	public function ApiGetNetdataGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/netdata/general/get');
+	}
+	
+	public function ApiGetNtopngGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/ntopng/general/get');
+	}
+	
+	public function ApiGetProxySettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/proxy/settings/get');
+	}
+	
+	public function ApiGetProxySettingsGetPacMatch($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/proxy/settings/get_pac_match', $params);
+	}
+	
+	public function ApiGetProxySettingsGetPacProxy($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/proxy/settings/get_pac_proxy', $params);
+	}
+	
+	public function ApiGetProxySettingsGetPacRule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/proxy/settings/get_pac_rule', $params);
+	}
+	
+	public function ApiGetProxySettingsGetRemoteBlacklist($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/proxy/settings/get_remote_blacklist', $params);
+	}
+	
+	public function ApiGetProxySettingsSearchRemoteBlacklists(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/proxy/settings/search_remote_blacklists');
+	}
+	
+	public function ApiGetRedisSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/redis/settings/get');
+	}
+	
+	public function ApiGetVnstatGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/vnstat/general/get');
+	}
+	
+	public function ApiGetVnstatServiceDaily(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/vnstat/service/daily');
+	}
+	
+	public function ApiGetVnstatServiceHourly(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/vnstat/service/hourly');
+	}
+	
+	public function ApiGetVnstatServiceInterfaceList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/vnstat/service/interface_list');
+	}
+	
+	public function ApiGetVnstatServiceMonthly(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/vnstat/service/monthly');
+	}
+	
+	public function ApiGetVnstatServiceYearly(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(4);
+		return $this->CallApiGet('/vnstat/service/yearly');
+	}
+	
+	
+	
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	// +++ UNDER DEV  Work in propress                         ++++++++++++++++++
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	public function ApiGetDiagnosticsDnsReverseLookup(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/diagnostics/dns/reverse_lookup');
+	}
+	
+	public function ApiGetDiagnosticsFirewallLog(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/diagnostics/firewall/log');
+	}
+	
+	public function ApiGetDiagnosticsFirewallPfStatistics($section="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		$params=array(
+			'section'	=> $section,
+		);
+		return $this->CallApiGet('/diagnostics/firewall/pf_statistics', $params);
+	}
+	
+	public function ApiGetDiagnosticsFirewallStats(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/diagnostics/firewall/stats');
+	}
+	
+	public function ApiGetDiagnosticsInterfaceGetNdp(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/diagnostics/interface/get_ndp');
+	}
+	
+	public function ApiGetDnsmasqSettingsDownloadHosts(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/dnsmasq/settings/download_hosts');
+	}
+	
+	public function ApiGetOpenvpnExportProviders(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/openvpn/export/providers');
+	}
+	
+	public function ApiGetUnboundDiagnosticsDumpcache(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/unbound/diagnostics/dumpcache');
+	}
+	
+	public function ApiGetUnboundDiagnosticsDumpinfra(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/unbound/diagnostics/dumpinfra');
+	}
+	
+	public function ApiGetNtopngServiceCheckredis(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/ntopng/service/checkredis');
+	}
+	
+	public function ApiGetProxyServiceRestart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/proxy/service/restart');
+	}
+	
+	public function ApiGetProxyServiceStart(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/proxy/service/start');
+	}
+	
+	public function ApiGetProxyTemplateGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(3);
+		return $this->CallApiGet('/proxy/template/get');
+	}
+	
+	
+	
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	// +++ ERROR      Returns an error                         ++++++++++++++++++
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	public function ApiGetAuthPrivGetItem($id){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		$params=array(
+			'id'	=> $id,
+		);
+		return $this->CallApiGet('/auth/priv/get_item', $params);
+	}
+	
+	public function ApiGetAuthUserDownload(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/auth/user/download');
+	}
+	
+	public function ApiGetCoreDashboardPicture(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/core/dashboard/picture');
+	}
+	
+	public function ApiGetCoreHasyncStatusRemoteService($action, $service, $service_id){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		$params=array(
+			'action'	=> $action,
+			'service'	=> $service,
+			'service_id'	=> $service_id,
+		);
+		return $this->CallApiGet('/core/hasync_status/remote_service', $params);
+	}
+	
+	public function ApiGetFirewallCategoryDownload(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/category/download');
+	}
+	
+	public function ApiGetFirewallDNatDownloadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/d_nat/download_rules');
+	}
+	
+	public function ApiGetFirewallFilterBaseGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/filter_base/get');
+	}
+	
+	public function ApiGetFirewallFilterBaseListCategories(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/filter_base/list_categories');
+	}
+	
+	public function ApiGetFirewallFilterBaseListNetworkSelectOptions(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/filter_base/list_network_select_options');
+	}
+	
+	public function ApiGetFirewallFilterBaseListPortSelectOptions(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/filter_base/list_port_select_options');
+	}
+	
+	public function ApiGetFirewallFilterDownloadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/filter/download_rules');
+	}
+	
+	public function ApiGetFirewallMigrationDownloadOutbound(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/migration/download_outbound');
+	}
+	
+	public function ApiGetFirewallMigrationDownloadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/migration/download_rules');
+	}
+	
+	public function ApiGetFirewallNptDownloadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/npt/download_rules');
+	}
+	
+	public function ApiGetFirewallOneToOneDownloadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/one_to_one/download_rules');
+	}
+	
+	public function ApiGetFirewallSourceNatDownloadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/firewall/source_nat/download_rules');
+	}
+	
+	public function ApiGetKeaDhcpv4DownloadReservations(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/kea/dhcpv4/download_reservations');
+	}
+	
+	public function ApiGetKeaDhcpv6DownloadReservations(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/kea/dhcpv6/download_reservations');
+	}
+	
+	public function ApiGetKeaLeasesSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/kea/leases/search');
+	}
+	
+	public function ApiGetUnboundDiagnosticsListinsecure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/unbound/diagnostics/listinsecure');
+	}
+	
+	public function ApiGetUnboundDiagnosticsListlocaldata(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/unbound/diagnostics/listlocaldata');
+	}
+	
+	public function ApiGetUnboundDiagnosticsListlocalzones(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/unbound/diagnostics/listlocalzones');
+	}
+	
+	public function ApiGetUnboundDiagnosticsStats(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		return $this->CallApiGet('/unbound/diagnostics/stats');
+	}
+	
+	public function ApiGetBindGeneralZoneshow($zonename="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(2);
+		$params=array(
+			'zonename'	=> $zonename,
+		);
+		return $this->CallApiGet('/bind/general/zoneshow', $params);
+	}
+	
+	
+	
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	// +++ DRAFT      Not tested                               ++++++++++++++++++
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	public function ApiGetAuthUserNewOtpSeed(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/auth/user/new_otp_seed');
+	}
+	
+	public function ApiGetCaptiveportalAccessApi(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/captiveportal/access/api');
+	}
+	
+	public function ApiGetCaptiveportalServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/captiveportal/service/status');
+	}
+	
+	public function ApiGetCaptiveportalSessionSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/captiveportal/session/search');
+	}
+	
+	public function ApiGetCaptiveportalTemplateGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/captiveportal/template/get');
+	}
+	
+	public function ApiGetCaptiveportalTemplateGetTemplate($fileid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'fileid'	=> $fileid,
+		);
+		return $this->CallApiGet('/captiveportal/template/get_template', $params);
+	}
+	
+	public function ApiGetCoreInitialSetupConfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/core/initial_setup/configure');
+	}
+	
+	public function ApiGetCoreInitialSetupGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/core/initial_setup/get');
+	}
+	
+	public function ApiGetDiagnosticsCpuUsageGetCPUType(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/cpu_usage/get_c_p_u_type');
+	}
+	
+	public function ApiGetDiagnosticsCpuUsageStream(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/cpu_usage/stream');
+	}
+	
+	public function ApiGetDiagnosticsFirewallPfStates(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/firewall/pf_states');
+	}
+	
+	public function ApiGetDiagnosticsFirewallStreamLog(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/firewall/stream_log');
+	}
+	
+	public function ApiGetDiagnosticsNetflowSetconfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/netflow/setconfig');
+	}
+	
+	public function ApiGetDiagnosticsNetworkinsightExport($provider="null", $from_date="null", $to_date="null", $resolution="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'provider'	=> $provider,
+			'from_date'	=> $from_date,
+			'to_date'	=> $to_date,
+			'resolution'	=> $resolution,
+		);
+		return $this->CallApiGet('/diagnostics/networkinsight/export', $params);
+	}
+	
+	public function ApiGetDiagnosticsNetworkinsightTimeserie($provider="null", $measure="null", $from_date="null", $to_date="null", $resolution="null", $field="null", $emulation="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'provider'	=> $provider,
+			'measure'	=> $measure,
+			'from_date'	=> $from_date,
+			'to_date'	=> $to_date,
+			'resolution'	=> $resolution,
+			'field'	=> $field,
+			'emulation'	=> $emulation,
+		);
+		return $this->CallApiGet('/diagnostics/networkinsight/timeserie', $params);
+	}
+	
+	public function ApiGetDiagnosticsNetworkinsightTop($provider="null", $from_date="null", $to_date="null", $field="null", $measure="null", $max_hits="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'provider'	=> $provider,
+			'from_date'	=> $from_date,
+			'to_date'	=> $to_date,
+			'field'	=> $field,
+			'measure'	=> $measure,
+			'max_hits'	=> $max_hits,
+		);
+		return $this->CallApiGet('/diagnostics/networkinsight/top', $params);
+	}
+	
+	public function ApiGetDiagnosticsSystemSystemDisk(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/system/system_disk');
+	}
+	
+	public function ApiGetDiagnosticsSystemSystemInformation(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/system/system_information');
+	}
+	
+	public function ApiGetDiagnosticsSystemSystemMbuf(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/system/system_mbuf');
+	}
+	
+	public function ApiGetDiagnosticsSystemSystemResources(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/system/system_resources');
+	}
+	
+	public function ApiGetDiagnosticsSystemSystemSwap(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/system/system_swap');
+	}
+	
+	public function ApiGetDiagnosticsSystemSystemTemperature(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/system/system_temperature');
+	}
+	
+	public function ApiGetDiagnosticsSystemSystemTime(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/system/system_time');
+	}
+	
+	public function ApiGetDiagnosticsSystemhealthExportAsCSV($rrd="", $detail="-1"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'rrd'	=> $rrd,
+			'detail'	=> $detail,
+		);
+		return $this->CallApiGet('/diagnostics/systemhealth/export_as_c_s_v', $params);
+	}
+	
+	public function ApiGetDiagnosticsSystemhealthGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/systemhealth/get');
+	}
+	
+	public function ApiGetDiagnosticsTrafficStream($poll_interval="1"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'poll_interval'	=> $poll_interval,
+		);
+		return $this->CallApiGet('/diagnostics/traffic/stream', $params);
+	}
+	
+	public function ApiGetFirewallDNatMoveRuleBefore($selected_uuid, $target_uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'selected_uuid'	=> $selected_uuid,
+			'target_uuid'	=> $target_uuid,
+		);
+		return $this->CallApiGet('/firewall/d_nat/move_rule_before', $params);
+	}
+	
+	public function ApiGetFirewallDNatToggleRuleLog($uuid, $log){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'log'	=> $log,
+		);
+		return $this->CallApiGet('/firewall/d_nat/toggle_rule_log', $params);
+	}
+	
+	public function ApiGetFirewallDNatUploadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/firewall/d_nat/upload_rules');
+	}
+	
+	public function ApiGetFirewallFilterToggleRuleLog($uuid, $log){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'log'	=> $log,
+		);
+		return $this->CallApiGet('/firewall/filter/toggle_rule_log', $params);
+	}
+	
+	public function ApiGetFirewallFilterUploadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/firewall/filter/upload_rules');
+	}
+	
+	public function ApiGetFirewallNptMoveRuleBefore($selected_uuid, $target_uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'selected_uuid'	=> $selected_uuid,
+			'target_uuid'	=> $target_uuid,
+		);
+		return $this->CallApiGet('/firewall/npt/move_rule_before', $params);
+	}
+	
+	public function ApiGetFirewallNptToggleRuleLog($uuid, $log){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'log'	=> $log,
+		);
+		return $this->CallApiGet('/firewall/npt/toggle_rule_log', $params);
+	}
+	
+	public function ApiGetFirewallNptUploadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/firewall/npt/upload_rules');
+	}
+	
+	public function ApiGetFirewallOneToOneMoveRuleBefore($selected_uuid, $target_uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'selected_uuid'	=> $selected_uuid,
+			'target_uuid'	=> $target_uuid,
+		);
+		return $this->CallApiGet('/firewall/one_to_one/move_rule_before', $params);
+	}
+	
+	public function ApiGetFirewallOneToOneToggleRuleLog($uuid, $log){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'log'	=> $log,
+		);
+		return $this->CallApiGet('/firewall/one_to_one/toggle_rule_log', $params);
+	}
+	
+	public function ApiGetFirewallOneToOneUploadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/firewall/one_to_one/upload_rules');
+	}
+	
+	public function ApiGetFirewallSourceNatMoveRuleBefore($selected_uuid, $target_uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'selected_uuid'	=> $selected_uuid,
+			'target_uuid'	=> $target_uuid,
+		);
+		return $this->CallApiGet('/firewall/source_nat/move_rule_before', $params);
+	}
+	
+	public function ApiGetFirewallSourceNatToggleRuleLog($uuid, $log){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'log'	=> $log,
+		);
+		return $this->CallApiGet('/firewall/source_nat/toggle_rule_log', $params);
+	}
+	
+	public function ApiGetFirewallSourceNatUploadRules(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/firewall/source_nat/upload_rules');
+	}
+	
+	public function ApiGetInterfacesOverviewExport(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/interfaces/overview/export');
+	}
+	
+	public function ApiGetIpsecConnectionsSwanctl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/ipsec/connections/swanctl');
+	}
+	
+	public function ApiGetNtpdServiceGps(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/ntpd/service/gps');
+	}
+	
+	public function ApiGetNtpdServiceMeta(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/ntpd/service/meta');
+	}
+	
+	public function ApiGetOpenvpnInstancesGenKey($type="secret"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'type'	=> $type,
+		);
+		return $this->CallApiGet('/openvpn/instances/gen_key', $params);
+	}
+	
+	public function ApiGetTrafficshaperSettingsDownloadPipes(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/trafficshaper/settings/download_pipes');
+	}
+	
+	public function ApiGetTrafficshaperSettingsDownloadQueues(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/trafficshaper/settings/download_queues');
+	}
+	
+	public function ApiGetTrustCaCaInfo($caref){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'caref'	=> $caref,
+		);
+		return $this->CallApiGet('/trust/ca/ca_info', $params);
+	}
+	
+	public function ApiGetTrustCaCaList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/trust/ca/ca_list');
+	}
+	
+	public function ApiGetTrustCaGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/trust/ca/get', $params);
+	}
+	
+	public function ApiGetTrustCaRawDump($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/trust/ca/raw_dump', $params);
+	}
+	
+	public function ApiGetTrustCertCaInfo($caref="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'caref'	=> $caref,
+		);
+		return $this->CallApiGet('/trust/cert/ca_info', $params);
+	}
+	
+	public function ApiGetTrustCertCaList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/trust/cert/ca_list');
+	}
+	
+	public function ApiGetTrustCertGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/trust/cert/get', $params);
+	}
+	
+	public function ApiGetTrustCertRawDump($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/trust/cert/raw_dump', $params);
+	}
+	
+	public function ApiGetTrustCertUserList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/trust/cert/user_list');
+	}
+	
+	public function ApiGetTrustCrlGet($caref){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'caref'	=> $caref,
+		);
+		return $this->CallApiGet('/trust/crl/get', $params);
+	}
+	
+	public function ApiGetTrustCrlGetOcspInfoData($caref){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'caref'	=> $caref,
+		);
+		return $this->CallApiGet('/trust/crl/get_ocsp_info_data', $params);
+	}
+	
+	public function ApiGetTrustCrlRawDump($caref){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'caref'	=> $caref,
+		);
+		return $this->CallApiGet('/trust/crl/raw_dump', $params);
+	}
+	
+	public function ApiGetTrustCrlSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/trust/crl/search');
+	}
+	
+	public function ApiGetTrustSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/trust/settings/get');
+	}
+	
+	public function ApiGetWireguardClientAddClient(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wireguard/client/add_client');
+	}
+	
+	public function ApiGetWireguardClientGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wireguard/client/get');
+	}
+	
+	public function ApiGetWireguardClientGetClient($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/wireguard/client/get_client', $params);
+	}
+	
+	public function ApiGetWireguardClientGetClientBuilder(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wireguard/client/get_client_builder');
+	}
+	
+	public function ApiGetWireguardClientGetServerInfo($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/wireguard/client/get_server_info', $params);
+	}
+	
+	public function ApiGetWireguardClientListServers(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wireguard/client/list_servers');
+	}
+	
+	public function ApiGetWireguardClientPsk(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wireguard/client/psk');
+	}
+	
+	public function ApiGetWireguardGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wireguard/general/get');
+	}
+	
+	public function ApiGetWireguardServerGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wireguard/server/get');
+	}
+	
+	public function ApiGetWireguardServerGetServer($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/wireguard/server/get_server', $params);
+	}
+	
+	public function ApiGetWireguardServerKeyPair(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wireguard/server/key_pair');
+	}
+	
+	public function ApiGetWireguardServiceShow(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wireguard/service/show');
+	}
+	
+	public function ApiGetWireguardServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wireguard/service/status');
+	}
+	
+	public function ApiGetAcmeclientAccountsGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/acmeclient/accounts/get', $params);
+	}
+	
+	public function ApiGetAcmeclientActionsGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/acmeclient/actions/get', $params);
+	}
+	
+	public function ApiGetAcmeclientActionsSftpGetIdentity(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/acmeclient/actions/sftp_get_identity');
+	}
+	
+	public function ApiGetAcmeclientActionsSftpTestConnection(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/acmeclient/actions/sftp_test_connection');
+	}
+	
+	public function ApiGetAcmeclientActionsSshGetIdentity(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/acmeclient/actions/ssh_get_identity');
+	}
+	
+	public function ApiGetAcmeclientActionsSshTestConnection(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/acmeclient/actions/ssh_test_connection');
+	}
+	
+	public function ApiGetAcmeclientCertificatesAutomation($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/acmeclient/certificates/automation', $params);
+	}
+	
+	public function ApiGetAcmeclientCertificatesGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/acmeclient/certificates/get', $params);
+	}
+	
+	public function ApiGetAcmeclientCertificatesImport($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/acmeclient/certificates/import', $params);
+	}
+	
+	public function ApiGetAcmeclientCertificatesRemovekey($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/acmeclient/certificates/removekey', $params);
+	}
+	
+	public function ApiGetAcmeclientServiceConfigtest(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/acmeclient/service/configtest');
+	}
+	
+	public function ApiGetAcmeclientServiceReset(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/acmeclient/service/reset');
+	}
+	
+	public function ApiGetAcmeclientServiceSignallcerts(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/acmeclient/service/signallcerts');
+	}
+	
+	public function ApiGetAcmeclientServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/acmeclient/service/status');
+	}
+	
+	public function ApiGetAcmeclientSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/acmeclient/settings/get');
+	}
+	
+	public function ApiGetAcmeclientSettingsGetBindPluginStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/acmeclient/settings/get_bind_plugin_status');
+	}
+	
+	public function ApiGetAcmeclientSettingsGetGcloudPluginStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/acmeclient/settings/get_gcloud_plugin_status');
+	}
+	
+	public function ApiGetAcmeclientValidationsGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/acmeclient/validations/get', $params);
+	}
+	
+	public function ApiGetApcupsdServiceGetUpsStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/apcupsd/service/get_ups_status');
+	}
+	
+	public function ApiGetApcupsdServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/apcupsd/service/status');
+	}
+	
+	public function ApiGetApcupsdSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/apcupsd/settings/get');
+	}
+	
+	public function ApiGetBeatsServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/beats/service/status');
+	}
+	
+	public function ApiGetBeatsSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/beats/settings/get');
+	}
+	
+	public function ApiGetBindGeneralZonetest($zonename="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'zonename'	=> $zonename,
+		);
+		return $this->CallApiGet('/bind/general/zonetest', $params);
+	}
+	
+	public function ApiGetCaddyDiagnosticsCaddyfile(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/caddy/diagnostics/caddyfile');
+	}
+	
+	public function ApiGetCaddyDiagnosticsConfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/caddy/diagnostics/config');
+	}
+	
+	public function ApiGetCaddyDiagnosticsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/caddy/diagnostics/get');
+	}
+	
+	public function ApiGetCaddyGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/caddy/general/get');
+	}
+	
+	public function ApiGetCaddyReverseProxyGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/caddy/reverse_proxy/get');
+	}
+	
+	public function ApiGetCaddyReverseProxyGetAccessList($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/caddy/reverse_proxy/get_access_list', $params);
+	}
+	
+	public function ApiGetCaddyReverseProxyGetAllReverseDomains(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/caddy/reverse_proxy/get_all_reverse_domains');
+	}
+	
+	public function ApiGetCaddyReverseProxyGetBasicAuth($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/caddy/reverse_proxy/get_basic_auth', $params);
+	}
+	
+	public function ApiGetCaddyReverseProxyGetHandle($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/caddy/reverse_proxy/get_handle', $params);
+	}
+	
+	public function ApiGetCaddyReverseProxyGetHeader($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/caddy/reverse_proxy/get_header', $params);
+	}
+	
+	public function ApiGetCaddyReverseProxyGetLayer4($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/caddy/reverse_proxy/get_layer4', $params);
+	}
+	
+	public function ApiGetCaddyReverseProxyGetLayer4Openvpn($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/caddy/reverse_proxy/get_layer4_openvpn', $params);
+	}
+	
+	public function ApiGetCaddyReverseProxyGetReverseProxy($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/caddy/reverse_proxy/get_reverse_proxy', $params);
+	}
+	
+	public function ApiGetCaddyReverseProxyGetSubdomain($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/caddy/reverse_proxy/get_subdomain', $params);
+	}
+	
+	public function ApiGetCaddyServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/caddy/service/status');
+	}
+	
+	public function ApiGetChronyGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/chrony/general/get');
+	}
+	
+	public function ApiGetChronyServiceChronyauthdata(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/chrony/service/chronyauthdata');
+	}
+	
+	public function ApiGetChronyServiceChronysources(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/chrony/service/chronysources');
+	}
+	
+	public function ApiGetChronyServiceChronysourcestats(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/chrony/service/chronysourcestats');
+	}
+	
+	public function ApiGetChronyServiceChronytracking(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/chrony/service/chronytracking');
+	}
+	
+	public function ApiGetChronyServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/chrony/service/status');
+	}
+	
+	public function ApiGetCicapAntivirusGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/cicap/antivirus/get');
+	}
+	
+	public function ApiGetCicapGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/cicap/general/get');
+	}
+	
+	public function ApiGetCicapServiceCheckclamav(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/cicap/service/checkclamav');
+	}
+	
+	public function ApiGetCicapServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/cicap/service/status');
+	}
+	
+	public function ApiGetClamavGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/clamav/general/get');
+	}
+	
+	public function ApiGetClamavServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/clamav/service/status');
+	}
+	
+	public function ApiGetClamavServiceVersion(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/clamav/service/version');
+	}
+	
+	public function ApiGetClamavUrlGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/clamav/url/get');
+	}
+	
+	public function ApiGetClamavUrlGetUrl($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/clamav/url/get_url', $params);
+	}
+	
+	public function ApiGetCloudflaredServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/cloudflared/service/status');
+	}
+	
+	public function ApiGetCloudflaredSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/cloudflared/settings/get');
+	}
+	
+	public function ApiGetCollectdGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/collectd/general/get');
+	}
+	
+	public function ApiGetCollectdServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/collectd/service/status');
+	}
+	
+	public function ApiGetCrowdsecAlertsSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/alerts/search');
+	}
+	
+	public function ApiGetCrowdsecAppsecconfigsSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/appsecconfigs/search');
+	}
+	
+	public function ApiGetCrowdsecAppsecrulesSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/appsecrules/search');
+	}
+	
+	public function ApiGetCrowdsecBouncersSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/bouncers/search');
+	}
+	
+	public function ApiGetCrowdsecCollectionsSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/collections/search');
+	}
+	
+	public function ApiGetCrowdsecDecisionsSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/decisions/search');
+	}
+	
+	public function ApiGetCrowdsecGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/general/get');
+	}
+	
+	public function ApiGetCrowdsecMachinesSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/machines/search');
+	}
+	
+	public function ApiGetCrowdsecParsersSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/parsers/search');
+	}
+	
+	public function ApiGetCrowdsecPostoverflowsSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/postoverflows/search');
+	}
+	
+	public function ApiGetCrowdsecScenariosSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/scenarios/search');
+	}
+	
+	public function ApiGetCrowdsecServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/service/reconfigure');
+	}
+	
+	public function ApiGetCrowdsecServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/service/status');
+	}
+	
+	public function ApiGetCrowdsecVersionGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/crowdsec/version/get');
+	}
+	
+	public function ApiGetDechwInfoPowerStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/dechw/info/power_status');
+	}
+	
+	public function ApiGetDiagnosticsProofpointEtStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/diagnostics/proofpoint_et/status');
+	}
+	
+	public function ApiGetDmidecodeServiceGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/dmidecode/service/get');
+	}
+	
+	public function ApiGetDnscryptproxyCloakGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/dnscryptproxy/cloak/get');
+	}
+	
+	public function ApiGetDnscryptproxyCloakGetCloak($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnscryptproxy/cloak/get_cloak', $params);
+	}
+	
+	public function ApiGetDnscryptproxyDnsblGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/dnscryptproxy/dnsbl/get');
+	}
+	
+	public function ApiGetDnscryptproxyForwardGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/dnscryptproxy/forward/get');
+	}
+	
+	public function ApiGetDnscryptproxyForwardGetForward($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnscryptproxy/forward/get_forward', $params);
+	}
+	
+	public function ApiGetDnscryptproxyGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/dnscryptproxy/general/get');
+	}
+	
+	public function ApiGetDnscryptproxyServerGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/dnscryptproxy/server/get');
+	}
+	
+	public function ApiGetDnscryptproxyServerGetServer($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnscryptproxy/server/get_server', $params);
+	}
+	
+	public function ApiGetDnscryptproxyServiceDnsbl(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/dnscryptproxy/service/dnsbl');
+	}
+	
+	public function ApiGetDnscryptproxyServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/dnscryptproxy/service/status');
+	}
+	
+	public function ApiGetDnscryptproxyWhitelistGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/dnscryptproxy/whitelist/get');
+	}
+	
+	public function ApiGetDnscryptproxyWhitelistGetWhitelist($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/dnscryptproxy/whitelist/get_whitelist', $params);
+	}
+	
+	public function ApiGetFreeradiusAvpairGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/avpair/get');
+	}
+	
+	public function ApiGetFreeradiusAvpairGetAvpair($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/avpair/get_avpair', $params);
+	}
+	
+	public function ApiGetFreeradiusClientGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/client/get');
+	}
+	
+	public function ApiGetFreeradiusClientGetClient($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/client/get_client', $params);
+	}
+	
+	public function ApiGetFreeradiusClientSearchClient(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/client/search_client');
+	}
+	
+	public function ApiGetFreeradiusClientToggleClient($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/client/toggle_client', $params);
+	}
+	
+	public function ApiGetFreeradiusDhcpGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/dhcp/get');
+	}
+	
+	public function ApiGetFreeradiusDhcpGetDhcp($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/dhcp/get_dhcp', $params);
+	}
+	
+	public function ApiGetFreeradiusEapGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/eap/get');
+	}
+	
+	public function ApiGetFreeradiusGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/general/get');
+	}
+	
+	public function ApiGetFreeradiusLdapGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/ldap/get');
+	}
+	
+	public function ApiGetFreeradiusLdapgroupGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/ldapgroup/get');
+	}
+	
+	public function ApiGetFreeradiusLdapgroupGetLdapgroup($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/ldapgroup/get_ldapgroup', $params);
+	}
+	
+	public function ApiGetFreeradiusLdapgroupSearchLdapgroup(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/ldapgroup/search_ldapgroup');
+	}
+	
+	public function ApiGetFreeradiusLdapgroupToggleLdapgroup($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/ldapgroup/toggle_ldapgroup', $params);
+	}
+	
+	public function ApiGetFreeradiusLeaseGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/lease/get');
+	}
+	
+	public function ApiGetFreeradiusLeaseGetLease($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/lease/get_lease', $params);
+	}
+	
+	public function ApiGetFreeradiusProxyGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/proxy/get');
+	}
+	
+	public function ApiGetFreeradiusProxyGetHomeserver($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/proxy/get_homeserver', $params);
+	}
+	
+	public function ApiGetFreeradiusProxyGetHomeserverpool($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/proxy/get_homeserverpool', $params);
+	}
+	
+	public function ApiGetFreeradiusProxyGetRealm($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/proxy/get_realm', $params);
+	}
+	
+	public function ApiGetFreeradiusProxySearchHomeserver(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/proxy/search_homeserver');
+	}
+	
+	public function ApiGetFreeradiusProxySearchHomeserverpool(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/proxy/search_homeserverpool');
+	}
+	
+	public function ApiGetFreeradiusProxySearchRealm(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/proxy/search_realm');
+	}
+	
+	public function ApiGetFreeradiusProxyToggleHomeserver($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/proxy/toggle_homeserver', $params);
+	}
+	
+	public function ApiGetFreeradiusProxyToggleHomeserverpool($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/proxy/toggle_homeserverpool', $params);
+	}
+	
+	public function ApiGetFreeradiusProxyToggleRealm($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/proxy/toggle_realm', $params);
+	}
+	
+	public function ApiGetFreeradiusServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/service/status');
+	}
+	
+	public function ApiGetFreeradiusUserGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/user/get');
+	}
+	
+	public function ApiGetFreeradiusUserGetUser($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/user/get_user', $params);
+	}
+	
+	public function ApiGetFreeradiusUserSearchUser(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/freeradius/user/search_user');
+	}
+	
+	public function ApiGetFreeradiusUserToggleUser($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/freeradius/user/toggle_user', $params);
+	}
+	
+	public function ApiGetFtpproxyServiceConfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/ftpproxy/service/config');
+	}
+	
+	public function ApiGetFtpproxyServiceReload(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/ftpproxy/service/reload');
+	}
+	
+	public function ApiGetFtpproxyServiceRestart($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ftpproxy/service/restart', $params);
+	}
+	
+	public function ApiGetFtpproxyServiceStart($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ftpproxy/service/start', $params);
+	}
+	
+	public function ApiGetFtpproxyServiceStatus($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ftpproxy/service/status', $params);
+	}
+	
+	public function ApiGetFtpproxyServiceStop($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ftpproxy/service/stop', $params);
+	}
+	
+	public function ApiGetFtpproxySettingsGetProxy($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ftpproxy/settings/get_proxy', $params);
+	}
+	
+	public function ApiGetFtpproxySettingsSearchProxy(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/ftpproxy/settings/search_proxy');
+	}
+	
+	public function ApiGetGridexampleServiceReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/gridexample/service/reconfigure');
+	}
+	
+	public function ApiGetGridexampleSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/gridexample/settings/get');
+	}
+	
+	public function ApiGetGridexampleSettingsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/gridexample/settings/get_item', $params);
+	}
+	
+	public function ApiGetHaproxyExportConfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/export/config');
+	}
+	
+	public function ApiGetHaproxyExportDiff(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/export/diff');
+	}
+	
+	public function ApiGetHaproxyExportDownload($type){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'type'	=> $type,
+		);
+		return $this->CallApiGet('/haproxy/export/download', $params);
+	}
+	
+	public function ApiGetHaproxyMaintenanceCertActions(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/maintenance/cert_actions');
+	}
+	
+	public function ApiGetHaproxyMaintenanceCertDiff(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/maintenance/cert_diff');
+	}
+	
+	public function ApiGetHaproxyMaintenanceCertSync(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/maintenance/cert_sync');
+	}
+	
+	public function ApiGetHaproxyMaintenanceCertSyncBulk(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/maintenance/cert_sync_bulk');
+	}
+	
+	public function ApiGetHaproxyMaintenanceGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/maintenance/get');
+	}
+	
+	public function ApiGetHaproxyMaintenanceSearchCertificateDiff(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/maintenance/search_certificate_diff');
+	}
+	
+	public function ApiGetHaproxyMaintenanceSearchServer(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/maintenance/search_server');
+	}
+	
+	public function ApiGetHaproxyMaintenanceServerState(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/maintenance/server_state');
+	}
+	
+	public function ApiGetHaproxyMaintenanceServerStateBulk(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/maintenance/server_state_bulk');
+	}
+	
+	public function ApiGetHaproxyMaintenanceServerWeight(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/maintenance/server_weight');
+	}
+	
+	public function ApiGetHaproxyMaintenanceServerWeightBulk(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/maintenance/server_weight_bulk');
+	}
+	
+	public function ApiGetHaproxyServiceConfigtest(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/service/configtest');
+	}
+	
+	public function ApiGetHaproxyServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/service/status');
+	}
+	
+	public function ApiGetHaproxySettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/settings/get');
+	}
+	
+	public function ApiGetHaproxySettingsGetAcl($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/get_acl', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetAction($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/get_action', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetBackend($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/get_backend', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetCpu($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/get_cpu', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetErrorfile($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/get_errorfile', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetFcgi($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/get_fcgi', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetFrontend($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/get_frontend', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetGroup($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/get_group', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetHealthcheck($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/get_healthcheck', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetLua($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/get_lua', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetMapfile($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/get_mapfile', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetServer($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/get_server', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetUser($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/get_user', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetmailer($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/getmailer', $params);
+	}
+	
+	public function ApiGetHaproxySettingsGetresolver($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/haproxy/settings/getresolver', $params);
+	}
+	
+	public function ApiGetHaproxyStatisticsCounters(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/statistics/counters');
+	}
+	
+	public function ApiGetHaproxyStatisticsInfo(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/statistics/info');
+	}
+	
+	public function ApiGetHaproxyStatisticsTables(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/haproxy/statistics/tables');
+	}
+	
+	public function ApiGetHelloworldSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/helloworld/settings/get');
+	}
+	
+	public function ApiGetHwprobeGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/hwprobe/general/get');
+	}
+	
+	public function ApiGetHwprobeServiceReport(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/hwprobe/service/report');
+	}
+	
+	public function ApiGetHwprobeServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/hwprobe/service/status');
+	}
+	
+	public function ApiGetIperfClientGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/iperf/client/get');
+	}
+	
+	public function ApiGetIperfClientRemove($jobid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobid'	=> $jobid,
+		);
+		return $this->CallApiGet('/iperf/client/remove', $params);
+	}
+	
+	public function ApiGetIperfClientSearchJobs(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/iperf/client/search_jobs');
+	}
+	
+	public function ApiGetIperfClientStart($jobid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobid'	=> $jobid,
+		);
+		return $this->CallApiGet('/iperf/client/start', $params);
+	}
+	
+	public function ApiGetIperfClientStop($jobid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobid'	=> $jobid,
+		);
+		return $this->CallApiGet('/iperf/client/stop', $params);
+	}
+	
+	public function ApiGetIperfClientView($jobid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobid'	=> $jobid,
+		);
+		return $this->CallApiGet('/iperf/client/view', $params);
+	}
+	
+	public function ApiGetIperfInstanceRemove($jobId){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobId'	=> $jobId,
+		);
+		return $this->CallApiGet('/iperf/instance/remove', $params);
+	}
+	
+	public function ApiGetIperfInstanceSearchJobs(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/iperf/instance/search_jobs');
+	}
+	
+	public function ApiGetIperfInstanceStart($jobId){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobId'	=> $jobId,
+		);
+		return $this->CallApiGet('/iperf/instance/start', $params);
+	}
+	
+	public function ApiGetIperfInstanceStop($jobId){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobId'	=> $jobId,
+		);
+		return $this->CallApiGet('/iperf/instance/stop', $params);
+	}
+	
+	public function ApiGetIperfInstanceView($jobId){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'jobId'	=> $jobId,
+		);
+		return $this->CallApiGet('/iperf/instance/view', $params);
+	}
+	
+	public function ApiGetLldpdGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/lldpd/general/get');
+	}
+	
+	public function ApiGetLldpdServiceNeighbor(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/lldpd/service/neighbor');
+	}
+	
+	public function ApiGetLldpdServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/lldpd/service/status');
+	}
+	
+	public function ApiGetMaltrailGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/maltrail/general/get');
+	}
+	
+	public function ApiGetMaltrailSensorGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/maltrail/sensor/get');
+	}
+	
+	public function ApiGetMaltrailServerGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/maltrail/server/get');
+	}
+	
+	public function ApiGetMaltrailServerserviceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/maltrail/serverservice/status');
+	}
+	
+	public function ApiGetMaltrailServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/maltrail/service/status');
+	}
+	
+	public function ApiGetMdnsrepeaterServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/mdnsrepeater/service/status');
+	}
+	
+	public function ApiGetMdnsrepeaterSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/mdnsrepeater/settings/get');
+	}
+	
+	public function ApiGetNdpproxyGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/ndpproxy/general/get');
+	}
+	
+	public function ApiGetNdpproxyGeneralGetAlias($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/ndpproxy/general/get_alias', $params);
+	}
+	
+	public function ApiGetNdpproxyServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/ndpproxy/service/status');
+	}
+	
+	public function ApiGetNdproxyGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/ndproxy/general/get');
+	}
+	
+	public function ApiGetNdproxyServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/ndproxy/service/status');
+	}
+	
+	public function ApiGetNetbirdAuthenticationDown(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/netbird/authentication/down');
+	}
+	
+	public function ApiGetNetbirdAuthenticationGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/netbird/authentication/get');
+	}
+	
+	public function ApiGetNetbirdAuthenticationUp(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/netbird/authentication/up');
+	}
+	
+	public function ApiGetNetbirdServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/netbird/service/status');
+	}
+	
+	public function ApiGetNetbirdSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/netbird/settings/get');
+	}
+	
+	public function ApiGetNetbirdSettingsSync(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/netbird/settings/sync');
+	}
+	
+	public function ApiGetNetbirdStatusGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/netbird/status/get');
+	}
+	
+	public function ApiGetNetbirdStatusStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/netbird/status/status');
+	}
+	
+	public function ApiGetNetflectorServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/netflector/service/status');
+	}
+	
+	public function ApiGetNetflectorSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/netflector/settings/get');
+	}
+	
+	public function ApiGetNetflectorSettingsGetReflector($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/netflector/settings/get_reflector', $params);
+	}
+	
+	public function ApiGetNetsnmpGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/netsnmp/general/get');
+	}
+	
+	public function ApiGetNetsnmpServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/netsnmp/service/status');
+	}
+	
+	public function ApiGetNetsnmpUserGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/netsnmp/user/get');
+	}
+	
+	public function ApiGetNetsnmpUserGetUser($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/netsnmp/user/get_user', $params);
+	}
+	
+	public function ApiGetNginxBansGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nginx/bans/get');
+	}
+	
+	public function ApiGetNginxLogsAccesses($uuid="null", $fileno="null", $page="0", $perPage="0", $query=""){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'fileno'	=> $fileno,
+			'page'	=> $page,
+			'perPage'	=> $perPage,
+			'query'	=> $query,
+		);
+		return $this->CallApiGet('/nginx/logs/accesses', $params);
+	}
+	
+	public function ApiGetNginxLogsErrors($uuid="null", $fileno="null", $page="0", $perPage="0", $query=""){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'fileno'	=> $fileno,
+			'page'	=> $page,
+			'perPage'	=> $perPage,
+			'query'	=> $query,
+		);
+		return $this->CallApiGet('/nginx/logs/errors', $params);
+	}
+	
+	public function ApiGetNginxLogsStreamaccesses($uuid="null", $fileno="null", $page="0", $perPage="0", $query=""){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'fileno'	=> $fileno,
+			'page'	=> $page,
+			'perPage'	=> $perPage,
+			'query'	=> $query,
+		);
+		return $this->CallApiGet('/nginx/logs/streamaccesses', $params);
+	}
+	
+	public function ApiGetNginxLogsStreamerrors($uuid="null", $fileno="null", $page="0", $perPage="0", $query=""){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+			'fileno'	=> $fileno,
+			'page'	=> $page,
+			'perPage'	=> $perPage,
+			'query'	=> $query,
+		);
+		return $this->CallApiGet('/nginx/logs/streamerrors', $params);
+	}
+	
+	public function ApiGetNginxLogsTlsHandshakes(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nginx/logs/tls_handshakes');
+	}
+	
+	public function ApiGetNginxServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nginx/service/status');
+	}
+	
+	public function ApiGetNginxServiceStop(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nginx/service/stop');
+	}
+	
+	public function ApiGetNginxServiceVts(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nginx/service/vts');
+	}
+	
+	public function ApiGetNginxSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nginx/settings/get');
+	}
+	
+	public function ApiGetNginxSettingsGetcachePath($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getcache_path', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetcredential($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getcredential', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetcustompolicy($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getcustompolicy', $params);
+	}
+	
+	public function ApiGetNginxSettingsGeterrorpage($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/geterrorpage', $params);
+	}
+	
+	public function ApiGetNginxSettingsGethttprewrite($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/gethttprewrite', $params);
+	}
+	
+	public function ApiGetNginxSettingsGethttpserver($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/gethttpserver', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetipacl($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getipacl', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetlimitRequestConnection($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getlimit_request_connection', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetlimitZone($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getlimit_zone', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetlocation($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getlocation', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetnaxsirule($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getnaxsirule', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetproxyCacheValid($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getproxy_cache_valid', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetresolver($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getresolver', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetsecurityHeader($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getsecurity_header', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetsnifwd($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getsnifwd', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetstreamserver($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getstreamserver', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetsyslogTarget($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getsyslog_target', $params);
+	}
+	
+	public function ApiGetNginxSettingsGettlsFingerprint($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/gettls_fingerprint', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetupstream($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getupstream', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetupstreamserver($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getupstreamserver', $params);
+	}
+	
+	public function ApiGetNginxSettingsGetuserlist($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nginx/settings/getuserlist', $params);
+	}
+	
+	public function ApiGetNginxSettingsShowconfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nginx/settings/showconfig');
+	}
+	
+	public function ApiGetNginxSettingsTestconfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nginx/settings/testconfig');
+	}
+	
+	public function ApiGetNodeexporterGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nodeexporter/general/get');
+	}
+	
+	public function ApiGetNodeexporterServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nodeexporter/service/status');
+	}
+	
+	public function ApiGetNrpeCommandGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nrpe/command/get');
+	}
+	
+	public function ApiGetNrpeCommandGetCommand($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/nrpe/command/get_command', $params);
+	}
+	
+	public function ApiGetNrpeGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nrpe/general/get');
+	}
+	
+	public function ApiGetNrpeServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nrpe/service/status');
+	}
+	
+	public function ApiGetNutDiagnosticsUpsstatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nut/diagnostics/upsstatus');
+	}
+	
+	public function ApiGetNutServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nut/service/status');
+	}
+	
+	public function ApiGetNutSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/nut/settings/get');
+	}
+	
+	public function ApiGetOpenconnectGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/openconnect/general/get');
+	}
+	
+	public function ApiGetOpenconnectServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/openconnect/service/status');
+	}
+	
+	public function ApiGetPostfixAddressGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/postfix/address/get');
+	}
+	
+	public function ApiGetPostfixAddressGetAddress($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/postfix/address/get_address', $params);
+	}
+	
+	public function ApiGetPostfixAntispamGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/postfix/antispam/get');
+	}
+	
+	public function ApiGetPostfixDomainGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/postfix/domain/get');
+	}
+	
+	public function ApiGetPostfixDomainGetDomain($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/postfix/domain/get_domain', $params);
+	}
+	
+	public function ApiGetPostfixGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/postfix/general/get');
+	}
+	
+	public function ApiGetPostfixHeaderchecksGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/postfix/headerchecks/get');
+	}
+	
+	public function ApiGetPostfixHeaderchecksGetHeadercheck($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/postfix/headerchecks/get_headercheck', $params);
+	}
+	
+	public function ApiGetPostfixRecipientGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/postfix/recipient/get');
+	}
+	
+	public function ApiGetPostfixRecipientGetRecipient($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/postfix/recipient/get_recipient', $params);
+	}
+	
+	public function ApiGetPostfixRecipientbccGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/postfix/recipientbcc/get');
+	}
+	
+	public function ApiGetPostfixRecipientbccGetRecipientbcc($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/postfix/recipientbcc/get_recipientbcc', $params);
+	}
+	
+	public function ApiGetPostfixSenderGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/postfix/sender/get');
+	}
+	
+	public function ApiGetPostfixSenderGetSender($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/postfix/sender/get_sender', $params);
+	}
+	
+	public function ApiGetPostfixSenderbccGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/postfix/senderbcc/get');
+	}
+	
+	public function ApiGetPostfixSenderbccGetSenderbcc($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/postfix/senderbcc/get_senderbcc', $params);
+	}
+	
+	public function ApiGetPostfixSendercanonicalGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/postfix/sendercanonical/get');
+	}
+	
+	public function ApiGetPostfixSendercanonicalGetSendercanonical($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/postfix/sendercanonical/get_sendercanonical', $params);
+	}
+	
+	public function ApiGetPostfixServiceCheckrspamd(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/postfix/service/checkrspamd');
+	}
+	
+	public function ApiGetPostfixServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/postfix/service/status');
+	}
+	
+	public function ApiGetProxyAclGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/proxy/acl/get');
+	}
+	
+	public function ApiGetProxyAclGetCustomPolicy($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/proxy/acl/get_custom_policy', $params);
+	}
+	
+	public function ApiGetProxyAclGetPolicy($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/proxy/acl/get_policy', $params);
+	}
+	
+	public function ApiGetProxyssoServiceDeletekeytab(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/proxysso/service/deletekeytab');
+	}
+	
+	public function ApiGetProxyssoServiceGetCheckList(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/proxysso/service/get_check_list');
+	}
+	
+	public function ApiGetProxyssoServiceShowkeytab(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/proxysso/service/showkeytab');
+	}
+	
+	public function ApiGetProxyssoSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/proxysso/settings/get');
+	}
+	
+	public function ApiGetPuppetagentServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/puppetagent/service/status');
+	}
+	
+	public function ApiGetPuppetagentSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/puppetagent/settings/get');
+	}
+	
+	public function ApiGetQemuguestagentServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/qemuguestagent/service/status');
+	}
+	
+	public function ApiGetQemuguestagentSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/qemuguestagent/settings/get');
+	}
+	
+	public function ApiGetQfeedsSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/qfeeds/settings/get');
+	}
+	
+	public function ApiGetQfeedsSettingsReconfigure(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/qfeeds/settings/reconfigure');
+	}
+	
+	public function ApiGetQfeedsSettingsSearchEvents(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/qfeeds/settings/search_events');
+	}
+	
+	public function ApiGetQfeedsSettingsSearchFeeds(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/qfeeds/settings/search_feeds');
+	}
+	
+	public function ApiGetQfeedsSettingsStats(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/qfeeds/settings/stats');
+	}
+	
+	public function ApiGetQuaggaBfdGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/bfd/get');
+	}
+	
+	public function ApiGetQuaggaBfdGetNeighbor($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/bfd/get_neighbor', $params);
+	}
+	
+	public function ApiGetQuaggaBgpGetAspath($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/bgp/get_aspath', $params);
+	}
+	
+	public function ApiGetQuaggaBgpGetCommunitylist($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/bgp/get_communitylist', $params);
+	}
+	
+	public function ApiGetQuaggaBgpGetNeighbor($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/bgp/get_neighbor', $params);
+	}
+	
+	public function ApiGetQuaggaBgpGetPeergroup($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/bgp/get_peergroup', $params);
+	}
+	
+	public function ApiGetQuaggaBgpGetPrefixlist($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/bgp/get_prefixlist', $params);
+	}
+	
+	public function ApiGetQuaggaBgpGetRedistribution($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/bgp/get_redistribution', $params);
+	}
+	
+	public function ApiGetQuaggaBgpGetRoutemap($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/bgp/get_routemap', $params);
+	}
+	
+	public function ApiGetQuaggaDiagnosticsBfdcounters(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/bfdcounters');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsBfdneighbors(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/bfdneighbors');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsBfdstaticroute(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/bfdstaticroute');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsBfdsummary(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/bfdsummary');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsBgpneighbors(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/bgpneighbors');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsBgpsummary(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/bgpsummary');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsGeneralrunningconfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/generalrunningconfig');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsOspfdatabase(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/ospfdatabase');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsOspfinterface(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/ospfinterface');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsOspfoverview(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/ospfoverview');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsOspfv3interface(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/ospfv3interface');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsOspfv3overview(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/ospfv3overview');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsSearchBgproute4(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/search_bgproute4');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsSearchBgproute6(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/search_bgproute6');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsSearchGeneralroute4(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/search_generalroute4');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsSearchGeneralroute6(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/search_generalroute6');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsSearchOspfneighbor(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/search_ospfneighbor');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsSearchOspfroute(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/search_ospfroute');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsSearchOspfv3database(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/diagnostics/search_ospfv3database');
+	}
+	
+	public function ApiGetQuaggaDiagnosticsSearchOspfv3route($format="json"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'format'	=> $format,
+		);
+		return $this->CallApiGet('/quagga/diagnostics/search_ospfv3route', $params);
+	}
+	
+	public function ApiGetQuaggaGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/general/get');
+	}
+	
+	public function ApiGetQuaggaOspf6settingsGetArea($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/ospf6settings/get_area', $params);
+	}
+	
+	public function ApiGetQuaggaOspf6settingsGetInterface($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/ospf6settings/get_interface', $params);
+	}
+	
+	public function ApiGetQuaggaOspf6settingsGetPrefixlist($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/ospf6settings/get_prefixlist', $params);
+	}
+	
+	public function ApiGetQuaggaOspf6settingsGetRedistribution($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/ospf6settings/get_redistribution', $params);
+	}
+	
+	public function ApiGetQuaggaOspf6settingsGetRoutemap($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/ospf6settings/get_routemap', $params);
+	}
+	
+	public function ApiGetQuaggaOspfsettingsGetArea($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/ospfsettings/get_area', $params);
+	}
+	
+	public function ApiGetQuaggaOspfsettingsGetInterface($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/ospfsettings/get_interface', $params);
+	}
+	
+	public function ApiGetQuaggaOspfsettingsGetNeighbor($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/ospfsettings/get_neighbor', $params);
+	}
+	
+	public function ApiGetQuaggaOspfsettingsGetNetwork($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/ospfsettings/get_network', $params);
+	}
+	
+	public function ApiGetQuaggaOspfsettingsGetPrefixlist($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/ospfsettings/get_prefixlist', $params);
+	}
+	
+	public function ApiGetQuaggaOspfsettingsGetRedistribution($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/ospfsettings/get_redistribution', $params);
+	}
+	
+	public function ApiGetQuaggaOspfsettingsGetRoutemap($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/ospfsettings/get_routemap', $params);
+	}
+	
+	public function ApiGetQuaggaRipGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/rip/get');
+	}
+	
+	public function ApiGetQuaggaServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/service/status');
+	}
+	
+	public function ApiGetQuaggaStaticGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/quagga/static/get');
+	}
+	
+	public function ApiGetQuaggaStaticGetRoute($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/quagga/static/get_route', $params);
+	}
+	
+	public function ApiGetRadsecproxyClientsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/radsecproxy/clients/get');
+	}
+	
+	public function ApiGetRadsecproxyClientsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/radsecproxy/clients/get_item', $params);
+	}
+	
+	public function ApiGetRadsecproxyGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/radsecproxy/general/get');
+	}
+	
+	public function ApiGetRadsecproxyRealmsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/radsecproxy/realms/get');
+	}
+	
+	public function ApiGetRadsecproxyRealmsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/radsecproxy/realms/get_item', $params);
+	}
+	
+	public function ApiGetRadsecproxyRewritesGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/radsecproxy/rewrites/get');
+	}
+	
+	public function ApiGetRadsecproxyRewritesGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/radsecproxy/rewrites/get_item', $params);
+	}
+	
+	public function ApiGetRadsecproxyServersGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/radsecproxy/servers/get');
+	}
+	
+	public function ApiGetRadsecproxyServersGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/radsecproxy/servers/get_item', $params);
+	}
+	
+	public function ApiGetRadsecproxyServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/radsecproxy/service/status');
+	}
+	
+	public function ApiGetRadsecproxyTlsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/radsecproxy/tls/get');
+	}
+	
+	public function ApiGetRadsecproxyTlsGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/radsecproxy/tls/get_item', $params);
+	}
+	
+	public function ApiGetRelaydServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/relayd/service/status');
+	}
+	
+	public function ApiGetRelaydSettingsDel($nodeType="null", $uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'nodeType'	=> $nodeType,
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/relayd/settings/del', $params);
+	}
+	
+	public function ApiGetRelaydSettingsDirty(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/relayd/settings/dirty');
+	}
+	
+	public function ApiGetRelaydSettingsGet($nodeType="null", $uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'nodeType'	=> $nodeType,
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/relayd/settings/get', $params);
+	}
+	
+	public function ApiGetRelaydStatusSum($wait="0"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'wait'	=> $wait,
+		);
+		return $this->CallApiGet('/relayd/status/sum', $params);
+	}
+	
+	public function ApiGetRspamdServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/rspamd/service/status');
+	}
+	
+	public function ApiGetRspamdSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/rspamd/settings/get');
+	}
+	
+	public function ApiGetShadowsocksGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/shadowsocks/general/get');
+	}
+	
+	public function ApiGetShadowsocksLocalGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/shadowsocks/local/get');
+	}
+	
+	public function ApiGetShadowsocksLocalserviceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/shadowsocks/localservice/status');
+	}
+	
+	public function ApiGetShadowsocksServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/shadowsocks/service/status');
+	}
+	
+	public function ApiGetSiproxdDomainGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/siproxd/domain/get');
+	}
+	
+	public function ApiGetSiproxdDomainGetDomain($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/siproxd/domain/get_domain', $params);
+	}
+	
+	public function ApiGetSiproxdDomainSearchDomain(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/siproxd/domain/search_domain');
+	}
+	
+	public function ApiGetSiproxdDomainToggleDomain($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/siproxd/domain/toggle_domain', $params);
+	}
+	
+	public function ApiGetSiproxdGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/siproxd/general/get');
+	}
+	
+	public function ApiGetSiproxdServiceShowregistrations(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/siproxd/service/showregistrations');
+	}
+	
+	public function ApiGetSiproxdServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/siproxd/service/status');
+	}
+	
+	public function ApiGetSiproxdUserGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/siproxd/user/get');
+	}
+	
+	public function ApiGetSiproxdUserGetUser($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/siproxd/user/get_user', $params);
+	}
+	
+	public function ApiGetSiproxdUserSearchUser(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/siproxd/user/search_user');
+	}
+	
+	public function ApiGetSiproxdUserToggleUser($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/siproxd/user/toggle_user', $params);
+	}
+	
+	public function ApiGetSoftetherGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/softether/general/get');
+	}
+	
+	public function ApiGetSoftetherServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/softether/service/status');
+	}
+	
+	public function ApiGetSslhServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/sslh/service/status');
+	}
+	
+	public function ApiGetSslhSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/sslh/settings/get');
+	}
+	
+	public function ApiGetSslhSettingsIndex(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/sslh/settings/index');
+	}
+	
+	public function ApiGetStunnelServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/stunnel/service/status');
+	}
+	
+	public function ApiGetStunnelServicesGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/stunnel/services/get');
+	}
+	
+	public function ApiGetStunnelServicesGetItem($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/stunnel/services/get_item', $params);
+	}
+	
+	public function ApiGetTailscaleAuthenticationGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tailscale/authentication/get');
+	}
+	
+	public function ApiGetTailscaleServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tailscale/service/status');
+	}
+	
+	public function ApiGetTailscaleSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tailscale/settings/get');
+	}
+	
+	public function ApiGetTailscaleSettingsGetSubnet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/tailscale/settings/get_subnet', $params);
+	}
+	
+	public function ApiGetTailscaleSettingsReload(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tailscale/settings/reload');
+	}
+	
+	public function ApiGetTailscaleStatusGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tailscale/status/get');
+	}
+	
+	public function ApiGetTailscaleStatusIp(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tailscale/status/ip');
+	}
+	
+	public function ApiGetTailscaleStatusNet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tailscale/status/net');
+	}
+	
+	public function ApiGetTailscaleStatusStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tailscale/status/status');
+	}
+	
+	public function ApiGetTaygaGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tayga/general/get');
+	}
+	
+	public function ApiGetTaygaMappingGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tayga/mapping/get');
+	}
+	
+	public function ApiGetTaygaMappingGetStaticmapping($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/tayga/mapping/get_staticmapping', $params);
+	}
+	
+	public function ApiGetTaygaServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tayga/service/status');
+	}
+	
+	public function ApiGetTelegrafGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/telegraf/general/get');
+	}
+	
+	public function ApiGetTelegrafInputGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/telegraf/input/get');
+	}
+	
+	public function ApiGetTelegrafKeyGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/telegraf/key/get');
+	}
+	
+	public function ApiGetTelegrafKeyGetKey($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/telegraf/key/get_key', $params);
+	}
+	
+	public function ApiGetTelegrafOutputGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/telegraf/output/get');
+	}
+	
+	public function ApiGetTelegrafServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/telegraf/service/status');
+	}
+	
+	public function ApiGetTftpGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tftp/general/get');
+	}
+	
+	public function ApiGetTftpServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tftp/service/status');
+	}
+	
+	public function ApiGetTincSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tinc/settings/get');
+	}
+	
+	public function ApiGetTincSettingsGetHost($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/tinc/settings/get_host', $params);
+	}
+	
+	public function ApiGetTincSettingsGetNetwork($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/tinc/settings/get_network', $params);
+	}
+	
+	public function ApiGetTincSettingsSearchHost(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tinc/settings/search_host');
+	}
+	
+	public function ApiGetTincSettingsSearchNetwork(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tinc/settings/search_network');
+	}
+	
+	public function ApiGetTorExitaclGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tor/exitacl/get');
+	}
+	
+	public function ApiGetTorExitaclGetacl($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/tor/exitacl/getacl', $params);
+	}
+	
+	public function ApiGetTorGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tor/general/get');
+	}
+	
+	public function ApiGetTorGeneralGethidservauth($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/tor/general/gethidservauth', $params);
+	}
+	
+	public function ApiGetTorHiddenserviceGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tor/hiddenservice/get');
+	}
+	
+	public function ApiGetTorHiddenserviceGetservice($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/tor/hiddenservice/getservice', $params);
+	}
+	
+	public function ApiGetTorHiddenserviceaclGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tor/hiddenserviceacl/get');
+	}
+	
+	public function ApiGetTorHiddenserviceaclGetacl($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/tor/hiddenserviceacl/getacl', $params);
+	}
+	
+	public function ApiGetTorRelayGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tor/relay/get');
+	}
+	
+	public function ApiGetTorServiceCircuits(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tor/service/circuits');
+	}
+	
+	public function ApiGetTorServiceGetHiddenServices(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tor/service/get_hidden_services');
+	}
+	
+	public function ApiGetTorServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tor/service/status');
+	}
+	
+	public function ApiGetTorServiceStreams(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tor/service/streams');
+	}
+	
+	public function ApiGetTorSocksaclGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/tor/socksacl/get');
+	}
+	
+	public function ApiGetTorSocksaclGetacl($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/tor/socksacl/getacl', $params);
+	}
+	
+	public function ApiGetTurnserverServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/turnserver/service/status');
+	}
+	
+	public function ApiGetTurnserverSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/turnserver/settings/get');
+	}
+	
+	public function ApiGetUdpbroadcastrelayServiceConfig(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/udpbroadcastrelay/service/config');
+	}
+	
+	public function ApiGetUdpbroadcastrelayServiceGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/udpbroadcastrelay/service/get');
+	}
+	
+	public function ApiGetUdpbroadcastrelayServiceReload(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/udpbroadcastrelay/service/reload');
+	}
+	
+	public function ApiGetUdpbroadcastrelayServiceRestart($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/udpbroadcastrelay/service/restart', $params);
+	}
+	
+	public function ApiGetUdpbroadcastrelayServiceStart($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/udpbroadcastrelay/service/start', $params);
+	}
+	
+	public function ApiGetUdpbroadcastrelayServiceStatus($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/udpbroadcastrelay/service/status', $params);
+	}
+	
+	public function ApiGetUdpbroadcastrelayServiceStop($uuid){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/udpbroadcastrelay/service/stop', $params);
+	}
+	
+	public function ApiGetUdpbroadcastrelaySettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/udpbroadcastrelay/settings/get');
+	}
+	
+	public function ApiGetUdpbroadcastrelaySettingsGetRelay($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/udpbroadcastrelay/settings/get_relay', $params);
+	}
+	
+	public function ApiGetUdpbroadcastrelaySettingsSearchRelay(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/udpbroadcastrelay/settings/search_relay');
+	}
+	
+	public function ApiGetVnstatServiceGetJsonData(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/vnstat/service/get_json_data');
+	}
+	
+	public function ApiGetWazuhagentServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wazuhagent/service/status');
+	}
+	
+	public function ApiGetWazuhagentSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wazuhagent/settings/get');
+	}
+	
+	public function ApiGetWolWolGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wol/wol/get');
+	}
+	
+	public function ApiGetWolWolGetHost($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/wol/wol/get_host', $params);
+	}
+	
+	public function ApiGetWolWolGetwake(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/wol/wol/getwake');
+	}
+	
+	public function ApiGetZabbixagentServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/zabbixagent/service/status');
+	}
+	
+	public function ApiGetZabbixagentSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/zabbixagent/settings/get');
+	}
+	
+	public function ApiGetZabbixagentSettingsGetAlias($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/zabbixagent/settings/get_alias', $params);
+	}
+	
+	public function ApiGetZabbixagentSettingsGetUserparameter($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/zabbixagent/settings/get_userparameter', $params);
+	}
+	
+	public function ApiGetZabbixproxyGeneralGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/zabbixproxy/general/get');
+	}
+	
+	public function ApiGetZabbixproxyServiceStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/zabbixproxy/service/status');
+	}
+	
+	public function ApiGetZerotierNetworkGet($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/zerotier/network/get', $params);
+	}
+	
+	public function ApiGetZerotierNetworkInfo($uuid="null"){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		$params=array(
+			'uuid'	=> $uuid,
+		);
+		return $this->CallApiGet('/zerotier/network/info', $params);
+	}
+	
+	public function ApiGetZerotierNetworkSearch(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/zerotier/network/search');
+	}
+	
+	public function ApiGetZerotierSettingsGet(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/zerotier/settings/get');
+	}
+	
+	public function ApiGetZerotierSettingsStatus(){
+		$this->DebugLogMethod();
+		$this->HandleApiMethodStateAllowed(1);
+		return $this->CallApiGet('/zerotier/settings/status');
 	}
 	
 	
