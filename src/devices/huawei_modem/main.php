@@ -36,7 +36,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 	protected $user			="admin";			// (default) user name
 	protected $password		="admin";			// (default) user password
 
-	protected	$client_version		='1.01';	// API client Version, formated as M.mm
+	protected	$client_version		='1.01';	// API client Version, formatted as M.mm
 
 	protected $use_cookies	=true;
 	protected $def_referer	="/html/index.html?noredirect"; // needed ?
@@ -236,7 +236,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 		),
 		'ApiSmsList'=>array(
 			'id'	=> 'Index',							// SMS's ID (the one used to delete the SMS)
-			'date'	=> 'Date',							// SMS's Date, formated as a SQL datetime (YYYY-MM-DD HH:MM:SS)
+			'date'	=> 'Date',							// SMS's Date, formatted as a SQL datetime (YYYY-MM-DD HH:MM:SS)
 			'phone'	=> 'Phone',							// SMS's Phone Number
 			'text'	=> 'Content',						// SMS's Text Content
 		),
@@ -265,7 +265,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 		),
 
 		'ApiWifiListClients'=>array(
-			'id'			=> 'ID',				// the internal ID asigned by the device (else set it to the MAC address)
+			'id'			=> 'ID',				// the internal ID assigned by the device (else set it to the MAC address)
 			'mac'			=> 'MacAddress',		// MAC address
 			'ipv4'			=> 'my_ip_v4',			// IP address (v4)
 			'ipv6'			=> 'my_ip_v6',			// IP address (v6)
@@ -300,6 +300,13 @@ class Hackapi_Huawei_modem extends Hackapi{
 	// ############################################################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log in to the device API and set $this->is_logged when successful.
+	 *
+	 * @param string $user	Optional username override
+	 * @param string $password	Optional password override
+	 * @return bool
+	 */
 	public function ApiLogin($user='',$password=''){
 		$this->DebugLogMethod();
 
@@ -335,10 +342,15 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 	// ############################################################################################
-	// ## (Optionnal) OVERRIDEN STANDARDISED METHODS ##############################################
+	// ## (Optional) OVERRIDEN STANDARDISED METHODS ##############################################
 	// ############################################################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log out of the device API.
+	 *
+	 * @return bool
+	 */
 	public function ApiLogout(){		
 		$xml='<?xml version="1.0" encoding="UTF-8"?><request><Logout>1</Logout></request>';
 		$result=$this->XmlToArray($this->CallEndpoint('/api/user/logout','POST',$xml));		
@@ -346,6 +358,11 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Return whether this client considers itself logged in.
+	 *
+	 * @return bool
+	 */
 	public function ApiIsLoggedIn(){		
 		$result=$this->XmlToArray($this->CallEndpoint('/api/user/state-login','GET'));
 		if($result=$this->ErrorFreeResult($result)){
@@ -365,11 +382,22 @@ class Hackapi_Huawei_modem extends Hackapi{
 	
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Ask the device to reboot.
+	 *
+	 * @return bool
+	 */
 	public function ApiReboot(){
 		return $this->ApiSetDeviceControl('1');
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Cellular modem status and signal information.
+	 *
+	 * @param bool $fast_mode	Prefer a minimal/fast status when true
+	 * @return array|false
+	 */
 	public function ApiCellStatus($fast_mode=false){	
 		$sig=$this->ApiGetDeviceSignal(); //most signal info
 		is_array($sig) or $sig=array();	
@@ -405,21 +433,51 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Delete an SMS by id/index.
+	 *
+	 * @param mixed $index	Message index
+	 * @return bool
+	 */
 	public function ApiSmsDelete($index){
 		return $this->ApiSetSmsDeleteSms($index);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List received SMS in a standardised shape.
+	 *
+	 * @param int $read_type	0=all, 1=read, 2=unread
+	 * @param int $page	Page number
+	 * @param int $limit	Page size
+	 * @return array|false
+	 */
 	public function ApiSmsListReceived($read_type=0, $page=1, $limit=20){
 		return $this->_SmsList(1, $page, $limit, $read_type);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List sent SMS in a standardised shape.
+	 *
+	 * @param int $page	Page number
+	 * @param int $limit	Page size
+	 * @return array|false
+	 */
 	public function ApiSmsListSent($page=1, $limit=20){
 		return $this->_SmsList(2, $page, $limit);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Huawei SMS list helper for inbox/outbox.
+	 *
+	 * @param int $box_type	Box type
+	 * @param int $page	Page
+	 * @param int $limit	Limit
+	 * @param int $read_type	Read filter
+	 * @return array|false
+	 */
 	private function _SmsList($box_type, $page=1, $limit=20,$read_type=0){
 		$this->DebugLogMethod();
 		$sort=0;
@@ -436,6 +494,14 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Send an SMS.
+	 *
+	 * @param string $phone_number	Destination number
+	 * @param string $message	Message body
+	 * @param string $priority	Optional priority
+	 * @return bool
+	 */
 	public function ApiSmsSend($phone_number, $message, $priority=''){
 		$phones_xml='';
 		if(is_array($phone_number)){
@@ -453,16 +519,31 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Bring the WAN link up.
+	 *
+	 * @return bool
+	 */
 	public function ApiWanConnect(){
 		return $this->ApiSetDialupMobileDataswitch(1);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Bring the WAN link down.
+	 *
+	 * @return bool
+	 */
 	public function ApiWanDisconnect(){
 		return $this->ApiSetDialupMobileDataswitch(0);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * WAN link status.
+	 *
+	 * @return array|bool|false
+	 */
 	public function ApiWanStatus(){
 		$dev	=$this->ApiGetDeviceInformation(); //
 		//$dev2	=$this->ApiGetMonitoringStatus(); // for connection status ?
@@ -487,6 +568,12 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List Wi-Fi associated clients (standardised fields when remapped).
+	 *
+	 * @param string $id	Optional SSID/radio filter
+	 * @return array|false
+	 */
 	public function ApiWifiListClients($id = ''){
 		if($result=$this->ApiGetWlanHostList()){
 			if(is_array($result) and isset($result['Hosts']['Host'])){
@@ -515,6 +602,12 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List Wi-Fi SSIDs/interfaces.
+	 *
+	 * @param bool $only_enabled	When true, only enabled SSIDs
+	 * @return array|false
+	 */
 	public function ApiWifiListSsids($only_enabled=true){
 		if($result=$this->ApiGetWlanMultiBasicSettings()){
 			if(is_array($result)){
@@ -541,6 +634,13 @@ class Hackapi_Huawei_modem extends Hackapi{
 	// ###############################################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * GET an endpoint expecting JSON.
+	 *
+	 * @param string $endpoint	Endpoint
+	 * @param array|string $params	Params
+	 * @return mixed
+	 */
 	public function CallApiGetJson($endpoint, $params=''){
 		return $this->_CallApi($endpoint,$params,'GET','json');
 	}
@@ -551,16 +651,39 @@ class Hackapi_Huawei_modem extends Hackapi{
 	// }
 
 	// -------------------------------------------------------------------------
+	/**
+	 * GET an API endpoint and return a decoded/error-checked result.
+	 *
+	 * @param string $endpoint	Endpoint path
+	 * @param array|string $params	Query params
+	 * @return mixed
+	 */
 	public function CallApiGet($endpoint, $params=''){
 		return $this->_CallApi($endpoint, $params, 'GET', 'xml');
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * POST to an API endpoint and return a decoded/error-checked result.
+	 *
+	 * @param string $endpoint	Endpoint path
+	 * @param array|string $params	Body/params
+	 * @return mixed
+	 */
 	public function CallApiPost($endpoint, $params=''){
 		return $this->_CallApi($endpoint, $params, 'POST', 'xml');
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Device-specific HTTP call (XML/JSON/cmd style).
+	 *
+	 * @param string $endpoint	Endpoint
+	 * @param array|string $params	Params
+	 * @param string $type	GET|POST
+	 * @param string $format	Response format
+	 * @return mixed
+	 */
 	private function _CallApi($endpoint, $params='', $type='GET', $format='xml'){
 		$this->DebugLogMethod();
 		if(!$this->LoginIfNotAlready()){
@@ -600,6 +723,13 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Validate a decoded result and map device errors into last_error.
+	 *
+	 * @param mixed $arr	Decoded payload
+	 * @param mixed $ok_type	Optional expected ok marker
+	 * @return mixed
+	 */
 	protected function ErrorFreeResult($arr='',$ok_type=false){
 		if($ok_type){
 			if( isset($arr[0]) and $arr[0] == 'OK'){
@@ -631,6 +761,13 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * curl HEADERFUNCTION: collect headers (device override when needed).
+	 *
+	 * @param resource $curl	Handle
+	 * @param string $header_line	Header line
+	 * @return int
+	 */
 	protected function CurlHandleHeaderLine( $curl, $header_line ) {
 		parent::CurlHandleHeaderLine( $curl, $header_line );
 
@@ -668,6 +805,11 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Huawei: return a usable CSRF/session token when available.
+	 *
+	 * @return string|false
+	 */
 	private function _GetTokenAvailable(){
 		$this->DebugLogMethod();
 		if($last_token=array_pop($this->_post_tokens)){
@@ -693,6 +835,12 @@ class Hackapi_Huawei_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Huawei: bootstrap first session cookie and token.
+	 *
+	 * @param bool $reset	Force refresh
+	 * @return bool
+	 */
 	private function _grabFirstSessionAndToken($reset=false){
 		//Check to see if we have session cookie and token.
 		if(!$this->_token || !$this->_session || $reset ){

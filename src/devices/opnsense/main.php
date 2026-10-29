@@ -28,7 +28,7 @@ class Hackapi_OpnSense extends Hackapi{
 	protected $user			="root";			// (default) user name
 	protected $password		="opnsense";		// (default) user password
 
-	protected	$client_version		='0.92';	// API client Version, formated as M.mm
+	protected	$client_version		='0.92';	// API client Version, formatted as M.mm
 
 	protected $def_endpoint='/api';
 
@@ -48,6 +48,13 @@ class Hackapi_OpnSense extends Hackapi{
 
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log in to the device API and set $this->is_logged when successful.
+	 *
+	 * @param string $user	Optional username override
+	 * @param string $password	Optional password override
+	 * @return bool
+	 */
 	public function ApiLogin($user='',$password=''){
 		$this->DebugLogMethod();
 		// Maybe we dont need to login first because Authentication is used in each Call
@@ -56,7 +63,7 @@ class Hackapi_OpnSense extends Hackapi{
 	}
 
 	// ############################################################################################
-	// ## (Optionnal) OVERRIDEN STANDARDISED METHODS ##############################################
+	// ## (Optional) OVERRIDEN STANDARDISED METHODS ##############################################
 	// ############################################################################################
 /*
 	// -------------------------------------------------------------------------
@@ -71,6 +78,11 @@ class Hackapi_OpnSense extends Hackapi{
 */
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Ask the device to reboot.
+	 *
+	 * @return bool
+	 */
 	public function ApiReboot(){
 		$this->DebugLogMethod();
 		return $this->ApiSetCoreSystemReboot();
@@ -137,11 +149,25 @@ class Hackapi_OpnSense extends Hackapi{
 	// ###############################################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * GET an API endpoint and return a decoded/error-checked result.
+	 *
+	 * @param string $endpoint	Endpoint path
+	 * @param array|string $params	Query params
+	 * @return mixed
+	 */
 	public function CallApiGet($endpoint, $params=array()){
 		return $this->CallApi($endpoint, $params, 'GET');
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * POST to an API endpoint and return a decoded/error-checked result.
+	 *
+	 * @param string $endpoint	Endpoint path
+	 * @param array|string $params	Body/params
+	 * @return mixed
+	 */
 	public function CallApiPost($endpoint, $params=array()){
 		return $this->CallApi($endpoint, $params, 'POST');
 	}
@@ -153,6 +179,13 @@ class Hackapi_OpnSense extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * POST an endpoint and return a Raw envelope (no JSON decode).
+	 *
+	 * @param string $endpoint	Endpoint
+	 * @param array $params	Body params
+	 * @return array
+	 */
 	public function CallApiPostRaw($endpoint, $params=array()){
 		return $this->CallApiRaw($endpoint, $params, 'POST');
 	}
@@ -172,6 +205,13 @@ class Hackapi_OpnSense extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Transport + decode wrapper for this device.
+	 *
+	 * @param string $endpoint	Endpoint
+	 * @param array $params	Params
+	 * @return mixed
+	 */
 	public function CallApi($endpoint, $params=array(), $type='GET'){
 		$this->DebugLogMethod();
 
@@ -183,6 +223,13 @@ class Hackapi_OpnSense extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Transport wrapper returning a Raw envelope (no JSON decode).
+	 *
+	 * @param string $endpoint	Endpoint
+	 * @param array $params	Params
+	 * @return array
+	 */
 	public function CallApiRaw($endpoint, $params=array(), $type='GET'){
 		$this->DebugLogMethod();
 		$result=$this->_CallApiTransport($endpoint, $params, $type);
@@ -190,6 +237,13 @@ class Hackapi_OpnSense extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Shared HTTP transport for OPNsense CallApi / CallApiRaw.
+	 *
+	 * @param string $endpoint	Endpoint
+	 * @param array $params	Params
+	 * @return string|false
+	 */
 	private function _CallApiTransport($endpoint, $params=array(), $type='GET'){
 		$endpoint=$this->def_endpoint.$endpoint;
 		if(is_array($params) && count($params)){
@@ -201,6 +255,12 @@ class Hackapi_OpnSense extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Validate a decoded result and map device errors into last_error.
+	 *
+	 * @param mixed $arr	Decoded payload
+	 * @return mixed
+	 */
 	protected function ErrorFreeResult($arr=''){
 
 		if(is_array($arr)){

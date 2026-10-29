@@ -29,7 +29,7 @@ class Hackapi_Openwrt extends Hackapi{
 	protected $user			="root";		// (default) user name
 	protected $password		="";			// (default) user password
 
-	protected	$client_version		='0.90';	// API client Version, formated as M.mm
+	protected	$client_version		='0.90';	// API client Version, formatted as M.mm
 
 	protected $def_endpoint	='/cgi-bin/luci/admin/ubus';
 	//protected $def_endpoint	='/ubus'; // this endpoint also works, but methods returning -32002 with the above, now returns -32700... ???????
@@ -59,7 +59,7 @@ class Hackapi_Openwrt extends Hackapi{
 
 	protected $std_fields_map=array(
 		'ApiWifiListClients'=>array(
-			'id'			=> 'my_id',				// the internal ID asigned by the device (else set it to the MAC address)
+			'id'			=> 'my_id',				// the internal ID assigned by the device (else set it to the MAC address)
 			'mac'			=> 'mac',				// MAC address
 //			'ipv4'			=> 'api_field_path',	// IP address (v4)
 //			'ipv6'			=> 'api_field_path',	// IP address (v6)
@@ -96,6 +96,13 @@ class Hackapi_Openwrt extends Hackapi{
 
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log in to the device API and set $this->is_logged when successful.
+	 *
+	 * @param string $user	Optional username override
+	 * @param string $password	Optional password override
+	 * @return bool
+	 */
 	public function ApiLogin($user='',$password=''){
 		$this->DebugLogMethod();
 		$user 		and $this->user		=$user;
@@ -120,7 +127,7 @@ class Hackapi_Openwrt extends Hackapi{
 
 
 	// ############################################################################################
-	// ## (Optionnal) OVERRIDEN STANDARDISED METHODS ##############################################
+	// ## (Optional) OVERRIDEN STANDARDISED METHODS ##############################################
 	// ############################################################################################
 /*
 	// -------------------------------------------------------------------------
@@ -134,6 +141,11 @@ class Hackapi_Openwrt extends Hackapi{
 	}
 */
 	// -------------------------------------------------------------------------
+	/**
+	 * Ask the device to reboot.
+	 *
+	 * @return bool
+	 */
 	public function ApiReboot(){
 		$this->DebugLogMethod();
 		return $this->ApiSetSystemReboot();
@@ -174,6 +186,12 @@ class Hackapi_Openwrt extends Hackapi{
 
 */	
 	// -------------------------------------------------------------------------
+	/**
+	 * List Wi-Fi associated clients (standardised fields when remapped).
+	 *
+	 * @param string $id	Optional SSID/radio filter
+	 * @return array|false
+	 */
 	public function ApiWifiListClients($id=''){
 		$list=array();
 		$out=array();
@@ -204,6 +222,12 @@ class Hackapi_Openwrt extends Hackapi{
 
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List Wi-Fi SSIDs/interfaces.
+	 *
+	 * @param bool $only_enabled	When true, only enabled SSIDs
+	 * @return array|false
+	 */
 	public function ApiWifiListSsids($only_enabled=true){
 		$this->DebugLogMethod();
 		if($result=$this->ApiGetLuciRpcGetWirelessDevices()){
@@ -234,12 +258,22 @@ class Hackapi_Openwrt extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Start the Wi-Fi radio(s).
+	 *
+	 * @return bool
+	 */
 	public function ApiWifiStart(){
 		$this->DebugLogMethod();
 		return $this->ApiSetNetworkWirelessUp();
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Stop the Wi-Fi radio(s).
+	 *
+	 * @return bool
+	 */
 	public function ApiWifiStop(){
 		$this->DebugLogMethod();
 		return $this->ApiSetNetworkWirelessDown();
@@ -253,6 +287,14 @@ class Hackapi_Openwrt extends Hackapi{
 	// ###############################################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * OpenWrt ubus RPC call helper.
+	 *
+	 * @param string $ubus_path	ubus object path
+	 * @param string $ubus_method	ubus method
+	 * @param array $ubus_params	Params
+	 * @return mixed
+	 */
 	protected function MyRpcCall($ubus_path, $ubus_method, $ubus_params=array() , $login_first=true){
 		$result = $this->_CallRpc('call',$ubus_path, $ubus_method, $ubus_params, $login_first);
 		//$this->DebugLogVerbose('RPC Formatted Result',$result);
@@ -281,11 +323,27 @@ class Hackapi_Openwrt extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * OpenWrt ubus list helper.
+	 *
+	 * @param string $ubus_path	Path
+	 * @param array|string $ubus_params	Params
+	 * @return mixed
+	 */
 	protected function MyRpcList($ubus_path, $ubus_params=''){
 		return $this->_CallRpc('list',$ubus_path,'',$ubus_params);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Low-level OpenWrt JSON-RPC transport.
+	 *
+	 * @param string $rpc_method	RPC method
+	 * @param string $ubus_path	ubus path
+	 * @param string $ubus_method	ubus method
+	 * @param array $ubus_params	Params
+	 * @return mixed
+	 */
 	private function _CallRpc($rpc_method, $ubus_path='',$ubus_method='',$ubus_params=array(), $login_first=true){
 		$this->DebugLogMethod();
 		
@@ -334,6 +392,13 @@ class Hackapi_Openwrt extends Hackapi{
 	}
 
 	//---------------------------------------------------------------
+	/**
+	 * Build an OpenWrt JSON-RPC request payload.
+	 *
+	 * @param string $rpc_method	RPC method
+	 * @param array $params	Params
+	 * @return array|string
+	 */
 	private function _FormatRpc($rpc_method, $params=array() ){
 		//$this->_rpc_id or $this->_rpc_id = mt_rand();
 		$this->_rpc_id = mt_rand();

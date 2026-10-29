@@ -33,7 +33,7 @@ class Hackapi_Sfr_box extends Hackapi{
 	protected $use_ssl	=false;				// it seems that the API dont work (don't even answers) in httpS mode
 	protected $user		="admin";			// default Box's user name
 
-	protected $client_version		='0.90';	// API client Version, formated as M.mm
+	protected $client_version		='0.90';	// API client Version, formatted as M.mm
 
 	protected $use_cookies			=false;		// not needed
 	//protected $def_headers		=array();
@@ -86,7 +86,7 @@ class Hackapi_Sfr_box extends Hackapi{
 
 		),
 		'ApiWifiListClients'=>array(
-//			'id'			=> 'api_field_path',		// the internal ID asigned by the device (else set it to the MAC address)
+//			'id'			=> 'api_field_path',		// the internal ID assigned by the device (else set it to the MAC address)
 			'mac'			=> 'mac_addr',				// MAC address
 			'ipv4'			=> 'ip_addr',				// IP address (v4)
 //			'ipv6'			=> 'api_field_path',		// IP address (v6)
@@ -99,7 +99,7 @@ class Hackapi_Sfr_box extends Hackapi{
 //			'level_receive'	=> 'api_field_path',		// (db) Receive Level
 		),
 		'ApiWifiListSsids'=>array(
-			'id'			=> 'my_id',					// the internal Station ID/name asigned by the device (used to filter the ApiWifiListClients)
+			'id'			=> 'my_id',					// the internal Station ID/name assigned by the device (used to filter the ApiWifiListClients)
 //			'bssid'			=> '',						// BSSID MAC Address
 			'ssid'			=> 'ssid',					// SSID MAC Address
 			'password'		=> 'wpakey',				// Password
@@ -121,6 +121,13 @@ class Hackapi_Sfr_box extends Hackapi{
 	// ############################################################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log in to the device API and set $this->is_logged when successful.
+	 *
+	 * @param string $user	Optional username override
+	 * @param string $password	Optional password override
+	 * @return bool
+	 */
 	public function ApiLogin($user='',$password=''){
 		$this->DebugLogMethod();
 
@@ -154,10 +161,15 @@ class Hackapi_Sfr_box extends Hackapi{
 
 
 	// ############################################################################################
-	// ## (Optionnal) OVERRIDEN STANDARDISED METHODS ##############################################
+	// ## (Optional) OVERRIDEN STANDARDISED METHODS ##############################################
 	// ############################################################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Ask the device to reboot.
+	 *
+	 * @return bool
+	 */
 	public function ApiReboot(){
 		$this->ApiSetSystemReboot();
 	}
@@ -177,6 +189,11 @@ class Hackapi_Sfr_box extends Hackapi{
 
 */
 	// -------------------------------------------------------------------------
+	/**
+	 * WAN link status.
+	 *
+	 * @return array|bool|false
+	 */
 	public function ApiWanStatus(){
 		if($r=$this->ApiGetWanGetInfo()){
 			$r['my_up'] = $r['status']=='up' ? true:false;
@@ -186,6 +203,12 @@ class Hackapi_Sfr_box extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List Wi-Fi associated clients (standardised fields when remapped).
+	 *
+	 * @param string $id	Optional SSID/radio filter
+	 * @return array|false
+	 */
 	public function ApiWifiListClients($id=''){
 		$out=array();
 		// get names and duration
@@ -230,6 +253,12 @@ class Hackapi_Sfr_box extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List Wi-Fi SSIDs/interfaces.
+	 *
+	 * @param bool $only_enabled	When true, only enabled SSIDs
+	 * @return array|false
+	 */
 	public function ApiWifiListSsids($only_enabled=false){
 		$out=array();
 		$radio_2=$this->ApiGetWlanGetInfo();
@@ -257,6 +286,11 @@ class Hackapi_Sfr_box extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Start the Wi-Fi radio(s).
+	 *
+	 * @return bool
+	 */
 	public function ApiWifiStart(){
 		$this->ApiSetWlanEnable();
 		//$this->ApiSetWlan5Enable(); // method needs to be discovered
@@ -265,6 +299,11 @@ class Hackapi_Sfr_box extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Stop the Wi-Fi radio(s).
+	 *
+	 * @return bool
+	 */
 	public function ApiWifiStop(){
 		$this->ApiSetWlanDisable();
 		//$this->ApiSetWlan5Disable(); // method needs to be discovered
@@ -279,6 +318,11 @@ class Hackapi_Sfr_box extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	//lets reformat info
+	/**
+	 * SFR: ONT info cleaned for consumers.
+	 *
+	 * @return array|false
+	 */
 	public function ApiGetOntGetInfoClean(){
 		if($r=$this->ApiGetOntGetInfo()){
 			$tmp=$r['info'];
@@ -292,26 +336,61 @@ class Hackapi_Sfr_box extends Hackapi{
 
 
 	// -------------------------------------------------------------------------
+	/**
+	 * GET an API endpoint and return a decoded/error-checked result.
+	 *
+	 * @param string $endpoint	Endpoint path
+	 * @param array|string $params	Query params
+	 * @return mixed
+	 */
 	public function CallApiGet($endpoint, $params=''){
 		return $this->CallApi($endpoint, $params, 'GET');
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * GET with device-specific XML/list fixes applied.
+	 *
+	 * @param string $endpoint	Endpoint
+	 * @param array|string $params	Params
+	 * @return mixed
+	 */
 	public function CallApiGetFix($endpoint, $params=''){
 		return $this->CallApi($endpoint, $params, 'GET',true,false,true);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * GET forcing list-shaped results.
+	 *
+	 * @param string $endpoint	Endpoint
+	 * @param array|string $params	Params
+	 * @return mixed
+	 */
 	public function CallApiGetList($endpoint, $params=''){
 		return $this->CallApi($endpoint, $params, 'GET',true,true);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * POST to an API endpoint and return a decoded/error-checked result.
+	 *
+	 * @param string $endpoint	Endpoint path
+	 * @param array|string $params	Body/params
+	 * @return mixed
+	 */
 	public function CallApiPost($endpoint, $params=''){
 		return $this->CallApi($endpoint, $params, 'POST');
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Transport + decode wrapper for this device.
+	 *
+	 * @param string $endpoint	Endpoint
+	 * @param array $params	Params
+	 * @return mixed
+	 */
 	private function CallApi($endpoint, $params=array(), $type='GET', $autologin=true,$force_list=false,$fix_xml=false){
 		$this->DebugLogMethod();
 		
@@ -343,6 +422,14 @@ class Hackapi_Sfr_box extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Validate a decoded result and map device errors into last_error.
+	 *
+	 * @param mixed $arr	Decoded payload
+	 * @param bool $autologin	May retry login
+	 * @param bool $force_list	Force list
+	 * @return mixed
+	 */
 	protected function ErrorFreeResult($arr,$autologin,$force_list=false){
 		if(is_array($arr)){
 			if( isset($arr['@attributes']['stat']) ){
@@ -388,6 +475,13 @@ class Hackapi_Sfr_box extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * SFR: normalize nested XML-ish arrays.
+	 *
+	 * @param array $arr	Input
+	 * @param bool $force_list	Force list shape
+	 * @return array
+	 */
 	private function _CleanArray($arr,$force_list=false){
 		//echo "Original Array:\n".$this->PrettifyArray($arr)."\n\n";
 
@@ -432,6 +526,12 @@ class Hackapi_Sfr_box extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * SFR: reformat array keys/structure in place.
+	 *
+	 * @param array $arr	Array by reference
+	 * @return void
+	 */
 	private function _ReFormatArray(  & $arr){
 		if(is_array($arr)){
 			foreach($arr as $k => &$v){

@@ -24,7 +24,7 @@ class Hackapi{
 	protected	$password			="";		// (default) user password
 	private		$preferences		=false; 	// an array holding the above or FALSE when not set 
 
-	protected	$client_version		='0.00';	// API client Version, formated as M.mm
+	protected	$client_version		='0.00';	// API client Version, formatted as M.mm
 
 	protected	$use_cookies		=true;		// do we automatically handles cookies?
 	protected	$def_referer		='';		// when set, default referer URL to add in the default headers. Starts with "/";
@@ -53,7 +53,7 @@ class Hackapi{
 	private		$min_apimethod_state=5;			// Minimum allowed method dev state. Method with a lower state will throw an Exception
 
 	private		$debug_level		=0;			// Debug Level: 0= no debug, 1=Error, 2 =+Info, 3=+Debug 4=+verbose
-	private		$debug_output		=0;			// Debut Output: 0=None, 1=print
+	private		$debug_output		=0;			// Debug Output: 0=None, 1=print
 
 	private		$cookies_file		="/tmp/cookies_Hackapi"; // file where cookies are stored 
 	private		$base_url			="";		// the base url made of http(s)://host
@@ -113,7 +113,7 @@ class Hackapi{
 		),
 		'ApiSmsList'=>array(
 			'id'	=> 'api_field_path',			// SMS's ID (the one used to delete the SMS)
-			'date'	=> 'api_field_path',			// SMS's Date, formated as a SQL datetime (YYYY-MM-DD HH:MM:SS)
+			'date'	=> 'api_field_path',			// SMS's Date, formatted as a SQL datetime (YYYY-MM-DD HH:MM:SS)
 			'phone'	=> 'api_field_path',			// SMS's Phone Number
 			'text'	=> 'api_field_path',			// SMS's Text Content
 		),
@@ -141,7 +141,7 @@ class Hackapi{
 			'tx_total'		=> 'api_field_path',	// (bytes) Total TX 
 		),
 		'ApiWifiListClients'=>array(
-			'id'			=> 'api_field_path',	// the internal ID asigned by the device (else set it to the MAC address)
+			'id'			=> 'api_field_path',	// the internal ID assigned by the device (else set it to the MAC address)
 			'mac'			=> 'api_field_path',	// MAC address
 			'ipv4'			=> 'api_field_path',	// IP address (v4)
 			'ipv6'			=> 'api_field_path',	// IP address (v6)
@@ -154,7 +154,7 @@ class Hackapi{
 			'level_receive'	=> 'api_field_path',	// (db) Receive Level
 		),
 		'ApiWifiListSsids'=>array(
-			'id'			=> 'api_field_path',	// the internal Station ID/name asigned by the device (used to filter the ApiWifiListClients)
+			'id'			=> 'api_field_path',	// the internal Station ID/name assigned by the device (used to filter the ApiWifiListClients)
 			'bssid'			=> 'api_field_path',	// BSSID MAC Address
 			'ssid'			=> 'api_field_path',	// SSID MAC Address
 			'password'		=> 'api_field_path',	// Password
@@ -168,6 +168,11 @@ class Hackapi{
 	// ############################################################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Load defaults, build base URL, and initialize the cookie jar path.
+	 *
+	 * @return void
+	 */
 	public function __construct(){
 		$this->LoadDefaults();
 		$this->SetHost($this->host,$this->use_ssl);
@@ -183,18 +188,18 @@ class Hackapi{
 	/**
 	 * Log-in into the API. It must set $this->is_logged to TRUE, when succeeded
 	 *
-	 * @param string $user		(optionnal) Forces User name  (else $this->user is used)
-	 * @param string $password	(optionnal) Forces User password  (else $this->password is used) 
+	 * @param string $user		(optional) Forces User name  (else $this->user is used)
+	 * @param string $password	(optional) Forces User password  (else $this->password is used) 
 	 * @return bool				Is Logged-in or not?
 	 */
 	public function ApiLogin($user='',$password=''){
-		$this->DebugLogError("Please override the ".__METHOD__." method. It shoud set the '\$this->is_logged' property to TRUE!");
+		$this->DebugLogError("Please override the ".__METHOD__." method. It should set the '\$this->is_logged' property to TRUE!");
 		$this->is_logged=true;
 	}
 
 
 	// ############################################################################################
-	// ## STANDARDISED METHODS TO OVERRIDE (Optionnal) ############################################
+	// ## STANDARDISED METHODS TO OVERRIDE (Optional) ############################################
 	// ############################################################################################
 
 	// -------------------------------------------------------------------------
@@ -204,7 +209,7 @@ class Hackapi{
 	 * @return bool				Is Logged-out or not?
 	 */
 	public function ApiLogout(){
-		$this->DebugLogError("Please override the ".__METHOD__." method. It shoud set the '\$this->is_logged' property to FALSE!");
+		$this->DebugLogError("Please override the ".__METHOD__." method. It should set the '\$this->is_logged' property to FALSE!");
 		$this->is_logged=false;
 	}
 
@@ -231,13 +236,13 @@ class Hackapi{
 	}
 
 
-	// for Cellullar Modems #############################################################
+	// for Cellular Modems #############################################################
 
 	// -------------------------------------------------------------------------
 	/**
 	 * Cellular modems Status & Information
 	 *
-	 * @param boolean $fast_mode	Require only minimum info needed to quicky point an Antenna, whenever the API requires multiple (slow) calls to get the full information
+	 * @param boolean $fast_mode	Require only minimum info needed to quickly point an Antenna, whenever the API requires multiple (slow) calls to get the full information
 	 * @return array		Basic Cell & signal information
 	 */
 	public function ApiCellStatus($fast_mode=false){
@@ -254,7 +259,7 @@ class Hackapi{
 	 * @return array 				Array  of sms, sorted by date DESC
 	 */
 	public function ApiSmsListReceived($read_type=0, $page=1, $limit=20){
-		$this->DebugLogError("Please override the ".__METHOD__." method. It should returns an array of message  (or false), date DESC sorted");
+		$this->DebugLogError("Please override the ".__METHOD__." method. It should return an array of messages (or false), date DESC sorted");
 	}
 
 	// -------------------------------------------------------------------------
@@ -266,14 +271,14 @@ class Hackapi{
 	 * @return array 		Array  of sms, sorted by date DESC
 	 */
 	public function ApiSmsListSent($page=1,$max=20){
-		$this->DebugLogError("Please override the ".__METHOD__." method. It should returns an array of message  (or false), date DESC sorted");
+		$this->DebugLogError("Please override the ".__METHOD__." method. It should return an array of messages (or false), date DESC sorted");
 	}
 
 	// -------------------------------------------------------------------------
 	/**
 	 * Send an SMS
 	 *
-	 * @param string $phone	 	Recipient Number formated as local or international phone number 	
+	 * @param string $phone	 	Recipient Number formatted as local or international phone number 	
 	 * @param string $message	Message to send
 	 * @param string $priority	(Not Implemented)
 	 * @return bool				
@@ -380,6 +385,13 @@ class Hackapi{
 	// ############################################################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Set device host (IP or hostname) and HTTP/HTTPS base URL.
+	 *
+	 * @param string $ip_or_hostname	Device address
+	 * @param bool $use_ssl	Use HTTPS when true
+	 * @return void
+	 */
 	public function SetHost($ip_or_hostname, $use_ssl=false){
 		$ip_or_hostname and $this->host=$ip_or_hostname;
 		$use_ssl ?  $scheme="https://" : $scheme="http://";
@@ -390,12 +402,25 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Store API username and password for later login.
+	 *
+	 * @param string $user	Username
+	 * @param string $password	Password
+	 * @return void
+	 */
 	public function SetLogin($user, $password=''){
 		$this->user		=$user;
 		$this->password	=$password;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Build and touch the curl cookie-jar file path for this client instance.
+	 *
+	 * @param string $path	Directory for the cookie file (default /tmp/)
+	 * @return void
+	 */
 	public function SetCookiePath($path='/tmp/'){
 		// TODO: Default works on linux and OSX... should may be changed for Windows 
 		$path or $path="/tmp/";
@@ -410,32 +435,64 @@ class Hackapi{
 
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Set debug verbosity level and output mode.
+	 *
+	 * @param int $level	Debug level
+	 * @param int $output_mode	0=off/return path, else print-style modes used by DebugLine
+	 * @return void
+	 */
 	public function SetDebug($level, $output_mode=0){
 		$this->debug_level	=$level;
 		$this->debug_output	=$output_mode;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Return the last HTTP call metadata (url, headers, result, errors).
+	 *
+	 * @return array
+	 */
 	public function GetLastCall(){
 		return $this->last_call;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Return loaded preference snapshot (host, ssl, user, …).
+	 *
+	 * @return array
+	 */
 	public function GetPreferences(){
 		return $this->preferences;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Return this client library version string.
+	 *
+	 * @return string
+	 */
 	public function GetClientVersion(){
 		return $this->client_version;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Clear the last error structure.
+	 *
+	 * @return void
+	 */
 	public function ResetLastError(){
 		$this->last_error='';
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Return the last error structure (or empty).
+	 *
+	 * @return array|string
+	 */
 	public function GetLastError(){
 		return $this->last_error;
 	}
@@ -454,7 +511,7 @@ class Hackapi{
 	 * 	6 =>'Unimplemented method/endpoint',
 	 * 	7 =>'API (known) Error',
 
-	 * @param string $message Optionnal message
+	 * @param string $message Optional message
 	 * @return void
 	 */
 	protected function SetError($code, $message=''){
@@ -471,11 +528,24 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Map a main error code to its human description.
+	 *
+	 * @param int $err_code	Main error code
+	 * @return string|null
+	 */
 	public function GetErrorDesc($err_code){
 		return $this->error_codes[$err_code];
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Copy HTTP/curl failure details from the last call into last_error[call].
+	 *
+	 * @param string $key	Optional extra key
+	 * @param string $txt	Optional extra text
+	 * @return void
+	 */
 	protected function SetCallError($key='',$txt=''){
 		$cu=$this->GetLastCall();
 		$this->_SetCategError('call','http_code',	$cu['http_code']);
@@ -487,11 +557,26 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Store an XML parse/structure error under last_error[xml].
+	 *
+	 * @param string $key	Error key
+	 * @param string $txt	Error text
+	 * @return void
+	 */
 	protected function SetXmlError($key='',$txt){
 		$this->_SetCategError('xml',$key,$txt);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Store a device API error code/message under last_error[api], mapping to a main error when known.
+	 *
+	 * @param mixed $code	API error code
+	 * @param string $message	Optional message
+	 * @param mixed $result	Optional raw result for logging
+	 * @return bool|null
+	 */
 	protected function SetApiErrorCode($code,$message='',$result=''){
 		if(isset($this->api_error_codes[$code])){
 			$code_txt=$this->api_error_codes[$code][0];
@@ -524,9 +609,17 @@ class Hackapi{
 	// }
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Write one key/value into last_error under a category bucket.
+	 *
+	 * @param string $category	Error category (main|call|api|xml|…)
+	 * @param string $key	Key inside the category
+	 * @param string $txt	Value
+	 * @return bool
+	 */
 	private function _SetCategError($category,$key='',$txt){
 		if(!$txt and !$key){
-			$this->DebugLogError("Emply error message");
+			$this->DebugLogError("Empty error message");
 			return false;
 		}
 		/*
@@ -552,16 +645,33 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Current time in milliseconds (for duration measurements).
+	 *
+	 * @return int
+	 */
 	protected function GetTimeMs(){
 		return round(microtime(true)*1000,0);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Set the minimum template method state that may run without throwing.
+	 *
+	 * @param int $state	Minimum allowed state (default 5)
+	 * @return void
+	 */
 	public function SetApiMethodMinStateAllowed($state=5){
 		$this->min_apimethod_state=$state;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Throw if the method state is below the configured minimum.
+	 *
+	 * @param int $state	Method state from the template
+	 * @throws \Exception When state is below the configured minimum
+	 */
 	protected function HandleApiMethodStateAllowed($state=5){
 		if($state < $this->min_apimethod_state){
 			$err=500+$state;
@@ -570,6 +680,11 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Call ApiLogin when not logged in; guard against re-login loops.
+	 *
+	 * @return bool
+	 */
 	protected function LoginIfNotAlready(){
 		$this->DebugLogMethod();
 		if(!$this->is_logged){
@@ -590,6 +705,17 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Ensure login, then CallEndpoint.
+	 *
+	 * @param string $endpoint	Path under base_url
+	 * @param string $method	GET or POST
+	 * @param array $params	Query/body params
+	 * @param array $headers	Extra headers
+	 * @param bool $with_def_params	Merge def_params
+	 * @param bool $with_def_headers	Merge def_headers
+	 * @return string|false
+	 */
 	public function CallEndpointWhenLogged($endpoint='',$method='GET',$params=array(), $headers=array(), $with_def_params=true ,$with_def_headers=true){
 		$this->DebugLogMethod();
 
@@ -600,6 +726,17 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Build URL from base_url + endpoint and perform the HTTP call.
+	 *
+	 * @param string $endpoint	Path under base_url
+	 * @param string $method	GET or POST
+	 * @param array $params	Query/body params
+	 * @param array $headers	Extra headers
+	 * @param bool $with_def_params	Merge def_params
+	 * @param bool $with_def_headers	Merge def_headers
+	 * @return string|false
+	 */
 	public function CallEndpoint($endpoint='',$method='GET',$params=array(), $headers=array(), $with_def_params=true ,$with_def_headers=true){
 		$this->DebugLogMethod();
 
@@ -626,6 +763,11 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Parse the cookie-jar file into name=>value pairs.
+	 *
+	 * @return array|false
+	 */
 	public function GetCookies(){
 		$out=false;
 		if(file_exists($this->cookies_file)){
@@ -643,6 +785,13 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * curl HEADERFUNCTION callback: collect response header lines.
+	 *
+	 * @param resource $curl	curl handle
+	 * @param string $header_line	Raw header line
+	 * @return int
+	 */
 	protected function CurlHandleHeaderLine( $curl, $header_line ) {
 		$this->last_call['resp_headers'][]=trim($header_line);
 		//curl need this
@@ -650,6 +799,11 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Include device defaults.php when present and apply preferences.
+	 *
+	 * @return void
+	 */
 	protected function LoadDefaults(){
 		$default_file=$this->_GetClassChildPath().'defaults.php';
 		$def=array();				
@@ -665,6 +819,13 @@ class Hackapi{
 	}
 	
 	// -------------------------------------------------------------------------
+	/**
+	 * Apply host/ssl/user/password prefs onto the instance.
+	 *
+	 * @param array $prefs	Preference map
+	 * @param bool $from_file	True when loaded from defaults.php
+	 * @return void
+	 */
 	private function _SetPreferences($prefs, $from_file=false) {
 		$this->preferences=array();
 		$to_set=array('host','use_ssl','user','password');
@@ -676,6 +837,13 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Append an HTTP Basic Authorization header to def_headers.
+	 *
+	 * @param string $username	User
+	 * @param string $password	Password
+	 * @return void
+	 */
 	protected function SetAuthorizationHeader($username,$password=''){
 		$hash=$username;
 		$password and $hash.=":".$password;
@@ -684,6 +852,15 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Low-level curl request; fills $this->last_call and returns the raw body.
+	 *
+	 * @param string $url	Full URL
+	 * @param string|int $post	GET or POST (legacy arg name)
+	 * @param array|string $params	Params or raw body
+	 * @param array $headers	Request headers
+	 * @return string|false
+	 */
 	private function _call($url,$post=0,$params = array() ,$headers= array()) {
 		$this->DebugLogMethod();
 		$this->last_call=array();
@@ -775,6 +952,14 @@ class Hackapi{
 	// ################################################################################################
 
 	// --------------------------------------------------
+	/**
+	 * RemapFields on each row of a list.
+	 *
+	 * @param array $rows	List of rows
+	 * @param string|array $map	std_fields_map key or map
+	 * @param bool $use_raw	Keep leftover fields under raw
+	 * @return array
+	 */
 	protected function RemapFieldsList($rows,$map,$use_raw=true){
 		if(is_array($rows)){
 			foreach($rows as $r => $row){
@@ -785,6 +970,14 @@ class Hackapi{
 	}
 
 	// --------------------------------------------------
+	/**
+	 * Map one API row onto a standardised field map.
+	 *
+	 * @param array $row	Source row
+	 * @param string $map	Key in std_fields_map
+	 * @param bool $use_raw	Keep leftover fields under raw
+	 * @return array
+	 */
 	protected function RemapFields($row, $map='ApiSmsList', $use_raw=true){
 		if(is_array($row) and $map=$this->std_fields_map[$map]){
 			$out=array();
@@ -802,6 +995,15 @@ class Hackapi{
 	}
 
 	// --------------------------------------------------
+	/**
+	 * Set or unset a nested array value addressed by a path string.
+	 *
+	 * @param array $array	Array by reference
+	 * @param string|array $path	Path
+	 * @param mixed $value	Value, or unset() to delete
+	 * @param string $sep	Path separator
+	 * @return bool|null
+	 */
 	private function _ArraySetFromPath(&$array, $path, $value='unset()', $sep='/'){
 		if(!is_array($path)){
 			$path=explode($sep,$path);
@@ -827,6 +1029,14 @@ class Hackapi{
 	}
 
 	// --------------------------------------------------
+	/**
+	 * Read a nested array value addressed by a path string.
+	 *
+	 * @param array $array	Source array
+	 * @param string|array $path	Path
+	 * @param string $sep	Path separator
+	 * @return mixed
+	 */
 	private function _ArrayGetFromPath($array, $path ,$sep="/") {
 		$path = explode($sep, $path); //if needed
 		$temp =& $array;
@@ -838,32 +1048,74 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log the current method name at the given debug level.
+	 *
+	 * @param int $level	Debug level
+	 * @return void
+	 */
 	protected function DebugLogMethod($level=2){
 		$txt=str_pad('START ',80,'+');
 		$this->DebugLine($level,$txt);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log an error-level debug line.
+	 *
+	 * @param string $txt	Message
+	 * @param mixed $array	Optional payload
+	 * @return void
+	 */
 	protected function DebugLogError($txt,$array=null){
 		$this->DebugLine(1,$txt,$array);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log an info-level debug line.
+	 *
+	 * @param string $txt	Message
+	 * @param mixed $array	Optional payload
+	 * @return void
+	 */
 	protected function DebugLogInfo($txt,$array=null){
 		$this->DebugLine(2,$txt,$array);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log a debug-level line.
+	 *
+	 * @param string $txt	Message
+	 * @param mixed $array	Optional payload
+	 * @return void
+	 */
 	protected function DebugLogDebug($txt,$array=null){
 		$this->DebugLine(3,$txt,$array);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log a verbose-level debug line.
+	 *
+	 * @param string $txt	Message
+	 * @param mixed $array	Optional payload
+	 * @return void
+	 */
 	protected function DebugLogVerbose($txt,$array=null){
 		$this->DebugLine(4,$txt,$array);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Emit one debug line when level is enabled.
+	 *
+	 * @param int $level	Required level
+	 * @param string $txt	Message
+	 * @param mixed $array	Optional payload
+	 * @return void
+	 */
 	protected function DebugLine($level,$txt,$array=null){
 		$levels=array(
 			'1'	=> 'ERROR',
@@ -903,6 +1155,12 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Pretty-print an array for debug output (compact print_r).
+	 *
+	 * @param mixed $array	Array (non-arrays returned unchanged)
+	 * @return string|mixed
+	 */
 	public static function PrettifyArray($array){
 		if(!is_array($array)){
 			return $array;
@@ -1004,6 +1262,12 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Parse an XML string into a nested array.
+	 *
+	 * @param string $xml	XML string
+	 * @return array|false
+	 */
 	protected function XmlToArray($xml){
 		$out=false;
 		try {
@@ -1017,24 +1281,13 @@ class Hackapi{
 		}
 		return $out;
 	}
-/*
 	// -------------------------------------------------------------------------
-	protected function ObjectToArray($obj){
-		$this->DebugLogVerbose('Converting obj2arr...');
-		// Not an object or array
-		if (!is_object($obj) && !is_array($obj)) {
-			return $obj;
-		}
-
-		// Parse array
-		$arr=array();
-		foreach ($obj as $key => $value) {
-			$arr[$key] = $this->ObjectToArray($value);
-		}
-		return $arr;
-	}
-*/
-	// -------------------------------------------------------------------------
+	/**
+	 * Recursively convert objects/arrays to plain arrays (via json round-trip).
+	 *
+	 * @param mixed $object_or_array	Object or array
+	 * @return array|mixed
+	 */
 	protected function ObjectToArray($object_or_array){
 		if(!is_object($object_or_array) && !is_array($object_or_array)){
 			return $object_or_array;
@@ -1045,6 +1298,14 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Serialize an array to an XML string.
+	 *
+	 * @param array $array	Data
+	 * @param string $container	Optional root element
+	 * @param string $head	XML declaration
+	 * @return string
+	 */
 	protected function ArrayToXml($array,$container='', $head='<?xml version="1.0" encoding="UTF-8"?>'){
 		if(is_array($array)){
 			$out=$head;
@@ -1061,6 +1322,12 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Recursively drop empty arrays from a structure.
+	 *
+	 * @param array $array	Input
+	 * @return array
+	 */
 	protected function CleanEmptyArrays($array){
 		// ie: huawei API is dumb enough to sometime return empty arrays instead of a blank of false value whenever a single string would be returned.
 		// lets fix this
@@ -1071,6 +1338,12 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Callback helper for CleanEmptyArrays.
+	 *
+	 * @param mixed $value	Value by reference
+	 * @return void
+	 */
 	private function _cleanEmptyArray( & $value){
 		if(is_array($value)){
 			if(!count($value)){
@@ -1086,12 +1359,22 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Filesystem directory of the concrete device class.
+	 *
+	 * @return string
+	 */
 	private function _GetClassChildPath(){
 		$reflection = new ReflectionClass($this); //location of the children class
 		return dirname($reflection->getFileName()).'/';
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Best-effort local client IP (for cookie file naming).
+	 *
+	 * @return string
+	 */
 	private function _GetClientIP() {  
 		//ip is from the share internet  
 		if(!empty($_SERVER['HTTP_CLIENT_IP'])) {  
@@ -1119,6 +1402,12 @@ class Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Load the device trait.php when present; otherwise register an empty trait stub.
+	 *
+	 * @param string $file_path	Path to the device main.php (dirname = device dir)
+	 * @return void
+	 */
 	public static function RequireTrait($file_path){
 		$device_dir=dirname($file_path);
 		//include methods from trait (generated from the template)
@@ -1132,23 +1421,6 @@ class Hackapi{
 		}
 	}
 
-
-
-
-	/*
-	// -------------------------------------------------------------------------
-	public function GetClassMethods(){
-		$reflection = new ReflectionClass($this); //location of the children class
-		$methods=$reflection->getMethods();
-		$out=false;
-		if(is_array($methods)){
-			foreach($methods  as $arr){
-				$out[]=$arr->name;
-			}
-		}
-		return $out;
-	}
-*/
 
 }
 ?>

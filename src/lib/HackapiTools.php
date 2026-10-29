@@ -80,6 +80,11 @@ public function {method}({arguments}){
 
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Optional constructor hook for CLI tooling.
+	 *
+	 * @return void
+	 */
 	function __construct($device=''){
 		$this->path_root=dirname(dirname(__FILE__)).'/';
 		if($device){
@@ -88,12 +93,24 @@ public function {method}({arguments}){
 	}
 	
 	// -------------------------------------------------------------------------
+	/**
+	 * Enable debug output on the loaded device instance.
+	 *
+	 * @param int $level	Debug level
+	 * @return void
+	 */
 	public function ShowDebug($level=1){
 		$this->odev->SetDebug($level, 1);
 		$this->PrintLine("Debug mode set to level $level !");
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Select the device folder name and load its main class.
+	 *
+	 * @param string $device	Device directory under src/devices/
+	 * @return void
+	 */
 	public function SetDevice($device){
 		$this->device=$device;
 		$this->path_device=$this->path_root."{$this->devices_dir}/{$this->device}/";
@@ -101,6 +118,15 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Apply host/ssl/user/password onto the device instance.
+	 *
+	 * @param string $host	Host
+	 * @param bool $is_ssl	HTTPS
+	 * @param string $user	User
+	 * @param string $password	Password
+	 * @return void
+	 */
 	public function SetHostCredentials($host,$is_ssl=false,$user,$password){
 		$this->odev->SetHost($host,$is_ssl);
 		$this->odev->SetLogin($user,$password);
@@ -108,6 +134,11 @@ public function {method}({arguments}){
 
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Fail unless a device instance is loaded.
+	 *
+	 * @return bool
+	 */
 	public function RequireDevice(){
 		$file=$this->path_device."main.php";
 				
@@ -121,6 +152,11 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Load template.php prefs for the current device.
+	 *
+	 * @return bool
+	 */
 	public function RequireTemplate(){
 		$file=$this->path_device."template.php";
 		if(!file_exists($file)){
@@ -132,12 +168,23 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List available device directory names.
+	 *
+	 * @return array
+	 */
 	public function ListDevices(){
 		return  array_diff(scandir($this->path_root.$this->devices_dir.'/'), array('..', '.','_example'));
 	}
 
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Run ApiLogin and print a pass/fail report.
+	 *
+	 * @param bool $hide_pass	Mask password in output
+	 * @return bool
+	 */
 	public function TestLogin($hide_pass=false){
 		$defload='';
 		$prefs=$this->odev->GetPreferences();
@@ -168,6 +215,15 @@ public function {method}({arguments}){
 		return $r;
 	}
 	// -------------------------------------------------------------------------
+	/**
+	 * Invoke one Api* method with params and print the result.
+	 *
+	 * @param string $method	Method name
+	 * @param array $params	Positional/named args
+	 * @param string $method_name	Display name
+	 * @param string $title_prefix	Title prefix
+	 * @return mixed
+	 */
 	public function TestCallApi($method,$params=array(),$method_name='',$title_prefix=''){
 		if(!$method){
 			$this->PrintError( "You must pass a method as first argument!" );
@@ -179,6 +235,16 @@ public function {method}({arguments}){
 
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Reflection helper: call a method on an instance with params.
+	 *
+	 * @param object $instance	Object
+	 * @param string $method	Method
+	 * @param array $params	Args
+	 * @param string $method_name	Label
+	 * @param string $title_prefix	Title prefix
+	 * @return mixed
+	 */
 	private function _CallInstanceMethod($instance,$method,$params=array(),$method_name='',$title_prefix=''){
 		//title
 		$title_prefix and $title_prefix.=" ";
@@ -234,6 +300,14 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Walk template endpoints of a type and call each (legacy endpoint tester).
+	 *
+	 * @param bool $single_mode	Stop on first hard failure style
+	 * @param array $only_enpoints	Optional endpoint filter
+	 * @param string $type	get|set|…
+	 * @return void
+	 */
 	public function TestCallAllApiEndpoints($single_mode=true,$only_enpoints=array(),$type='get'){
 		$title="Calling All Endpoints from template";
 		$single_mode and $title.=" (re-logging each time)";
@@ -267,7 +341,7 @@ public function {method}({arguments}){
 			}
 		}
 		else{
-			$this->PrintError("Can't find any endoints defined in the template.php file!");
+			$this->PrintError("Can't find any endpoints defined in the template.php file!");
 			return false;
 		}
 
@@ -276,6 +350,13 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List endpoint→method mappings from the template (legacy spelling kept in name).
+	 *
+	 * @param string $type	Endpoint type filter
+	 * @param array $only_enpoints	Optional filter
+	 * @return array
+	 */
 	public function ListEnpointsMethods($type='get',$only_enpoints=array()){
 		$out=array();		
 		$pref=& $this->template_prefs;
@@ -343,6 +424,14 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Filter method definitions by a column value.
+	 *
+	 * @param string $type	get|set|…
+	 * @param string $col	Column name
+	 * @param mixed $value	Expected value
+	 * @return array
+	 */
 	private function _ListMethodsDefinitionsBy($type='get', $col='state', $value=0){
 		$list=$this->ListMethodsDefinitions();
 		if(!$list){
@@ -362,6 +451,14 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Count method definitions matching a column value.
+	 *
+	 * @param string $type	get|set|…
+	 * @param string $col	Column
+	 * @param mixed $value	Value
+	 * @return int
+	 */
 	private function _CountMethodsDefinitionsBy($type='get', $col='state', $value=0){
 		if($lines=$this->_ListMethodsDefinitionsBy($type, $col, $value)){
 			return count($lines);
@@ -370,6 +467,14 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Print counts of definitions grouped by a column.
+	 *
+	 * @param string $type	get|set|…
+	 * @param string $col	Column
+	 * @param bool $list_methods	Also list method names
+	 * @return void
+	 */
 	public function ReportCountMethodsDefinitionsBy($type='get', $col='state',$list_methods=true){
 		//$this->PrintTitle("All methods {$col}s are:");
 		$fnprint='PrintLine';
@@ -391,6 +496,14 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Live-test ApiGet* methods (optional state/method filters).
+	 *
+	 * @param bool $single_mode	Single-step mode
+	 * @param array $only_methods	Method allowlist
+	 * @param int $only_state	State filter (0=all)
+	 * @return void
+	 */
 	public function TestCallAllApiGet($single_mode=true,$only_methods=array(),$only_state=0){
 		$title="Calling All ApiGet Methods";
 		$single_mode and $title." (re-logging each time)";
@@ -453,6 +566,13 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List generated Api* method names by type.
+	 *
+	 * @param string $type	all|get|set|…
+	 * @param array $only_methods	Optional filter
+	 * @return array
+	 */
 	public function ListApiMethods($type='all',$only_methods=array()){
 		$out=false;
 		$class_methods = get_class_methods($this->odev);
@@ -514,6 +634,14 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Print the collected error/failure report after a test run.
+	 *
+	 * @param string $mode	errors|…
+	 * @param int $total	Total attempted
+	 * @param string $name	Label
+	 * @return void
+	 */
 	private function PrintErrorReport($mode='errors',$total=0, $name='Endpoint'){
 		if($mode=='errors'){
 			$all_meth_failed=$this->_methods_with_errors;
@@ -570,6 +698,13 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Normalize one template row into a method definition array.
+	 *
+	 * @param array $def_array	Raw template row
+	 * @param array $pref	Template prefs
+	 * @return array
+	 */
 	private function _FormatDefinition($def_array=array(),$pref=''){
 		isset($pref['regex'][0]) or $pref['regex'][0]=null ;
 		isset($pref['regex'][1]) or $pref['regex'][1]=null ;
@@ -615,6 +750,12 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Format a default argument value for generated PHP signatures.
+	 *
+	 * @param mixed $value	Default
+	 * @return string
+	 */
 	private function _FormatArgValue($value){
 		if($value=='!'){
 			return '';
@@ -625,6 +766,12 @@ public function {method}({arguments}){
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Build arguments, parameters array, and @param lines for codegen.
+	 *
+	 * @param array $in	Params map from the template
+	 * @return array
+	 */
 	private function _FormatParams($in){
 		/*
 			formats accepted
@@ -744,7 +891,7 @@ public function {method}({arguments}){
 	 */
 	public function BuildMethods($output_mode=0,$file_name='trait.php'){
 		if($output_mode){
-			$this->PrintTitle("Building trait.php fom the template.php file");
+			$this->PrintTitle("Building trait.php from the template.php file");
 		}
 		if(!$this->RequireTemplate()){
 			if($output_mode){
@@ -891,6 +1038,13 @@ EOF;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Write content into the current device directory.
+	 *
+	 * @param string $file_name	Relative name
+	 * @param string $file_content	Content
+	 * @return bool
+	 */
 	private function _SaveFile($file_name,$file_content){
 		$file_path=$this->path_device.$file_name;
 
@@ -908,6 +1062,11 @@ EOF;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Collect device/template summary info for readme headers.
+	 *
+	 * @return array
+	 */
 	private function GetInformation(){
 		$out=array();
 
@@ -931,6 +1090,12 @@ EOF;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Generate the device readme.md from the template.
+	 *
+	 * @param int $output_mode	0=return, 1=screen, 2=file, 3=both
+	 * @return string|false
+	 */
 	public function BuildReadme($output_mode){
 		$pref= & $this->template_prefs;
 		$class=get_class($this->odev);
@@ -1041,6 +1206,11 @@ EOF;
 	// }
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Build the method-state count table for the device readme.
+	 *
+	 * @return string
+	 */
 	private function _MakesReadmeCountReport(){
 		//$class=get_class($this->odev);
 		
@@ -1082,6 +1252,12 @@ EOF;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Format one tested-model row for the readme.
+	 *
+	 * @param array $row	Test row
+	 * @return string
+	 */
 	private function _FormatTest($row){
 		$out=array();
 		$out['model']		=trim($row[0]);
@@ -1104,16 +1280,39 @@ EOF;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Print a normal CLI line.
+	 *
+	 * @param string $txt	Text
+	 * @param string $start	Line prefix
+	 * @return void
+	 */
 	public function PrintLine($txt,$start='*'){
 		echo "$start $txt\n";
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Print an error CLI line.
+	 *
+	 * @param string $txt	Text
+	 * @param string $start	Line prefix
+	 * @return void
+	 */
 	public function PrintError($txt,$start='#'){
 		echo "$start ERROR: $txt \n";
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Print a double-ruled section title.
+	 *
+	 * @param string $txt	Title
+	 * @param int $width	Width
+	 * @param string $fill	Fill char
+	 * @param bool $with_first_cr	Leading newline
+	 * @return void
+	 */
 	public function PrintTitleBig($txt,$width=0,$fill='*',$with_first_cr=true){
 		$start=$fill.$fill;
 		$this->PrintTitle("",$width,$fill,$start,$with_first_cr);
@@ -1122,6 +1321,16 @@ EOF;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Print a single-ruled title line.
+	 *
+	 * @param string $txt	Title
+	 * @param int $width	Width
+	 * @param string $fill	Fill char
+	 * @param string $start	Prefix
+	 * @param bool $with_cr	Trailing newline
+	 * @return void
+	 */
 	public function PrintTitle($txt,$width=0,$fill='*',$start='',$with_cr=true){
 		$width or $width=$this->print_width;
 		if($txt){
@@ -1141,11 +1350,26 @@ EOF;
 	// ###############################################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Pretty-print an array as a string for CLI output.
+	 *
+	 * @param array $array	Data
+	 * @return string
+	 */
 	private function PrettifyArray($array){
 		return Hackapi::PrettifyArray($array);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Build an Api* method name from endpoint parts and type.
+	 *
+	 * @param array $search	Search tokens
+	 * @param array $replace	Replace tokens
+	 * @param string $txt	Source
+	 * @param string $type	get|set|…
+	 * @return string
+	 */
 	private function _makeMethodName($search,$replace,$txt,$type){
 		//echo "### $search\n";
 		$method_name=$txt;
@@ -1171,6 +1395,15 @@ EOF;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Replace {var} placeholders in a codegen template block.
+	 *
+	 * @param string $search	Placeholder name
+	 * @param string $replace	Replacement
+	 * @param string $txt	Template
+	 * @param bool $delete_line	Drop empty placeholder lines
+	 * @return string
+	 */
 	private function _replaceVar($search,$replace,$txt, $delete_line=false){
 		if($delete_line and !$replace){
 			$txt= preg_replace('#^.*?\{'.$search.'\}.*?\n#m',	'', $txt);
@@ -1180,6 +1413,13 @@ EOF;
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Indent a multi-line string by N tabs.
+	 *
+	 * @param string $txt	Text
+	 * @param int $num	Tab count
+	 * @return string
+	 */
 	private function _enTab($txt,$num=1){
 		$tab='';
 		for ($i=0; $i < $num; $i++) { 
@@ -1192,18 +1432,5 @@ EOF;
 		}
 		return $out;
 	}
-/*
-	// -------------------------------------------------------------------------
-	private function _indexArrayByFirst($array){
-		$out=array();
-		if(is_array($array)){
-			foreach($array as $arr){
-				$out[$arr[0]]=$arr;
-			}
-			return $out;
-		}
-	}
-*/
-
 }
 ?>

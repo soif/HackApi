@@ -36,7 +36,7 @@ class Hackapi_Zte_modem extends Hackapi{
 	protected $user			="admin";			// (default) user name
 	protected $password		="admin";			// (default) user password
 
-	protected $client_version	='1.01';	// API client Version, formated as M.mm
+	protected $client_version	='1.01';	// API client Version, formatted as M.mm
 
 	protected $def_referer		='/index.html';
 	protected $def_params		=array(
@@ -120,7 +120,7 @@ class Hackapi_Zte_modem extends Hackapi{
 //			'level_receive'	=> '',
 		),
 		'ApiWifiListSsids'=>array(
-			// 'id'			=> 'api_field_path',	// the internal Station ID/name asigned by the device (used to filter the ApiWifiListClients)
+			// 'id'			=> 'api_field_path',	// the internal Station ID/name assigned by the device (used to filter the ApiWifiListClients)
 			// 'bssid'		=> 'BSSID',	// BSSID MAC Address
 			// 'ssid'		=> 'SSID1',	// SSID MAC Address
 			// 'password'	=> '',	// Password
@@ -143,6 +143,13 @@ class Hackapi_Zte_modem extends Hackapi{
 
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log in to the device API and set $this->is_logged when successful.
+	 *
+	 * @param string $user	Optional username override
+	 * @param string $password	Optional password override
+	 * @return bool
+	 */
 	public function ApiLogin($user='',$password=''){
 		$this->DebugLogMethod();
 		$user 		and $this->user		=$user;
@@ -161,7 +168,7 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 	// ############################################################################################
-	// ## (Optionnal) OVERRIDEN STANDARDISED METHODS ##############################################
+	// ## (Optional) OVERRIDEN STANDARDISED METHODS ##############################################
 	// ############################################################################################
 /*
 	// -------------------------------------------------------------------------
@@ -176,11 +183,22 @@ class Hackapi_Zte_modem extends Hackapi{
 */
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Ask the device to reboot.
+	 *
+	 * @return bool
+	 */
 	public function ApiReboot(){
 		return $this->ApiSetRebootDevice();
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Cellular modem status and signal information.
+	 *
+	 * @param bool $fast_mode	Prefer a minimal/fast status when true
+	 * @return array|false
+	 */
 	public function ApiCellStatus($fast_mode=false){
 		$commands=array(
 			'network_provider',	// Provider Name
@@ -215,6 +233,14 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Send an SMS.
+	 *
+	 * @param string $to_tel	Destination number
+	 * @param string $message	Message body
+	 * @param string $priority	Optional priority
+	 * @return bool
+	 */
 	public function ApiSmsSend($to_tel, $message, $priority = ''){
 		//$date = date('y;m;d;H;i;s;+0');
 		$message=$this->_utf2hex($message);
@@ -222,21 +248,51 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Delete an SMS by id/index.
+	 *
+	 * @param mixed $id	Message id
+	 * @return bool
+	 */
 	public function ApiSmsDelete($id){
 		return $this->ApiSetDeleteSms($id);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List received SMS in a standardised shape.
+	 *
+	 * @param int $read_type	0=all, 1=read, 2=unread
+	 * @param int $page	Page number
+	 * @param int $limit	Page size
+	 * @return array|false
+	 */
 	public function ApiSmsListReceived($read_type = 0, $page = 1, $limit = 20){
 		return $this->_smslist(1, $page, $limit, $read_type);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List sent SMS in a standardised shape.
+	 *
+	 * @param int $page	Page number
+	 * @param int $limit	Page size
+	 * @return array|false
+	 */
 	public function ApiSmsListSent($page = 1, $limit = 20){
 		return $this->_smslist(2, $page, $limit);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * ZTE SMS list helper for inbox/outbox.
+	 *
+	 * @param int $box_type	Box type
+	 * @param int $page	Page
+	 * @param int $limit	Limit
+	 * @param int $read_type	Read filter
+	 * @return array|false
+	 */
 	private function _smslist($box_type = 0, $page = 1, $limit = 20,$read_type=0){
 		$this->DebugLogMethod();
 		$page--;
@@ -263,16 +319,31 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Bring the WAN link up.
+	 *
+	 * @return bool
+	 */
 	public function ApiWanConnect(){
 		return $this->ApiSetConnectNetwork();
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Bring the WAN link down.
+	 *
+	 * @return bool
+	 */
 	public function ApiWanDisconnect(){
 		return $this->ApiSetDisconnectNetwork();
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * WAN link status.
+	 *
+	 * @return array|bool|false
+	 */
 	public function ApiWanStatus(){
 		$commands=array(
 			'wan_connect_status',	// (boolean) Are we connected ?
@@ -302,16 +373,32 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Start the Wi-Fi radio(s).
+	 *
+	 * @return bool
+	 */
 	public function ApiWifiStart(){
 		return $this->ApiSetSetWifiInfo(1);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Stop the Wi-Fi radio(s).
+	 *
+	 * @return bool
+	 */
 	public function ApiWifiStop(){
 		return $this->ApiSetSetWifiInfo(0);
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List Wi-Fi associated clients (standardised fields when remapped).
+	 *
+	 * @param string $id	Optional SSID/radio filter
+	 * @return array|false
+	 */
 	public function ApiWifiListClients($id = ''){
 		if($result=$this->ApiGetStationList()){
 			if(is_array($result)){
@@ -337,6 +424,12 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * List Wi-Fi SSIDs/interfaces.
+	 *
+	 * @param bool $only_enabled	When true, only enabled SSIDs
+	 * @return array|false
+	 */
 	public function ApiWifiListSsids($only_enabled=false){
 		$commands=array(
 			'BSSID',
@@ -385,6 +478,11 @@ class Hackapi_Zte_modem extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	// as ZTE seens to not accept more than around 100 paramaters in a single command, we have to split in 3 commands
+	/**
+	 * ZTE: fetch the aggregated status dump.
+	 *
+	 * @return array|false
+	 */
 	public function ApiGetAll(){
 		$err=0;
 		if(!$arr1=$this->_ApiCmd1()){
@@ -405,6 +503,11 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * ZTE: first multi-cmd status batch.
+	 *
+	 * @return array|false
+	 */
 	private function _ApiCmd1(){
 		$this->DebugLogMethod();
 		//is this really needed ?
@@ -495,6 +598,11 @@ class Hackapi_Zte_modem extends Hackapi{
 		return $this->CallApiGet($commands);
 	}
 	// -------------------------------------------------------------------------
+	/**
+	 * ZTE: second multi-cmd status batch.
+	 *
+	 * @return array|false
+	 */
 	private function _ApiCmd2(){
 		$this->DebugLogMethod();
 		$commands=array(
@@ -581,6 +689,11 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * ZTE: third multi-cmd status batch.
+	 *
+	 * @return array|false
+	 */
 	private function _ApiCmd3(){
 		$this->DebugLogMethod();
 		$commands=array(
@@ -667,16 +780,36 @@ class Hackapi_Zte_modem extends Hackapi{
 
 
 	// -------------------------------------------------------------------------
+	/**
+	 * GET an API endpoint and return a decoded/error-checked result.
+	 *
+	 * @param array|string $params	Query params
+	 * @return mixed
+	 */
 	public function CallApiGet($cmds='',$params=array()){
 		return $this->_CallApi('/goform/goform_get_cmd_process', $cmds, $params, 'GET');
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * POST to an API endpoint and return a decoded/error-checked result.
+	 *
+	 * @param array|string $params	Body/params
+	 * @return mixed
+	 */
 	public function CallApiPost($cmds='',$params=array()){
 		return $this->_CallApi('/goform/goform_set_cmd_process', $cmds, $params, 'POST');
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Device-specific HTTP call (XML/JSON/cmd style).
+	 *
+	 * @param string $url	URL
+	 * @param array|string $params	Params
+	 * @param string $cmds	ZTE cmd list
+	 * @return mixed
+	 */
 	private function _CallApi($url, $cmds='',$params=array(),$method='GET'){
 		$this->DebugLogMethod();
 		
@@ -708,6 +841,12 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Validate a decoded result and map device errors into last_error.
+	 *
+	 * @param mixed $arr	Decoded payload
+	 * @return mixed
+	 */
 	protected function ErrorFreeResult($arr=''){	
 		if(is_array($arr)){
 			if( isset($arr['result']) ){
@@ -741,6 +880,11 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * ZTE: grab AD token variant 1.
+	 *
+	 * @return string|false
+	 */
 	private function _ApiGrabAD1(){
 		$this->DebugLogMethod();
 		if($result=$this->CallApiGet('cr_version,wa_inner_version')){	// Language, needed?
@@ -751,6 +895,11 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * ZTE: grab AD token variant 2.
+	 *
+	 * @return string|false
+	 */
 	private function _ApiGrabAD2(){
 		$this->DebugLogMethod();
 		if($result=$this->CallApiGet('RD')){
@@ -761,6 +910,11 @@ class Hackapi_Zte_modem extends Hackapi{
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * ZTE: resolve AD token used by signed requests.
+	 *
+	 * @return string|false
+	 */
 	private function _GrabAD(){
 		$this->DebugLogMethod();
 		if($this->_ad){
@@ -781,6 +935,12 @@ class Hackapi_Zte_modem extends Hackapi{
 
 
 	// -------------------------------------------------------------------------
+	/**
+	 * ZTE: encode a UTF-8 string as hex for API payloads.
+	 *
+	 * @param string $str	Input
+	 * @return string
+	 */
 	private function _utf2hex($str){
 		mb_internal_encoding("UTF-8");		
 		$l=mb_strlen($str);

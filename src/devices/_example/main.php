@@ -18,7 +18,7 @@ class Hackapi_DEVICE extends Hackapi{
 	//protected $user		="admin";			// default Box's user name
 	//protected	$password	="";				// (default) user password
 
-	protected $client_version		='0.01';	// API client Version, formated as M.mm
+	protected $client_version		='0.01';	// API client Version, formatted as M.mm
 
 	//protected $use_cookies	=true;
 	//protected $def_headers=array();
@@ -45,6 +45,13 @@ class Hackapi_DEVICE extends Hackapi{
 
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Log in to the device API and set $this->is_logged when successful.
+	 *
+	 * @param string $user	Optional username override
+	 * @param string $password	Optional password override
+	 * @return bool
+	 */
 	public function ApiLogin($user='',$password=''){
 		$this->DebugLogMethod();
 		$this->is_logged=true;
@@ -53,7 +60,7 @@ class Hackapi_DEVICE extends Hackapi{
 
 	
 	// ############################################################################################
-	// ## (Optionnal) OVERRIDEN STANDARDISED METHODS ##############################################
+	// ## (Optional) OVERRIDEN STANDARDISED METHODS ##############################################
 	// ############################################################################################
 /*
 	// -------------------------------------------------------------------------
@@ -128,11 +135,25 @@ class Hackapi_DEVICE extends Hackapi{
 	// ###############################################################################
 
 	// -------------------------------------------------------------------------
+	/**
+	 * GET an API endpoint and return a decoded/error-checked result.
+	 *
+	 * @param string $endpoint	Endpoint path
+	 * @param array|string $params	Query params
+	 * @return mixed
+	 */
 	public function CallApiGet($endpoint, $params=array()){
 		return $this->CallApi($endpoint, $params, 'GET');
 	}
 
 	// -------------------------------------------------------------------------
+	/**
+	 * POST to an API endpoint and return a decoded/error-checked result.
+	 *
+	 * @param string $endpoint	Endpoint path
+	 * @param array|string $params	Body/params
+	 * @return mixed
+	 */
 	public function CallApiPost($endpoint, $params=array()){
 		return $this->CallApi($endpoint, $params, 'POST');
 	}
@@ -143,6 +164,13 @@ class Hackapi_DEVICE extends Hackapi{
 	// when the vendor dialect is not "," / "\n". See _example/readme.md.
 
 	// -------------------------------------------------------------------------
+	/**
+	 * Transport + decode wrapper for this device.
+	 *
+	 * @param string $endpoint	Endpoint
+	 * @param array $params	Params
+	 * @return mixed
+	 */
 	public function CallApi($endpoint, $params=array(), $type='GET', $myown_args='xxx'){
 		$this->DebugLogMethod();
 		$headers=array();
@@ -155,6 +183,12 @@ class Hackapi_DEVICE extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	// here we check for API errors, and maybe reformat weird data structures
+	/**
+	 * Validate a decoded result and map device errors into last_error.
+	 *
+	 * @param mixed $arr	Decoded payload
+	 * @return mixed
+	 */
 	protected function ErrorFreeResult($arr=''){
 		return $arr;
 		// if(is_array($arr)){
