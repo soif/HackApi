@@ -59,19 +59,6 @@ $client->ApiReboot();
 
 More patterns: [`src/devices/_example/`](src/devices/_example/).
 
-## Breaking (v1.30)
-
-From **1.30**, device `trait.php` files no longer ship `ListMethodsDefinitions()`. Traits are **callable `Api*` methods only**. Endpoint metadata lives in each device `template.php`.
-
-For maintainer / debug listing, use Tools:
-
-```php
-require 'src/lib/HackapiTools.php';
-$tools = new HackapiTools();
-$tools->SetDevice('opnsense');
-$defs = $tools->ListMethodsDefinitions();
-```
-
 ## Contribute
 
 **Bring your own box** — new device clients are the best PRs:
@@ -84,20 +71,35 @@ $defs = $tools->ListMethodsDefinitions();
 
 Also welcome: tell us which models you actually tested. Serious or slightly chaotic — both OK if the code works.
 
+## Breaking
+
+### v1.31
+
+Huawei `ApiSetSmsSendSms` argument order changed (`Date` before the optional args; `Reserved` last). The normalized `ApiSmsSend` wrapper is unchanged. Detail: [`src/devices/huawei_modem/readme.md`](src/devices/huawei_modem/readme.md).
+
+### v1.30
+
+Device `trait.php` files no longer ship `ListMethodsDefinitions()`. Traits are **callable `Api*` methods only**. Endpoint metadata lives in each device `template.php`.
+
+For maintainer / debug listing, use Tools:
+
+```php
+require 'src/lib/HackapiTools.php';
+$tools = new HackapiTools();
+$tools->SetDevice('opnsense');
+$defs = $tools->ListMethodsDefinitions();
+```
+
 ## PHP warnings
 
-Hand-written signatures stay valid on PHP 8. Generated `trait.php` methods can still deprecate at load time when a required argument follows an optional one (`E_DEPRECATED`). Those lines are not printed unless you opt in, before `require`:
+By default HackApi does not print PHP warnings, notices, or deprecations that come from files inside this tree. They are stored on `last_error['php']` instead. To show them (for example while debugging a device client), define this **before** `require`:
 
 ```php
 define('HACKAPI_SHOW_PHP_ERRORS', true);
 require 'src/devices/sfr_box/main.php';
 ```
 
-Leave the constant undefined in production. HackApi then keeps warnings, notices, and deprecations whose file is inside this tree on `last_error['php']` and does not echo them. Fatals and `TypeError` still surface. This constant does not call `SetDebug` (that switch is only for HackApi's own trace lines).
-
-## Later
-
-- **Trait signatures** — regenerating `trait.php` so required arguments come first, or so every argument has a default, would silence the load-time deprecation without `HACKAPI_SHOW_PHP_ERRORS`. Not done yet: reordering breaks positional calls, and a default on every argument turns a missing required argument into `""`.
+Leave the constant undefined in production. Fatals and `TypeError` still surface. This constant does not call `SetDebug` (that switch is only for HackApi's own trace lines).
 
 Enjoy!
 
