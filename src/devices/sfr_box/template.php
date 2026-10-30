@@ -77,9 +77,9 @@ $p['definitions']=array(
 	['ont.getInfo',					'5',	'get',	'get',		'',		'ONT Information'],
 	['ont.sync',					'1',	'set',	'set',		'',		'Synchronize ONT Information with Box'],
 	['ont.push',					'1',	'set',	'set',		[
-																	'name'	=>['slid',['slid'=>'identifier'],'parameter to change'],
 																	'value'	=>['!','value to set'],
-																	'force'	=>'Forces change',
+																	'name'	=>['slid',['slid'=>'identifier'],'parameter to change'],
+																	'force'	=>['','Forces change'],
 																],		'Change ONT parameters'],
 	['ont.pull',					'5',	'get',	'get',		'',		'Get exec status about the latest push. (See API doc for returned codes)'],
 

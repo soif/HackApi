@@ -1,9 +1,11 @@
-# Hackapi_Huawei_modem v1.01
+# Hackapi_Huawei_modem v1.02
 
 Writen in php, this API client aims to provide a nice interface with **HUAWEI**'s Modems.
 
 This API client works for the Huawei B535-333 modem (also sold under Soyea brand).
 It should also work on many other Huawei modems
+
+_**Breaking change since HackApi v1.31:** the direct `ApiSetSmsSendSms` argument order changed (`Date` moved before the optional args; `Reserved` is last). If you use the normalized `ApiSmsSend` method, nothing changes._
 
 
 
@@ -189,4 +191,4 @@ Please tell us which models you've tested by adding your line in the [template.p
 | **:white_check_mark: ApiSetDeviceControl** | Reboot | TESTED |
 | **:star: ApiSetDialupMobileDataswitch** | Cellular Connect/Disconnect | FINAL |
 | **:star: ApiSetSmsDeleteSms** | Delete a SMS from the InBox | FINAL |
-| **:white_check_mark: ApiSetSmsSendSms** | Send a SMS to one or multiple phone number(s) | TESTED |
+| **:white_check_mark: ApiSetSmsSendSms** | Send a SMS to one or multiple phone number(s) (param order changed in v1.31) | TESTED |

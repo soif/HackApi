@@ -84,6 +84,21 @@ $defs = $tools->ListMethodsDefinitions();
 
 Also welcome: tell us which models you actually tested. Serious or slightly chaotic — both OK if the code works.
 
+## PHP warnings
+
+Hand-written signatures stay valid on PHP 8. Generated `trait.php` methods can still deprecate at load time when a required argument follows an optional one (`E_DEPRECATED`). Those lines are not printed unless you opt in, before `require`:
+
+```php
+define('HACKAPI_SHOW_PHP_ERRORS', true);
+require 'src/devices/sfr_box/main.php';
+```
+
+Leave the constant undefined in production. HackApi then keeps warnings, notices, and deprecations whose file is inside this tree on `last_error['php']` and does not echo them. Fatals and `TypeError` still surface. This constant does not call `SetDebug` (that switch is only for HackApi's own trace lines).
+
+## Later
+
+- **Trait signatures** — regenerating `trait.php` so required arguments come first, or so every argument has a default, would silence the load-time deprecation without `HACKAPI_SHOW_PHP_ERRORS`. Not done yet: reordering breaks positional calls, and a default on every argument turns a missing required argument into `""`.
+
 Enjoy!
 
 Repo: [https://github.com/soif/HackApi](https://github.com/soif/HackApi)

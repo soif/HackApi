@@ -36,7 +36,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 	protected $user			="admin";			// (default) user name
 	protected $password		="admin";			// (default) user password
 
-	protected	$client_version		='1.01';	// API client Version, formatted as M.mm
+	protected	$client_version		='1.02';	// API client Version, formatted as M.mm
 
 	protected $use_cookies	=true;
 	protected $def_referer	="/html/index.html?noredirect"; // needed ?
@@ -512,10 +512,10 @@ class Hackapi_Huawei_modem extends Hackapi{
 		else{
 			$phones_xml ="<Phone>$phone_number</Phone>";
 		}
-		$reserved="1";
 		$len=strlen($message);
 		$date=date('Y-m-d H:i:s');
-		return $this->ApiSetSmsSendSms($phones_xml,$message,$len,$reserved,$date);
+		// v1.31+: Date then optional SendType/Index/Reserved (Reserved defaults to "1")
+		return $this->ApiSetSmsSendSms($phones_xml,$message,$len,$date);
 	}
 
 	// -------------------------------------------------------------------------
@@ -641,7 +641,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 	 * @param array|string $params	Params
 	 * @return mixed
 	 */
-	public function CallApiGetJson($endpoint, $params=''){
+	public function CallApiGetJson($endpoint, $params=array()){
 		return $this->_CallApi($endpoint,$params,'GET','json');
 	}
 
@@ -658,7 +658,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 	 * @param array|string $params	Query params
 	 * @return mixed
 	 */
-	public function CallApiGet($endpoint, $params=''){
+	public function CallApiGet($endpoint, $params=array()){
 		return $this->_CallApi($endpoint, $params, 'GET', 'xml');
 	}
 
@@ -670,7 +670,7 @@ class Hackapi_Huawei_modem extends Hackapi{
 	 * @param array|string $params	Body/params
 	 * @return mixed
 	 */
-	public function CallApiPost($endpoint, $params=''){
+	public function CallApiPost($endpoint, $params=array()){
 		return $this->_CallApi($endpoint, $params, 'POST', 'xml');
 	}
 
@@ -684,15 +684,25 @@ class Hackapi_Huawei_modem extends Hackapi{
 	 * @param string $format	Response format
 	 * @return mixed
 	 */
-	private function _CallApi($endpoint, $params='', $type='GET', $format='xml'){
+	private function _CallApi($endpoint, $params=array(), $type='GET', $format='xml'){
 		$this->DebugLogMethod();
+		// '' was the old default. A blank body must stay blank: ArrayToXml(array())
+		// would put an XML declaration on every parameter-less GET.
+		if($params==='' || $params===null || $params===false){
+			$params=array();
+		}
 		if(!$this->LoginIfNotAlready()){
 			return false;
 		}
 
 		// format input -------------------------------------------
-		if($format=='xml'){
-			$params=$this->ArrayToXml($params,'request');
+		if($format=='xml' && is_array($params)){
+			if(count($params)){
+				$params=$this->ArrayToXml($params,'request');
+			}
+			else{
+				$params='';
+			}
 		}
 
 		$headers=array();

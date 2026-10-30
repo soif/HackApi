@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License along with thi
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 class Hackapi{
-	private		$version			='1.30'; 	// HackApi Version
+	private		$version			='1.31'; 	// HackApi Version
 
 	// host and credentials ----------- 
 	protected	$host				="";		// (default) ip address or hostname
@@ -54,6 +54,15 @@ class Hackapi{
 
 	private		$debug_level		=0;			// Debug Level: 0= no debug, 1=Error, 2 =+Info, 3=+Debug 4=+verbose
 	private		$debug_output		=0;			// Debug Output: 0=None, 1=print
+
+	// PHP warnings / notices / deprecations from this tree. Separate from SetDebug.
+	// define('HACKAPI_SHOW_PHP_ERRORS', true) before require to let PHP print them.
+	private static $php_notice_depth	=0;
+	private static $php_notice_prev		=null;
+	private static $php_notice_phase	='load';	// load | call
+	private static $php_load_notices	=array();
+	private static $php_call_notices	=array();
+	private static $endpoint_depth		=0;
 
 	private		$cookies_file		="/tmp/cookies_Hackapi"; // file where cookies are stored 
 	private		$base_url			="";		// the base url made of http(s)://host
@@ -177,6 +186,7 @@ class Hackapi{
 		$this->LoadDefaults();
 		$this->SetHost($this->host,$this->use_ssl);
 		$this->SetCookiePath();
+		$this->TakePhpNotices();
 	}
 
 
@@ -564,7 +574,7 @@ class Hackapi{
 	 * @param string $txt	Error text
 	 * @return void
 	 */
-	protected function SetXmlError($key='',$txt){
+	protected function SetXmlError($key='',$txt=''){
 		$this->_SetCategError('xml',$key,$txt);
 	}
 
@@ -617,7 +627,7 @@ class Hackapi{
 	 * @param string $txt	Value
 	 * @return bool
 	 */
-	private function _SetCategError($category,$key='',$txt){
+	private function _SetCategError($category,$key='',$txt=''){
 		if(!$txt and !$key){
 			$this->DebugLogError("Empty error message");
 			return false;
@@ -759,7 +769,21 @@ class Hackapi{
 			$headers=array_merge($this->def_headers,$headers);	
 		}
 
-		return $this->_call($url,$method,$params,$headers,$with_def_params, $with_def_headers);
+		$outer=(self::$endpoint_depth===0);
+		self::$endpoint_depth++;
+		if($outer){
+			self::$php_notice_phase='call';
+			self::$php_call_notices=array();
+			self::PhpNoticeGuardBegin();
+		}
+		$result=$this->_call($url,$method,$params,$headers,$with_def_params, $with_def_headers);
+		if($outer){
+			self::PhpNoticeGuardEnd();
+			self::$php_notice_phase='load';
+			$this->TakePhpNotices();
+		}
+		self::$endpoint_depth--;
+		return $result;
 	}
 
 	// -------------------------------------------------------------------------
@@ -769,7 +793,7 @@ class Hackapi{
 	 * @return array|false
 	 */
 	public function GetCookies(){
-		$out=false;
+		$out=array();
 		if(file_exists($this->cookies_file)){
 			$lines= file($this->cookies_file);
 			foreach($lines as $line){
@@ -780,6 +804,9 @@ class Hackapi{
 					$out[$m[1]]=$m[2];
 				}
 			}		
+		}
+		if(!count($out)){
+			return false;
 		}
 		return $out;
 	}
@@ -1412,13 +1439,127 @@ class Hackapi{
 		$device_dir=dirname($file_path);
 		//include methods from trait (generated from the template)
 		if(  file_exists($device_dir.'/trait.php')){
+			self::$php_notice_phase='load';
+			self::PhpNoticeGuardBegin();
 			require_once($device_dir.'/trait.php');
+			self::PhpNoticeGuardEnd();
 		}
 		$name=ucFirst(pathinfo($device_dir, PATHINFO_BASENAME));
 		$trait_name="Hackapi_{$name}_Trait";
 		if( !trait_exists($trait_name)){
 			eval("trait $trait_name {}") ;
 		}
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * True when the caller defined HACKAPI_SHOW_PHP_ERRORS before require.
+	 * That constant only lets PHP print warnings, notices, and deprecations.
+	 * It does not enable SetDebug, and it does not hide fatals.
+	 *
+	 * @return bool
+	 */
+	public static function ShowPhpErrors(){
+		if(!defined('HACKAPI_SHOW_PHP_ERRORS')){
+			return false;
+		}
+		return (bool) HACKAPI_SHOW_PHP_ERRORS;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Swallow HackApi warnings/notices/deprecations unless ShowPhpErrors() is on.
+	 * Nested with CallEndpoint. The previous handler still sees other files.
+	 *
+	 * @return void
+	 */
+	public static function PhpNoticeGuardBegin(){
+		if(self::ShowPhpErrors()){
+			return;
+		}
+		if(self::$php_notice_depth===0){
+			self::$php_notice_prev=set_error_handler(array('Hackapi', 'OnPhpNotice'));
+		}
+		self::$php_notice_depth++;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Drop one nesting level of PhpNoticeGuardBegin and restore the previous handler.
+	 *
+	 * @return void
+	 */
+	public static function PhpNoticeGuardEnd(){
+		if(self::ShowPhpErrors()){
+			return;
+		}
+		if(self::$php_notice_depth<=0){
+			return;
+		}
+		self::$php_notice_depth--;
+		if(self::$php_notice_depth===0){
+			restore_error_handler();
+			self::$php_notice_prev=null;
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Error handler installed by PhpNoticeGuardBegin.
+	 *
+	 * @param int $errno
+	 * @param string $errstr
+	 * @param string $errfile
+	 * @param int $errline
+	 * @return bool
+	 */
+	public static function OnPhpNotice($errno, $errstr, $errfile, $errline){
+		$mask=E_DEPRECATED | E_USER_DEPRECATED | E_WARNING | E_NOTICE;
+		if(($errno & $mask) && self::PhpNoticeInTree($errfile)){
+			$line=$errstr.' in '.$errfile.':'.$errline;
+			if(self::$php_notice_phase==='call'){
+				self::$php_call_notices[]=$line;
+			}
+			else{
+				self::$php_load_notices[]=$line;
+			}
+			return true;
+		}
+		if(self::$php_notice_prev){
+			return call_user_func(self::$php_notice_prev, $errno, $errstr, $errfile, $errline);
+		}
+		return false;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Whether $file sits inside this HackApi checkout.
+	 *
+	 * @param string $file
+	 * @return bool
+	 */
+	private static function PhpNoticeInTree($file){
+		$root=dirname(dirname(dirname(__FILE__)));
+		$root=rtrim(str_replace('\\', '/', $root), '/').'/';
+		$file=str_replace('\\', '/', (string) $file);
+		return (strpos($file, $root)===0);
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Copy buffered PHP notices into last_error['php'].
+	 *
+	 * @return void
+	 */
+	protected function TakePhpNotices(){
+		$lines=array_merge(self::$php_load_notices, self::$php_call_notices);
+		if(!count($lines)){
+			return;
+		}
+		if(!is_array($this->last_error)){
+			$this->last_error=array();
+		}
+		$this->last_error['php']=$lines;
 	}
 
 

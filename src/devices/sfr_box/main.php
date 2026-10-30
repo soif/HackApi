@@ -33,7 +33,7 @@ class Hackapi_Sfr_box extends Hackapi{
 	protected $use_ssl	=false;				// it seems that the API dont work (don't even answers) in httpS mode
 	protected $user		="admin";			// default Box's user name
 
-	protected $client_version		='0.90';	// API client Version, formatted as M.mm
+	protected $client_version		='0.91';	// API client Version, formatted as M.mm
 
 	protected $use_cookies			=false;		// not needed
 	//protected $def_headers		=array();
@@ -343,7 +343,7 @@ class Hackapi_Sfr_box extends Hackapi{
 	 * @param array|string $params	Query params
 	 * @return mixed
 	 */
-	public function CallApiGet($endpoint, $params=''){
+	public function CallApiGet($endpoint, $params=array()){
 		return $this->CallApi($endpoint, $params, 'GET');
 	}
 
@@ -355,7 +355,7 @@ class Hackapi_Sfr_box extends Hackapi{
 	 * @param array|string $params	Params
 	 * @return mixed
 	 */
-	public function CallApiGetFix($endpoint, $params=''){
+	public function CallApiGetFix($endpoint, $params=array()){
 		return $this->CallApi($endpoint, $params, 'GET',true,false,true);
 	}
 
@@ -367,7 +367,7 @@ class Hackapi_Sfr_box extends Hackapi{
 	 * @param array|string $params	Params
 	 * @return mixed
 	 */
-	public function CallApiGetList($endpoint, $params=''){
+	public function CallApiGetList($endpoint, $params=array()){
 		return $this->CallApi($endpoint, $params, 'GET',true,true);
 	}
 
@@ -379,7 +379,7 @@ class Hackapi_Sfr_box extends Hackapi{
 	 * @param array|string $params	Body/params
 	 * @return mixed
 	 */
-	public function CallApiPost($endpoint, $params=''){
+	public function CallApiPost($endpoint, $params=array()){
 		return $this->CallApi($endpoint, $params, 'POST');
 	}
 
@@ -406,6 +406,9 @@ class Hackapi_Sfr_box extends Hackapi{
 			}
 		}
 
+		if(!is_array($params)){
+			$params=array();
+		}
 		$this->_token and $params['token']=$this->_token;
 
 		// make the call ----------------------------------------

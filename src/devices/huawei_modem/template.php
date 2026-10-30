@@ -134,11 +134,11 @@ $p['definitions']=array(
 																			'Phones'		=>['!','One of serveral phone number(s), formatted as <Phone>num1</Phone><Phone>num2</Phone>'],
 																			'Content'		=>['!','Message'],
 																			'Length'		=>['!','Message Length'],
-																			'Reserved'		=>['1',['0'=>'?','1'=>'?','2'=>'?'],'What is this REQUIRED param ???'],
 																			'Date'			=>['!',"Date formatted like date('Y-m-d H:i:s')"],
 																			'SendType'		=>['0','???'],
 																			'Index'			=>['-1','???'],
-																			],		'Send a SMS to one or multiple phone number(s)'],
+																			'Reserved'		=>['1',['0'=>'?','1'=>'?','2'=>'?'],'What is this REQUIRED param ???'],
+																			],		'Send a SMS to one or multiple phone number(s) (param order changed in v1.31)'],
 
 	['/api/sms/delete-sms',						'5',	'set',	'xml_p',	['Index'	=>['!',"Message's Index"]],	'Delete a SMS from the InBox' ],
 																			
@@ -248,6 +248,8 @@ $p['information']=array(
 $p['readme']=<<<EOF
 This API client works for the Huawei B535-333 modem (also sold under Soyea brand).
 It should also work on many other Huawei modems
+
+_**Breaking change since HackApi v1.31:** the direct `ApiSetSmsSendSms` argument order changed (`Date` moved before the optional args; `Reserved` is last). If you use the normalized `ApiSmsSend` method, nothing changes._
 
 EOF;
 

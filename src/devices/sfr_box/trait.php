@@ -831,19 +831,20 @@ trait Hackapi_Sfr_box_Trait {
 	*
 	* Change ONT parameters
 	*
+	* @param string $value	value to set
 	* @param string $name	parameter to change
 	*		'slid'	: identifier,
 	
-	* @param string $value	value to set
+	* @param string $force	Forces change
 	* @category ApiSet
 	* @return Array[] | false (when empty, or when failed)
 	*/
-	public function ApiSetOntPush($name="slid", $value, $force="Forces change"){
+	public function ApiSetOntPush($value, $name="slid", $force=""){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(1);
 		$params=array(
-			'name'	=> $name,
 			'value'	=> $value,
+			'name'	=> $name,
 			'force'	=> $force,
 		);
 		return $this->CallApiPost('ont.push', $params);

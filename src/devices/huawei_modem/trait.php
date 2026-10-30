@@ -1786,29 +1786,29 @@ trait Hackapi_Huawei_modem_Trait {
 	/**
 	* ApiSetSmsSendSms
 	*
-	* Send a SMS to one or multiple phone number(s)
+	* Send a SMS to one or multiple phone number(s) (param order changed in v1.31)
 	*
 	* @param string $Phones	One of serveral phone number(s), formatted as <Phone>num1</Phone><Phone>num2</Phone>
 	* @param string $Content	Message
 	* @param string $Length	Message Length
-	* @param string $Reserved	What is this REQUIRED param ??? : either: ? | ? | ?
 	* @param string $Date	Date formatted like date('Y-m-d H:i:s')
 	* @param string $SendType	???
 	* @param string $Index	???
+	* @param string $Reserved	What is this REQUIRED param ??? : either: ? | ? | ?
 	* @category ApiSet
 	* @return Array[] | false (when empty, or when failed)
 	*/
-	public function ApiSetSmsSendSms($Phones, $Content, $Length, $Reserved="1", $Date, $SendType="0", $Index="-1"){
+	public function ApiSetSmsSendSms($Phones, $Content, $Length, $Date, $SendType="0", $Index="-1", $Reserved="1"){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
 		$params=array(
 			'Phones'	=> $Phones,
 			'Content'	=> $Content,
 			'Length'	=> $Length,
-			'Reserved'	=> $Reserved,
 			'Date'	=> $Date,
 			'SendType'	=> $SendType,
 			'Index'	=> $Index,
+			'Reserved'	=> $Reserved,
 		);
 		return $this->CallApiPost('/api/sms/send-sms', $params);
 	}

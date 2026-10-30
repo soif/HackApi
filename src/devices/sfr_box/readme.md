@@ -1,4 +1,4 @@
-# Hackapi_Sfr_box v0.90
+# Hackapi_Sfr_box v0.91
 
 Writen in php, this API client aims to provide a nice interface with **SFR**'s Boxes.
 

@@ -127,7 +127,7 @@ public function {method}({arguments}){
 	 * @param string $password	Password
 	 * @return void
 	 */
-	public function SetHostCredentials($host,$is_ssl=false,$user,$password){
+	public function SetHostCredentials($host,$is_ssl=false,$user='',$password=''){
 		$this->odev->SetHost($host,$is_ssl);
 		$this->odev->SetLogin($user,$password);
 	}
@@ -278,11 +278,17 @@ public function {method}({arguments}){
 				}
 				else{
 					if($i_err=$instance->GetLastError()){
-						
-						$my_err=$i_err['main']['code'];// or $err=$i_err['api']['code'];
-						$this->_methods_with_errors[$my_err][$key_err]=$i_err;
-						$this->PrintError(urldecode(http_build_query($i_err,'',',	')));
-												
+						$print=$i_err;
+						unset($print['php']);
+						if($print){
+							$my_err=isset($print['main']['code']) ? $print['main']['code'] : 0;
+							$this->_methods_with_errors[$my_err][$key_err]=$print;
+							$this->PrintError(urldecode(http_build_query($print,'',',	')));
+						}
+						else{
+							$this->_methods_with_false[0][$key_err]['error']='Returns FALSE';
+							$this->PrintError("The method '$method' returned FALSE! (This may be normal)");
+						}
 					}
 					else{
 						$this->_methods_with_false[0][$key_err]['error']='Returns FALSE';						
@@ -437,7 +443,7 @@ public function {method}({arguments}){
 		if(!$list){
 			return false;
 		}
-		$out=false;
+		$out=array();
 		foreach($list as $method => $def){
 			if($type and $def['type'] != $type ){
 				continue;
@@ -446,6 +452,9 @@ public function {method}({arguments}){
 				continue;
 			}
 			$out[$method]=$def;
+		}
+		if(!count($out)){
+			return false;
 		}
 		return $out;
 	}
@@ -574,7 +583,7 @@ public function {method}({arguments}){
 	 * @return array
 	 */
 	public function ListApiMethods($type='all',$only_methods=array()){
-		$out=false;
+		$out=array();
 		$class_methods = get_class_methods($this->odev);
 		//$class_methods = $this->odev->GetClassMethods();
 
@@ -903,6 +912,7 @@ public function {method}({arguments}){
 		
 		$pref= & $this->template_prefs;
 		$this->_methods_created=array();
+		$this->_methods_duplicated=array();
 		$built=array();
 
 		// Pass 1: collect unique methods (first-wins)
