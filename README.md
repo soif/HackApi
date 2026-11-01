@@ -71,24 +71,9 @@ More patterns: [`src/devices/_example/`](src/devices/_example/).
 
 Also welcome: tell us which models you actually tested. Serious or slightly chaotic — both OK if the code works.
 
-## Breaking
+## Releases
 
-### v1.31
-
-Huawei `ApiSetSmsSendSms` argument order changed (`Date` before the optional args; `Reserved` last). The normalized `ApiSmsSend` wrapper is unchanged. Detail: [`src/devices/huawei_modem/readme.md`](src/devices/huawei_modem/readme.md).
-
-### v1.30
-
-Device `trait.php` files no longer ship `ListMethodsDefinitions()`. Traits are **callable `Api*` methods only**. Endpoint metadata lives in each device `template.php`.
-
-For maintainer / debug listing, use Tools:
-
-```php
-require 'src/lib/HackapiTools.php';
-$tools = new HackapiTools();
-$tools->SetDevice('opnsense');
-$defs = $tools->ListMethodsDefinitions();
-```
+What changed in each HackApi version (`$version` in `Hackapi.php`) is listed in **[CHANGELOG.md](CHANGELOG.md)** — newest first, with the release date on every entry. Prefer that file over commit history when upgrading a pin or checking breaking notes.
 
 ## PHP warnings
 

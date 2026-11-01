@@ -1,0 +1,54 @@
+---
+description: HackApi CHANGELOG.md — update on every $version / release
+alwaysApply: true
+---
+
+# Changelog (hard)
+
+SoT file: [`CHANGELOG.md`](../../CHANGELOG.md) at the repo root.  
+Version source: **`$version` in [`src/lib/Hackapi.php`](../../src/lib/Hackapi.php)** — not the git tag (the tag may be created later).
+
+## When to update
+
+On **every** new HackApi version / release (when `$version` is bumped toward shipping):
+
+1. Add a new section at the **top** of `CHANGELOG.md` (newest first).
+2. Document that version’s user-visible / API changes (features, breaking, fixes).
+3. Do **not** leave a bumped `$version` missing from the changelog.
+4. Do **not** put release notes in `README.md` — README keeps a short **Releases** paragraph that links to `CHANGELOG.md` only.
+
+## Heading shape (hard)
+
+```markdown
+## vX.Y (YYYY-MM-DD)
+```
+
+- `vX.Y` = the `$version` string in `Hackapi.php` (prefix with `v`).
+- Date = release day (`YYYY-MM-DD` full).
+- **No** “unreleased”.
+- **No** Keep-a-Changelog brackets like `## [1.33] — …`.
+
+## Separators (hard)
+
+Between version sections, put a Markdown horizontal rule:
+
+```markdown
+---
+
+## vX.Y (YYYY-MM-DD)
+```
+
+Blank line before and after `---`. No separator before the first (newest) version.
+
+## Breaking
+
+When something is incompatible, use a `### Breaking` subsection under that version. Optional `### Also` for non-breaking extras in the same release.
+
+## Tone / detail
+
+- Prefer concrete bullets (API names, Caps, transports, error codes) over vague “enhancements”.
+- Older releases may stay denser; new releases should be clear enough to upgrade a pin without reading the full git history.
+
+## Git
+
+Editing the changelog is a **file change**. Commit / tag / push only when Francois explicitly asks — do not invent a release commit from this rule alone.

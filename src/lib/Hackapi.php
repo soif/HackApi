@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License along with thi
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 class Hackapi{
-	private		$version			='1.32'; 	// HackApi Version
+	private		$version			='1.33'; 	// HackApi Version
 
 	// host and credentials ----------- 
 	protected	$host				="";		// (default) ip address or hostname
@@ -1036,6 +1036,18 @@ class Hackapi{
 			$this->AuthCacheSaveFromSession();
 		}
 		return true;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Public entry for login + durable auth cache (load / ApiLogin / save).
+	 * Prefer this over ApiLogin() when SetAuthCachePath is used — ApiLogin alone
+	 * does not read or write the auth cache.
+	 *
+	 * @return bool
+	 */
+	public function EnsureLogin(){
+		return $this->LoginIfNotAlready();
 	}
 
 	// -------------------------------------------------------------------------
