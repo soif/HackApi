@@ -33,7 +33,7 @@ class Hackapi_Sfr_box extends Hackapi{
 	protected $use_ssl	=false;				// it seems that the API dont work (don't even answers) in httpS mode
 	protected $user		="admin";			// default Box's user name
 
-	protected $client_version		='0.91';	// API client Version, formatted as M.mm
+	protected $client_version		='0.92';	// API client Version, formatted as M.mm
 
 	protected $use_cookies			=false;		// not needed
 	//protected $def_headers		=array();
@@ -349,6 +349,18 @@ class Hackapi_Sfr_box extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	/**
+	 * GET without login attempt (open endpoints). Attaches token if already logged.
+	 *
+	 * @param string $endpoint	Endpoint path
+	 * @param array|string $params	Query params
+	 * @return mixed
+	 */
+	public function CallApiGetPublic($endpoint, $params=array()){
+		return $this->CallApi($endpoint, $params, 'GET', false);
+	}
+
+	// -------------------------------------------------------------------------
+	/**
 	 * GET with device-specific XML/list fixes applied.
 	 *
 	 * @param string $endpoint	Endpoint
@@ -361,6 +373,18 @@ class Hackapi_Sfr_box extends Hackapi{
 
 	// -------------------------------------------------------------------------
 	/**
+	 * GET Fix without login attempt (open endpoints). Attaches token if already logged.
+	 *
+	 * @param string $endpoint	Endpoint
+	 * @param array|string $params	Params
+	 * @return mixed
+	 */
+	public function CallApiGetFixPublic($endpoint, $params=array()){
+		return $this->CallApi($endpoint, $params, 'GET', false, false, true);
+	}
+
+	// -------------------------------------------------------------------------
+	/**
 	 * GET forcing list-shaped results.
 	 *
 	 * @param string $endpoint	Endpoint
@@ -369,6 +393,18 @@ class Hackapi_Sfr_box extends Hackapi{
 	 */
 	public function CallApiGetList($endpoint, $params=array()){
 		return $this->CallApi($endpoint, $params, 'GET',true,true);
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * GET list without login attempt (open endpoints). Attaches token if already logged.
+	 *
+	 * @param string $endpoint	Endpoint
+	 * @param array|string $params	Params
+	 * @return mixed
+	 */
+	public function CallApiGetListPublic($endpoint, $params=array()){
+		return $this->CallApi($endpoint, $params, 'GET', false, true);
 	}
 
 	// -------------------------------------------------------------------------
@@ -389,6 +425,10 @@ class Hackapi_Sfr_box extends Hackapi{
 	 *
 	 * @param string $endpoint	Endpoint
 	 * @param array $params	Params
+	 * @param string $type	GET or POST
+	 * @param bool $autologin	When true, LoginIfNotAlready before the call
+	 * @param bool $force_list	Force list shape in _CleanArray
+	 * @param bool $fix_xml	Strip blank lines from XML before parse
 	 * @return mixed
 	 */
 	private function CallApi($endpoint, $params=array(), $type='GET', $autologin=true,$force_list=false,$fix_xml=false){
@@ -409,6 +449,7 @@ class Hackapi_Sfr_box extends Hackapi{
 		if(!is_array($params)){
 			$params=array();
 		}
+		// Attach token when present (autologin session or leftover); pub calls never attempt login.
 		$this->_token and $params['token']=$this->_token;
 
 		// make the call ----------------------------------------
@@ -419,7 +460,7 @@ class Hackapi_Sfr_box extends Hackapi{
 			$xml=preg_replace('#^\s*\n$#m','',$xml);
 		}
 		$arr=$this->XmlToArray($xml);
-		$arr= $this->ErrorFreeResult($arr,$autologin,$force_list);
+		$arr= $this->ErrorFreeResult($arr,$force_list);
 		
 		return $arr;
 	}
@@ -427,13 +468,13 @@ class Hackapi_Sfr_box extends Hackapi{
 	// -------------------------------------------------------------------------
 	/**
 	 * Validate a decoded result and map device errors into last_error.
+	 * Always _CleanArray on stat=ok (independent of autologin).
 	 *
 	 * @param mixed $arr	Decoded payload
-	 * @param bool $autologin	May retry login
 	 * @param bool $force_list	Force list
 	 * @return mixed
 	 */
-	protected function ErrorFreeResult($arr,$autologin,$force_list=false){
+	protected function ErrorFreeResult($arr,$force_list=false){
 		if(is_array($arr)){
 			if( isset($arr['@attributes']['stat']) ){
 				if($arr['@attributes']['stat']=='ok'){
@@ -443,9 +484,7 @@ class Hackapi_Sfr_box extends Hackapi{
 					$this->DebugLogVerbose('Original Array: ',$arr);
 					//unset($arr['stat']);
 					//unset($arr['version']);
-					if($autologin){
-						$arr=$this->_CleanArray($arr,$force_list);
-					}
+					$arr=$this->_CleanArray($arr,$force_list);
 					$this->DebugLogVerbose('Cleaned Array: ',$arr);
 
 					//if(is_array($arr) and !count($arr)){

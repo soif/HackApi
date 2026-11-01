@@ -44,13 +44,13 @@ $p['definitions']=array(
 	['ddns.forceUpdate',			'3',	'set',	'set',		'',		'Force DynDNS update'],
 	['ddns.setService',				'1',	'set',	'set',		[['service','!',['dyndns','no-ip','ovh','dyndnsit','changeip','sitelutions']],'username','password','hostname'],'Set DynDns Account'],
 
-	['dsl.getInfo',					'5',	'get',	'get',		'',		'DSL Information'],
+	['dsl.getInfo',					'5',	'get',	'get_pub',	'',		'DSL Information'],
 
 	['firewall.getInfo',			'5',	'get',	'get',		'',		'Firewall Information'],
 //	['firewall.enableSmtpFilter',	'2',	'set',	'set',		'',		'Enable SMTP filtering'],	// method dont exists
 //	['firewall.disableSmtpFilter',	'2',	'set',	'set',		'',		'Disable SMTP filtering'],	// method dont exists
 
-	['ftth.getInfo',				'5',	'get',	'get',		'',		'FiberToTheHome Information '],
+	['ftth.getInfo',				'5',	'get',	'get_pub',	'',		'FiberToTheHome Information '],
 
 	['guest.getInfo',				'5',	'get',	'get',		'',		'Wifi (2.4GHz) Guests Information'],
 	['guest.getClientList',			'5',	'get',	'getlist',	'',		'List Guests Wifi (2.4GHz) Clients'],	//undocumented , but seems to work ???
@@ -68,42 +68,42 @@ $p['definitions']=array(
 //	['hotspot.start',				'3',	'set',	'set',		'',		'Start Hotspot'],
 //	['hotspot.stop',				'3',	'set',	'set',		'',		'Stop Hotspot'],
 
-	['lan.getInfo',					'5',	'get',	'get',		'',		'LAN Information'],
-	['lan.getDnsHostList',			'5',	'get',	'getlist',	'',		'List DNS host entries'],
-	['lan.getHostsList',			'5',	'get',	'getlist',	'',		'List connected hosts'],
+	['lan.getInfo',					'5',	'get',	'get_pub',	'',		'LAN Information'],
+	['lan.getDnsHostList',			'5',	'get',	'getlist_pub','',		'List DNS host entries'],
+	['lan.getHostsList',			'5',	'get',	'getlist_pub','',		'List connected hosts'],
 	['lan.addDnsHost',				'5',	'set',	'set',		['ip'=>'!','name'=>'!'],		'Add DNS host entry'],
 	['lan.deleteDnsHost',			'5',	'set',	'set',		['ip'=>'!','name'=>'!'],		'Delete DNS host entry'],
 
-	['ont.getInfo',					'5',	'get',	'get',		'',		'ONT Information'],
+	['ont.getInfo',					'5',	'get',	'get_pub',	'',		'ONT Information'],
 	['ont.sync',					'1',	'set',	'set',		'',		'Synchronize ONT Information with Box'],
 	['ont.push',					'1',	'set',	'set',		[
 																	'value'	=>['!','value to set'],
 																	'name'	=>['slid',['slid'=>'identifier'],'parameter to change'],
 																	'force'	=>['','Forces change'],
 																],		'Change ONT parameters'],
-	['ont.pull',					'5',	'get',	'get',		'',		'Get exec status about the latest push. (See API doc for returned codes)'],
+	['ont.pull',					'5',	'get',	'get_pub',	'',		'Get exec status about the latest push. (See API doc for returned codes)'],
 
-	['p910nd.getInfo',				'5',	'get',	'get',		'',		'Information'],
+	['p910nd.getInfo',				'5',	'get',	'get_pub',	'',		'Information'],
 
-	['ppp.getInfo',					'5',	'get',	'get',		'',		'PPP Information'],
+	['ppp.getInfo',					'5',	'get',	'get_pub',	'',		'PPP Information'],
 	['ppp.getCredentials',			'5',	'get',	'get',		'',		'PPP Credentials'],
 	['ppp.setCredentials',			'1',	'set',	'set',		[
 																'login'		=>['','Login'],
 																'password'	=>['','Password']
 																],		'Set PPP Credentials'],
 	
-	['smb.getInfo',					'4',	'get',	'get',		'',		'SMB Sharing Information'],
+	['smb.getInfo',					'4',	'get',	'get_pub',	'',		'SMB Sharing Information'],
 
-	['system.getInfo',				'5',	'get',	'get',		'',		'System Information'],
-	['system.getIfList',			'3',	'get',	'getfix',	'',		'System Interface List'], // sometimes works
+	['system.getInfo',				'5',	'get',	'get_pub',	'',		'System Information'],
+	['system.getIfList',			'3',	'get',	'getfix_pub','',		'System Interface List'], // sometimes works
 	['system.getWpaKey',			'5',	'get',	'get',		'',		'Default Wpa Key'],
 	['system.reboot',				'5',	'set',	'set',		'',		'Reboot'],
 	['system.setNetMode',			'1',	'set',	'set',		['mode'	=>['!',['router','bridge'],'Routing Mode']],		'Set Box Routing Mode'],
 	['system.setRefClient',			'1',	'set',	'set',		['refclient'=>['!','Client Reference']],		'Set Client Reference'],
 	
-	['tv.getInfo',					'4',	'get',	'get',		'',		'TV Information'],
+	['tv.getInfo',					'4',	'get',	'get_pub',	'',		'TV Information'],
 
-	['usb.getInfo',					'4',	'get',	'get',		'',		'USB Information'],
+	['usb.getInfo',					'4',	'get',	'get_pub',	'',		'USB Information'],
 
 	['voip.getInfo',				'4',	'get',	'get',		'',		'VOIP (phone) Information'],
 	['voip.getCallhistoryList',		'3',	'get',	'getlist',	'',		'VOIP (phone) Call History'],
@@ -111,7 +111,7 @@ $p['definitions']=array(
 	['voip.start',					'1',	'set',	'set',	'',			'Start VOIP Service'],
 	['voip.stop',					'1',	'set',	'set',	'',			'Stop VOIP Service'],
 	
-	['wan.getInfo',					'5',	'get',	'get',		'',		'WAN Information'],
+	['wan.getInfo',					'5',	'get',	'get_pub',	'',		'WAN Information'],
 
 	['wlan.getInfo',				'5',	'get',	'get',		'',		'Wifi (2.4GHz) Information'],
 	['wlan.getClientList',			'5',	'get',	'getlist',	'',		'Wifi (2.4GHz) Client List'],
@@ -150,10 +150,13 @@ $p['definitions']=array(
 // List all 'METHOD_I' defined above to point to the Method name
 // METHOD_INDEX => [METHOD_CALLED]
 $p['calls']=array(
-	'get'		=> ['CallApiGet'],
-	'getlist'	=> ['CallApiGetList'],
-	'getfix'	=> ['CallApiGetFix'],
-	'set'		=> ['CallApiPost'],
+	'get'			=> ['CallApiGet'],
+	'getlist'		=> ['CallApiGetList'],
+	'getfix'		=> ['CallApiGetFix'],
+	'get_pub'		=> ['CallApiGetPublic'],
+	'getlist_pub'	=> ['CallApiGetListPublic'],
+	'getfix_pub'	=> ['CallApiGetFixPublic'],
+	'set'			=> ['CallApiPost'],
 );
 
 
@@ -187,10 +190,25 @@ $p['information']=array(
 // (Markdown syntax)
 $p['readme']=<<<EOF
 
-(WORK IN PROGRESS)
-
 This API client works for SFR (or Red-by-SFR) boxes. *SFR is a popular french Internet Service Provider.*
 It should work on all Boxes < v8
+
+### Open vs authenticated GET (v0.92)
+
+Some GET endpoints answer **without** a login token on NB6VAC (probed `NB6VAC-MAIN-R4.0.47h5`). Those use template transports `get_pub` / `getlist_pub` / `getfix_pub` (`CallApiGetPublic` / `CallApiGetListPublic` / `CallApiGetFixPublic`): **no** `LoginIfNotAlready`, but a token is still sent if the client is already logged in.
+
+| Open (no login required) | Still need auth (115 without token) |
+| ------------------------ | ----------------------------------- |
+| `dsl.getInfo`, `ftth.getInfo` | `ddns.getInfo`, `firewall.getInfo` |
+| `lan.getInfo`, `lan.getDnsHostList`, `lan.getHostsList` | `guest.*`, `hotspot.*` |
+| `ont.getInfo`, `ont.pull` | `ppp.getCredentials` |
+| `p910nd.getInfo`, `ppp.getInfo`, `smb.getInfo` | `system.getWpaKey` |
+| `system.getInfo`, `system.getIfList` | `voip.*` |
+| `tv.getInfo`, `usb.getInfo`, `wan.getInfo` | `wlan.*`, `wlan5.*` |
+
+Re-probe after a firmware change — another box may differ.
+
+**Consumers (Live / Pull):** prefer ≥60 s between `auth.getToken` attempts. Rapid login polling can lock the box (WPS / physical unlock on the web UI).
 
 EOF;
 
@@ -202,7 +220,7 @@ Used to document the list of devices supported by this current API Client
 */
 // [ MODEL, 	SOWFTARE_VERSION,			DATE,			 @NickName|Full_Name, 	URL|email,					COMMENT ]
 $p['tests']=array(
-	['NB6VAC',	'NB6VAC-MAIN-R4.0.45d',		'2024-01-11',	'@soif',				'https://github.com/soif/', 'Most methods have been tested'],
+	['NB6VAC',	'NB6VAC-MAIN-R4.0.47h5',		'2026-11-01',	'@soif',				'https://github.com/soif/', 'Most methods have been tested'],
 );
 
 ?>

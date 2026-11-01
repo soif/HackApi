@@ -1,12 +1,27 @@
-# Hackapi_Sfr_box v0.91
+# Hackapi_Sfr_box v0.92
 
 Writen in php, this API client aims to provide a nice interface with **SFR**'s Boxes.
 
 
-(WORK IN PROGRESS)
-
 This API client works for SFR (or Red-by-SFR) boxes. *SFR is a popular french Internet Service Provider.*
 It should work on all Boxes < v8
+
+### Open vs authenticated GET (v0.92)
+
+Some GET endpoints answer **without** a login token on NB6VAC (probed `NB6VAC-MAIN-R4.0.47h5`). Those use template transports `get_pub` / `getlist_pub` / `getfix_pub` (`CallApiGetPublic` / `CallApiGetListPublic` / `CallApiGetFixPublic`): **no** `LoginIfNotAlready`, but a token is still sent if the client is already logged in.
+
+| Open (no login required) | Still need auth (115 without token) |
+| ------------------------ | ----------------------------------- |
+| `dsl.getInfo`, `ftth.getInfo` | `ddns.getInfo`, `firewall.getInfo` |
+| `lan.getInfo`, `lan.getDnsHostList`, `lan.getHostsList` | `guest.*`, `hotspot.*` |
+| `ont.getInfo`, `ont.pull` | `ppp.getCredentials` |
+| `p910nd.getInfo`, `ppp.getInfo`, `smb.getInfo` | `system.getWpaKey` |
+| `system.getInfo`, `system.getIfList` | `voip.*` |
+| `tv.getInfo`, `usb.getInfo`, `wan.getInfo` | `wlan.*`, `wlan5.*` |
+
+Re-probe after a firmware change — another box may differ.
+
+**Consumers (Live / Pull):** prefer ≥60 s between `auth.getToken` attempts. Rapid login polling can lock the box (WPS / physical unlock on the web UI).
 
 
 
@@ -16,7 +31,7 @@ Here are the models and version currently tested an reported by our fellow users
 
 | Model | Version | Date | Tester | Comment |
 | ----- | ------- | ---- | ------ | ------- |
-| NB6VAC | NB6VAC-MAIN-R4.0.45d | January 11th, 2024 | @soif | Most methods have been tested |
+| NB6VAC | NB6VAC-MAIN-R4.0.47h5 | November 1st, 2026 | @soif | Most methods have been tested |
 
 
 ### Contribute !

@@ -72,7 +72,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetDslGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('dsl.getInfo');
+		return $this->CallApiGetPublic('dsl.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -102,7 +102,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetFtthGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('ftth.getInfo');
+		return $this->CallApiGetPublic('ftth.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -147,7 +147,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetLanGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('lan.getInfo');
+		return $this->CallApiGetPublic('lan.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -162,7 +162,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetLanGetDnsHostList(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGetList('lan.getDnsHostList');
+		return $this->CallApiGetListPublic('lan.getDnsHostList');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -177,7 +177,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetLanGetHostsList(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGetList('lan.getHostsList');
+		return $this->CallApiGetListPublic('lan.getHostsList');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -192,7 +192,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetOntGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('ont.getInfo');
+		return $this->CallApiGetPublic('ont.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -207,7 +207,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetOntPull(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('ont.pull');
+		return $this->CallApiGetPublic('ont.pull');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -222,7 +222,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetP910ndGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('p910nd.getInfo');
+		return $this->CallApiGetPublic('p910nd.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -237,7 +237,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetPppGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('ppp.getInfo');
+		return $this->CallApiGetPublic('ppp.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -267,7 +267,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetSystemGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('system.getInfo');
+		return $this->CallApiGetPublic('system.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -297,7 +297,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetWanGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(5);
-		return $this->CallApiGet('wan.getInfo');
+		return $this->CallApiGetPublic('wan.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -408,7 +408,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetSmbGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('smb.getInfo');
+		return $this->CallApiGetPublic('smb.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -423,7 +423,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetTvGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('tv.getInfo');
+		return $this->CallApiGetPublic('tv.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -438,7 +438,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetUsbGetInfo(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(4);
-		return $this->CallApiGet('usb.getInfo');
+		return $this->CallApiGetPublic('usb.getInfo');
 	}
 	
 	// -----------------------------------------------------------------------
@@ -489,7 +489,7 @@ trait Hackapi_Sfr_box_Trait {
 	public function ApiGetSystemGetIfList(){
 		$this->DebugLogMethod();
 		$this->HandleApiMethodStateAllowed(3);
-		return $this->CallApiGetFix('system.getIfList');
+		return $this->CallApiGetFixPublic('system.getIfList');
 	}
 	
 	// -----------------------------------------------------------------------
