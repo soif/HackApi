@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License along with thi
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 class Hackapi{
-	private		$version			='1.31'; 	// HackApi Version
+	private		$version			='1.32'; 	// HackApi Version
 
 	// host and credentials ----------- 
 	protected	$host				="";		// (default) ip address or hostname
@@ -35,6 +35,13 @@ class Hackapi{
 	protected	$is_logged			=false;		// Are we logged in ?
 	protected	$last_call			=array();	// contains all the Last Call parameters.
 	protected	$last_error			=array();	// contains the latest errors
+
+	// Durable auth cache (optional) — SetAuthCachePath enables JSON (+ cookie jar when use_cookies)
+	protected	$auth_cache_ttl		=1800;		// default TTL seconds (drivers may override)
+	private		$auth_cache_dir		=null;		// null = off (no durable JSON); ephemeral cookie jar still used when use_cookies
+	private		$auth_cache_file	='';		// full path to auth_*.json when dir set
+	private		$_auth_from_cache	=false;		// session restored from file (for one-shot stale recovery)
+	private		$_auth_recover_done	=false;		// at most one Clear+re-login per instance after Import
 
 	protected	$api_error_codes	=array();	// Populated with Api specific error api_code=>['DESCPRITION',error_code]
 
@@ -64,7 +71,7 @@ class Hackapi{
 	private static $php_call_notices	=array();
 	private static $endpoint_depth		=0;
 
-	private		$cookies_file		="/tmp/cookies_Hackapi"; // file where cookies are stored 
+	private		$cookies_file		="";		// curl cookie jar path (ephemeral or under auth cache dir)
 	private		$base_url			="";		// the base url made of http(s)://host
 
 	protected	$timeout_connect	=2;			// CURL's Connection Timeout (sec)
@@ -178,14 +185,13 @@ class Hackapi{
 
 	// -------------------------------------------------------------------------
 	/**
-	 * Load defaults, build base URL, and initialize the cookie jar path.
+	 * Load defaults, build base URL, and initialize cookie jar paths.
 	 *
 	 * @return void
 	 */
 	public function __construct(){
 		$this->LoadDefaults();
 		$this->SetHost($this->host,$this->use_ssl);
-		$this->SetCookiePath();
 		$this->TakePhpNotices();
 	}
 
@@ -221,6 +227,8 @@ class Hackapi{
 	public function ApiLogout(){
 		$this->DebugLogError("Please override the ".__METHOD__." method. It should set the '\$this->is_logged' property to FALSE!");
 		$this->is_logged=false;
+		$this->_auth_from_cache=false;
+		$this->AuthCacheClear();
 	}
 
 	// -------------------------------------------------------------------------
@@ -409,6 +417,7 @@ class Hackapi{
 		$this->use_ssl=$use_ssl;
 		$this->base_url=$scheme.$ip_or_hostname;
 		$this->def_referer and $this->def_headers[]="Referer: {$this->base_url}{$this->def_referer}";
+		$this->RefreshAuthPaths();
 	}
 
 	// -------------------------------------------------------------------------
@@ -422,25 +431,49 @@ class Hackapi{
 	public function SetLogin($user, $password=''){
 		$this->user		=$user;
 		$this->password	=$password;
+		$this->RefreshAuthPaths();
 	}
 
 	// -------------------------------------------------------------------------
 	/**
-	 * Build and touch the curl cookie-jar file path for this client instance.
+	 * Enable durable auth cache under a directory (JSON session + cookie jar when use_cookies).
+	 * Path is required. Optional TTL overrides driver/master default (1800s).
 	 *
-	 * @param string $path	Directory for the cookie file (default /tmp/)
-	 * @return void
+	 * @param string $path	Directory (created if missing, mode 0750)
+	 * @param int|null $ttl	Seconds; null keeps driver/master $auth_cache_ttl
+	 * @return bool
+	 */
+	public function SetAuthCachePath($path, $ttl=null){
+		$path=is_string($path) ? rtrim($path, "/\\") : '';
+		if($path===''){
+			$this->DebugLogError('SetAuthCachePath requires a non-empty directory path');
+			return false;
+		}
+		if(!is_dir($path)){
+			if(!@mkdir($path, 0750, true) and !is_dir($path)){
+				$this->DebugLogError("SetAuthCachePath cannot create directory: $path");
+				return false;
+			}
+		}
+		$this->auth_cache_dir=$path;
+		if($ttl!==null and $ttl!==''){
+			$this->auth_cache_ttl=(int)$ttl;
+		}
+		$this->RefreshAuthPaths();
+		return true;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * @deprecated Compat only — use SetAuthCachePath(). Forwards to SetAuthCachePath($path).
+	 * Do not use in new code. Cookie vs token is an internal driver detail.
+	 *
+	 * @param string $path	Directory for auth cache files (same as SetAuthCachePath)
+	 * @return bool
 	 */
 	public function SetCookiePath($path='/tmp/'){
-		// TODO: Default works on linux and OSX... should may be changed for Windows 
-		$path or $path="/tmp/";
-		$cleanip=preg_replace('#[:]+#',',',$this->_GetClientIP()); // clean if ipv6
-		
-		$path .="cookies_".get_class($this).'_to-'.$this->host.'_from-'.$cleanip;
-		$this->cookies_file=$path;
-		
-		@touch($path);
-		@chmod($path,0666);	
+		$path or $path=sys_get_temp_dir();
+		return $this->SetAuthCachePath($path, null);
 	}
 
 
@@ -691,7 +724,282 @@ class Hackapi{
 
 	// -------------------------------------------------------------------------
 	/**
-	 * Call ApiLogin when not logged in; guard against re-login loops.
+	 * Rebuild auth JSON + cookie jar paths from auth_cache_dir / host / user.
+	 * When cache dir is off and use_cookies: ephemeral per-host jar under sys_get_temp_dir().
+	 *
+	 * @return void
+	 */
+	protected function RefreshAuthPaths(){
+		$class=$this->_AuthPathSafe(get_class($this));
+		$host=$this->_AuthPathSafe($this->host !== '' ? $this->host : 'nohost');
+		$user=$this->_AuthPathSafe($this->user !== '' ? $this->user : 'nouser');
+
+		if($this->auth_cache_dir){
+			$base=rtrim($this->auth_cache_dir, "/\\").DIRECTORY_SEPARATOR;
+			$key=$class.'_to-'.$host.'_user-'.$user;
+			$this->auth_cache_file=$base.'auth_'.$key.'.json';
+			if($this->use_cookies){
+				$this->cookies_file=$base.'cookies_'.$key;
+				$this->_TouchCookieFile();
+			}
+			return;
+		}
+
+		$this->auth_cache_file='';
+		if($this->use_cookies){
+			$tmp=rtrim(sys_get_temp_dir(), "/\\").DIRECTORY_SEPARATOR;
+			$this->cookies_file=$tmp.'hackapi_cookies_'.$class.'_to-'.$host;
+			$this->_TouchCookieFile();
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Sanitize a path key fragment.
+	 *
+	 * @param string $s	Raw fragment
+	 * @return string
+	 */
+	private function _AuthPathSafe($s){
+		$s=preg_replace('/[^a-zA-Z0-9._-]+/', '_', (string)$s);
+		return $s !== '' ? $s : 'x';
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Touch cookie jar with mode 0600.
+	 *
+	 * @return void
+	 */
+	private function _TouchCookieFile(){
+		if($this->cookies_file===''){
+			return;
+		}
+		if(!file_exists($this->cookies_file)){
+			@touch($this->cookies_file);
+		}
+		@chmod($this->cookies_file, 0600);
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Export session fields for durable cache. Override in drivers (token, sid, …).
+	 * Default: cookie-only marker when use_cookies and jar has content.
+	 *
+	 * @return array|false	Payload for JSON data, or false to skip JSON save
+	 */
+	protected function AuthSessionExport(){
+		if($this->use_cookies and $this->cookies_file!=='' and is_file($this->cookies_file) and filesize($this->cookies_file)>0){
+			return array('_cookies'=>1);
+		}
+		return false;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Restore session from AuthCacheLoad data. Override in drivers.
+	 * Default: cookie-only — set is_logged when jar exists.
+	 *
+	 * @param array $data	Payload from JSON data
+	 * @return bool
+	 */
+	protected function AuthSessionImport($data){
+		if(!is_array($data)){
+			return false;
+		}
+		if($this->use_cookies and $this->cookies_file!=='' and is_file($this->cookies_file) and filesize($this->cookies_file)>0){
+			$this->is_logged=true;
+			return true;
+		}
+		return false;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Whether last_error indicates an auth failure that should clear cache + re-login.
+	 * Drivers override (e.g. SFR code 115 / 116).
+	 *
+	 * @param mixed $code	API error code from last_error[api][code]
+	 * @return bool
+	 */
+	protected function IsAuthFailureApiCode($code){
+		return false;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * True when durable auth cache directory is set.
+	 *
+	 * @return bool
+	 */
+	/**
+	 * True when durable auth cache directory is set.
+	 *
+	 * @return bool
+	 */
+	private function AuthCacheEnabled(){
+		return ($this->auth_cache_dir !== null and $this->auth_cache_dir !== '');
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Load auth JSON with flock. Returns assoc or false.
+	 *
+	 * @return array|false
+	 */
+	private function AuthCacheLoad(){
+		if(!$this->AuthCacheEnabled() or $this->auth_cache_file===''){
+			return false;
+		}
+		if(!is_file($this->auth_cache_file)){
+			return false;
+		}
+		$fp=@fopen($this->auth_cache_file, 'rb');
+		if(!$fp){
+			return false;
+		}
+		$raw='';
+		if(@flock($fp, LOCK_SH)){
+			$raw=stream_get_contents($fp);
+			@flock($fp, LOCK_UN);
+		}
+		fclose($fp);
+		if($raw==='' or $raw===false){
+			return false;
+		}
+		$row=json_decode($raw, true);
+		return is_array($row) ? $row : false;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Whether a loaded auth cache row is still within TTL.
+	 *
+	 * @param array $row	Loaded JSON
+	 * @return bool
+	 */
+	private function AuthCacheIsFresh($row){
+		if(!is_array($row) or !isset($row['saved_at'])){
+			return false;
+		}
+		$ttl=isset($row['ttl']) ? (int)$row['ttl'] : (int)$this->auth_cache_ttl;
+		if($ttl<=0){
+			return false;
+		}
+		return ((int)$row['saved_at'] + $ttl) >= time();
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Persist session payload to auth JSON (flock, 0600). No-op if cache off.
+	 *
+	 * @param array $data	Driver session data (no password)
+	 * @return bool
+	 */
+	private function AuthCacheSave($data){
+		if(!$this->AuthCacheEnabled() or $this->auth_cache_file===''){
+			return false;
+		}
+		if(!is_array($data)){
+			$data=array();
+		}
+		$row=array(
+			'v'=>1,
+			'saved_at'=>time(),
+			'ttl'=>(int)$this->auth_cache_ttl,
+			'host'=>(string)$this->host,
+			'user'=>(string)$this->user,
+			'data'=>$data,
+		);
+		$json=json_encode($row);
+		if($json===false){
+			return false;
+		}
+		$fp=@fopen($this->auth_cache_file, 'c+b');
+		if(!$fp){
+			$this->DebugLogError('AuthCacheSave cannot open '.$this->auth_cache_file);
+			return false;
+		}
+		$ok=false;
+		if(@flock($fp, LOCK_EX)){
+			ftruncate($fp, 0);
+			rewind($fp);
+			$ok=(fwrite($fp, $json)!==false);
+			fflush($fp);
+			@flock($fp, LOCK_UN);
+		}
+		fclose($fp);
+		if($ok){
+			@chmod($this->auth_cache_file, 0600);
+		}
+		return $ok;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Save AuthSessionExport() when it returns an array (or empty cookie marker).
+	 *
+	 * @return bool
+	 */
+	private function AuthCacheSaveFromSession(){
+		if(!$this->AuthCacheEnabled()){
+			return false;
+		}
+		$exp=$this->AuthSessionExport();
+		if($exp===false){
+			return false;
+		}
+		return $this->AuthCacheSave($exp);
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Delete auth JSON and cookie jar for the current class/host/user key.
+	 *
+	 * @return void
+	 */
+	private function AuthCacheClear(){
+		if($this->auth_cache_file!=='' and is_file($this->auth_cache_file)){
+			@unlink($this->auth_cache_file);
+		}
+		if($this->AuthCacheEnabled() and $this->use_cookies and $this->cookies_file!=='' and is_file($this->cookies_file)){
+			@unlink($this->cookies_file);
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * After Import, if API reports auth failure: clear cache, re-login once, save.
+	 * Call from drivers when a call fails with an auth error.
+	 *
+	 * @return bool	True when a new login succeeded (caller should retry the request)
+	 */
+	protected function RecoverAuthSessionOnce(){
+		if(!$this->_auth_from_cache or $this->_auth_recover_done){
+			return false;
+		}
+		$code=isset($this->last_error['api']['code']) ? $this->last_error['api']['code'] : null;
+		if(!$this->IsAuthFailureApiCode($code)){
+			return false;
+		}
+		$this->_auth_recover_done=true;
+		$this->DebugLogDebug('Auth cache stale — clearing and re-login once');
+		$this->is_logged=false;
+		$this->_auth_from_cache=false;
+		$this->AuthCacheClear();
+		$this->ResetLastError();
+		if(!$this->ApiLogin()){
+			$this->AuthCacheClear();
+			return false;
+		}
+		$this->AuthCacheSaveFromSession();
+		return true;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Call ApiLogin when not logged in; restore from auth cache when enabled.
+	 * Guard against re-login loops.
 	 *
 	 * @return bool
 	 */
@@ -705,11 +1013,27 @@ class Hackapi{
 				$this->DebugLogError("Your code is certainly using CallEndpointWhenLogged from the ApiLogin method, or something like this...");
 				return false;
 			}
+
+			if($this->AuthCacheEnabled()){
+				$row=$this->AuthCacheLoad();
+				if($row and $this->AuthCacheIsFresh($row)){
+					$data=(isset($row['data']) && is_array($row['data'])) ? $row['data'] : array();
+					if($this->AuthSessionImport($data)){
+						$this->DebugLogDebug('Auth session restored from cache');
+						$this->_auth_from_cache=true;
+						return true;
+					}
+				}
+			}
+
 			$this->ResetLastError();
 			if(!$this->ApiLogin()){
 				$this->DebugLogError('Failed to Login');
+				$this->AuthCacheClear();
 				return false;
 			}
+			$this->_auth_from_cache=false;
+			$this->AuthCacheSaveFromSession();
 		}
 		return true;
 	}
@@ -924,9 +1248,9 @@ class Hackapi{
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,	false);		
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,	false);
 		curl_setopt($ch, CURLINFO_HEADER_OUT,		true);
-		if($this->use_cookies){
+		if($this->use_cookies and $this->cookies_file!==''){
 			curl_setopt($ch, CURLOPT_COOKIEJAR, $this->cookies_file);
-			curl_setopt($ch, CURLOPT_COOKIEFILE, $this->cookies_file);	
+			curl_setopt($ch, CURLOPT_COOKIEFILE, $this->cookies_file);
 		}
 
 		curl_setopt($ch, CURLOPT_HEADERFUNCTION, array($this, 'CurlHandleHeaderLine'));

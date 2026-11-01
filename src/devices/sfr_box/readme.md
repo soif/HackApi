@@ -1,4 +1,4 @@
-# Hackapi_Sfr_box v0.92
+# Hackapi_Sfr_box v0.93
 
 Writen in php, this API client aims to provide a nice interface with **SFR**'s Boxes.
 
@@ -22,6 +22,10 @@ Some GET endpoints answer **without** a login token on NB6VAC (probed `NB6VAC-MA
 Re-probe after a firmware change — another box may differ.
 
 **Consumers (Live / Pull):** prefer ≥60 s between `auth.getToken` attempts. Rapid login polling can lock the box (WPS / physical unlock on the web UI).
+
+### Auth file cache (client 0.93)
+
+Call `SetAuthCachePath(/path/to/dir)` so login tokens persist across PHP processes (TTL default **3600** s for this driver; master default 1800). `SetCookiePath` is deprecated and forwards to `SetAuthCachePath`. Without a cache path, no durable JSON is written.
 
 
 

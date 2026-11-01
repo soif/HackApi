@@ -33,9 +33,10 @@ class Hackapi_Sfr_box extends Hackapi{
 	protected $use_ssl	=false;				// it seems that the API dont work (don't even answers) in httpS mode
 	protected $user		="admin";			// default Box's user name
 
-	protected $client_version		='0.92';	// API client Version, formatted as M.mm
+	protected $client_version		='0.93';	// API client Version, formatted as M.mm
 
 	protected $use_cookies			=false;		// not needed
+	protected $auth_cache_ttl		=3600;		// durable auth file + in-process token lifetime
 	//protected $def_headers		=array();
 	//protected $def_referer		="/";
 	protected $def_endpoint="/api/1.0/?method=";
@@ -111,7 +112,7 @@ class Hackapi_Sfr_box extends Hackapi{
 
 	// our own properties ---------------------------------------------------------------------------
 	private $_token='';
-	private $_token_duration=550;	// the token is supposed to be valid 600sec, let's set it a bit lower just in case
+	private $_token_duration=3600;	// aligned with $auth_cache_ttl
 	private $_token_time	=0;		// time when the token was set
 
 
@@ -133,10 +134,22 @@ class Hackapi_Sfr_box extends Hackapi{
 
 		$user 		and $this->user		=$user;
 		$password	and $this->password	=$password;
+		if($user or $password){
+			$this->RefreshAuthPaths();
+		}
 
 		$r=$this->CallApi('auth.getToken','','GET',false);
-		if(isset($r['auth']['@attributes']['token'])){
-			$token=$r['auth']['@attributes']['token'];
+		// Prefer cleaned shape (token at root); keep legacy auth.@attributes.token.
+		$token='';
+		if(is_array($r)){
+			if(isset($r['token']) and $r['token']!==''){
+				$token=(string)$r['token'];
+			}
+			elseif(isset($r['auth']['@attributes']['token'])){
+				$token=(string)$r['auth']['@attributes']['token'];
+			}
+		}
+		if($token!==''){
 			$this->_token=$token;
 			$this->_token_time=time();
 			$this->DebugLogVerbose("Found token $token");
@@ -156,7 +169,52 @@ class Hackapi_Sfr_box extends Hackapi{
 			$this->SetApiErrorCode('','Cant get Token',$r);
 			$this->DebugLogError('Cant get Token');
 		}
-		
+		return false;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Persist SFR API token for durable auth cache.
+	 *
+	 * @return array|false
+	 */
+	protected function AuthSessionExport(){
+		if($this->_token==='' or !$this->_token_time){
+			return false;
+		}
+		return array(
+			'token'=>$this->_token,
+			'token_time'=>$this->_token_time,
+		);
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * Restore SFR API token from durable auth cache.
+	 *
+	 * @param array $data	Cache payload
+	 * @return bool
+	 */
+	protected function AuthSessionImport($data){
+		if(!is_array($data) or !isset($data['token']) or $data['token']===''){
+			return false;
+		}
+		$this->_token=(string)$data['token'];
+		$this->_token_time=isset($data['token_time']) ? (int)$data['token_time'] : time();
+		$this->is_logged=true;
+		return true;
+	}
+
+	// -------------------------------------------------------------------------
+	/**
+	 * SFR auth-needed / invalid-auth codes for cache stale recovery.
+	 *
+	 * @param mixed $code	API error code
+	 * @return bool
+	 */
+	protected function IsAuthFailureApiCode($code){
+		$c=(string)$code;
+		return ($c==='115' or $c==='116');
 	}
 
 
@@ -435,9 +493,10 @@ class Hackapi_Sfr_box extends Hackapi{
 		$this->DebugLogMethod();
 		
 		if($autologin){
-			// relogin if needed
-			if($this->_token_time + $this->_token_duration < time()){
-				$this->DebugLogDebug("Re login because the token as expired after {$this->_token_duration} sec");
+			// relogin if needed (TTL aligned with auth_cache_ttl)
+			$ttl=$this->auth_cache_ttl > 0 ? (int)$this->auth_cache_ttl : $this->_token_duration;
+			if($this->_token_time + $ttl < time()){
+				$this->DebugLogDebug("Re login because the token as expired after {$ttl} sec");
 				$this->is_logged=false;
 			}
 
@@ -453,14 +512,24 @@ class Hackapi_Sfr_box extends Hackapi{
 		$this->_token and $params['token']=$this->_token;
 
 		// make the call ----------------------------------------
-		$endpoint=$this->def_endpoint.$endpoint;
-		$xml=$this->CallEndpoint($endpoint, $type, $params);
-		//$arr=$this->XmlToArray($this->CallEndpoint($endpoint, $type, $params));
+		$ep=$this->def_endpoint.$endpoint;
+		$xml=$this->CallEndpoint($ep, $type, $params);
 		if($fix_xml){
 			$xml=preg_replace('#^\s*\n$#m','',$xml);
 		}
 		$arr=$this->XmlToArray($xml);
 		$arr= $this->ErrorFreeResult($arr,$force_list);
+
+		// Stale cache token: clear + re-login once, then retry this call
+		if($arr===false and $autologin and $this->RecoverAuthSessionOnce()){
+			$this->_token and $params['token']=$this->_token;
+			$xml=$this->CallEndpoint($ep, $type, $params);
+			if($fix_xml){
+				$xml=preg_replace('#^\s*\n$#m','',$xml);
+			}
+			$arr=$this->XmlToArray($xml);
+			$arr=$this->ErrorFreeResult($arr,$force_list);
+		}
 		
 		return $arr;
 	}
